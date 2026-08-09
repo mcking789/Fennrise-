@@ -35,27 +35,11 @@ const products = [
   },
 ];
 
-const values = [
-  {
-    word: "Considered",
-    title: "Premium Design",
-    text: "Every detail is considered—from the first interaction to the final pixel.",
-  },
-  {
-    word: "Useful",
-    title: "Intelligent Products",
-    text: "Useful intelligence that supports people without adding complexity.",
-  },
-  {
-    word: "Focused",
-    title: "Built for Productivity",
-    text: "Purposeful tools designed to create momentum and protect attention.",
-  },
-  {
-    word: "Ready",
-    title: "Modern Technology",
-    text: "Fast, secure, scalable systems built for what comes next.",
-  },
+const principles = [
+  "Considered design",
+  "Useful intelligence",
+  "Focused products",
+  "Modern technology",
 ];
 
 const roadmap = [
@@ -233,31 +217,36 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section why-section" id="why">
-        <div className="section-heading reveal">
-          <div>
-            <div className="eyebrow"><span /> What guides Fennrise</div>
-            <h2>Clear thinking.<br /><em>Serious craft.</em></h2>
+      <section className="why-section" id="why">
+        <div className="why-sunrise" aria-hidden="true">
+          <span className="why-sun" />
+          <span className="why-horizon horizon-one" />
+          <span className="why-horizon horizon-two" />
+          <span className="why-horizon horizon-three" />
+        </div>
+        <span className="why-ghost-word" aria-hidden="true">RISE</span>
+
+        <div className="why-copy reveal">
+          <div className="eyebrow"><span /> What guides Fennrise</div>
+          <h2>Built with<br /><em>intent.</em></h2>
+          <p>
+            Every Fennrise product begins with one question: will it make the
+            work clearer, faster, or more meaningful?
+          </p>
+          <a href="#products">See what we build <span>→</span></a>
+        </div>
+
+        <div className="why-note reveal">
+          <span>The Fennrise standard</span>
+          <p>Clarity over noise.<br />Quality over shortcuts.</p>
+        </div>
+
+        <div className="why-marquee" aria-label="Fennrise principles">
+          <div className="why-marquee-track">
+            {[...principles, ...principles].map((principle, index) => (
+              <span key={`${principle}-${index}`}>{principle}<i>✦</i></span>
+            ))}
           </div>
-          <p>No visual tricks and no unnecessary noise—just products made carefully, for a clear reason.</p>
-        </div>
-        <div className="principles-list">
-          {values.map((value, index) => (
-            <article className={`principle-row reveal delay-${index + 1}`} key={value.title}>
-              <span className="principle-number">0{index + 1}</span>
-              <div className="principle-title">
-                <small>{value.word}</small>
-                <h3>{value.title}</h3>
-              </div>
-              <p>{value.text}</p>
-              <span className="principle-arrow" aria-hidden="true">↗</span>
-            </article>
-          ))}
-        </div>
-        <div className="principles-statement reveal">
-          <span>Fennrise standard</span>
-          <p>Clarity over noise. Quality over shortcuts.</p>
-          <a href="#products">Explore what we build <i>→</i></a>
         </div>
       </section>
 
