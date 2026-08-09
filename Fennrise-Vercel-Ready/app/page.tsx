@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const products = [
@@ -200,7 +201,6 @@ export default function Home() {
       </section>
 
       <section className="manifesto" id="about">
-        <div className="manifesto-glow" />
         <div className="manifesto-content reveal">
           <div className="eyebrow"><span /> About Fennrise</div>
           <div className="about-lead-grid">
@@ -208,14 +208,19 @@ export default function Home() {
               Technology should feel <em>powerful,</em><br />
               not complicated.
             </p>
-            <div className="about-intro">
-              <span>Independent by design</span>
-              <p>
-                Fennrise is an independent technology company creating software,
-                digital products, and experiences that help people work with more
-                focus and less friction.
-              </p>
-              <a href="#products">Explore our products <i>→</i></a>
+            <div className="about-brand-visual" aria-hidden="true">
+              <span className="about-brand-axis axis-horizontal" />
+              <span className="about-brand-axis axis-vertical" />
+              <span className="about-brand-axis axis-diagonal" />
+              <span className="about-brand-scan" />
+              <span className="about-brand-index">FR / 01</span>
+              <Image className="about-brand-logo" src="/fennrise-logo.png" alt="" width={150} height={150} />
+              <strong>FENNRIISE</strong>
+              <div className="about-brand-meta">
+                <span>Technology</span><i />
+                <span>Design</span><i />
+                <span>Products</span>
+              </div>
             </div>
           </div>
 

@@ -191,16 +191,20 @@ h1 em, h2 em, .manifesto-lead em {
 .tags span { border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:7px 10px; color:#77766f; font-size:9px; text-transform:uppercase; letter-spacing:.08em; }
 
 .manifesto { position:relative;overflow:hidden;display:flex;align-items:center;padding:140px max(8vw,28px);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.06);background:linear-gradient(115deg,#0a0a09,#100e08); }
-.manifesto::before { content:""; position:absolute; width:650px;height:650px;border:1px solid rgba(244,180,0,.1);border-radius:50%;right:-8%;top:7%;box-shadow:0 0 120px rgba(244,180,0,.025); }
-.manifesto-glow { position:absolute;width:220px;height:220px;border-radius:50%;right:11%;top:37%;background:rgba(244,180,0,.07);filter:blur(70px); }
 .manifesto-content { position:relative; z-index:1; width:min(1150px,100%);margin:auto; }
-.about-lead-grid { display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.58fr);align-items:end;gap:8vw; }
+.about-lead-grid { display:grid;grid-template-columns:minmax(0,1.2fr) minmax(360px,.72fr);align-items:center;gap:7vw; }
 .manifesto-lead { font-size:clamp(50px,6.7vw,96px);line-height:1.03;letter-spacing:-.065em;margin:36px 0 0;font-weight:510; }
-.about-intro { padding-bottom:7px; }
-.about-intro > span { display:block;margin-bottom:20px;color:#7b755f;font-size:8px;text-transform:uppercase;letter-spacing:.2em; }
-.about-intro > p { margin:0;color:#99978f;font-size:14px;line-height:1.78; }
-.about-intro > a { display:inline-flex;align-items:center;gap:18px;margin-top:28px;color:#b8b4a9;font-size:10px;border-bottom:1px solid rgba(244,180,0,.32);padding-bottom:8px;transition:color .25s,gap .25s; }
-.about-intro > a i { color:var(--gold);font-size:16px;font-style:normal; }.about-intro > a:hover{color:var(--gold);gap:24px}
+.about-brand-visual { position:relative;min-height:360px;overflow:hidden; }
+.about-brand-visual::before { content:"";position:absolute;left:50%;top:48%;width:230px;height:230px;border:1px solid rgba(244,180,0,.12);transform:translate(-50%,-50%) rotate(45deg); }
+.about-brand-axis { position:absolute;display:block;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent); }
+.axis-horizontal { left:0;right:0;top:48%;height:1px; }.axis-vertical{top:0;bottom:0;left:50%;width:1px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)}
+.axis-diagonal { left:4%;right:4%;top:48%;height:1px;transform:rotate(-26deg);background:linear-gradient(90deg,transparent,rgba(244,180,0,.18),transparent); }
+.about-brand-scan { position:absolute;z-index:2;top:48%;left:7%;width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 16px 3px rgba(244,180,0,.36);transform:translate(-50%,-50%);animation:about-scan 4.5s ease-in-out infinite alternate; }
+.about-brand-index { position:absolute;top:16px;left:18px;color:#5c594f;font-family:var(--font-geist-mono),monospace;font-size:8px;letter-spacing:.16em; }
+.about-brand-logo { position:absolute;z-index:2;left:50%;top:47%;width:112px;height:112px;object-fit:contain;transform:translate(-50%,-50%);filter:drop-shadow(0 0 22px rgba(244,180,0,.2));animation:about-logo-glow 4s ease-in-out infinite; }
+.about-brand-visual > strong { position:absolute;left:50%;bottom:51px;color:transparent;font-size:clamp(34px,4.2vw,54px);font-weight:650;line-height:1;letter-spacing:.13em;white-space:nowrap;-webkit-text-stroke:1px rgba(244,180,0,.32);transform:translateX(-50%); }
+.about-brand-meta { position:absolute;left:50%;bottom:14px;display:flex;align-items:center;gap:10px;color:#6f6c63;font-size:7px;text-transform:uppercase;letter-spacing:.17em;transform:translateX(-50%);white-space:nowrap; }
+.about-brand-meta i { width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.65; }
 .about-principles { display:grid;grid-template-columns:repeat(3,1fr);margin-top:100px;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.08); }
 .about-principles > div { min-height:190px;padding:31px 36px 30px 0; }
 .about-principles > div + div { border-left:1px solid rgba(255,255,255,.08);padding-left:36px; }
@@ -281,6 +285,8 @@ footer { padding:80px max(6vw,28px) 28px;background:#090909;border-top:1px solid
 @keyframes orbit-drift { from{transform:rotate(-18deg) scale(.98)}to{transform:rotate(-11deg) scale(1.02)} }
 @keyframes signal-flow { to{stroke-dashoffset:-192} }
 @keyframes signal-pulse { 0%,100%{opacity:.65;stroke-width:1.3}50%{opacity:1;stroke-width:2.2} }
+@keyframes about-scan { from{left:7%}to{left:93%} }
+@keyframes about-logo-glow { 0%,100%{opacity:.78;filter:drop-shadow(0 0 12px rgba(244,180,0,.14))}50%{opacity:1;filter:drop-shadow(0 0 28px rgba(244,180,0,.3))} }
 @keyframes skeleton-shimmer { to{transform:translateX(110%)} }
 @keyframes skeleton-ring { 0%,100%{opacity:.45;transform:scale(.97)}50%{opacity:1;transform:scale(1.02)} }
 @keyframes skeleton-progress { to{transform:translateX(100%)} }
@@ -311,9 +317,12 @@ footer { padding:80px max(6vw,28px) 28px;background:#090909;border-top:1px solid
   .section-heading{display:block;margin-bottom:45px}.section-heading>p{margin-top:25px}
   .section-heading h2,.roadmap-intro h2,.waitlist-card h2{font-size:clamp(46px,15vw,66px)}
   .product-row,.product-row.reverse{grid-template-columns:1fr;min-height:0}.product-row-copy,.product-row.reverse .product-row-copy{order:1;padding:62px 4px 45px}.product-stage,.product-row.reverse .product-stage{order:2;min-height:380px}.product-row-meta{margin-bottom:35px}.product-word{font-size:130px}.product-row-copy h3{font-size:76px}
-  .manifesto{padding:100px 22px;min-height:auto}.manifesto::before{width:420px;height:420px;right:-65%;top:20%}.manifesto-lead{font-size:clamp(48px,15vw,70px);margin-bottom:0}
-  .about-lead-grid{grid-template-columns:1fr;gap:55px}
-  .about-intro{max-width:480px}
+  .manifesto{padding:100px 22px;min-height:auto}.manifesto-lead{font-size:clamp(48px,15vw,70px);margin-bottom:0}
+  .about-lead-grid{grid-template-columns:1fr;gap:45px}
+  .about-brand-visual{min-height:300px}
+  .about-brand-visual::before{width:190px;height:190px}
+  .about-brand-logo{width:92px;height:92px}
+  .about-brand-visual>strong{font-size:38px;bottom:47px}
   .about-principles{grid-template-columns:1fr;margin-top:70px}
   .about-principles>div{min-height:0;padding:30px 0}
   .about-principles>div+div{border-left:0;border-top:1px solid rgba(255,255,255,.08);padding-left:0}
