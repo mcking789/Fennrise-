@@ -35,13 +35,6 @@ const products = [
   },
 ];
 
-const principles = [
-  "Considered design",
-  "Useful intelligence",
-  "Focused products",
-  "Modern technology",
-];
-
 const roadmap = [
   { date: "Launched", title: "Fennrise Studio", text: "Premium design and development services.", active: true },
   { date: "In development", title: "Star", text: "An intelligent assistant for conversations and creation.", active: false },
@@ -217,36 +210,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="why-section" id="why">
-        <div className="why-sunrise" aria-hidden="true">
-          <span className="why-sun" />
-          <span className="why-horizon horizon-one" />
-          <span className="why-horizon horizon-two" />
-          <span className="why-horizon horizon-three" />
-        </div>
-        <span className="why-ghost-word" aria-hidden="true">RISE</span>
-
-        <div className="why-copy reveal">
-          <div className="eyebrow"><span /> What guides Fennrise</div>
-          <h2>Built with<br /><em>intent.</em></h2>
-          <p>
-            Every Fennrise product begins with one question: will it make the
-            work clearer, faster, or more meaningful?
-          </p>
-          <a href="#products">See what we build <span>→</span></a>
-        </div>
-
-        <div className="why-note reveal">
-          <span>The Fennrise standard</span>
-          <p>Clarity over noise.<br />Quality over shortcuts.</p>
-        </div>
-
-        <div className="why-marquee" aria-label="Fennrise principles">
-          <div className="why-marquee-track">
-            {[...principles, ...principles].map((principle, index) => (
-              <span key={`${principle}-${index}`}>{principle}<i>✦</i></span>
-            ))}
-          </div>
+      <section className="why-minimal" id="why">
+        <div className="why-minimal-inner reveal">
+          <span>Fennrise / Our approach</span>
+          <h2>Thoughtful technology,<br /><em>made useful.</em></h2>
+          <p>Focused digital products for clearer work and everyday progress.</p>
         </div>
       </section>
 
