@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<title>Fennrise Waitlist — Build Your Future. Watch It Rise.</title>
+<meta name="description" content="Join the Fennrise waitlist for early access to Fenn, Star, and upcoming Fennrise products.">
+<link rel="canonical" href="https://fennrise.com/waitlist">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #000000;
+    --surface: #0D0D0D;
+    --surface-2: #151515;
+    --border: #292929;
+    --accent: #FDE050;
+    --text: #FFFFFF;
+    --muted: #9A9A9A;
+    --faint: #545454;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{
+    scroll-behavior:smooth;
+    overflow-x: hidden;
+    width: 100%;
+    touch-action: pan-x pan-y;
+  }
+
+  #waitlist, #features, #roadmap, #survey{
+    scroll-margin-top: 90px;
+  }
+
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    touch-action: pan-x pan-y;
+  }
+
+  .ambient-glow{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(1200px 780px at 50% -8%, rgba(253,224,80,0.16) 0%, rgba(253,224,80,0.05) 38%, transparent 68%),
+      radial-gradient(700px 600px at 100% 100%, rgba(253,224,80,0.05) 0%, transparent 65%);
+  }
+  .grain-overlay{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  h1,h2,h3, .display{
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .mono{
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  a{ color: inherit; text-decoration:none; }
+
+  .wrap{
+    position: relative;
+    z-index: 1;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- nav ---------- */
+  nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(9,9,11,0.7);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height: 76px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .logo-mark{
+    width: 22px; height: 22px;
+    position:relative;
+  }
+  .logo-mark svg{ width:100%; height:100%; filter: drop-shadow(0 0 6px rgba(253,224,80,0.6)); }
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap: 36px;
+    font-size: 14.5px;
+    color: var(--muted);
+  }
+  .nav-links a:hover{ color: var(--text); }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-size: 14.5px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor:pointer;
+    transition: all .18s ease;
+    white-space: nowrap;
+  }
+  .btn-primary{
+    background: var(--accent);
+    color: #000;
+  }
+  .btn-primary:hover{
+    filter: brightness(1.08);
+    box-shadow: 0 0 22px rgba(253,224,80,0.4);
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding: 92px 0 80px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero .sub{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .joined-row{
+    justify-content: center;
+  }
+  .waitlist-form{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size: 11.5px;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:6px; height:6px;
+    border-radius:50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
+
+  .hero h1{
+    font-size: 56px;
+    line-height: 1.06;
+    font-weight: 700;
+    margin-bottom: 22px;
+  }
+  .hero h1 span{
+    background: linear-gradient(90deg, #FFF3C4, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 18px rgba(253,224,80,0.45));
+  }
+  .hero p.sub{
+    font-size: 17.5px;
+    line-height: 1.65;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 34px;
+  }
+
+  .waitlist-form{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 360px;
+    margin-bottom: 14px;
+  }
+  .form-card{
+    display:flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: box-shadow .2s ease, border-color .2s ease;
+    overflow: hidden;
+  }
+  .form-card input{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    padding: 13px 16px;
+    font-size: 14.5px;
+    font-family: inherit;
+    outline: none;
+    transition: background-color .15s ease;
+  }
+  .form-card input:last-child{
+    border-bottom: none;
+  }
+  .form-card input:focus{
+    background: rgba(253,224,80,0.06);
+  }
+  .form-card:has(input:focus){
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(253,224,80,0.18), 0 0 24px rgba(253,224,80,0.4);
+  }
+  .form-card input::placeholder{ color: var(--faint); }
+  .waitlist-form .btn{
+    width: 100%;
+  }
+
+  .trust-line{
+    font-size: 13px;
+    color: var(--faint);
+  }
+
+  /* ---------- joined-count social proof ---------- */
+  .joined-row{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .avatar-stack{
+    display:flex;
+  }
+  .avatar-stack .avatar{
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+    margin-left: -10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .avatar-stack .avatar:first-child{ margin-left: 0; }
+  .avatar-stack .avatar:nth-child(1){ background: linear-gradient(135deg,#7c3aed,#4c1d95); }
+  .avatar-stack .avatar:nth-child(2){ background: linear-gradient(135deg,#14b8a6,#065f52); }
+  .avatar-stack .avatar:nth-child(3){ background: linear-gradient(135deg,#f59e0b,#7a4405); }
+  .avatar-stack .avatar:nth-child(4){ background: linear-gradient(135deg,#3B7DD8,#12266b); }
+  .joined-text{
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  .joined-text strong{
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+  }
+
+  .form-msg{
+    font-size: 13.5px;
+    color: var(--accent);
+    height: 18px;
+    margin-top: -2px;
+    margin-bottom: 8px;
+  }
+
+  /* ---------- success overlay ---------- */
+  .success-overlay{
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s ease, visibility .35s;
+  }
+  .success-overlay.show{
+    opacity: 1;
+    visibility: visible;
+  }
+  .success-backdrop{
+    position: absolute;
+    inset: 0;
+    background: rgba(4,6,12,0.78);
+    backdrop-filter: blur(6px);
+  }
+  .success-card{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 380px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 40px 34px 34px;
+    text-align: center;
+    box-shadow: 0 0 0 1px rgba(253,224,80,0.06), 0 30px 80px rgba(0,0,0,0.55);
+    transform: scale(.85) translateY(18px);
+    opacity: 0;
+    transition: transform .45s cubic-bezier(.2,1.4,.4,1), opacity .35s ease;
+  }
+  .success-overlay.show .success-card{
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  .success-close{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--faint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .18s ease;
+  }
+  .success-close:hover{
+    color: var(--text);
+    border-color: var(--accent);
+  }
+  .success-burst{
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 22px;
+  }
+  .success-ring{
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-dasharray: 66;
+    stroke-dashoffset: 66;
+  }
+  .success-overlay.show .success-ring{
+    animation: successRing .55s ease forwards .1s;
+  }
+  @keyframes successRing{
+    to{ stroke-dashoffset: 0; }
+  }
+  .success-check{
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 16;
+    stroke-dashoffset: 16;
+    filter: drop-shadow(0 0 6px rgba(253,224,80,0.8));
+  }
+  .success-overlay.show .success-check{
+    animation: successCheck .35s ease forwards .55s;
+  }
+  @keyframes successCheck{
+    to{ stroke-dashoffset: 0; }
+  }
+  .success-spark{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: var(--accent);
+    font-size: 13px;
+    opacity: 0;
+    transform: translate(-50%,-50%) scale(0);
+  }
+  .success-overlay.show .success-spark{
+    animation: sparkOut .7s cubic-bezier(.2,.8,.3,1) forwards .3s;
+  }
+  .success-spark.s1{ --tx: -52px; --ty: -46px; }
+  .success-spark.s2{ --tx: 54px;  --ty: -40px; }
+  .success-spark.s3{ --tx: -60px; --ty: 18px;  animation-delay: .36s !important; }
+  .success-spark.s4{ --tx: 60px;  --ty: 22px;  animation-delay: .4s !important; }
+  .success-spark.s5{ --tx: -18px; --ty: 58px;  animation-delay: .44s !important; }
+  .success-spark.s6{ --tx: 20px;  --ty: 60px;  animation-delay: .48s !important; }
+  @keyframes sparkOut{
+    0%{ opacity: 0; transform: translate(-50%,-50%) scale(0); }
+    45%{ opacity: 1; }
+    100%{
+      opacity: 0;
+      transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1);
+    }
+  }
+  .success-eyebrow{
+    justify-content: center;
+    display: inline-flex;
+    margin-bottom: 12px;
+  }
+  .success-card h3{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .success-card p{
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 26px;
+  }
+  .success-ok{
+    width: 100%;
+  }
+  @media (max-width: 480px){
+    .success-card{ padding: 32px 22px 26px; }
+  }
+
+  /* ---------- section shared ---------- */
+  section{
+    padding: 90px 0;
+    position: relative;
+  }
+  .section-head{
+    max-width: 600px;
+    margin-bottom: 56px;
+  }
+  .section-head .eyebrow{ color: var(--muted); }
+  .section-head .eyebrow::before{ background: var(--muted); box-shadow:none; animation:none; }
+  .section-head h2{
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .section-head p{
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .divider{
+    border-top: 1px solid var(--border);
+  }
+
+  /* ---------- problem ---------- */
+  .scatter{
+    display:grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    align-items:center;
+  }
+  .scatter-col{
+    display:flex;
+    flex-direction:column;
+    gap: 12px;
+  }
+  .app-chip{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    padding: 13px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .app-chip.strike{
+    text-decoration: line-through;
+    text-decoration-color: #3a3a42;
+    opacity: 0.6;
+  }
+  .arrow-col{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: var(--accent);
+    font-size: 28px;
+  }
+  .single-chip{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    padding: 20px 22px;
+    background: linear-gradient(135deg, rgba(253,224,80,0.10), rgba(253,224,80,0.03));
+    border: 1px solid rgba(253,224,80,0.35);
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  /* ---------- audience section ---------- */
+  .audience-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .audience-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px 20px;
+    text-align:center;
+    cursor: pointer;
+    transition: border-color .2s ease, transform .2s ease, background-color .2s ease;
+  }
+  .audience-card:hover{
+    border-color: rgba(253,224,80,0.4);
+    box-shadow: 0 0 24px rgba(253,224,80,0.35);
+    transform: translateY(-3px);
+  }
+  .audience-card.active{
+    background: rgba(253,224,80,0.10);
+    border-color: var(--accent);
+    box-shadow: 0 0 28px rgba(253,224,80,0.45);
+  }
+  .audience-icon{
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--surface-2);
+    border: 1px solid rgba(253,224,80,0.2);
+    display:flex; align-items:center; justify-content:center;
+    margin: 0 auto 14px;
+    color: var(--accent);
+  }
+  .audience-card h4{
+    font-size: 14.5px;
+    font-weight: 600;
+  }
+
+  /* ---------- features ---------- */
+  .feature-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .feature-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 26px;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .feature-card:hover{
+    border-color: rgba(253,224,80,0.4);
+    box-shadow: 0 0 24px rgba(253,224,80,0.35);
+    transform: translateY(-3px);
+  }
+  .feature-icon{
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--surface-2);
+    border: 1px solid rgba(253,224,80,0.2);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom: 18px;
+    color: var(--accent);
+  }
+  .feature-card h3{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .feature-card p{
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .feature-list{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap: 7px;
+  }
+  .feature-list li{
+    font-size: 13px;
+    color: var(--faint);
+    display:flex;
+    align-items:center;
+    gap: 8px;
+  }
+  .feature-list li::before{
+    content:'';
+    width:4px;height:4px;
+    border-radius:50%;
+    background: var(--faint);
+    flex-shrink:0;
+  }
+
+  /* ---------- roadmap ---------- */
+  .roadmap-scroller{
+    position: relative;
+  }
+  .roadmap-scroller::before,
+  .roadmap-scroller::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 12px;
+    width: 60px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .roadmap-scroller::before{
+    left: 0;
+    background: linear-gradient(90deg, var(--bg), transparent);
+  }
+  .roadmap-scroller::after{
+    right: 0;
+    background: linear-gradient(270deg, var(--bg), transparent);
+  }
+  .roadmap-track{
+    display:flex;
+    gap: 18px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scrollbar-width: none;
+    cursor: grab;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+  }
+  .roadmap-track:active{
+    cursor: grabbing;
+  }
+  .roadmap-track.dragging{
+    cursor: grabbing;
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+  .roadmap-track::-webkit-scrollbar{ display:none; }
+  .roadmap-arrow{
+    position: absolute;
+    top: calc(50% - 6px);
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor: pointer;
+    z-index: 3;
+    transition: all .18s ease;
+  }
+  .roadmap-arrow:hover{
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(253,224,80,0.1);
+  }
+  .roadmap-arrow[disabled]{
+    opacity: 0.25;
+    pointer-events: none;
+  }
+  .roadmap-arrow-left{ left: -14px; }
+  .roadmap-arrow-right{ right: -14px; }
+  .roadmap-hint{
+    text-align: center;
+    font-size: 11px;
+    color: var(--faint);
+    margin-top: 14px;
+  }
+  @media (max-width: 700px){
+    .roadmap-arrow{ display:none; }
+    .roadmap-scroller::before,
+    .roadmap-scroller::after{ width: 30px; }
+  }
+  .roadmap-card{
+    flex: 0 0 240px;
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    position: relative;
+    scroll-snap-align: start;
+    user-select: none;
+  }
+  .roadmap-card .tag{
+    font-size: 10.5px;
+    color: var(--faint);
+    margin-bottom: 14px;
+    display:inline-block;
+    padding: 3px 9px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+  }
+  .roadmap-card h4{
+    font-size: 15.5px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--muted);
+  }
+  .roadmap-card p{
+    font-size: 13px;
+    color: var(--faint);
+    line-height: 1.5;
+  }
+
+  /* ---------- quick survey ---------- */
+  .survey-section{
+    text-align:center;
+  }
+  .survey-section .eyebrow{
+    justify-content:center;
+    display:inline-flex;
+  }
+  .survey-section h2{
+    font-size: 34px;
+    margin-bottom: 10px;
+  }
+  .survey-section > p{
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 460px;
+    margin: 0 auto 36px;
+  }
+  .survey-card{
+    max-width: 560px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 32px;
+    text-align: left;
+  }
+  .survey-question{
+    margin-bottom: 26px;
+  }
+  .survey-question:last-of-type{
+    margin-bottom: 0;
+  }
+  .survey-question label{
+    display:block;
+    font-size: 14.5px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .survey-chips{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .survey-chip{
+    padding: 9px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--muted);
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: all .18s ease;
+  }
+  .survey-chip:hover{
+    border-color: rgba(253,224,80,0.4);
+    color: var(--text);
+  }
+  .survey-chip.active{
+    background: rgba(253,224,80,0.14);
+    border-color: var(--accent);
+    color: var(--text);
+    box-shadow: 0 0 16px rgba(253,224,80,0.4);
+  }
+  .survey-actions{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px solid var(--border);
+  }
+  .survey-skip{
+    font-size: 13px;
+    color: var(--faint);
+    cursor: pointer;
+    background:none;
+    border:none;
+    font-family:inherit;
+  }
+  .survey-skip:hover{ color: var(--muted); }
+  .survey-card .form-msg{
+    margin-top: 16px;
+  }
+  @media (max-width: 600px){
+    .survey-card{ padding: 24px; }
+    .survey-actions{ flex-direction: column-reverse; align-items: stretch; }
+    .survey-actions .btn{ width:100%; }
+  }
+  /* ---------- footer ---------- */
+  /* ---------- footer ---------- */
+  footer{
+    border-top: 1px solid var(--border);
+    padding: 56px 0 32px;
+    position: relative;
+  }
+  footer::before{
+    content:'';
+    position: absolute;
+    top: -1px; left: 50%;
+    transform: translateX(-50%);
+    width: 140px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.5;
+  }
+  .footer-main{
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-bottom: 36px;
+  }
+  .footer-brand{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 280px;
+  }
+  .footer-brand .brand-row{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .footer-brand .brand-row .logo-mark{ width:18px; height:18px; }
+  .footer-brand p{
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--faint);
+  }
+  .footer-nav{
+    display:flex;
+    gap: 56px;
+    flex-wrap: wrap;
+  }
+  .footer-col{
+    display:flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-col .col-title{
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 2px;
+  }
+  .footer-col a{
+    font-size: 13.5px;
+    color: var(--muted);
+    transition: color .15s ease;
+    width: fit-content;
+  }
+  .footer-col a:hover{ color: var(--text); }
+  .footer-cta-col{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .footer-waitlist-btn{
+    display:inline-flex;
+    align-items:center;
+    gap: 7px;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background: var(--accent);
+    color: #000;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all .18s ease;
+  }
+  .footer-waitlist-btn:hover{
+    filter: brightness(1.08);
+    box-shadow: 0 0 22px rgba(253,224,80,0.45);
+    transform: translateY(-2px);
+  }
+  .footer-waitlist-btn svg{ transition: transform .18s ease; }
+  .footer-waitlist-btn:hover svg{ transform: translateY(-2px); }
+  .footer-cta-col .footer-note{
+    font-size: 11.5px;
+    color: var(--faint);
+  }
+  .footer-legal{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-legal .copyright{
+    font-size: 12.5px;
+    color: var(--faint);
+  }
+  .footer-legal-links{
+    display:flex;
+    align-items:center;
+    gap: 22px;
+    font-size: 12.5px;
+    color: var(--faint);
+  }
+  .footer-legal-links a:hover{ color: var(--muted); }
+  .footer-legal-links .dot{
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+
+  @media (max-width: 700px){
+    .footer-main{ flex-direction: column; gap: 36px; }
+    .footer-brand{ max-width: none; }
+    .footer-nav{ gap: 40px; }
+    .footer-cta-col{ align-items: flex-start; }
+    .footer-legal{ flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px){
+    .hero{ grid-template-columns: 1fr; padding-top: 56px; }
+    .hero h1{ font-size: 40px; }
+    .feature-grid{ grid-template-columns: repeat(2,1fr); }
+    .audience-grid{ grid-template-columns: repeat(2,1fr); }
+    .scatter{ grid-template-columns: 1fr; }
+    .arrow-col{ transform: rotate(90deg); padding: 8px 0; }
+    .nav-links{ display:none; }
+  }
+  @media (max-width: 560px){
+    .feature-grid{ grid-template-columns: 1fr; }
+    .audience-grid{ grid-template-columns: 1fr; }
+    .hero h1{ font-size: 32px; }
+    .section-head h2{ font-size: 28px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{
+      animation: none !important;
+    }
+  }
+
+  /* ---------- scroll-following paper plane + doodle flight path ---------- */
+  .flight-layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: visible;
+  }
+  .flight-path-svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .flight-path-base{
+    fill: none;
+    stroke: rgba(253,224,80,0.22);
+    stroke-width: 2;
+    stroke-dasharray: 2 10;
+    stroke-linecap: round;
+  }
+  .flight-path-drawn{
+    fill: none;
+    stroke: rgba(253,224,80,0.85);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 4px rgba(253,224,80,0.55));
+  }
+  .paper-plane{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)) drop-shadow(0 0 8px rgba(253,224,80,0.5));
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .paper-plane.visible{ opacity: 1; }
+  .paper-plane svg{ width:100%; height:100%; display:block; }
+
+  #planeTarget{ position: relative; }
+  .flight-sparkle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background: #FDE050;
+    box-shadow: 0 0 7px 1px rgba(253,224,80,0.9);
+    pointer-events: none;
+    opacity: 0;
+    animation: sparkle-pop .9s ease-out forwards;
+  }
+  @keyframes sparkle-pop{
+    0%{ opacity: 1; transform: translate(0,0) scale(1); }
+    100%{ opacity: 0; transform: translate(var(--sx), var(--sy)) scale(0.15); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .flight-layer{ display: none; }
+  }
+  @media (max-width: 640px){
+    .paper-plane{ width: 24px; height: 24px; }
+  }
+
+
+  .legal-consent{
+    display:flex;align-items:flex-start;gap:10px;margin:12px 0 0;
+    color:#858585;font-size:11px;line-height:1.55;text-align:left;
+  }
+  .legal-consent input{width:15px;height:15px;margin:2px 0 0;accent-color:#FFD21C;flex:0 0 auto;}
+  .legal-consent a{color:#D6B620;text-decoration:underline;text-underline-offset:3px;}
+  .legal-consent a:hover{color:#FFD21C;}
+</style>
+</head>
+<body>
+<div class="flight-layer" id="flightLayer" aria-hidden="true"></div>
+
+<div class="ambient-glow" aria-hidden="true"></div>
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="16.2" width="20" height="1.6" rx="0.8" fill="#FDE050" opacity="0.4"/>
+          <path d="M5 17 A7 7 0 0 1 19 17 Z" fill="#FDE050"/>
+          <rect x="11.1" y="2" width="1.8" height="4.4" rx="0.9" fill="#FDE050"/>
+          <rect x="3.6" y="6.1" width="1.8" height="4.2" rx="0.9" fill="#FDE050" transform="rotate(-45 4.5 8.2)"/>
+          <rect x="18.6" y="6.1" width="1.8" height="4.2" rx="0.9" fill="#FDE050" transform="rotate(45 19.5 8.2)"/>
+        </svg>
+      </span>
+      FENNRISE
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#waitlist" class="btn btn-primary">Join waitlist</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <section class="hero" id="waitlist">
+    <div>
+      <div class="eyebrow mono">Now building — early access opening soon</div>
+      <h1>Build your future.<br>Watch it <span id="riseWord">rise</span>.</h1>
+      <p class="sub">One place to plan your days, chase your goals, and find the opportunities that move you forward — instead of switching between ten different apps.</p>
+
+      <!-- EDIT ME: change data-target to update the number, edit the sentence text freely -->
+      <div class="joined-row">
+        <div class="avatar-stack">
+          <div class="avatar">S</div>
+          <div class="avatar">A</div>
+          <div class="avatar">R</div>
+          <div class="avatar">A</div>
+        </div>
+        <div class="joined-text"><strong class="joined-count" data-target="12">0</strong> people already joined the waitlist</div>
+      </div>
+
+      <form class="waitlist-form" id="waitlistForm" action="https://formspree.io/f/xaqzjzgz" method="POST">
+        <div class="form-card">
+          <input type="text" name="name" id="nameInput" placeholder="Your name" required>
+          <input type="email" name="email" id="emailInput" placeholder="your@gmail.com" required>
+        </div>
+        <label class="legal-consent">
+          <input type="checkbox" name="terms_accepted" value="yes" required>
+          <span>I agree to the <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms-of-service">Terms of Service</a>. If I am under 18, I confirm that I have permission from my parent or legal guardian.</span>
+        </label>
+        <input type="hidden" name="role" id="roleInput">
+        <button type="submit" class="btn btn-primary">Join the waitlist</button>
+      </form>
+      <div class="form-msg" id="formMsg"></div>
+      <div class="trust-line">Built for students and young professionals. No spam, just launch updates.</div>
+    </div>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<div class="wrap">
+  <section id="audience">
+    <div class="section-head">
+      <div class="eyebrow mono">Tell us about you</div>
+      <h2>Who are you building your future as?</h2>
+      <p>Fennrise works for wherever you are right now — pick what fits, it helps us tailor things for you.</p>
+    </div>
+    <div class="audience-grid" id="audienceGrid">
+      <div class="audience-card" data-role="High School Student">
+        <div class="audience-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
+        </div>
+        <h4>High School Student</h4>
+      </div>
+      <div class="audience-card" data-role="College Student">
+        <div class="audience-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h4>College Student</h4>
+      </div>
+      <div class="audience-card" data-role="Working Professional">
+        <div class="audience-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        </div>
+        <h4>Working Professional</h4>
+      </div>
+      <div class="audience-card" data-role="Other">
+        <div class="audience-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a4 4 0 0 0-4 4c0 1.5.8 2.5 1.5 3.3.5.6 1 1.1 1 1.7v1h3v-1c0-.6.5-1.1 1-1.7.7-.8 1.5-1.8 1.5-3.3a4 4 0 0 0-4-4z"/><path d="M10 17h4M11 20h2"/></svg>
+        </div>
+        <h4>Other</h4>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<div class="wrap">
+  <section id="problem">
+    <div class="section-head">
+      <div class="eyebrow mono">The problem</div>
+      <h2>Your future is scattered across ten apps.</h2>
+      <p>A calendar app for your schedule. A notes app for your ideas. A todo app that never syncs with either. Somewhere in the mess, the plan for your actual future gets lost.</p>
+    </div>
+    <div class="scatter">
+      <div class="scatter-col">
+        <div class="app-chip strike">Calendar app</div>
+        <div class="app-chip strike">Notes app</div>
+        <div class="app-chip strike">To-do list app</div>
+        <div class="app-chip strike">Scholarship search tabs</div>
+        <div class="app-chip strike">Habit tracker</div>
+        <div class="app-chip strike">Resume doc</div>
+      </div>
+      <div class="arrow-col">→</div>
+      <div class="scatter-col">
+        <div class="single-chip">
+          <span class="logo-mark" style="width:20px;height:20px;">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="16.2" width="20" height="1.6" rx="0.8" fill="#FDE050" opacity="0.4"/>
+              <path d="M5 17 A7 7 0 0 1 19 17 Z" fill="#FDE050"/>
+              <rect x="11.1" y="2" width="1.8" height="4.4" rx="0.9" fill="#FDE050"/>
+              <rect x="3.6" y="6.1" width="1.8" height="4.2" rx="0.9" fill="#FDE050" transform="rotate(-45 4.5 8.2)"/>
+              <rect x="18.6" y="6.1" width="1.8" height="4.2" rx="0.9" fill="#FDE050" transform="rotate(45 19.5 8.2)"/>
+            </svg>
+          </span>
+          Fennrise
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<div class="wrap">
+  <section id="features">
+    <div class="section-head">
+      <div class="eyebrow mono">Version 1</div>
+      <h2>Everything you need to move forward.</h2>
+      <p>Six tools, working from the same plan. Every task you complete, goal you hit, and opportunity you find feeds into one picture of where you're headed.</p>
+    </div>
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a4 4 0 0 0-4 4c0 1.5.8 2.5 1.5 3.3.5.6 1 1.1 1 1.7v1h3v-1c0-.6.5-1.1 1-1.7.7-.8 1.5-1.8 1.5-3.3a4 4 0 0 0-4-4z"/><path d="M10 17h4M11 20h2"/></svg>
+        </div>
+        <h3>AI Assistant</h3>
+        <p>Your personal AI mentor, on call whenever you need it.</p>
+        <ul class="feature-list">
+          <li>Ask study questions</li>
+          <li>Build schedules</li>
+          <li>Get coding help</li>
+          <li>Prepare for interviews</li>
+          <li>Daily productivity advice</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+        </div>
+        <h3>Planner</h3>
+        <p>Every kind of planning, in one calendar.</p>
+        <ul class="feature-list">
+          <li>Calendar & timetable</li>
+          <li>Daily planner</li>
+          <li>Study planner</li>
+          <li>Work planner</li>
+          <li>Reminder system</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+        </div>
+        <h3>Goals</h3>
+        <p>Turn a big future into a next step.</p>
+        <ul class="feature-list">
+          <li>Set goals</li>
+          <li>Break into milestones</li>
+          <li>Daily habits</li>
+          <li>Weekly progress</li>
+          <li>Streak tracking</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h11l3 3v13H5V4z"/><path d="M9 9h6M9 13h6M9 17h3"/></svg>
+        </div>
+        <h3>Journal</h3>
+        <p>A private space for the days behind the plan.</p>
+        <ul class="feature-list">
+          <li>Daily reflections</li>
+          <li>Mood tracking</li>
+          <li>Gratitude</li>
+          <li>Wins</li>
+          <li>Private notes</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7l8-4 8 4-8 4-8-4z"/><path d="M4 7v10l8 4 8-4V7"/><path d="M12 11v10"/></svg>
+        </div>
+        <h3>Opportunities</h3>
+        <p>The scholarships and openings worth your time, found for you.</p>
+        <ul class="feature-list">
+          <li>Scholarships</li>
+          <li>Internships & jobs</li>
+          <li>Hackathons</li>
+          <li>Competitions</li>
+          <li>Career events</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        </div>
+        <h3>Dashboard</h3>
+        <p>The whole picture, at a glance.</p>
+        <ul class="feature-list">
+          <li>Tasks completed</li>
+          <li>Study hours</li>
+          <li>Streaks & goals achieved</li>
+          <li>Weekly growth</li>
+          <li>Productivity score</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<div class="wrap">
+  <section id="roadmap">
+    <div class="section-head">
+      <div class="eyebrow mono">What's next</div>
+      <h2>Further out on the horizon.</h2>
+      <p>Version 1 is the foundation. These are the tools we're building next, once the core experience is solid.</p>
+    </div>
+    <div class="roadmap-scroller">
+      <button class="roadmap-arrow roadmap-arrow-left" id="roadmapPrev" aria-label="Scroll left">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="roadmap-track" id="roadmapTrack">
+      <div class="roadmap-card">
+        <span class="tag mono">Next</span>
+        <h4>AI Career Coach</h4>
+        <p>A personal roadmap for the career you're aiming at.</p>
+      </div>
+      <div class="roadmap-card">
+        <span class="tag mono">Next</span>
+        <h4>Resume Builder</h4>
+        <p>Professional resumes, built from what's already in your profile.</p>
+      </div>
+      <div class="roadmap-card">
+        <span class="tag mono">Later</span>
+        <h4>AI Mock Interviews</h4>
+        <p>Practice real interview rounds with an AI interviewer.</p>
+      </div>
+      <div class="roadmap-card">
+        <span class="tag mono">Later</span>
+        <h4>Community</h4>
+        <p>Students helping students, right inside the app.</p>
+      </div>
+      <div class="roadmap-card">
+        <span class="tag mono">Later</span>
+        <h4>Clubs</h4>
+        <p>Join groups organized around your interests.</p>
+      </div>
+      <div class="roadmap-card">
+        <span class="tag mono">Later</span>
+        <h4>Team Workspace</h4>
+        <p>Shared planning for group projects and teams.</p>
+      </div>
+      <div class="roadmap-card">
+        <span class="tag mono">Later</span>
+        <h4>Habit Analytics</h4>
+        <p>Charts, insights, and predictions on your habits.</p>
+      </div>
+      </div>
+      <button class="roadmap-arrow roadmap-arrow-right" id="roadmapNext" aria-label="Scroll right">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+    <div class="roadmap-hint mono">Drag or use the arrows to see more →</div>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<div class="wrap">
+  <section class="survey-section" id="survey">
+    <div class="eyebrow mono">⏱ Takes 30 seconds</div>
+    <h2>Help us build the right thing.</h2>
+    <p>Two quick questions — no email needed. Your answers shape what we build first.</p>
+
+    <form class="survey-card" id="surveyForm" action="https://formspree.io/f/xaqzjzgz" method="POST">
+
+      <div class="survey-question">
+        <label>What should Fennrise nail first?</label>
+        <div class="survey-chips" data-field="priority">
+          <button type="button" class="survey-chip" data-value="Planning & Scheduling">Planning &amp; Scheduling</button>
+          <button type="button" class="survey-chip" data-value="AI Study Help">AI Study Help</button>
+          <button type="button" class="survey-chip" data-value="Job & Internship Search">Job &amp; Internship Search</button>
+          <button type="button" class="survey-chip" data-value="Journaling">Journaling</button>
+          <button type="button" class="survey-chip" data-value="Habit Tracking">Habit Tracking</button>
+        </div>
+        <input type="hidden" name="survey_priority" id="surveyPriority">
+      </div>
+
+      <div class="survey-question">
+        <label>How did you hear about us?</label>
+        <div class="survey-chips" data-field="source">
+          <button type="button" class="survey-chip" data-value="Instagram">Instagram</button>
+          <button type="button" class="survey-chip" data-value="Twitter / X">Twitter / X</button>
+          <button type="button" class="survey-chip" data-value="Friend">Friend</button>
+          <button type="button" class="survey-chip" data-value="Reddit">Reddit</button>
+          <button type="button" class="survey-chip" data-value="Other">Other</button>
+        </div>
+        <input type="hidden" name="survey_source" id="surveySource">
+      </div>
+
+      <div class="survey-actions">
+        <button type="button" class="survey-skip" id="surveySkip">Skip for now</button>
+        <button type="submit" class="btn btn-primary" id="planeTarget">Send feedback</button>
+      </div>
+
+      <div class="form-msg" id="surveyMsg"></div>
+    </form>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="brand-row">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="16.2" width="20" height="1.6" rx="0.8" fill="#FDE050" opacity="0.4"/>
+              <path d="M5 17 A7 7 0 0 1 19 17 Z" fill="#FDE050"/>
+              <rect x="11.1" y="2" width="1.8" height="4.4" rx="0.9" fill="#FDE050"/>
+              <rect x="3.6" y="6.1" width="1.8" height="4.2" rx="0.9" fill="#FDE050" transform="rotate(-45 4.5 8.2)"/>
+              <rect x="18.6" y="6.1" width="1.8" height="4.2" rx="0.9" fill="#FDE050" transform="rotate(45 19.5 8.2)"/>
+            </svg>
+          </span>
+          Fennrise
+        </div>
+        <p>Your future, rising — one place for the tools that actually keep you on track.</p>
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-col">
+          <span class="col-title">Explore</span>
+          <a href="#features">Features</a>
+          <a href="#roadmap">Roadmap</a>
+        </div>
+        <div class="footer-col">
+          <span class="col-title">Legal</span>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+
+      <div class="footer-cta-col">
+        <a href="#waitlist" class="footer-waitlist-btn">
+          Join the Waitlist
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </a>
+        <span class="footer-note">No spam, just launch updates.</span>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <div class="copyright">© 2026 Fennrise. All rights reserved.</div>
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <span class="dot"></span>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="success-overlay" id="successOverlay" aria-hidden="true">
+  <div class="success-backdrop" id="successBackdrap"></div>
+  <div class="success-card" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <button class="success-close" id="successClose" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+
+    <div class="success-burst">
+      <svg width="90" height="90" viewBox="0 0 24 24" fill="none">
+        <circle class="success-ring" cx="12" cy="12" r="10.5"/>
+        <path class="success-check" d="M7 12.5l3 3 7-7"/>
+      </svg>
+      <span class="success-spark s1">✦</span>
+      <span class="success-spark s2">✦</span>
+      <span class="success-spark s3">✦</span>
+      <span class="success-spark s4">✦</span>
+      <span class="success-spark s5">✦</span>
+      <span class="success-spark s6">✦</span>
+    </div>
+
+    <div class="eyebrow mono success-eyebrow">You're in</div>
+    <h3 id="successTitle">Welcome to the sunrise<span id="successName"></span>.</h3>
+    <p>We'll email you the moment Fennrise opens. Keep an eye on your inbox.</p>
+
+    <button class="btn btn-primary success-ok" id="successOk">Got it</button>
+  </div>
+</div>
+
+<script>
+
+  // belt-and-suspenders zoom lock: iOS Safari sometimes ignores user-scalable=no
+  // in the viewport meta tag, so also block the pinch gesture directly.
+  document.addEventListener('gesturestart', (e) => e.preventDefault());
+  document.addEventListener('gesturechange', (e) => e.preventDefault());
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', (e) => {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) e.preventDefault();
+    lastTouchEnd = now;
+  }, { passive: false });
+
+  // roadmap track — arrow buttons + drag-to-scroll
+  (function(){
+    const track = document.getElementById('roadmapTrack');
+    const prevBtn = document.getElementById('roadmapPrev');
+    const nextBtn = document.getElementById('roadmapNext');
+    if(!track) return;
+
+    function updateArrows(){
+      if(!prevBtn || !nextBtn) return;
+      const maxScroll = track.scrollWidth - track.clientWidth - 2;
+      prevBtn.disabled = track.scrollLeft <= 0;
+      nextBtn.disabled = track.scrollLeft >= maxScroll;
+    }
+
+    function scrollByCard(direction){
+      const card = track.querySelector('.roadmap-card');
+      const step = card ? card.getBoundingClientRect().width + 18 : 260;
+      track.scrollBy({ left: direction * step, behavior: 'smooth' });
+    }
+
+    if(prevBtn) prevBtn.addEventListener('click', () => scrollByCard(-1));
+    if(nextBtn) nextBtn.addEventListener('click', () => scrollByCard(1));
+    track.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
+
+    // drag-to-scroll for mouse users
+    let isDown = false;
+    let startX = 0;
+    let startScroll = 0;
+    let moved = false;
+
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      moved = false;
+      track.classList.add('dragging');
+      startX = e.pageX;
+      startScroll = track.scrollLeft;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if(!isDown) return;
+      const dx = e.pageX - startX;
+      if(Math.abs(dx) > 4) moved = true;
+      track.scrollLeft = startScroll - dx;
+    });
+
+    function endDrag(){
+      isDown = false;
+      track.classList.remove('dragging');
+    }
+    window.addEventListener('mouseup', endDrag);
+    track.addEventListener('mouseleave', endDrag);
+
+    // prevent a card's click-through right after a drag
+    track.addEventListener('click', (e) => {
+      if(moved){
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+  })();
+
+  // audience card picker — feeds the hidden "role" field on both waitlist forms
+  const roleInputs = [document.getElementById('roleInput'), document.getElementById('roleInput2')].filter(Boolean);
+  const audienceCards = document.querySelectorAll('.audience-card');
+  audienceCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const isActive = card.classList.contains('active');
+      audienceCards.forEach(c => c.classList.remove('active'));
+      const role = isActive ? '' : card.dataset.role;
+      if(!isActive) card.classList.add('active');
+      roleInputs.forEach(input => { input.value = role; });
+    });
+  });
+
+  // animated "you're in" success modal, shown after a waitlist join
+  const successOverlay = document.getElementById('successOverlay');
+  const successNameEl = document.getElementById('successName');
+  let successCloseTimer = null;
+
+  function showSuccessModal(firstName){
+    if(!successOverlay) return;
+    successNameEl.textContent = firstName ? `, ${firstName}` : '';
+
+    // restart CSS entrance animations even if opened twice in a row
+    successOverlay.classList.remove('show');
+    void successOverlay.offsetWidth;
+    successOverlay.classList.add('show');
+    successOverlay.setAttribute('aria-hidden', 'false');
+
+    clearTimeout(successCloseTimer);
+    successCloseTimer = setTimeout(hideSuccessModal, 6000);
+  }
+
+  function hideSuccessModal(){
+    if(!successOverlay) return;
+    successOverlay.classList.remove('show');
+    successOverlay.setAttribute('aria-hidden', 'true');
+    clearTimeout(successCloseTimer);
+  }
+
+  const successClose = document.getElementById('successClose');
+  const successOk = document.getElementById('successOk');
+  const successBackdrop = document.getElementById('successBackdrap');
+  if(successClose) successClose.addEventListener('click', hideSuccessModal);
+  if(successOk) successOk.addEventListener('click', hideSuccessModal);
+  if(successBackdrop) successBackdrop.addEventListener('click', hideSuccessModal);
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') hideSuccessModal();
+  });
+
+  function handleWaitlist(formId, nameId, inputId, msgId){
+    const form = document.getElementById(formId);
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const nameInput = document.getElementById(nameId);
+      const input = document.getElementById(inputId);
+      const msg = document.getElementById(msgId);
+      const name = nameInput.value.trim();
+      const email = input.value.trim();
+      if(!email) return;
+
+      const btn = form.querySelector('button[type="submit"]');
+      const originalLabel = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Joining...';
+      msg.textContent = '';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(res => {
+        if(res.ok){
+          const firstName = name ? name.split(' ')[0] : '';
+          showSuccessModal(firstName);
+          form.reset();
+          audienceCards.forEach(c => c.classList.remove('active'));
+          roleInputs.forEach(inp => { inp.value = ''; });
+        } else {
+          msg.textContent = "Something went wrong — please try again.";
+        }
+      })
+      .catch(() => {
+        msg.textContent = "Something went wrong — please try again.";
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+      });
+    });
+  }
+  handleWaitlist('waitlistForm', 'nameInput', 'emailInput', 'formMsg');
+
+  // 30-second survey — single-select chips per question, feeds hidden inputs
+  (function(){
+    const surveyForm = document.getElementById('surveyForm');
+    if(!surveyForm) return;
+
+    const skipBtn = document.getElementById('surveySkip');
+    const msg = document.getElementById('surveyMsg');
+    const submitBtn = surveyForm.querySelector('button[type="submit"]');
+
+    document.querySelectorAll('.survey-chips').forEach(group => {
+      const field = group.dataset.field;
+      const hiddenInput = document.getElementById(
+        field === 'priority' ? 'surveyPriority' : 'surveySource'
+      );
+      group.querySelectorAll('.survey-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          const isActive = chip.classList.contains('active');
+          group.querySelectorAll('.survey-chip').forEach(c => c.classList.remove('active'));
+          if(!isActive){
+            chip.classList.add('active');
+            if(hiddenInput) hiddenInput.value = chip.dataset.value;
+          } else if(hiddenInput){
+            hiddenInput.value = '';
+          }
+        });
+      });
+    });
+
+    surveyForm.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      const originalLabel = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      msg.textContent = '';
+
+      fetch(surveyForm.action, {
+        method: 'POST',
+        body: new FormData(surveyForm),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(res => {
+        if(res.ok){
+          msg.textContent = "Thanks for the input — it genuinely helps us build the right thing first.";
+          surveyForm.querySelectorAll('.survey-chip.active').forEach(c => c.classList.remove('active'));
+          document.getElementById('surveyPriority').value = '';
+          document.getElementById('surveySource').value = '';
+        } else {
+          msg.textContent = "Something went wrong — please try again.";
+        }
+      })
+      .catch(() => {
+        msg.textContent = "Something went wrong — please try again.";
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+      });
+    });
+
+    if(skipBtn){
+      skipBtn.addEventListener('click', () => {
+        msg.textContent = "No worries — thanks for stopping by!";
+      });
+    }
+  })();
+
+  // count-up animation for "people already joined" — plays once it scrolls into view
+  function animateCount(el){
+    const target = parseInt(el.dataset.target, 10) || 0;
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      el.textContent = Math.round(eased * target).toLocaleString();
+      if(progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const joinedEls = document.querySelectorAll('.joined-count');
+  if('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          animateCount(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    joinedEls.forEach(el => observer.observe(el));
+  } else {
+    joinedEls.forEach(animateCount);
+  }
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return; // respect the site's existing reduced-motion convention — skip entirely
+
+  var layer = document.getElementById('flightLayer');
+  var startEl = document.getElementById('riseWord') || document.querySelector('.hero');
+  var targetEl = document.getElementById('planeTarget');
+  if (!layer || !startEl || !targetEl) return;
+  if (!('SVGGeometryElement' in window)) return; // feature detection — needs getPointAtLength support
+
+  var svg, basePath, drawnPath, plane, totalLength = 0;
+  var cachedMaxScrollY = 0;
+  var startY = 0, startX = 0, endY = 0, endX = 0;
+  var armed = true;   // hysteresis flag so the sparkle burst only fires once per downward pass
+  var landed = false; // true once the plane has arrived and faded out at the button
+
+  var SVG_NS = "http://www.w3.org/2000/svg";
+
+  function buildPath(){
+    var docWidth = document.documentElement.clientWidth;
+    var docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+
+    var startRect = startEl.getBoundingClientRect();
+    var targetRect = targetEl.getBoundingClientRect();
+    startY = startRect.bottom + window.scrollY - 4;
+    startX = startRect.left + window.scrollX + startRect.width / 2;
+    endY = targetRect.top + window.scrollY + targetRect.height / 2;
+    endX = targetRect.left + window.scrollX + targetRect.width / 2;
+
+    // Keep the doodle's side-to-side swing comfortably inside the viewport on any device.
+    var margin = Math.max(26, docWidth * 0.09);
+    var centerX = docWidth / 2;
+    var amplitude = Math.min(docWidth * 0.22, 130, centerX - margin);
+    if (amplitude < 12) amplitude = 12;
+    var wavelength = Math.max(220, Math.min(360, Math.abs(endY - startY) / 6));
+
+    layer.style.height = docHeight + 'px';
+
+    layer.innerHTML = '';
+    svg = document.createElementNS(SVG_NS, 'svg');
+    svg.setAttribute('class', 'flight-path-svg');
+    svg.setAttribute('width', docWidth);
+    svg.setAttribute('height', docHeight);
+
+    basePath = document.createElementNS(SVG_NS, 'path');
+    basePath.setAttribute('class', 'flight-path-base');
+    drawnPath = document.createElementNS(SVG_NS, 'path');
+    drawnPath.setAttribute('class', 'flight-path-drawn');
+
+    // Build a hand-drawn-looking wavy line: the baseline travels directly
+    // from the "rise" word to the button the whole way, with an organic
+    // wobble layered on top that fades in at launch and fades out before
+    // landing. Because the baseline already heads toward the button from
+    // the start, there's no late "correction" — the curve eases in the
+    // whole time instead of suddenly straightening out at the end.
+    var span = Math.max(endY - startY, 1);
+    var points = [];
+    var step = 10;
+    for (var y = startY; y <= endY; y += step){
+      var t = (y - startY) / span; // 0 -> 1 along the flight
+      var baseX = startX + (endX - startX) * t;
+
+      // Smooth envelope: fades in over the first 15%, holds, fades out
+      // over the last 30% — smoothstep on both edges so there's no kink.
+      var envelope = 1;
+      if (t < 0.15){
+        var lt = t / 0.15;
+        envelope = lt * lt * (3 - 2 * lt);
+      } else if (t > 0.7){
+        var st = Math.min(1, (t - 0.7) / 0.3);
+        envelope = 1 - (st * st * (3 - 2 * st));
+      }
+
+      var wobble = Math.sin(y / wavelength) * amplitude + Math.sin(y / (wavelength * 0.4) + 1.3) * (amplitude * 0.18);
+      var x = baseX + wobble * envelope;
+      points.push([x, y]);
+    }
+    points.push([endX, endY]);
+
+    var d = 'M ' + points[0][0].toFixed(1) + ' ' + points[0][1].toFixed(1);
+    for (var i = 1; i < points.length; i++){
+      d += ' L ' + points[i][0].toFixed(1) + ' ' + points[i][1].toFixed(1);
+    }
+
+    basePath.setAttribute('d', d);
+    drawnPath.setAttribute('d', d);
+
+    svg.appendChild(basePath);
+    svg.appendChild(drawnPath);
+    layer.appendChild(svg);
+
+    plane = document.createElement('div');
+    plane.className = 'paper-plane';
+    plane.innerHTML = '<svg viewBox="0 0 24 24" fill="none">' +
+      '<path d="M3 11.5L20.5 3.5L14 20.5L11 13.5L3 11.5Z" fill="#FDE050" stroke="#FDE050" stroke-linejoin="round"/>' +
+      '<path d="M11 13.5L20.5 3.5" stroke="#7a5a00" stroke-width="0.8" opacity="0.5"/>' +
+      '</svg>';
+    layer.appendChild(plane);
+
+    totalLength = drawnPath.getTotalLength();
+    drawnPath.style.strokeDasharray = totalLength;
+    drawnPath.style.strokeDashoffset = totalLength;
+
+    // Cached here (rebuilt only on real layout changes) instead of read
+    // fresh on every scroll frame — querying scrollHeight forces a
+    // synchronous layout flush, which was a real cost on every frame and
+    // a direct contributor to the mobile scroll lag.
+    cachedMaxScrollY = Math.max(docHeight - window.innerHeight, 0);
+  }
+
+  function spawnSparkles(){
+    var count = 26;
+    for (var i = 0; i < count; i++){
+      var s = document.createElement('span');
+      s.className = 'flight-sparkle';
+      var angle = (Math.PI * 2 * i) / count + Math.random() * 0.35;
+      var dist = 24 + Math.random() * 36;
+      var size = 5 + Math.random() * 5;
+      s.style.width = size + 'px';
+      s.style.height = size + 'px';
+      s.style.marginLeft = (-size / 2) + 'px';
+      s.style.marginTop = (-size / 2) + 'px';
+      s.style.setProperty('--sx', (Math.cos(angle) * dist).toFixed(1) + 'px');
+      s.style.setProperty('--sy', (Math.sin(angle) * dist).toFixed(1) + 'px');
+      s.style.animationDelay = (Math.random() * 0.18) + 's';
+      targetEl.appendChild(s);
+      (function(node){
+        setTimeout(function(){ node.remove(); }, 1200);
+      })(s);
+    }
+  }
+
+  var ticking = false;
+  function onScroll(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      ticking = false;
+      if (!totalLength) return;
+
+      var readingLine = window.scrollY + window.innerHeight * 0.5;
+      var progress = (readingLine - startY) / Math.max(endY - startY, 1);
+      if (progress < 0) progress = 0;
+      if (progress > 1) progress = 1;
+
+      // Safety net: if the target ever sits low enough on the page that
+      // the middle of the viewport can't physically reach it, force full
+      // progress once the user has scrolled as far as the page allows.
+      if (window.scrollY >= cachedMaxScrollY - 1){
+        progress = 1;
+      }
+
+      drawnPath.style.strokeDashoffset = (totalLength * (1 - progress)).toFixed(1);
+
+      var pt = drawnPath.getPointAtLength(totalLength * progress);
+      var aheadLen = Math.min(totalLength, totalLength * progress + 6);
+      var ahead = drawnPath.getPointAtLength(aheadLen);
+      var angle = Math.atan2(ahead.y - pt.y, ahead.x - pt.x) * (180 / Math.PI);
+
+      plane.style.transform = 'translate(-50%, -50%) translate(' + pt.x.toFixed(1) + 'px,' + pt.y.toFixed(1) + 'px) rotate(' + (angle + 45).toFixed(1) + 'deg)';
+
+      if (progress > 0.01 && progress < 0.97 && !landed){
+        plane.classList.add('visible');
+      } else {
+        plane.classList.remove('visible');
+      }
+
+      if (progress >= 0.97 && armed){
+        armed = false;
+        landed = true;
+        plane.classList.remove('visible');
+        spawnSparkles();
+      } else if (progress < 0.9){
+        armed = true;
+        landed = false;
+      }
+    });
+  }
+
+  var resizeTimer;
+  var lastWidth = document.documentElement.clientWidth;
+  function onResize(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){
+      // Mobile browsers fire 'resize' when the address bar shows/hides
+      // during normal scrolling — that's a height-only change, not a real
+      // layout change, and rebuilding the whole path for it is what was
+      // causing the lag. Only rebuild when the width actually changes
+      // (window resize on desktop, or a phone orientation change).
+      var currentWidth = document.documentElement.clientWidth;
+      if (currentWidth === lastWidth) return;
+      lastWidth = currentWidth;
+      buildPath();
+      onScroll();
+    }, 200);
+  }
+
+  try {
+    buildPath();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize, { passive: true });
+    window.addEventListener('orientationchange', function(){
+      lastWidth = -1; // force a rebuild after rotation regardless of width reading order
+      onResize();
+    });
+    window.addEventListener('load', function(){ buildPath(); onScroll(); });
+    onScroll();
+  } catch (e) {
+    if (layer) layer.style.display = 'none';
+  }
+})();
+</script>
+
+</body>
+</html>
+

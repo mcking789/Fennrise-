@@ -111,13 +111,11 @@ export default function Home() {
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#roadmap" onClick={() => setMenuOpen(false)}>Roadmap</a>
           <a
-            href="https://fennrise-waitlist-six.vercel.app/"
+            href="/waitlist"
             className="nav-cta"
-            target="_blank"
-            rel="noreferrer"
             onClick={() => setMenuOpen(false)}
           >
-            Join waitlist <span>↗</span>
+            Join waitlist <span>→</span>
           </a>
         </nav>
       </header>
@@ -149,11 +147,9 @@ export default function Home() {
             </a>
             <a
               className="button button-ghost"
-              href="https://fennrise-waitlist-six.vercel.app/"
-              target="_blank"
-              rel="noreferrer"
+              href="/waitlist"
             >
-              Join the Waitlist <span>↗</span>
+              Join the Waitlist <span>→</span>
             </a>
           </div>
         </div>
@@ -357,11 +353,9 @@ export default function Home() {
           </p>
           <a
             className="button button-gold"
-            href="https://fennrise-waitlist-six.vercel.app/"
-            target="_blank"
-            rel="noreferrer"
+            href="/waitlist"
           >
-            Join the Waitlist <span>↗</span>
+            Join the Waitlist <span>→</span>
           </a>
         </div>
       </section>
@@ -384,7 +378,7 @@ export default function Home() {
         </div>
         <div className="footer-bottom">
           <span>© 2026 Fennrise. All rights reserved.</span>
-          <div><a href="#top">Privacy Policy</a><a href="#top">Terms & Conditions</a></div>
+          <div><a href="/privacy-policy">Privacy Policy</a><a href="/terms-of-service">Terms of Service</a></div>
           <a href="#top" className="back-top">Back to top ↑</a>
         </div>
       </footer>
