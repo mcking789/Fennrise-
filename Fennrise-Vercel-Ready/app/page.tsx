@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const products = [
   {
@@ -37,22 +37,22 @@ const products = [
 
 const values = [
   {
-    icon: "◇",
+    word: "Considered",
     title: "Premium Design",
     text: "Every detail is considered—from the first interaction to the final pixel.",
   },
   {
-    icon: "✦",
+    word: "Useful",
     title: "Intelligent Products",
     text: "Useful intelligence that supports people without adding complexity.",
   },
   {
-    icon: "◎",
+    word: "Focused",
     title: "Built for Productivity",
     text: "Purposeful tools designed to create momentum and protect attention.",
   },
   {
-    icon: "⌁",
+    word: "Ready",
     title: "Modern Technology",
     text: "Fast, secure, scalable systems built for what comes next.",
   },
@@ -67,12 +67,6 @@ const roadmap = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeValue, setActiveValue] = useState(0);
-  const swipeStart = useRef<number | null>(null);
-
-  const changeValue = (direction: number) => {
-    setActiveValue((current) => (current + direction + values.length) % values.length);
-  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -242,98 +236,28 @@ export default function Home() {
       <section className="section why-section" id="why">
         <div className="section-heading reveal">
           <div>
-            <div className="eyebrow"><span /> The Fennrise ecosystem</div>
-            <h2>Three products.<br /><em>One direction.</em></h2>
+            <div className="eyebrow"><span /> What guides Fennrise</div>
+            <h2>Clear thinking.<br /><em>Serious craft.</em></h2>
           </div>
-          <p>Star, Studio, and Fenn are being built as one connected system for work, creation, and growth.</p>
+          <p>No visual tricks and no unnecessary noise—just products made carefully, for a clear reason.</p>
         </div>
-        <div className="feature-lab reveal">
-          <div
-            className="feature-display"
-            role="region"
-            aria-roledescription="carousel"
-            aria-label="Why choose Fennrise"
-            key={activeValue}
-            onTouchStart={(event) => {
-              swipeStart.current = event.touches[0].clientX;
-            }}
-            onTouchEnd={(event) => {
-              if (swipeStart.current === null) return;
-              const distance = event.changedTouches[0].clientX - swipeStart.current;
-              if (Math.abs(distance) > 45) changeValue(distance < 0 ? 1 : -1);
-              swipeStart.current = null;
-            }}
-            onPointerMove={(event) => {
-              if (event.pointerType === "touch") return;
-              const rect = event.currentTarget.getBoundingClientRect();
-              const x = (event.clientX - rect.left) / rect.width - 0.5;
-              const y = (event.clientY - rect.top) / rect.height - 0.5;
-              event.currentTarget.style.setProperty("--ry", `${x * 24}deg`);
-              event.currentTarget.style.setProperty("--rx", `${y * -20}deg`);
-            }}
-            onPointerLeave={(event) => {
-              event.currentTarget.style.setProperty("--ry", "0deg");
-              event.currentTarget.style.setProperty("--rx", "0deg");
-            }}
-          >
-            <div className="feature-ecosystem" aria-hidden="true">
-              <div className="ecosystem-status"><i /> Fennrise system · active</div>
-              <div className="ecosystem-radar">
-                <i className="ecosystem-ring ecosystem-ring-one" />
-                <i className="ecosystem-ring ecosystem-ring-two" />
-                <i className="ecosystem-ring ecosystem-ring-three" />
-                <i className="ecosystem-line line-star" />
-                <i className="ecosystem-line line-studio" />
-                <i className="ecosystem-line line-fenn" />
-
-                <div className="ecosystem-core">
-                  <span className="core-scan" />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/fennrise-logo.png" alt="" />
-                  <small>Fennrise</small>
-                </div>
-
-                <div className="ecosystem-node node-star">
-                  <span>✦</span>
-                  <div><b>Star</b><small>Assistant · Building</small></div>
-                </div>
-                <div className="ecosystem-node node-studio">
-                  <span>▦</span>
-                  <div><b>Studio</b><small>Design · Live</small></div>
-                </div>
-                <div className="ecosystem-node node-fenn">
-                  <span>✓</span>
-                  <div><b>Fenn</b><small>Productivity · Next</small></div>
-                </div>
+        <div className="principles-list">
+          {values.map((value, index) => (
+            <article className={`principle-row reveal delay-${index + 1}`} key={value.title}>
+              <span className="principle-number">0{index + 1}</span>
+              <div className="principle-title">
+                <small>{value.word}</small>
+                <h3>{value.title}</h3>
               </div>
-              <div className="ecosystem-caption">
-                <span>One company</span><i />
-                <span>Three connected products</span>
-              </div>
-            </div>
-            <div className="feature-display-copy">
-              <span>What guides us · 0{activeValue + 1}</span>
-              <h3>{values[activeValue].title}</h3>
-              <p>{values[activeValue].text}</p>
-              <div className="carousel-controls">
-                <button type="button" onClick={() => changeValue(-1)} aria-label="Previous principle">←</button>
-                <div className="carousel-dots" aria-label={`Slide ${activeValue + 1} of ${values.length}`}>
-                  {values.map((value, index) => (
-                    <button
-                      type="button"
-                      key={value.title}
-                      className={activeValue === index ? "active" : ""}
-                      onClick={() => setActiveValue(index)}
-                      aria-label={`Show ${value.title}`}
-                      aria-current={activeValue === index ? "true" : undefined}
-                    />
-                  ))}
-                </div>
-                <button type="button" onClick={() => changeValue(1)} aria-label="Next principle">→</button>
-              </div>
-              <div className="swipe-hint"><span>↔</span> Swipe to explore</div>
-            </div>
-          </div>
+              <p>{value.text}</p>
+              <span className="principle-arrow" aria-hidden="true">↗</span>
+            </article>
+          ))}
+        </div>
+        <div className="principles-statement reveal">
+          <span>Fennrise standard</span>
+          <p>Clarity over noise. Quality over shortcuts.</p>
+          <a href="#products">Explore what we build <i>→</i></a>
         </div>
       </section>
 
