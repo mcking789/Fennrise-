@@ -203,10 +203,39 @@ export default function Home() {
         <div className="manifesto-glow" />
         <div className="manifesto-content reveal">
           <div className="eyebrow"><span /> About Fennrise</div>
-          <p className="manifesto-lead">
-            Technology should feel <em>powerful,</em><br />
-            not complicated.
-          </p>
+          <div className="about-lead-grid">
+            <p className="manifesto-lead">
+              Technology should feel <em>powerful,</em><br />
+              not complicated.
+            </p>
+            <div className="about-intro">
+              <span>Independent by design</span>
+              <p>
+                Fennrise is an independent technology company creating software,
+                digital products, and experiences that help people work with more
+                focus and less friction.
+              </p>
+              <a href="#products">Explore our products <i>→</i></a>
+            </div>
+          </div>
+
+          <div className="about-principles">
+            <div>
+              <span>01</span>
+              <h3>Solve real problems.</h3>
+              <p>Every idea begins with a genuine need—not a passing trend.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <h3>Make it clear.</h3>
+              <p>Thoughtful design keeps powerful technology simple to use.</p>
+            </div>
+            <div>
+              <span>03</span>
+              <h3>Keep improving.</h3>
+              <p>We build, listen, refine, and move every product forward.</p>
+            </div>
+          </div>
         </div>
       </section>
 
