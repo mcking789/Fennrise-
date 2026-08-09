@@ -215,7 +215,7 @@ export default function Home() {
               <span className="about-brand-scan" />
               <span className="about-brand-index">FR / 01</span>
               <Image className="about-brand-logo" src="/fennrise-logo.png" alt="" width={150} height={150} />
-              <strong>FENNRIISE</strong>
+              <strong>FENNRISE</strong>
               <div className="about-brand-meta">
                 <span>Technology</span><i />
                 <span>Design</span><i />
