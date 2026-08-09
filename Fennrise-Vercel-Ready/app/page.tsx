@@ -242,10 +242,10 @@ export default function Home() {
       <section className="section why-section" id="why">
         <div className="section-heading reveal">
           <div>
-            <div className="eyebrow"><span /> Why Fennrise</div>
-            <h2>Built differently.<br /><em>By design.</em></h2>
+            <div className="eyebrow"><span /> The Fennrise ecosystem</div>
+            <h2>Three products.<br /><em>One direction.</em></h2>
           </div>
-          <p>Clarity over noise. Quality over shortcuts. Every decision serves the experience.</p>
+          <p>Star, Studio, and Fenn are being built as one connected system for work, creation, and growth.</p>
         </div>
         <div className="feature-lab reveal">
           <div
@@ -276,23 +276,43 @@ export default function Home() {
               event.currentTarget.style.setProperty("--rx", "0deg");
             }}
           >
-            <div className="feature-3d-scene" aria-hidden="true">
-              <div className="core-3d">
-                <span className="cube-face face-front">{values[activeValue].icon}</span>
-                <span className="cube-face face-back">{values[activeValue].icon}</span>
-                <span className="cube-face face-right" />
-                <span className="cube-face face-left" />
-                <span className="cube-face face-top" />
-                <span className="cube-face face-bottom" />
+            <div className="feature-ecosystem" aria-hidden="true">
+              <div className="ecosystem-status"><i /> Fennrise system · active</div>
+              <div className="ecosystem-radar">
+                <i className="ecosystem-ring ecosystem-ring-one" />
+                <i className="ecosystem-ring ecosystem-ring-two" />
+                <i className="ecosystem-ring ecosystem-ring-three" />
+                <i className="ecosystem-line line-star" />
+                <i className="ecosystem-line line-studio" />
+                <i className="ecosystem-line line-fenn" />
+
+                <div className="ecosystem-core">
+                  <span className="core-scan" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/fennrise-logo.png" alt="" />
+                  <small>Fennrise</small>
+                </div>
+
+                <div className="ecosystem-node node-star">
+                  <span>✦</span>
+                  <div><b>Star</b><small>Assistant · Building</small></div>
+                </div>
+                <div className="ecosystem-node node-studio">
+                  <span>▦</span>
+                  <div><b>Studio</b><small>Design · Live</small></div>
+                </div>
+                <div className="ecosystem-node node-fenn">
+                  <span>✓</span>
+                  <div><b>Fenn</b><small>Productivity · Next</small></div>
+                </div>
               </div>
-              <i className="scene-ring scene-ring-one" />
-              <i className="scene-ring scene-ring-two" />
-              <i className="scene-satellite satellite-one" />
-              <i className="scene-satellite satellite-two" />
-              <span className="drag-hint">Move to explore</span>
+              <div className="ecosystem-caption">
+                <span>One company</span><i />
+                <span>Three connected products</span>
+              </div>
             </div>
             <div className="feature-display-copy">
-              <span>Fennrise principle · 0{activeValue + 1}</span>
+              <span>What guides us · 0{activeValue + 1}</span>
               <h3>{values[activeValue].title}</h3>
               <p>{values[activeValue].text}</p>
               <div className="carousel-controls">
