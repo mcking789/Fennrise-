@@ -211,10 +211,33 @@ export default function Home() {
       </section>
 
       <section className="why-minimal" id="why">
-        <div className="why-minimal-inner reveal">
-          <span>Fennrise / Our approach</span>
-          <h2>Thoughtful technology,<br /><em>made useful.</em></h2>
-          <p>Focused digital products for clearer work and everyday progress.</p>
+        <div className="why-minimal-inner">
+          <div className="why-minimal-copy reveal">
+            <span>Fennrise / Our approach</span>
+            <h2>Thoughtful technology,<br /><em>made useful.</em></h2>
+            <p>Focused digital products for clearer work and everyday progress.</p>
+            <div className="why-steps" aria-label="Our approach">
+              <span>Think</span><i />
+              <span>Build</span><i />
+              <span>Refine</span>
+            </div>
+          </div>
+
+          <div className="why-line-art reveal delay-2" aria-hidden="true">
+            <svg viewBox="0 0 620 440" role="presentation">
+              <path className="signal-path signal-base" d="M22 342 C116 342 117 101 223 101 C326 101 306 308 407 308 C493 308 489 150 598 150" />
+              <path className="signal-path signal-moving" d="M22 342 C116 342 117 101 223 101 C326 101 306 308 407 308 C493 308 489 150 598 150" />
+              <path className="signal-guide" d="M22 390 H598 M22 52 H598" />
+              <circle className="signal-node" cx="22" cy="342" r="6" />
+              <circle className="signal-node signal-node-gold" cx="223" cy="101" r="8" />
+              <circle className="signal-node" cx="407" cy="308" r="6" />
+              <circle className="signal-node signal-node-gold" cx="598" cy="150" r="8" />
+            </svg>
+            <span className="signal-label signal-think"><i /> Think</span>
+            <span className="signal-label signal-build"><i /> Build</span>
+            <span className="signal-label signal-refine"><i /> Refine</span>
+            <b className="signal-index">01—03</b>
+          </div>
         </div>
       </section>
 
