@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const products = [
@@ -208,20 +207,6 @@ export default function Home() {
               Technology should feel <em>powerful,</em><br />
               not complicated.
             </p>
-            <div className="about-brand-visual" aria-hidden="true">
-              <span className="about-brand-axis axis-horizontal" />
-              <span className="about-brand-axis axis-vertical" />
-              <span className="about-brand-axis axis-diagonal" />
-              <span className="about-brand-scan" />
-              <span className="about-brand-index">FR / 01</span>
-              <Image className="about-brand-logo" src="/fennrise-logo.png" alt="" width={150} height={150} />
-              <strong>FENNRISE</strong>
-              <div className="about-brand-meta">
-                <span>Technology</span><i />
-                <span>Design</span><i />
-                <span>Products</span>
-              </div>
-            </div>
           </div>
 
           <div className="about-principles">

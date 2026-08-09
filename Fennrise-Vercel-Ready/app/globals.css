@@ -192,19 +192,8 @@ h1 em, h2 em, .manifesto-lead em {
 
 .manifesto { position:relative;overflow:hidden;display:flex;align-items:center;padding:140px max(8vw,28px);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.06);background:linear-gradient(115deg,#0a0a09,#100e08); }
 .manifesto-content { position:relative; z-index:1; width:min(1150px,100%);margin:auto; }
-.about-lead-grid { display:grid;grid-template-columns:minmax(0,1.2fr) minmax(360px,.72fr);align-items:center;gap:7vw; }
-.manifesto-lead { font-size:clamp(50px,6.7vw,96px);line-height:1.03;letter-spacing:-.065em;margin:36px 0 0;font-weight:510; }
-.about-brand-visual { position:relative;min-height:360px;overflow:hidden; }
-.about-brand-visual::before { content:"";position:absolute;left:50%;top:48%;width:230px;height:230px;border:1px solid rgba(244,180,0,.12);transform:translate(-50%,-50%) rotate(45deg); }
-.about-brand-axis { position:absolute;display:block;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent); }
-.axis-horizontal { left:0;right:0;top:48%;height:1px; }.axis-vertical{top:0;bottom:0;left:50%;width:1px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)}
-.axis-diagonal { left:4%;right:4%;top:48%;height:1px;transform:rotate(-26deg);background:linear-gradient(90deg,transparent,rgba(244,180,0,.18),transparent); }
-.about-brand-scan { position:absolute;z-index:2;top:48%;left:7%;width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 16px 3px rgba(244,180,0,.36);transform:translate(-50%,-50%);animation:about-scan 4.5s ease-in-out infinite alternate; }
-.about-brand-index { position:absolute;top:16px;left:18px;color:#5c594f;font-family:var(--font-geist-mono),monospace;font-size:8px;letter-spacing:.16em; }
-.about-brand-logo { position:absolute;z-index:2;left:50%;top:47%;width:112px;height:112px;object-fit:contain;transform:translate(-50%,-50%);filter:drop-shadow(0 0 22px rgba(244,180,0,.2));animation:about-logo-glow 4s ease-in-out infinite; }
-.about-brand-visual > strong { position:absolute;left:50%;bottom:51px;color:transparent;font-size:clamp(34px,4.2vw,54px);font-weight:650;line-height:1;letter-spacing:.13em;white-space:nowrap;-webkit-text-stroke:1px rgba(244,180,0,.32);transform:translateX(-50%); }
-.about-brand-meta { position:absolute;left:50%;bottom:14px;display:flex;align-items:center;gap:10px;color:#6f6c63;font-size:7px;text-transform:uppercase;letter-spacing:.17em;transform:translateX(-50%);white-space:nowrap; }
-.about-brand-meta i { width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.65; }
+.about-lead-grid { display:block; }
+.manifesto-lead { max-width:1080px;font-size:clamp(50px,7.4vw,103px);line-height:1.03;letter-spacing:-.065em;margin:36px 0 0;font-weight:510; }
 .about-principles { display:grid;grid-template-columns:repeat(3,1fr);margin-top:100px;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.08); }
 .about-principles > div { min-height:190px;padding:31px 36px 30px 0; }
 .about-principles > div + div { border-left:1px solid rgba(255,255,255,.08);padding-left:36px; }
@@ -285,8 +274,6 @@ footer { padding:80px max(6vw,28px) 28px;background:#090909;border-top:1px solid
 @keyframes orbit-drift { from{transform:rotate(-18deg) scale(.98)}to{transform:rotate(-11deg) scale(1.02)} }
 @keyframes signal-flow { to{stroke-dashoffset:-192} }
 @keyframes signal-pulse { 0%,100%{opacity:.65;stroke-width:1.3}50%{opacity:1;stroke-width:2.2} }
-@keyframes about-scan { from{left:7%}to{left:93%} }
-@keyframes about-logo-glow { 0%,100%{opacity:.78;filter:drop-shadow(0 0 12px rgba(244,180,0,.14))}50%{opacity:1;filter:drop-shadow(0 0 28px rgba(244,180,0,.3))} }
 @keyframes skeleton-shimmer { to{transform:translateX(110%)} }
 @keyframes skeleton-ring { 0%,100%{opacity:.45;transform:scale(.97)}50%{opacity:1;transform:scale(1.02)} }
 @keyframes skeleton-progress { to{transform:translateX(100%)} }
@@ -318,11 +305,6 @@ footer { padding:80px max(6vw,28px) 28px;background:#090909;border-top:1px solid
   .section-heading h2,.roadmap-intro h2,.waitlist-card h2{font-size:clamp(46px,15vw,66px)}
   .product-row,.product-row.reverse{grid-template-columns:1fr;min-height:0}.product-row-copy,.product-row.reverse .product-row-copy{order:1;padding:62px 4px 45px}.product-stage,.product-row.reverse .product-stage{order:2;min-height:380px}.product-row-meta{margin-bottom:35px}.product-word{font-size:130px}.product-row-copy h3{font-size:76px}
   .manifesto{padding:100px 22px;min-height:auto}.manifesto-lead{font-size:clamp(48px,15vw,70px);margin-bottom:0}
-  .about-lead-grid{grid-template-columns:1fr;gap:45px}
-  .about-brand-visual{min-height:300px}
-  .about-brand-visual::before{width:190px;height:190px}
-  .about-brand-logo{width:92px;height:92px}
-  .about-brand-visual>strong{font-size:38px;bottom:47px}
   .about-principles{grid-template-columns:1fr;margin-top:70px}
   .about-principles>div{min-height:0;padding:30px 0}
   .about-principles>div+div{border-left:0;border-top:1px solid rgba(255,255,255,.08);padding-left:0}
