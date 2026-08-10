@@ -13,9 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.fennrise.com"),
   title: "Fennrise — Building the Future",
   description:
     "Fennrise creates intelligent digital products that help people work smarter, build faster, and achieve more.",
+  alternates: {
+    canonical: "/",
+  },
   other: {
     "codex-preview": "development",
   },
