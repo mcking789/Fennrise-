@@ -242,6 +242,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Editorial approach visual */}
           <div className="principle-stack reveal delay-2" aria-label="Fennrise principles">
             <div className="principle-card principle-think">
               <span>01</span>
