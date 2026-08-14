@@ -242,27 +242,27 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="ecosystem-visual reveal delay-2" aria-hidden="true">
-            <div className="ecosystem-aura" />
-            <div className="ecosystem-grid" />
-            <div className="ecosystem-ring ring-outer">
-              <span className="ecosystem-node node-star"><i>✦</i><b>Star</b></span>
+          <div className="principle-stack reveal delay-2" aria-label="Fennrise principles">
+            <div className="principle-card principle-think">
+              <span>01</span>
+              <div><strong>Think.</strong><small>Clarity before complexity.</small></div>
+              <i>↗</i>
             </div>
-            <div className="ecosystem-ring ring-middle">
-              <span className="ecosystem-node node-studio"><i>◆</i><b>Studio</b></span>
+            <div className="principle-card principle-build">
+              <span>02</span>
+              <div><strong>Build.</strong><small>Ideas made useful.</small></div>
+              <i>↗</i>
             </div>
-            <div className="ecosystem-ring ring-inner">
-              <span className="ecosystem-node node-fenn"><i>●</i><b>Fenn</b></span>
+            <div className="principle-card principle-refine">
+              <span>03</span>
+              <div><strong>Refine.</strong><small>Better with every release.</small></div>
+              <i>↗</i>
             </div>
-            <div className="ecosystem-core">
-              <span className="core-sun" />
-              <strong>Fennrise</strong>
-              <small>One ecosystem</small>
+            <div className="principle-signature">
+              <span>Fennrise / Method</span>
+              <b>Purpose in every detail.</b>
             </div>
-            <div className="ecosystem-caption">
-              <span><i /> Live system</span>
-              <b>Three products. One direction.</b>
-            </div>
+          </div>
           </div>
         </div>
       </section>
