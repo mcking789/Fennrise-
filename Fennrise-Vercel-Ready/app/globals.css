@@ -224,6 +224,9 @@ h1 em, h2 em, .manifesto-lead em {
 .node-star { left:8%;top:69%;transform:rotate(13deg); }
 .node-studio { right:-12%;top:15%;transform:rotate(13deg); }
 .node-fenn { left:33%;bottom:-17%;transform:rotate(13deg); }
+.ring-outer .ecosystem-node,.ring-inner .ecosystem-node { animation:ecosystem-counter-orbit 22s linear infinite; }
+.ring-inner .ecosystem-node { animation-duration:12s; }
+.ring-middle .ecosystem-node { animation:ecosystem-counter-orbit-reverse 17s linear infinite; }
 .ecosystem-core { position:absolute;z-index:4;left:50%;top:46%;width:154px;height:154px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(244,180,0,.25);border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 48% 40%,#282111,#12110d 55%,#0c0c0b);box-shadow:0 0 0 10px rgba(244,180,0,.025),0 0 65px rgba(244,180,0,.13),inset 0 1px 0 rgba(255,255,255,.1); }
 .core-sun { position:relative;width:50px;height:27px;margin-bottom:13px;overflow:hidden; }
 .core-sun::before { content:"";position:absolute;width:46px;height:46px;left:2px;top:8px;border:2px solid var(--gold);border-radius:50%;box-shadow:0 0 18px rgba(244,180,0,.45); }
@@ -236,6 +239,8 @@ h1 em, h2 em, .manifesto-lead em {
 .ecosystem-caption b { color:#625f57;font-size:8px;font-weight:400;letter-spacing:.04em; }
 @keyframes ecosystem-orbit { from{transform:translate(-50%,-50%) rotate(-13deg)}to{transform:translate(-50%,-50%) rotate(347deg)} }
 @keyframes ecosystem-orbit-reverse { from{transform:translate(-50%,-50%) rotate(347deg)}to{transform:translate(-50%,-50%) rotate(-13deg)} }
+@keyframes ecosystem-counter-orbit { from{transform:rotate(13deg)}to{transform:rotate(-347deg)} }
+@keyframes ecosystem-counter-orbit-reverse { from{transform:rotate(-347deg)}to{transform:rotate(13deg)} }
 @keyframes ecosystem-breathe { 0%,100%{opacity:.65;transform:scale(.94)}50%{opacity:1;transform:scale(1.05)} }
 
 .roadmap-section { display:grid;grid-template-columns:.85fr 1.15fr;gap:9vw;background:linear-gradient(145deg,#0b0b0b,#0f0e0a); }
