@@ -242,20 +242,27 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="why-line-art reveal delay-2" aria-hidden="true">
-            <svg viewBox="0 0 620 440" role="presentation">
-              <path className="signal-path signal-base" d="M22 342 C116 342 117 101 223 101 C326 101 306 308 407 308 C493 308 489 150 598 150" />
-              <path className="signal-path signal-moving" d="M22 342 C116 342 117 101 223 101 C326 101 306 308 407 308 C493 308 489 150 598 150" />
-              <path className="signal-guide" d="M22 390 H598 M22 52 H598" />
-              <circle className="signal-node" cx="22" cy="342" r="6" />
-              <circle className="signal-node signal-node-gold" cx="223" cy="101" r="8" />
-              <circle className="signal-node" cx="407" cy="308" r="6" />
-              <circle className="signal-node signal-node-gold" cx="598" cy="150" r="8" />
-            </svg>
-            <span className="signal-label signal-think"><i /> Think</span>
-            <span className="signal-label signal-build"><i /> Build</span>
-            <span className="signal-label signal-refine"><i /> Refine</span>
-            <b className="signal-index">01—03</b>
+          <div className="ecosystem-visual reveal delay-2" aria-hidden="true">
+            <div className="ecosystem-aura" />
+            <div className="ecosystem-grid" />
+            <div className="ecosystem-ring ring-outer">
+              <span className="ecosystem-node node-star"><i>✦</i><b>Star</b></span>
+            </div>
+            <div className="ecosystem-ring ring-middle">
+              <span className="ecosystem-node node-studio"><i>◆</i><b>Studio</b></span>
+            </div>
+            <div className="ecosystem-ring ring-inner">
+              <span className="ecosystem-node node-fenn"><i>●</i><b>Fenn</b></span>
+            </div>
+            <div className="ecosystem-core">
+              <span className="core-sun" />
+              <strong>Fennrise</strong>
+              <small>One ecosystem</small>
+            </div>
+            <div className="ecosystem-caption">
+              <span><i /> Live system</span>
+              <b>Three products. One direction.</b>
+            </div>
           </div>
         </div>
       </section>
