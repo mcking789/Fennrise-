@@ -264,7 +264,6 @@ export default function Home() {
               <b>Purpose in every detail.</b>
             </div>
           </div>
-          </div>
         </div>
       </section>
 
