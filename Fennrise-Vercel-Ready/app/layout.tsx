@@ -114,30 +114,6 @@ export default function RootLayout({
             __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c"),
           }}
         />
-        <div className="site-skeleton" aria-hidden="true">
-          <div className="skeleton-nav">
-            <span className="skeleton-logo" />
-            <span className="skeleton-nav-line" />
-            <span className="skeleton-nav-line short" />
-            <span className="skeleton-nav-button" />
-          </div>
-          <div className="skeleton-stage">
-            <div className="skeleton-copy">
-              <span className="skeleton-kicker" />
-              <span className="skeleton-title" />
-              <span className="skeleton-title second" />
-              <span className="skeleton-text" />
-              <span className="skeleton-text short" />
-              <span className="skeleton-action" />
-            </div>
-            <div className="skeleton-visual">
-              <span />
-              <i />
-              <b />
-            </div>
-          </div>
-          <span className="skeleton-progress" />
-        </div>
         {children}
       </body>
     </html>
