@@ -13,9 +13,27 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://fennrise.com";
-const siteTitle = "Fennrise — Digital Products for Work, Focus & Creation";
+const siteTitle = "Fennrise — AI, Productivity & Digital Products";
 const siteDescription =
-  "Explore Fennrise products including Star, Fenn, and Fennrise Studio—built for smarter work, focused productivity, and digital creation.";
+  "Fennrise builds intelligent digital products including Star, Fenn, and Fennrise Studio for AI assistance, productivity, web design, and digital creation.";
+
+const searchKeywords = [
+  "Fennrise",
+  "Fenrise",
+  "Fenn Rise",
+  "Fennrise AI",
+  "Fennrise Star",
+  "Fennrise Studio",
+  "Fenn productivity app",
+  "AI assistant",
+  "productivity app",
+  "digital products",
+  "web design",
+  "web development",
+  "UI UX design",
+  "technology company India",
+  "software company Pune",
+];
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -25,7 +43,7 @@ const organizationJsonLd = {
   url: `${siteUrl}/`,
   logo: `${siteUrl}/fennrise-logo.png`,
   description:
-    "Fennrise builds digital products for productivity, intelligent assistance, and web design.",
+    "Fennrise builds digital products for artificial intelligence, productivity, intelligent assistance, web design, and digital creation.",
   email: "hello@fennrise.com",
   address: {
     "@type": "PostalAddress",
@@ -33,6 +51,19 @@ const organizationJsonLd = {
     addressRegion: "Maharashtra",
     addressCountry: "IN",
   },
+  brand: {
+    "@type": "Brand",
+    name: "Fennrise",
+    logo: `${siteUrl}/fennrise-logo.png`,
+  },
+  knowsAbout: [
+    "Artificial intelligence",
+    "Productivity software",
+    "Digital products",
+    "Web design",
+    "Web development",
+    "UI/UX design",
+  ],
 };
 
 const websiteJsonLd = {
@@ -52,6 +83,11 @@ export const metadata: Metadata = {
   applicationName: "Fennrise",
   title: siteTitle,
   description: siteDescription,
+  keywords: searchKeywords,
+  authors: [{ name: "Fennrise", url: siteUrl }],
+  creator: "Fennrise",
+  publisher: "Fennrise",
+  category: "technology",
   alternates: {
     canonical: "/",
   },
