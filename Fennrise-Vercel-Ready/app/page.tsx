@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ForgeDashboard from "./components/ForgeDashboard";
-import VoiceVisual from "./components/VoiceVisual";
+import RelayVisual from "./components/VoiceVisual";
 
 const products = [
   {
@@ -47,12 +47,12 @@ const products = [
   },
   {
     number: "05",
-    name: "Voice",
-    line: "Answer. Assist. Connect.",
+    name: "Relay",
+    line: "Answer. Understand. Connect.",
     description:
       "An AI calling assistant in development for businesses—built to answer calls, understand customer requests, handle common questions, capture leads, create call summaries, and route conversations when needed.",
-    features: ["AI calls", "Lead capture", "Call summaries", "FAQs", "Call routing", "Follow-ups"],
-    visual: "voice",
+    features: ["AI calls", "Lead capture", "Call summaries", "FAQs", "Smart routing", "Follow-ups"],
+    visual: "relay",
     status: "In development",
   },
 ];
@@ -60,7 +60,7 @@ const products = [
 const roadmap = [
   { date: "Launched", title: "Fennrise Studio", text: "Premium web design and digital experience development.", active: true },
   { date: "Launched", title: "Fennrise Forge", text: "Custom software, business tools, dashboards, portals, and automation.", active: true },
-  { date: "In development", title: "Fennrise Voice", text: "An AI calling assistant for business calls, lead capture, summaries, and customer support.", active: false },
+  { date: "In development", title: "Fennrise Relay", text: "An AI calling assistant for business calls, lead capture, summaries, and intelligent routing.", active: false },
   { date: "In development", title: "Star", text: "An intelligent assistant for conversations and creation.", active: false },
   { date: "Next", title: "Fenn — Main App", text: "The complete focused productivity experience.", active: false },
   { date: "Beyond", title: "One Ecosystem", text: "More products. One seamless experience.", active: false },
@@ -217,7 +217,7 @@ export default function Home() {
                     </div>
                   )}
                   {product.visual === "forge" && <ForgeDashboard />}
-                  {product.visual === "voice" && <VoiceVisual />}
+                  {product.visual === "relay" && <RelayVisual />}
                 </div>
               </div>
             </article>
@@ -323,7 +323,7 @@ export default function Home() {
           <div className="eyebrow centered"><span /> Fennrise early access</div>
           <h2>Ready for what&apos;s<br /><em>coming next?</em></h2>
           <p>
-            Early access and development updates for Star, Voice, and the Fenn main app
+            Early access and development updates for Star, Relay, and the Fenn main app
             will open through the official Fennrise waitlist.
           </p>
           <a
@@ -347,7 +347,7 @@ export default function Home() {
           </div>
           <div className="footer-links">
             <div><span>Explore</span><a href="#products">Products</a><a href="#about">About</a><a href="#roadmap">Roadmap</a></div>
-            <div><span>Products</span><a href="#products">Star</a><a href="#products">Studio</a><a href="#products">Fenn</a><a href="#products">Forge</a><a href="#products">Voice</a></div>
+            <div><span>Products</span><a href="#products">Star</a><a href="#products">Studio</a><a href="#products">Fenn</a><a href="#products">Forge</a><a href="#products">Relay</a></div>
             <div><span>Connect</span><a href="#waitlist">Instagram ↗</a><a href="#waitlist">LinkedIn ↗</a><a href="mailto:hello@fennrise.com">Email ↗</a></div>
           </div>
         </div>
