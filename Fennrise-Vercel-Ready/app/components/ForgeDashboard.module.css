@@ -1,0 +1,413 @@
+.shell {
+  width: min(92%, 650px);
+  aspect-ratio: 1.48;
+  display: grid;
+  grid-template-columns: 22% 1fr;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 70% 0%, rgba(244,180,0,.11), transparent 34%),
+    linear-gradient(145deg, rgba(18,18,16,.98), rgba(8,8,8,.98));
+  box-shadow:
+    0 36px 75px rgba(0,0,0,.55),
+    0 0 70px rgba(244,180,0,.055),
+    inset 0 1px 0 rgba(255,255,255,.035);
+  transform: perspective(1050px) rotateX(2deg) rotateY(-4deg);
+  transition: transform .55s cubic-bezier(.2,.8,.2,1), border-color .4s ease, box-shadow .4s ease;
+  color: #eee9dc;
+}
+
+.shell:hover {
+  transform: perspective(1050px) rotateX(0) rotateY(0) translateY(-5px) scale(1.012);
+  border-color: rgba(244,180,0,.24);
+  box-shadow: 0 42px 90px rgba(0,0,0,.62), 0 0 90px rgba(244,180,0,.09);
+}
+
+.sidebar {
+  min-width: 0;
+  padding: 18px 13px 14px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(255,255,255,.07);
+  background: linear-gradient(180deg, rgba(4,4,4,.98), rgba(10,9,6,.96));
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f4efe3;
+  font-size: 10px;
+  font-weight: 640;
+  letter-spacing: -.02em;
+}
+
+.mark {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(244,180,0,.35);
+  border-radius: 7px;
+  background: rgba(244,180,0,.09);
+  color: #f4b400;
+  font-size: 10px;
+  box-shadow: inset 0 0 18px rgba(244,180,0,.06);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 27px;
+}
+
+.navItem {
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 9px;
+  border-radius: 8px;
+  color: #69675f;
+  font-size: 7px;
+  white-space: nowrap;
+}
+
+.navItem i {
+  width: 7px;
+  height: 7px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  opacity: .8;
+}
+
+.navActive {
+  color: #e9dbaf;
+  border: 1px solid rgba(244,180,0,.12);
+  background: linear-gradient(90deg, rgba(244,180,0,.14), rgba(244,180,0,.035));
+}
+
+.navActive i {
+  background: #f4b400;
+  border-color: #f4b400;
+  box-shadow: 0 0 9px rgba(244,180,0,.45);
+}
+
+.sideFooter {
+  margin-top: auto;
+  padding: 11px 9px;
+  border-top: 1px solid rgba(255,255,255,.055);
+}
+
+.sideFooter > span {
+  display: block;
+  margin-bottom: 7px;
+  color: #4e4c46;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 5.5px;
+}
+
+.sideFooter b {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #88847a;
+  font-size: 6px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.sideFooter b i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f4b400;
+  box-shadow: 0 0 8px rgba(244,180,0,.6);
+}
+
+.workspace {
+  min-width: 0;
+  padding: 18px 18px 16px;
+  background:
+    linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px),
+    radial-gradient(circle at 70% 10%, rgba(244,180,0,.045), transparent 35%);
+  background-size: 28px 28px, 28px 28px, auto;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.kicker {
+  display: block;
+  color: #6d695f;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: 5px;
+  margin-bottom: 3px;
+}
+
+.topbar h5 {
+  margin: 0;
+  color: #f1ecdf;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -.05em;
+  font-weight: 520;
+}
+
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.search {
+  padding: 6px 9px;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 999px;
+  background: rgba(255,255,255,.025);
+  color: #6e6b64;
+  font-size: 5.5px;
+  white-space: nowrap;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(244,180,0,.18);
+  border-radius: 50%;
+  background: rgba(244,180,0,.08);
+  color: #d9c47b;
+  font-size: 6px;
+  font-weight: 650;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.metric {
+  min-width: 0;
+  padding: 11px 11px 9px;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 10px;
+  background: linear-gradient(150deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
+}
+
+.metricPrimary {
+  border-color: rgba(244,180,0,.2);
+  background: linear-gradient(140deg, rgba(244,180,0,.11), rgba(244,180,0,.025));
+}
+
+.metric > span {
+  display: block;
+  overflow: hidden;
+  color: #747169;
+  font-size: 5.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.metric strong {
+  display: block;
+  margin-top: 5px;
+  color: #f0eadc;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: -.04em;
+  font-weight: 560;
+}
+
+.metricPrimary strong {
+  color: #f4c13c;
+  text-shadow: 0 0 20px rgba(244,180,0,.14);
+}
+
+.metric small {
+  display: block;
+  margin-top: 6px;
+  color: #5f5c55;
+  font-size: 5px;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1.65fr .9fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.chartCard,
+.systemCard {
+  min-width: 0;
+  min-height: 142px;
+  padding: 11px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 11px;
+  background: rgba(7,7,7,.72);
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.cardHead > div > span {
+  display: block;
+  color: #77736a;
+  font-size: 6px;
+}
+
+.cardHead strong {
+  display: block;
+  margin-top: 3px;
+  color: #d9c36d;
+  font-size: 9px;
+  font-weight: 560;
+}
+
+.cardHead > small {
+  padding: 4px 6px;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 999px;
+  color: #66635c;
+  font-size: 5px;
+}
+
+.chart {
+  position: relative;
+  height: 72px;
+  margin-top: 7px;
+  overflow: hidden;
+}
+
+.chart svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 0 7px rgba(244,180,0,.12));
+}
+
+.gridLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,.045);
+}
+
+.gridOne { top: 24%; }
+.gridTwo { top: 50%; }
+.gridThree { top: 76%; }
+
+.chartDot {
+  position: absolute;
+  right: 18%;
+  top: 26%;
+  width: 6px;
+  height: 6px;
+  border: 2px solid #17130a;
+  border-radius: 50%;
+  background: #f4b400;
+  box-shadow: 0 0 9px rgba(244,180,0,.7);
+}
+
+.chartLabels {
+  display: flex;
+  justify-content: space-between;
+  color: #484641;
+  font-size: 4.5px;
+}
+
+.systemList {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.systemList > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(255,255,255,.045);
+}
+
+.systemList > div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.systemList span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  color: #7a766d;
+  font-size: 5.5px;
+  white-space: nowrap;
+}
+
+.systemList span i {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #f4b400;
+  box-shadow: 0 0 7px rgba(244,180,0,.45);
+}
+
+.systemList b {
+  color: #bba862;
+  font-size: 5px;
+  font-weight: 520;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    width: 92%;
+    grid-template-columns: 19% 1fr;
+    border-radius: 14px;
+  }
+
+  .sidebar { padding: 13px 7px 10px; }
+  .brand { gap: 5px; font-size: 7px; }
+  .mark { width: 18px; height: 18px; border-radius: 5px; font-size: 7px; }
+  .nav { margin-top: 19px; }
+  .navItem { min-height: 23px; padding: 0 5px; gap: 5px; font-size: 5px; }
+  .sideFooter { padding: 7px 3px; }
+  .sideFooter b { font-size: 4px; }
+  .workspace { padding: 12px 11px 10px; }
+  .topbar h5 { font-size: 13px; }
+  .search { display: none; }
+  .avatar { width: 19px; height: 19px; font-size: 5px; }
+  .metrics { gap: 5px; margin-top: 11px; }
+  .metric { padding: 7px; border-radius: 7px; }
+  .metric strong { font-size: 11px; }
+  .metric small, .metric > span { font-size: 4px; }
+  .mainGrid { gap: 5px; margin-top: 5px; }
+  .chartCard, .systemCard { min-height: 102px; padding: 7px; border-radius: 7px; }
+  .chart { height: 48px; }
+  .systemList { gap: 4px; margin-top: 7px; }
+  .systemList > div { padding-bottom: 4px; }
+}
