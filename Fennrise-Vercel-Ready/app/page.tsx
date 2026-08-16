@@ -169,7 +169,7 @@ export default function Home() {
           <span /> Products & services
         </div>
 
-        <div className="product-showcase">
+        <div className="product-showcase" style={{ borderTop: "none" }}>
           {products.map((product, index) => (
             <article className={`product-row reveal ${index % 2 === 1 ? "reverse" : ""}`} key={product.name}>
               <div className="product-row-copy">
