@@ -18,8 +18,8 @@ const products = [
     name: "Studio",
     line: "Design. Build. Launch.",
     description:
-      "Websites, custom software, and digital experiences built with sharp strategy, thoughtful design, and production-ready technology.",
-    features: ["Software development", "Web design", "UI/UX", "Web apps", "Landing pages"],
+      "Premium websites and digital experiences built with sharp strategy, thoughtful design, and production-ready technology.",
+    features: ["Web design", "UI/UX", "Branding", "Web apps", "Landing pages"],
     visual: "studio",
     status: "Launched",
   },
@@ -33,10 +33,21 @@ const products = [
     visual: "fenn",
     status: "In development",
   },
+  {
+    number: "04",
+    name: "Forge",
+    line: "Build. Automate. Scale.",
+    description:
+      "Custom software built around the way your business actually works—from internal tools and dashboards to portals, automation, and full web applications.",
+    features: ["Custom software", "Business tools", "Dashboards", "Automation", "Portals", "Web apps"],
+    visual: "studio",
+    status: "Launched",
+  },
 ];
 
 const roadmap = [
-  { date: "Launched", title: "Fennrise Studio", text: "Premium websites, custom software, and digital product development.", active: true },
+  { date: "Launched", title: "Fennrise Studio", text: "Premium web design and digital experience development.", active: true },
+  { date: "Launched", title: "Fennrise Forge", text: "Custom software, business tools, dashboards, portals, and automation.", active: true },
   { date: "In development", title: "Star", text: "An intelligent assistant for conversations and creation.", active: false },
   { date: "Next", title: "Fenn — Main App", text: "The complete focused productivity experience.", active: false },
   { date: "Beyond", title: "One Ecosystem", text: "More products. One seamless experience.", active: false },
@@ -109,8 +120,8 @@ export default function Home() {
           <div className="eyebrow hero-eyebrow"><span /> Independent technology company</div>
           <h1>Building<br />the <em>Future.</em></h1>
           <p>
-            Creating intelligent digital products, software, and experiences that help
-            people work smarter, build faster, and achieve more.
+            Creating intelligent digital products, websites, and custom software that help
+            people and businesses work smarter, build faster, and achieve more.
           </p>
           <div className="hero-actions">
             <a className="button button-gold" href="#products">
@@ -134,12 +145,12 @@ export default function Home() {
       <section className="section products-section" id="products">
         <div className="section-heading reveal">
           <div>
-            <div className="eyebrow"><span /> Our products</div>
-            <h2>Ideas, turned into<br /><em>useful products.</em></h2>
+            <div className="eyebrow"><span /> Products & services</div>
+            <h2>Ideas, turned into<br /><em>useful technology.</em></h2>
           </div>
           <p>
-            One ecosystem of carefully designed products, software, and tools created
-            to help people do meaningful work with less friction.
+            From intelligent products to premium websites and custom business software,
+            Fennrise turns ideas into useful, production-ready technology.
           </p>
         </div>
 
@@ -148,7 +159,7 @@ export default function Home() {
             <article className={`product-row reveal ${index % 2 === 1 ? "reverse" : ""}`} key={product.name}>
               <div className="product-row-copy">
                 <div className="product-row-meta">
-                  <span>{product.number} / 03</span>
+                  <span>{product.number} / 04</span>
                   <span className={product.status === "Launched" ? "status launched" : "status"}>
                     <i /> {product.status}
                   </span>
@@ -322,7 +333,7 @@ export default function Home() {
           </div>
           <div className="footer-links">
             <div><span>Explore</span><a href="#products">Products</a><a href="#about">About</a><a href="#roadmap">Roadmap</a></div>
-            <div><span>Products</span><a href="#products">Star</a><a href="#products">Studio</a><a href="#products">Fenn</a></div>
+            <div><span>Products</span><a href="#products">Star</a><a href="#products">Studio</a><a href="#products">Fenn</a><a href="#products">Forge</a></div>
             <div><span>Connect</span><a href="#waitlist">Instagram ↗</a><a href="#waitlist">LinkedIn ↗</a><a href="mailto:hello@fennrise.com">Email ↗</a></div>
           </div>
         </div>
