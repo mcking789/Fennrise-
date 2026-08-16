@@ -16,12 +16,12 @@
   display: grid;
   place-items: center;
   opacity: 0;
-  filter: blur(16px) brightness(.28);
-  transform: scale(.985);
+  filter: blur(10px) brightness(.38);
+  transform: scale(.99);
   transition:
-    opacity 2.35s cubic-bezier(.22,.61,.36,1),
-    filter 2.6s cubic-bezier(.22,.61,.36,1),
-    transform 2.6s cubic-bezier(.22,.61,.36,1);
+    opacity .9s cubic-bezier(.22,.61,.36,1),
+    filter 1.15s cubic-bezier(.22,.61,.36,1),
+    transform 1.15s cubic-bezier(.22,.61,.36,1);
   will-change: opacity, filter, transform;
 }
 
