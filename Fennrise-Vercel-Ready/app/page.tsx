@@ -156,15 +156,8 @@ export default function Home() {
       </section>
 
       <section className="section products-section" id="products">
-        <div className="section-heading reveal">
-          <div>
-            <div className="eyebrow"><span /> Products & services</div>
-            <h2>Ideas, turned into<br /><em>useful technology.</em></h2>
-          </div>
-          <p>
-            From intelligent products and voice AI to premium websites and custom business software,
-            Fennrise turns ideas into useful, production-ready technology.
-          </p>
+        <div className="eyebrow reveal" style={{ maxWidth: 1320, margin: "0 auto 28px" }}>
+          <span /> Products & services
         </div>
 
         <div className="product-showcase">
