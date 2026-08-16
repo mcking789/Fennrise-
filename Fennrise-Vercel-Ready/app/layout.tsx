@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://fennrise.com";
 const siteTitle = "Fennrise — AI, Voice, Software & Digital Products";
 const siteDescription =
-  "Fennrise builds intelligent digital products, voice AI, premium websites, and custom software through Star, Voice, Fenn, Studio, and Forge.";
+  "Fennrise builds intelligent digital products, voice AI, premium websites, and custom software through Star, Relay, Fenn, Studio, and Forge.";
 
 const searchKeywords = [
   "Fennrise",
@@ -23,7 +23,7 @@ const searchKeywords = [
   "Fenn Rise",
   "Fennrise AI",
   "Fennrise Star",
-  "Fennrise Voice",
+  "Fennrise Relay",
   "Fennrise calling bot",
   "AI calling assistant",
   "AI receptionist",
