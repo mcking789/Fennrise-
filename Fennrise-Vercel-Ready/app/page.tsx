@@ -155,18 +155,41 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section products-section" id="products">
-        <div
-          className="eyebrow reveal"
-          style={{
-            maxWidth: 1320,
-            margin: "0 auto 32px",
-            fontSize: 16,
-            letterSpacing: ".18em",
-            fontWeight: 650,
-          }}
-        >
-          <span /> Products & services
+      <section className="section products-section" id="products" style={{ paddingTop: 96 }}>
+        <div style={{ maxWidth: 1320, margin: "0 auto 18px" }}>
+          <div
+            className="eyebrow reveal"
+            style={{
+              fontSize: 16,
+              letterSpacing: ".18em",
+              fontWeight: 650,
+            }}
+          >
+            <span /> Products & services
+          </div>
+
+          <div
+            className="reveal"
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "12px 30px",
+              marginTop: 32,
+              marginBottom: 12,
+              color: "#6e6d67",
+              fontSize: 10,
+              letterSpacing: ".13em",
+              textTransform: "uppercase",
+            }}
+            aria-label="Fennrise product index"
+          >
+            {products.map((product) => (
+              <span key={product.name} style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+                <b style={{ color: "#b69222", fontWeight: 560 }}>{product.number}</b>
+                {product.name}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="product-showcase" style={{ borderTop: "none" }}>
