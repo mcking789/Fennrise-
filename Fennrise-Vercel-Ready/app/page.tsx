@@ -40,7 +40,7 @@ const products = [
     description:
       "Custom software built around the way your business actually works—from internal tools and dashboards to portals, automation, and full web applications.",
     features: ["Custom software", "Business tools", "Dashboards", "Automation", "Portals", "Web apps"],
-    visual: "studio",
+    visual: "forge",
     status: "Launched",
   },
 ];
@@ -159,7 +159,7 @@ export default function Home() {
             <article className={`product-row reveal ${index % 2 === 1 ? "reverse" : ""}`} key={product.name}>
               <div className="product-row-copy">
                 <div className="product-row-meta">
-                  <span>{product.number} / 04</span>
+                  <span>{product.number} / {String(products.length).padStart(2, "0")}</span>
                   <span className={product.status === "Launched" ? "status launched" : "status"}>
                     <i /> {product.status}
                   </span>
@@ -200,6 +200,19 @@ export default function Home() {
                       <div className="studio-window front">
                         <span /><div className="studio-copy"><b /><i /><i /></div>
                         <div className="studio-block" />
+                      </div>
+                    </div>
+                  )}
+                  {product.visual === "forge" && (
+                    <div className="fenn-window">
+                      <div className="window-bar"><i /><i /><i /><span>Operations</span></div>
+                      <div className="window-body">
+                        <div className="mini-greeting">Software control center.</div>
+                        <div className="progress-row"><span>Automation health</span><b>86%</b></div>
+                        <div className="progress"><i style={{ width: "86%" }} /></div>
+                        <div className="task"><i>✓</i><span>Client portal online</span></div>
+                        <div className="task"><i>✓</i><span>3 workflows automated</span></div>
+                        <div className="task"><i>✓</i><span>Admin dashboard active</span></div>
                       </div>
                     </div>
                   )}
@@ -253,7 +266,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Editorial approach visual */}
           <div className="principle-stack reveal delay-2" aria-label="Fennrise principles">
             <div className="principle-card principle-think">
               <span>01</span>
