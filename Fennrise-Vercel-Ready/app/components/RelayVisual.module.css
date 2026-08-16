@@ -33,30 +33,39 @@
   display: block;
   background: transparent !important;
   transform-origin: center;
-  animation: relayAuroraFadeIn 2.2s cubic-bezier(.16, 1, .3, 1) both;
+  will-change: opacity, filter, transform;
+  animation: relayAuroraFadeIn 3.8s cubic-bezier(.22, .61, .36, 1) both;
 }
 
 @keyframes relayAuroraFadeIn {
   0% {
     opacity: 0;
-    filter: blur(12px) brightness(.45);
-    transform: scale(.965);
+    filter: blur(16px) brightness(.18);
+    transform: scale(.985);
   }
-  28% {
-    opacity: .18;
-    filter: blur(8px) brightness(.58);
+  18% {
+    opacity: .035;
+    filter: blur(14px) brightness(.28);
+  }
+  38% {
+    opacity: .12;
+    filter: blur(10px) brightness(.42);
   }
   58% {
-    opacity: .55;
-    filter: blur(4px) brightness(.76);
+    opacity: .30;
+    filter: blur(7px) brightness(.58);
   }
-  82% {
-    opacity: .84;
-    filter: blur(1.5px) brightness(.92);
+  74% {
+    opacity: .52;
+    filter: blur(4px) brightness(.72);
+  }
+  88% {
+    opacity: .74;
+    filter: blur(2px) brightness(.84);
   }
   100% {
-    opacity: 1;
-    filter: blur(0) brightness(1);
+    opacity: .92;
+    filter: blur(0) brightness(.92);
     transform: scale(1);
   }
 }
@@ -76,8 +85,8 @@
 @media (prefers-reduced-motion: reduce) {
   .auroraFrame :global(canvas) {
     animation: none;
-    opacity: 1;
-    filter: none;
+    opacity: .92;
+    filter: brightness(.92);
     transform: none;
   }
 }
