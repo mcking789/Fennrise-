@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ForgeDashboard from "./components/ForgeDashboard";
 
 const products = [
   {
@@ -203,19 +204,7 @@ export default function Home() {
                       </div>
                     </div>
                   )}
-                  {product.visual === "forge" && (
-                    <div className="fenn-window">
-                      <div className="window-bar"><i /><i /><i /><span>Operations</span></div>
-                      <div className="window-body">
-                        <div className="mini-greeting">Software control center.</div>
-                        <div className="progress-row"><span>Automation health</span><b>86%</b></div>
-                        <div className="progress"><i style={{ width: "86%" }} /></div>
-                        <div className="task"><i>✓</i><span>Client portal online</span></div>
-                        <div className="task"><i>✓</i><span>3 workflows automated</span></div>
-                        <div className="task"><i>✓</i><span>Admin dashboard active</span></div>
-                      </div>
-                    </div>
-                  )}
+                  {product.visual === "forge" && <ForgeDashboard />}
                 </div>
               </div>
             </article>
