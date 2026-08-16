@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://fennrise.com";
-const siteTitle = "Fennrise — AI, Software & Digital Products";
+const siteTitle = "Fennrise — AI, Voice, Software & Digital Products";
 const siteDescription =
-  "Fennrise builds intelligent digital products, premium websites, and custom software through Star, Fenn, Studio, and Forge.";
+  "Fennrise builds intelligent digital products, voice AI, premium websites, and custom software through Star, Voice, Fenn, Studio, and Forge.";
 
 const searchKeywords = [
   "Fennrise",
@@ -23,6 +23,12 @@ const searchKeywords = [
   "Fenn Rise",
   "Fennrise AI",
   "Fennrise Star",
+  "Fennrise Voice",
+  "Fennrise calling bot",
+  "AI calling assistant",
+  "AI receptionist",
+  "voice AI for business",
+  "business calling bot",
   "Fennrise Studio",
   "Fennrise Forge",
   "Fenn productivity app",
@@ -50,7 +56,7 @@ const organizationJsonLd = {
   url: `${siteUrl}/`,
   logo: `${siteUrl}/fennrise-logo.png`,
   description:
-    "Fennrise builds intelligent digital products, custom software, premium websites, web apps, and productivity technology.",
+    "Fennrise builds intelligent digital products, voice AI, custom software, premium websites, web apps, and productivity technology.",
   email: "hello@fennrise.com",
   address: {
     "@type": "PostalAddress",
@@ -65,6 +71,9 @@ const organizationJsonLd = {
   },
   knowsAbout: [
     "Artificial intelligence",
+    "Voice AI",
+    "AI calling assistants",
+    "AI receptionists",
     "Software development",
     "Custom software",
     "Business automation",
