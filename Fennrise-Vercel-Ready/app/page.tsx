@@ -156,7 +156,16 @@ export default function Home() {
       </section>
 
       <section className="section products-section" id="products">
-        <div className="eyebrow reveal" style={{ maxWidth: 1320, margin: "0 auto 28px" }}>
+        <div
+          className="eyebrow reveal"
+          style={{
+            maxWidth: 1320,
+            margin: "0 auto 32px",
+            fontSize: 16,
+            letterSpacing: ".18em",
+            fontWeight: 650,
+          }}
+        >
           <span /> Products & services
         </div>
 
