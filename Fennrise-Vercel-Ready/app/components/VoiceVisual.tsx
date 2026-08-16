@@ -82,11 +82,11 @@ float perlin3D(float amplitude, float frequency, float px, float py, float pz) {
 
 float layeredNoise(vec2 p, float t) {
   float n = 0.0;
-  float amp = 1.0;
-  float freq = 1.8;
+  float amp = 0.72;
+  float freq = 1.9;
   for (int i = 0; i < 3; i++) {
     n += perlin3D(amp, freq, p.x, p.y, t);
-    amp *= 0.28;
+    amp *= 0.24;
     freq *= 2.0;
   }
   return n;
@@ -94,40 +94,40 @@ float layeredNoise(vec2 p, float t) {
 
 float auroraBand(vec2 uv, float time, float offset, float width, float phase) {
   float aspect = uResolution.x / max(uResolution.y, 1.0);
-  vec2 noiseUv = vec2(uv.x * aspect * 1.15, uv.y * 1.25);
+  vec2 noiseUv = vec2(uv.x * aspect * 1.12, uv.y * 1.15);
   float noise = layeredNoise(noiseUv + vec2(offset, 0.0), time + phase);
 
-  float baseWave = sin(uv.x * 5.2 + time * 0.8 + phase) * 0.055;
-  float detailWave = sin(uv.x * 10.4 - time * 0.45 + phase * 1.7) * 0.022;
-  float mouseBend = (uMouse.y - 0.5) * 0.055;
-  float center = 0.5 + baseWave + detailWave + noise * 0.11 + mouseBend;
+  float baseWave = sin(uv.x * 5.4 + time * 0.78 + phase) * 0.032;
+  float detailWave = sin(uv.x * 11.2 - time * 0.42 + phase * 1.65) * 0.012;
+  float mouseBend = (uMouse.y - 0.5) * 0.025;
+  float center = 0.5 + baseWave + detailWave + noise * 0.06 + mouseBend;
 
   float distanceToBand = abs(uv.y - center);
-  return exp(-pow(distanceToBand / width, 2.0));
+  return exp(-pow(distanceToBand / width, 2.15));
 }
 
 void main() {
   vec2 uv = gl_FragCoord.xy / uResolution.xy;
-  float t = uTime * 0.34;
+  float t = uTime * 0.3;
 
-  float band1 = auroraBand(uv, t, 0.0, 0.075, 0.0);
-  float band2 = auroraBand(uv, t * 0.92, 1.7, 0.105, 1.8);
-  float band3 = auroraBand(uv, t * 0.78, 3.3, 0.145, 3.4);
+  float band1 = auroraBand(uv, t, 0.0, 0.032, 0.0);
+  float band2 = auroraBand(uv, t * 0.92, 1.7, 0.048, 1.8);
+  float band3 = auroraBand(uv, t * 0.78, 3.3, 0.068, 3.4);
 
   vec3 gold = vec3(0.957, 0.706, 0.0);
   vec3 warm = vec3(1.0, 0.86, 0.32);
   vec3 pale = vec3(1.0, 0.94, 0.68);
 
   vec3 color = vec3(0.0);
-  color += gold * band3 * 0.28;
-  color += warm * band2 * 0.52;
-  color += pale * band1 * 0.82;
+  color += gold * band3 * 0.18;
+  color += warm * band2 * 0.36;
+  color += pale * band1 * 0.68;
 
-  float horizontalFade = smoothstep(0.0, 0.11, uv.x) * smoothstep(0.0, 0.11, 1.0 - uv.x);
-  float verticalFade = smoothstep(0.02, 0.18, uv.y) * smoothstep(0.02, 0.18, 1.0 - uv.y);
+  float horizontalFade = smoothstep(0.0, 0.12, uv.x) * smoothstep(0.0, 0.12, 1.0 - uv.x);
+  float verticalFade = smoothstep(0.08, 0.24, uv.y) * smoothstep(0.08, 0.24, 1.0 - uv.y);
   color *= horizontalFade * verticalFade;
 
-  float alpha = clamp(length(color) * 0.88, 0.0, 0.92);
+  float alpha = clamp(length(color) * 0.78, 0.0, 0.82);
   gl_FragColor = vec4(color, alpha);
 }
 `;
