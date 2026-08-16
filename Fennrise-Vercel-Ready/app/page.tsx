@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ForgeDashboard from "./components/ForgeDashboard";
+import VoiceVisual from "./components/VoiceVisual";
 
 const products = [
   {
@@ -44,11 +45,22 @@ const products = [
     visual: "forge",
     status: "Launched",
   },
+  {
+    number: "05",
+    name: "Voice",
+    line: "Answer. Assist. Connect.",
+    description:
+      "An AI calling assistant in development for businesses—built to answer calls, understand customer requests, handle common questions, capture leads, create call summaries, and route conversations when needed.",
+    features: ["AI calls", "Lead capture", "Call summaries", "FAQs", "Call routing", "Follow-ups"],
+    visual: "voice",
+    status: "In development",
+  },
 ];
 
 const roadmap = [
   { date: "Launched", title: "Fennrise Studio", text: "Premium web design and digital experience development.", active: true },
   { date: "Launched", title: "Fennrise Forge", text: "Custom software, business tools, dashboards, portals, and automation.", active: true },
+  { date: "In development", title: "Fennrise Voice", text: "An AI calling assistant for business calls, lead capture, summaries, and customer support.", active: false },
   { date: "In development", title: "Star", text: "An intelligent assistant for conversations and creation.", active: false },
   { date: "Next", title: "Fenn — Main App", text: "The complete focused productivity experience.", active: false },
   { date: "Beyond", title: "One Ecosystem", text: "More products. One seamless experience.", active: false },
@@ -121,7 +133,7 @@ export default function Home() {
           <div className="eyebrow hero-eyebrow"><span /> Independent technology company</div>
           <h1>Building<br />the <em>Future.</em></h1>
           <p>
-            Creating intelligent digital products, websites, and custom software that help
+            Creating intelligent digital products, websites, custom software, and voice AI that help
             people and businesses work smarter, build faster, and achieve more.
           </p>
           <div className="hero-actions">
@@ -138,7 +150,7 @@ export default function Home() {
         </div>
 
         <div className="hero-bottom">
-          <span>Technology · Software · Design · Intelligence</span>
+          <span>Technology · Software · Voice AI · Design · Intelligence</span>
           <a href="#products" aria-label="Scroll to products"><i>↓</i> Scroll to explore</a>
         </div>
       </section>
@@ -150,7 +162,7 @@ export default function Home() {
             <h2>Ideas, turned into<br /><em>useful technology.</em></h2>
           </div>
           <p>
-            From intelligent products to premium websites and custom business software,
+            From intelligent products and voice AI to premium websites and custom business software,
             Fennrise turns ideas into useful, production-ready technology.
           </p>
         </div>
@@ -205,6 +217,7 @@ export default function Home() {
                     </div>
                   )}
                   {product.visual === "forge" && <ForgeDashboard />}
+                  {product.visual === "voice" && <VoiceVisual />}
                 </div>
               </div>
             </article>
@@ -236,7 +249,7 @@ export default function Home() {
             <div>
               <span>03</span>
               <h3>Keep improving.</h3>
-              <p>We build software, products, and digital experiences, then listen, refine, and improve them.</p>
+              <p>We build software, products, voice experiences, and digital systems, then listen, refine, and improve them.</p>
             </div>
           </div>
         </div>
@@ -284,8 +297,8 @@ export default function Home() {
           <div className="eyebrow"><span /> The roadmap</div>
           <h2>What we&apos;re<br /><em>building next.</em></h2>
           <p>
-            Fennrise is starting with focus—and expanding into a connected ecosystem
-            of products, software, and services for work, creation, and growth.
+            Fennrise is expanding into a connected ecosystem of products, software,
+            voice AI, and services for work, communication, creation, and growth.
           </p>
         </div>
         <div className="timeline reveal">
@@ -310,8 +323,8 @@ export default function Home() {
           <div className="eyebrow centered"><span /> Fennrise early access</div>
           <h2>Ready for what&apos;s<br /><em>coming next?</em></h2>
           <p>
-            Early access to Star and the Fenn main app will open through the
-            official Fennrise waitlist.
+            Early access and development updates for Star, Voice, and the Fenn main app
+            will open through the official Fennrise waitlist.
           </p>
           <a
             className="button button-gold"
@@ -334,7 +347,7 @@ export default function Home() {
           </div>
           <div className="footer-links">
             <div><span>Explore</span><a href="#products">Products</a><a href="#about">About</a><a href="#roadmap">Roadmap</a></div>
-            <div><span>Products</span><a href="#products">Star</a><a href="#products">Studio</a><a href="#products">Fenn</a><a href="#products">Forge</a></div>
+            <div><span>Products</span><a href="#products">Star</a><a href="#products">Studio</a><a href="#products">Fenn</a><a href="#products">Forge</a><a href="#products">Voice</a></div>
             <div><span>Connect</span><a href="#waitlist">Instagram ↗</a><a href="#waitlist">LinkedIn ↗</a><a href="mailto:hello@fennrise.com">Email ↗</a></div>
           </div>
         </div>
