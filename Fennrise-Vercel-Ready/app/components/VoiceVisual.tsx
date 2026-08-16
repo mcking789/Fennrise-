@@ -4,7 +4,8 @@ export default function RelayVisual() {
   return (
     <div
       style={{
-        width: "88%",
+        width: "76%",
+        maxWidth: 520,
         border: "1px solid rgba(255,255,255,.11)",
         borderRadius: 20,
         background: "linear-gradient(145deg, rgba(18,18,16,.98), rgba(8,8,8,.96))",
