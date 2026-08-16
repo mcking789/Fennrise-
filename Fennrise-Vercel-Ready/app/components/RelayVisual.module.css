@@ -1,7 +1,7 @@
 .shell {
   position: relative;
-  width: min(92%, 650px);
-  height: 240px;
+  width: min(90%, 620px);
+  height: 230px;
   display: grid;
   place-items: center;
   isolation: isolate;
@@ -21,33 +21,10 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 118%;
-  height: 118%;
+  width: 110%;
+  height: 112%;
   transform: translate(-50%, -50%);
   overflow: visible;
-
-  -webkit-mask-image: radial-gradient(
-    ellipse 82% 68% at 50% 50%,
-    #000 0%,
-    #000 38%,
-    rgba(0,0,0,.94) 49%,
-    rgba(0,0,0,.76) 60%,
-    rgba(0,0,0,.48) 71%,
-    rgba(0,0,0,.24) 81%,
-    rgba(0,0,0,.08) 90%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    ellipse 82% 68% at 50% 50%,
-    #000 0%,
-    #000 38%,
-    rgba(0,0,0,.94) 49%,
-    rgba(0,0,0,.76) 60%,
-    rgba(0,0,0,.48) 71%,
-    rgba(0,0,0,.24) 81%,
-    rgba(0,0,0,.08) 90%,
-    transparent 100%
-  );
 }
 
 .auroraFrame :global(canvas) {
@@ -60,33 +37,12 @@
 
 @media (max-width: 760px) {
   .shell {
-    width: min(94%, 360px);
-    height: 165px;
+    width: min(90%, 350px);
+    height: 160px;
   }
 
   .auroraFrame :global(.soft-aurora-container) {
-    width: 122%;
-    height: 124%;
-
-    -webkit-mask-image: radial-gradient(
-      ellipse 84% 70% at 50% 50%,
-      #000 0%,
-      #000 34%,
-      rgba(0,0,0,.92) 47%,
-      rgba(0,0,0,.70) 60%,
-      rgba(0,0,0,.42) 72%,
-      rgba(0,0,0,.18) 84%,
-      transparent 100%
-    );
-    mask-image: radial-gradient(
-      ellipse 84% 70% at 50% 50%,
-      #000 0%,
-      #000 34%,
-      rgba(0,0,0,.92) 47%,
-      rgba(0,0,0,.70) 60%,
-      rgba(0,0,0,.42) 72%,
-      rgba(0,0,0,.18) 84%,
-      transparent 100%
-    );
+    width: 112%;
+    height: 114%;
   }
 }
