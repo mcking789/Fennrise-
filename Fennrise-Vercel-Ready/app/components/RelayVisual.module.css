@@ -1,7 +1,7 @@
 .shell {
   position: relative;
-  width: min(100%, 780px);
-  height: 290px;
+  width: min(92%, 650px);
+  height: 240px;
   display: grid;
   place-items: center;
   isolation: isolate;
@@ -21,64 +21,32 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 165%;
-  height: 150%;
+  width: 118%;
+  height: 118%;
   transform: translate(-50%, -50%);
   overflow: visible;
 
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(0,0,0,.02) 7%,
-    rgba(0,0,0,.08) 13%,
-    rgba(0,0,0,.20) 19%,
-    rgba(0,0,0,.42) 25%,
-    rgba(0,0,0,.68) 31%,
-    rgba(0,0,0,.88) 36%,
-    #000 42%,
-    #000 58%,
-    rgba(0,0,0,.88) 64%,
-    rgba(0,0,0,.68) 69%,
-    rgba(0,0,0,.42) 75%,
-    rgba(0,0,0,.20) 81%,
-    rgba(0,0,0,.08) 87%,
-    rgba(0,0,0,.02) 93%,
+  -webkit-mask-image: radial-gradient(
+    ellipse 82% 68% at 50% 50%,
+    #000 0%,
+    #000 38%,
+    rgba(0,0,0,.94) 49%,
+    rgba(0,0,0,.76) 60%,
+    rgba(0,0,0,.48) 71%,
+    rgba(0,0,0,.24) 81%,
+    rgba(0,0,0,.08) 90%,
     transparent 100%
   );
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(0,0,0,.02) 7%,
-    rgba(0,0,0,.08) 13%,
-    rgba(0,0,0,.20) 19%,
-    rgba(0,0,0,.42) 25%,
-    rgba(0,0,0,.68) 31%,
-    rgba(0,0,0,.88) 36%,
-    #000 42%,
-    #000 58%,
-    rgba(0,0,0,.88) 64%,
-    rgba(0,0,0,.68) 69%,
-    rgba(0,0,0,.42) 75%,
-    rgba(0,0,0,.20) 81%,
-    rgba(0,0,0,.08) 87%,
-    rgba(0,0,0,.02) 93%,
+  mask-image: radial-gradient(
+    ellipse 82% 68% at 50% 50%,
+    #000 0%,
+    #000 38%,
+    rgba(0,0,0,.94) 49%,
+    rgba(0,0,0,.76) 60%,
+    rgba(0,0,0,.48) 71%,
+    rgba(0,0,0,.24) 81%,
+    rgba(0,0,0,.08) 90%,
     transparent 100%
-  );
-}
-
-.auroraFrame :global(.soft-aurora-container)::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(13,13,12,.72) 0%,
-    rgba(13,13,12,.20) 25%,
-    transparent 43%,
-    transparent 57%,
-    rgba(13,13,12,.20) 75%,
-    rgba(13,13,12,.72) 100%
   );
 }
 
@@ -92,46 +60,32 @@
 
 @media (max-width: 760px) {
   .shell {
-    width: min(100%, 430px);
-    height: 190px;
+    width: min(94%, 360px);
+    height: 165px;
   }
 
   .auroraFrame :global(.soft-aurora-container) {
-    width: 180%;
-    height: 155%;
+    width: 122%;
+    height: 124%;
 
-    -webkit-mask-image: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(0,0,0,.04) 8%,
-      rgba(0,0,0,.14) 16%,
-      rgba(0,0,0,.34) 24%,
-      rgba(0,0,0,.64) 32%,
-      rgba(0,0,0,.88) 38%,
-      #000 44%,
-      #000 56%,
-      rgba(0,0,0,.88) 62%,
-      rgba(0,0,0,.64) 68%,
-      rgba(0,0,0,.34) 76%,
-      rgba(0,0,0,.14) 84%,
-      rgba(0,0,0,.04) 92%,
+    -webkit-mask-image: radial-gradient(
+      ellipse 84% 70% at 50% 50%,
+      #000 0%,
+      #000 34%,
+      rgba(0,0,0,.92) 47%,
+      rgba(0,0,0,.70) 60%,
+      rgba(0,0,0,.42) 72%,
+      rgba(0,0,0,.18) 84%,
       transparent 100%
     );
-    mask-image: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(0,0,0,.04) 8%,
-      rgba(0,0,0,.14) 16%,
-      rgba(0,0,0,.34) 24%,
-      rgba(0,0,0,.64) 32%,
-      rgba(0,0,0,.88) 38%,
-      #000 44%,
-      #000 56%,
-      rgba(0,0,0,.88) 62%,
-      rgba(0,0,0,.64) 68%,
-      rgba(0,0,0,.34) 76%,
-      rgba(0,0,0,.14) 84%,
-      rgba(0,0,0,.04) 92%,
+    mask-image: radial-gradient(
+      ellipse 84% 70% at 50% 50%,
+      #000 0%,
+      #000 34%,
+      rgba(0,0,0,.92) 47%,
+      rgba(0,0,0,.70) 60%,
+      rgba(0,0,0,.42) 72%,
+      rgba(0,0,0,.18) 84%,
       transparent 100%
     );
   }
