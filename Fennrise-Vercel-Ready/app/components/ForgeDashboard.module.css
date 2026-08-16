@@ -1,5 +1,5 @@
 .shell {
-  width: min(92%, 650px);
+  width: min(78%, 540px);
   aspect-ratio: 1.48;
   display: grid;
   grid-template-columns: 22% 1fr;
@@ -385,7 +385,7 @@
 
 @media (max-width: 760px) {
   .shell {
-    width: 92%;
+    width: 84%;
     grid-template-columns: 19% 1fr;
     border-radius: 14px;
   }
