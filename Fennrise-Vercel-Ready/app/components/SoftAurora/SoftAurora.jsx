@@ -140,7 +140,13 @@ void main() {
   col += 0.99 * auroraGlow(t + uLayerOffset, shift) * cosineGradient(uv.x + uTime * uSpeed * 0.1 * uColorSpeed, vec3(0.5), vec3(0.5), vec3(2.0, 1.0, 0.0), vec3(0.5, 0.20, 0.25)) * uColor2;
 
   col *= uBrightness;
-  float alpha = clamp(length(col), 0.0, 1.0);
+
+  float fadeX = smoothstep(0.0, 0.30, uv.x) * smoothstep(0.0, 0.30, 1.0 - uv.x);
+  float fadeY = smoothstep(0.0, 0.24, uv.y) * smoothstep(0.0, 0.24, 1.0 - uv.y);
+  float edgeFade = fadeX * fadeY;
+
+  col *= edgeFade;
+  float alpha = clamp(length(col), 0.0, 1.0) * edgeFade;
   gl_FragColor = vec4(col, alpha);
 }
 `;
