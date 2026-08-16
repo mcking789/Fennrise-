@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://fennrise.com";
 const siteTitle = "Fennrise — AI, Software & Digital Products";
 const siteDescription =
-  "Fennrise builds intelligent digital products, custom software, websites, and web apps through Star, Fenn, and Fennrise Studio.";
+  "Fennrise builds intelligent digital products, premium websites, and custom software through Star, Fenn, Studio, and Forge.";
 
 const searchKeywords = [
   "Fennrise",
@@ -24,6 +24,7 @@ const searchKeywords = [
   "Fennrise AI",
   "Fennrise Star",
   "Fennrise Studio",
+  "Fennrise Forge",
   "Fenn productivity app",
   "AI assistant",
   "productivity app",
@@ -31,6 +32,7 @@ const searchKeywords = [
   "software development",
   "custom software",
   "business software",
+  "business automation software",
   "software company Pune",
   "software development Pune",
   "web design",
@@ -48,7 +50,7 @@ const organizationJsonLd = {
   url: `${siteUrl}/`,
   logo: `${siteUrl}/fennrise-logo.png`,
   description:
-    "Fennrise builds intelligent digital products, custom software, websites, web apps, and productivity technology.",
+    "Fennrise builds intelligent digital products, custom software, premium websites, web apps, and productivity technology.",
   email: "hello@fennrise.com",
   address: {
     "@type": "PostalAddress",
@@ -65,6 +67,7 @@ const organizationJsonLd = {
     "Artificial intelligence",
     "Software development",
     "Custom software",
+    "Business automation",
     "Productivity software",
     "Digital products",
     "Web applications",
