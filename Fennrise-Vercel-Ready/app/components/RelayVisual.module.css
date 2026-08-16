@@ -10,31 +10,34 @@
 
 .auroraFrame {
   position: relative;
-  width: 112%;
-  height: 116%;
+  width: 128%;
+  height: 128%;
   background: transparent;
   overflow: visible;
   display: grid;
   place-items: center;
+
   mask-image: radial-gradient(
-    ellipse 84% 66% at 50% 50%,
+    ellipse 76% 58% at 50% 50%,
     #000 0%,
-    #000 44%,
-    rgba(0,0,0,.96) 56%,
-    rgba(0,0,0,.72) 69%,
-    rgba(0,0,0,.38) 80%,
-    rgba(0,0,0,.12) 90%,
-    transparent 100%
+    #000 34%,
+    rgba(0,0,0,.96) 45%,
+    rgba(0,0,0,.78) 56%,
+    rgba(0,0,0,.52) 66%,
+    rgba(0,0,0,.28) 76%,
+    rgba(0,0,0,.10) 86%,
+    transparent 96%
   );
   -webkit-mask-image: radial-gradient(
-    ellipse 84% 66% at 50% 50%,
+    ellipse 76% 58% at 50% 50%,
     #000 0%,
-    #000 44%,
-    rgba(0,0,0,.96) 56%,
-    rgba(0,0,0,.72) 69%,
-    rgba(0,0,0,.38) 80%,
-    rgba(0,0,0,.12) 90%,
-    transparent 100%
+    #000 34%,
+    rgba(0,0,0,.96) 45%,
+    rgba(0,0,0,.78) 56%,
+    rgba(0,0,0,.52) 66%,
+    rgba(0,0,0,.28) 76%,
+    rgba(0,0,0,.10) 86%,
+    transparent 96%
   );
 }
 
@@ -48,7 +51,8 @@
   height: 100% !important;
   display: block;
   background: transparent !important;
-  filter: saturate(1.05) brightness(.96) drop-shadow(0 0 18px rgba(244,180,0,.08));
+  filter: none !important;
+  opacity: .96;
 }
 
 @media (max-width: 760px) {
@@ -58,25 +62,27 @@
   }
 
   .auroraFrame {
-    width: 116%;
-    height: 118%;
+    width: 136%;
+    height: 132%;
     mask-image: radial-gradient(
-      ellipse 88% 70% at 50% 50%,
+      ellipse 78% 60% at 50% 50%,
       #000 0%,
-      #000 42%,
-      rgba(0,0,0,.92) 57%,
-      rgba(0,0,0,.62) 72%,
-      rgba(0,0,0,.26) 86%,
-      transparent 100%
+      #000 32%,
+      rgba(0,0,0,.94) 44%,
+      rgba(0,0,0,.72) 58%,
+      rgba(0,0,0,.42) 70%,
+      rgba(0,0,0,.18) 82%,
+      transparent 95%
     );
     -webkit-mask-image: radial-gradient(
-      ellipse 88% 70% at 50% 50%,
+      ellipse 78% 60% at 50% 50%,
       #000 0%,
-      #000 42%,
-      rgba(0,0,0,.92) 57%,
-      rgba(0,0,0,.62) 72%,
-      rgba(0,0,0,.26) 86%,
-      transparent 100%
+      #000 32%,
+      rgba(0,0,0,.94) 44%,
+      rgba(0,0,0,.72) 58%,
+      rgba(0,0,0,.42) 70%,
+      rgba(0,0,0,.18) 82%,
+      transparent 95%
     );
   }
 }
