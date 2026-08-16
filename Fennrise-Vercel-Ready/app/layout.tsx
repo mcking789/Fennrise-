@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://fennrise.com";
-const siteTitle = "Fennrise — AI, Productivity & Digital Products";
+const siteTitle = "Fennrise — AI, Software & Digital Products";
 const siteDescription =
-  "Fennrise builds intelligent digital products including Star, Fenn, and Fennrise Studio for AI assistance, productivity, web design, and digital creation.";
+  "Fennrise builds intelligent digital products, custom software, websites, and web apps through Star, Fenn, and Fennrise Studio.";
 
 const searchKeywords = [
   "Fennrise",
@@ -28,11 +28,16 @@ const searchKeywords = [
   "AI assistant",
   "productivity app",
   "digital products",
+  "software development",
+  "custom software",
+  "business software",
+  "software company Pune",
+  "software development Pune",
   "web design",
   "web development",
+  "web apps",
   "UI UX design",
   "technology company India",
-  "software company Pune",
 ];
 
 const organizationJsonLd = {
@@ -43,7 +48,7 @@ const organizationJsonLd = {
   url: `${siteUrl}/`,
   logo: `${siteUrl}/fennrise-logo.png`,
   description:
-    "Fennrise builds digital products for artificial intelligence, productivity, intelligent assistance, web design, and digital creation.",
+    "Fennrise builds intelligent digital products, custom software, websites, web apps, and productivity technology.",
   email: "hello@fennrise.com",
   address: {
     "@type": "PostalAddress",
@@ -58,8 +63,11 @@ const organizationJsonLd = {
   },
   knowsAbout: [
     "Artificial intelligence",
+    "Software development",
+    "Custom software",
     "Productivity software",
     "Digital products",
+    "Web applications",
     "Web design",
     "Web development",
     "UI/UX design",
