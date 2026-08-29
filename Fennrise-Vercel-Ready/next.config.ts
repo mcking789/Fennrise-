@@ -1,19 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async rewrites() {
-    return [
-      {
-        source: "/waitlist",
-        destination: "/waitlist.html",
-      },
-    ];
-  },
   async redirects() {
     return [
       {
+        source: "/waitlist",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/waitlist.html",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/wailist",
-        destination: "/waitlist",
+        destination: "/",
         permanent: true,
       },
       {
@@ -35,7 +37,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "X-Robots-Tag",
-            value: "noindex, follow",
+            value: "noindex, nofollow, noarchive, nosnippet",
           },
         ],
       },
@@ -44,16 +46,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "X-Robots-Tag",
-            value: "noindex, follow",
-          },
-        ],
-      },
-      {
-        source: "/waitlist",
-        headers: [
-          {
-            key: "X-Robots-Tag",
-            value: "noindex, follow",
+            value: "noindex, nofollow, noarchive, nosnippet",
           },
         ],
       },
