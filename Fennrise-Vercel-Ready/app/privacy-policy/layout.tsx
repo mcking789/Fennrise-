@@ -6,6 +6,16 @@ const description =
   "How Fennrise collects, uses, protects, and manages personal information.";
 
 export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+      noarchive: true,
+      nosnippet: true,
+    },
+  },
   alternates: {
     canonical: "/privacy-policy",
   },
