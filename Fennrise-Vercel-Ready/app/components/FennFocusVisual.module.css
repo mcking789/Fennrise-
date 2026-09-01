@@ -1,0 +1,16 @@
+.stage { position: relative; width: min(100%, 820px); min-height: 420px; display: grid; place-items: center; perspective: 1100px; }
+.stage::before { content: ""; position: absolute; inset: 7%; opacity: .13; background-image: linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px); background-size: 44px 44px; mask-image: radial-gradient(circle,#000,transparent 70%); }
+.glow { position: absolute; width: 62%; height: 40%; border-radius: 50%; background: rgba(244,180,0,.09); filter: blur(78px); }
+.window { position: relative; z-index: 3; width: 82%; overflow: hidden; border: 1px solid rgba(255,255,255,.13); border-radius: 17px; background: rgba(11,11,10,.91); box-shadow: 0 38px 80px rgba(0,0,0,.52), 0 0 70px rgba(244,180,0,.055); transform: rotateX(2deg) rotateY(-3deg); transition: transform .55s cubic-bezier(.2,.8,.2,1), border-color .4s; }
+.stage:hover .window { transform: rotateX(0) rotateY(0) translateY(-5px); border-color: rgba(244,180,0,.2); }
+.bar { height: 45px; display: flex; align-items: center; gap: 6px; padding: 0 14px; border-bottom: 1px solid rgba(255,255,255,.08); color: #62615b; font-size: 8px; }
+.bar i { width: 6px; height: 6px; border-radius: 50%; background: #353531; }.bar span { margin-left: auto; }
+.body { padding: 32px 28px 28px; }
+.body p { margin: 0; color: #e0dcd1; font-size: clamp(22px,3vw,34px); font-weight: 520; letter-spacing: -.05em; }
+.progressLabel { display: flex; justify-content: space-between; margin: 32px 0 9px; color: #6f6e67; font-size: 8px; }.progressLabel b { color: var(--gold); font-weight: 600; }
+.progress { height: 4px; overflow: hidden; border-radius: 4px; background: #252520; }.progress i { display: block; width: 72%; height: 100%; background: var(--gold); box-shadow: 0 0 12px rgba(244,180,0,.45); animation: fenn-progress 1.4s cubic-bezier(.2,.8,.2,1) both; }
+.task { display: flex; align-items: center; gap: 10px; margin-top: 17px; color: #98968e; font-size: 10px; }.task i { width: 17px; height: 17px; display: grid; place-items: center; border: 1px solid #44433f; border-radius: 5px; color: #17140c; font-size: 9px; font-style: normal; }.task:first-of-type i { border-color: var(--gold); background: var(--gold); }
+.echo { position: absolute; z-index: 1; width: 72%; height: 44%; border: 1px solid rgba(255,255,255,.055); border-radius: 17px; background: rgba(17,17,15,.34); }
+.echoOne { transform: translate(7%, -20%) rotate(4deg); }.echoTwo { transform: translate(-9%, 19%) rotate(-4deg); opacity: .55; }
+@keyframes fenn-progress { from { width: 0; } to { width: 72%; } }
+@media (max-width:760px){.stage{min-height:330px}.window{width:94%}.body{padding:24px 20px}.echo{width:82%}}

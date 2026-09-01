@@ -1,61 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ForgeDashboard from "./components/ForgeDashboard";
-import RelayVisual from "./components/VoiceVisual";
-
-const products = [
-  {
-    number: "01",
-    name: "Star",
-    line: "Talk. Create. Solve.",
-    description:
-      "An intelligent assistant designed for useful conversations, clear thinking, and faster creation.",
-    features: ["Conversations", "Writing", "Research", "Coding", "Everyday tasks"],
-    visual: "star",
-    status: "In development",
-  },
-  {
-    number: "02",
-    name: "Studio",
-    line: "Design. Build. Launch.",
-    description:
-      "Premium websites and digital experiences built with sharp strategy, thoughtful design, and production-ready technology.",
-    features: ["Web design", "UI/UX", "Branding", "Web apps", "Landing pages"],
-    visual: "studio",
-    status: "Launched",
-  },
-  {
-    number: "03",
-    name: "Fenn",
-    line: "Plan. Focus. Achieve.",
-    description:
-      "Our main productivity app, built to turn ambitious plans into focused, consistent progress.",
-    features: ["Planner", "Focus Mode", "Goals", "Habits", "Opportunities", "Insights"],
-    visual: "fenn",
-    status: "In development",
-  },
-  {
-    number: "04",
-    name: "Forge",
-    line: "Build. Automate. Scale.",
-    description:
-      "Custom software built around the way your business actually works—from internal tools and dashboards to portals, automation, and full web applications.",
-    features: ["Custom software", "Business tools", "Dashboards", "Automation", "Portals", "Web apps"],
-    visual: "forge",
-    status: "Launched",
-  },
-  {
-    number: "05",
-    name: "Relay",
-    line: "Answer. Understand. Connect.",
-    description:
-      "An AI calling assistant in development for businesses—built to answer calls, understand customer requests, handle common questions, capture leads, create call summaries, and route conversations when needed.",
-    features: ["AI calls", "Lead capture", "Call summaries", "FAQs", "Smart routing", "Follow-ups"],
-    visual: "relay",
-    status: "In development",
-  },
-];
+import HomepageGateway from "./components/HomepageGateway";
 
 const roadmap = [
   { date: "Launched", title: "Fennrise Studio", text: "Premium web design and digital experience development.", active: true },
@@ -155,101 +101,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section products-section" id="products" style={{ paddingTop: 96 }}>
-        <div style={{ maxWidth: 1320, margin: "0 auto 18px" }}>
-          <div
-            className="eyebrow reveal"
-            style={{
-              fontSize: 16,
-              letterSpacing: ".18em",
-              fontWeight: 650,
-            }}
-          >
-            <span /> Products & services
-          </div>
-
-          <div
-            className="reveal"
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "12px 30px",
-              marginTop: 32,
-              marginBottom: 12,
-              color: "#6e6d67",
-              fontSize: 10,
-              letterSpacing: ".13em",
-              textTransform: "uppercase",
-            }}
-            aria-label="Fennrise product index"
-          >
-            {products.map((product) => (
-              <span key={product.name} style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-                <b style={{ color: "#b69222", fontWeight: 560 }}>{product.number}</b>
-                {product.name}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="product-showcase" style={{ borderTop: "none" }}>
-          {products.map((product, index) => (
-            <article className={`product-row reveal ${index % 2 === 1 ? "reverse" : ""}`} key={product.name}>
-              <div className="product-row-copy">
-                <div className="product-row-meta">
-                  <span>{product.number} / {String(products.length).padStart(2, "0")}</span>
-                  <span className={product.status === "Launched" ? "status launched" : "status"}>
-                    <i /> {product.status}
-                  </span>
-                </div>
-                <h3>{product.name}</h3>
-                <h4>{product.line}</h4>
-                <p>{product.description}</p>
-                <div className="tags">
-                  {product.features.map((feature) => <span key={feature}>{feature}</span>)}
-                </div>
-                <span className="product-word" aria-hidden="true">{product.name}</span>
-              </div>
-
-              <div className="product-stage">
-                <div className={`product-visual ${product.visual}`} aria-hidden="true">
-                  {product.visual === "fenn" && (
-                    <div className="fenn-window">
-                      <div className="window-bar"><i /><i /><i /><span>Today</span></div>
-                      <div className="window-body">
-                        <div className="mini-greeting">Good morning.</div>
-                        <div className="progress-row"><span>Daily progress</span><b>72%</b></div>
-                        <div className="progress"><i /></div>
-                        <div className="task"><i>✓</i><span>Plan the next milestone</span></div>
-                        <div className="task"><i /><span>45 min focus session</span></div>
-                      </div>
-                    </div>
-                  )}
-                  {product.visual === "star" && (
-                    <div className="star-core">
-                      <i className="ray ray-1" /><i className="ray ray-2" />
-                      <i className="ray ray-3" /><i className="ray ray-4" />
-                      <b>✦</b>
-                    </div>
-                  )}
-                  {product.visual === "studio" && (
-                    <div className="studio-windows">
-                      <div className="studio-window back"><span /><i /><i /></div>
-                      <div className="studio-window front">
-                        <span /><div className="studio-copy"><b /><i /><i /></div>
-                        <div className="studio-block" />
-                      </div>
-                    </div>
-                  )}
-                  {product.visual === "forge" && <ForgeDashboard />}
-                  {product.visual === "relay" && <RelayVisual />}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="manifesto" id="about">
         <div className="manifesto-content reveal">
           <div className="eyebrow"><span /> About Fennrise</div>
@@ -279,6 +130,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <HomepageGateway />
 
       <section className="why-minimal" id="why">
         <div className="why-minimal-inner">
