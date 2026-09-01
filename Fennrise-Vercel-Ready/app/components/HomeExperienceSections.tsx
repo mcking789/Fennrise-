@@ -163,7 +163,6 @@ export default function HomeExperienceSections() {
           ))}
         </div>
 
-        <div className={styles.servicePulse} aria-hidden="true"><i /><i /><i /></div>
       </section>
     </>
   );
