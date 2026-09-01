@@ -1,21 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    "/waitlist": ["./public/waitlist.html"],
+  },
   async redirects() {
     return [
       {
-        source: "/waitlist",
-        destination: "/",
-        permanent: true,
-      },
-      {
         source: "/waitlist.html",
-        destination: "/",
+        destination: "/waitlist",
         permanent: true,
       },
       {
         source: "/wailist",
-        destination: "/",
+        destination: "/waitlist",
         permanent: true,
       },
       {
