@@ -1,5 +1,5 @@
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import './SoftAurora.css';
 
@@ -168,11 +168,29 @@ export default function SoftAurora({
   mouseInfluence = 0.25
 }) {
   const containerRef = useRef(null);
+  const [useFallback, setUseFallback] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
-    const renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
+    const probe = document.createElement('canvas');
+    const context = probe.getContext('webgl2') || probe.getContext('webgl');
+
+    if (!context) {
+      setUseFallback(true);
+      return;
+    }
+
+    context.getExtension('WEBGL_lose_context')?.loseContext();
+
+    let renderer;
+    try {
+      renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
+    } catch {
+      setUseFallback(true);
+      return;
+    }
+
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
 
@@ -266,5 +284,5 @@ export default function SoftAurora({
     };
   }, [speed, scale, brightness, color1, color2, noiseFrequency, noiseAmplitude, bandHeight, bandSpread, octaveDecay, layerOffset, colorSpeed, enableMouseInteraction, mouseInfluence]);
 
-  return <div ref={containerRef} className="soft-aurora-container" />;
+  return <div ref={containerRef} className={`soft-aurora-container${useFallback ? ' soft-aurora-fallback' : ''}`} />;
 }

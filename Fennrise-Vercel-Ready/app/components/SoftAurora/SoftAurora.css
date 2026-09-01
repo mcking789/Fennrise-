@@ -4,3 +4,22 @@
   height: 100%;
   overflow: visible;
 }
+
+.soft-aurora-fallback::before,
+.soft-aurora-fallback::after {
+  content: '';
+  position: absolute;
+  inset: 24% 4%;
+  border-radius: 50%;
+  background: linear-gradient(90deg, transparent 2%, #d4b300 22%, #f5c400 48%, #ffdb4d 72%, transparent 98%);
+  filter: blur(18px);
+  opacity: .72;
+  transform: skewY(-4deg) scaleY(.25);
+}
+
+.soft-aurora-fallback::after {
+  inset: 35% 8%;
+  filter: blur(7px);
+  opacity: .88;
+  transform: skewY(3deg) scaleY(.1);
+}
