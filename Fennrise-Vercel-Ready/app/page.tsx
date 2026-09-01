@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import HomeExperienceSections from "./components/HomeExperienceSections";
 
 const roadmap = [
   { date: "Launched", title: "Fennrise Studio", text: "Premium web design and digital experience development.", active: true },
@@ -47,7 +48,7 @@ export default function Home() {
         </button>
 
         <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Main navigation">
-          <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
+          <a href="#products" onClick={() => setMenuOpen(false)}>Products</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#roadmap" onClick={() => setMenuOpen(false)}>Roadmap</a>
           <a
@@ -82,7 +83,7 @@ export default function Home() {
             people and businesses work smarter, build faster, and achieve more.
           </p>
           <div className="hero-actions">
-            <a className="button button-gold" href="/products">
+            <a className="button button-gold" href="#products">
               Explore Products <span>↓</span>
             </a>
             <a
@@ -100,7 +101,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="why-minimal" id="about">
+      <HomeExperienceSections />
+
+      <section className="why-minimal" id="why">
         <div className="why-minimal-inner">
           <div className="why-minimal-copy reveal">
             <span>Fennrise / Our approach</span>
@@ -191,7 +194,7 @@ export default function Home() {
             <p>Products, software & experiences.<br />Beautifully built.</p>
           </div>
           <div className="footer-links">
-            <div><span>Explore</span><a href="/products">Products</a><a href="#about">About</a><a href="#roadmap">Roadmap</a></div>
+            <div><span>Explore</span><a href="#products">Products</a><a href="#about">About</a><a href="#roadmap">Roadmap</a></div>
             <div><span>Products</span><a href="/products#star">Star</a><a href="/services#studio">Studio</a><a href="/products#fenn">Fenn</a><a href="/services#forge">Forge</a><a href="/products#relay">Relay</a></div>
             <div><span>Connect</span><a href="#waitlist">Instagram ↗</a><a href="#waitlist">LinkedIn ↗</a><a href="mailto:hello@fennrise.com">Email ↗</a></div>
           </div>
