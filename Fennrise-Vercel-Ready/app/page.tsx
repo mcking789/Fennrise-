@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import HomepageGateway from "./components/HomepageGateway";
 
 const roadmap = [
   { date: "Launched", title: "Fennrise Studio", text: "Premium web design and digital experience development.", active: true },
@@ -48,7 +47,7 @@ export default function Home() {
         </button>
 
         <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Main navigation">
-          <a href="#products" onClick={() => setMenuOpen(false)}>Products</a>
+          <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#roadmap" onClick={() => setMenuOpen(false)}>Roadmap</a>
           <a
@@ -83,7 +82,7 @@ export default function Home() {
             people and businesses work smarter, build faster, and achieve more.
           </p>
           <div className="hero-actions">
-            <a className="button button-gold" href="#products">
+            <a className="button button-gold" href="/products">
               Explore Products <span>↓</span>
             </a>
             <a
@@ -97,43 +96,11 @@ export default function Home() {
 
         <div className="hero-bottom">
           <span>Technology · Software · Voice AI · Design · Intelligence</span>
-          <a href="#products" aria-label="Scroll to products"><i>↓</i> Scroll to explore</a>
+          <a href="#about" aria-label="Scroll to our approach"><i>↓</i> Scroll to explore</a>
         </div>
       </section>
 
-      <section className="manifesto" id="about">
-        <div className="manifesto-content reveal">
-          <div className="eyebrow"><span /> About Fennrise</div>
-          <div className="about-lead-grid">
-            <p className="manifesto-lead">
-              Technology should feel <em>powerful,</em><br />
-              not complicated.
-            </p>
-          </div>
-
-          <div className="about-principles">
-            <div>
-              <span>01</span>
-              <h3>Solve real problems.</h3>
-              <p>Every idea begins with a genuine need—not a passing trend.</p>
-            </div>
-            <div>
-              <span>02</span>
-              <h3>Make it clear.</h3>
-              <p>Thoughtful design keeps powerful technology simple to use.</p>
-            </div>
-            <div>
-              <span>03</span>
-              <h3>Keep improving.</h3>
-              <p>We build software, products, voice experiences, and digital systems, then listen, refine, and improve them.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <HomepageGateway />
-
-      <section className="why-minimal" id="why">
+      <section className="why-minimal" id="about">
         <div className="why-minimal-inner">
           <div className="why-minimal-copy reveal">
             <span>Fennrise / Our approach</span>
@@ -224,8 +191,8 @@ export default function Home() {
             <p>Products, software & experiences.<br />Beautifully built.</p>
           </div>
           <div className="footer-links">
-            <div><span>Explore</span><a href="#products">Products</a><a href="#about">About</a><a href="#roadmap">Roadmap</a></div>
-            <div><span>Products</span><a href="#products">Star</a><a href="#products">Studio</a><a href="#products">Fenn</a><a href="#products">Forge</a><a href="#products">Relay</a></div>
+            <div><span>Explore</span><a href="/products">Products</a><a href="#about">About</a><a href="#roadmap">Roadmap</a></div>
+            <div><span>Products</span><a href="/products#star">Star</a><a href="/services#studio">Studio</a><a href="/products#fenn">Fenn</a><a href="/services#forge">Forge</a><a href="/products#relay">Relay</a></div>
             <div><span>Connect</span><a href="#waitlist">Instagram ↗</a><a href="#waitlist">LinkedIn ↗</a><a href="mailto:hello@fennrise.com">Email ↗</a></div>
           </div>
         </div>

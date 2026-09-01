@@ -33,7 +33,6 @@ export default function StudioCanvasVisual() {
         <div className={styles.top}><i /><i /><i /><b>studio / live canvas</b></div>
         <div className={styles.copy}><strong /><span /><span /></div>
         <div className={styles.media} />
-        <div className={styles.cursor}>↗</div>
       </motion.div>
     </div>
   );

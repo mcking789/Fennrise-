@@ -28,9 +28,6 @@ export default function ServicesExperience() {
           <p>From a first idea to a launched experience, we design and build the technology your business needs next.</p>
           <a href="#studio">Explore our services <span>↓</span></a>
         </motion.div>
-        <div className={styles.heroProcess} aria-label="Fennrise service process">
-          {process.map((step,index)=><motion.span key={step} initial={{ opacity: reduceMotion ? 1 : 0, x: reduceMotion ? 0 : 25 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: reduceMotion ? 0 : .45+index*.1 }}><i>{String(index+1).padStart(2,'0')}</i>{step}{index<process.length-1?<b>→</b>:null}</motion.span>)}
-        </div>
       </section>
 
       <section className={styles.service} id="studio">

@@ -1,21 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { motion, useReducedMotion, useScroll } from "motion/react";
 import { useRef } from "react";
 import { ExperienceFooter, ExperienceHeader } from "../components/ExperienceChrome";
 import FennFocusVisual from "../components/FennFocusVisual";
-import StarIntelligence from "../components/StarIntelligence";
 import RelayVisual from "../components/VoiceVisual";
 import styles from "./products.module.css";
-
-const productIndex = ["STAR", "Fenn", "Relay"];
 
 export default function ProductsExperience() {
   const pageRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: pageRef, offset: ["start start", "end end"] });
-  const railX = useTransform(scrollYProgress, [0, 1], reduceMotion ? ["0%", "0%"] : ["5%", "-24%"]);
 
   return (
     <main className={styles.page} id="page-top" ref={pageRef}>
@@ -29,9 +25,6 @@ export default function ProductsExperience() {
           <h1>Technology<br />with a <em>purpose.</em></h1>
           <p>Three products being built around intelligence, focus, and communication—designed to become useful parts of everyday work.</p>
           <a href="#star">Explore the products <span>↓</span></a>
-        </motion.div>
-        <motion.div className={styles.indexRail} style={{ x: railX }} aria-hidden="true">
-          {[...productIndex, ...productIndex].map((name, index) => <span key={`${name}-${index}`}>{name}<i>✦</i></span>)}
         </motion.div>
       </section>
 
@@ -48,7 +41,6 @@ export default function ProductsExperience() {
           </div>
           <span className={styles.status}><i /> In development</span>
         </div>
-        <div className={styles.chapterVisual}><StarIntelligence /></div>
       </section>
 
       <section className={`${styles.chapter} ${styles.reverse}`} id="fenn">
