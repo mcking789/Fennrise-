@@ -103,43 +103,6 @@ export default function Home() {
 
       <HomeExperienceSections />
 
-      <section className="why-minimal" id="why">
-        <div className="why-minimal-inner">
-          <div className="why-minimal-copy reveal">
-            <span>Fennrise / Our approach</span>
-            <h2>Thoughtful technology,<br /><em>made useful.</em></h2>
-            <p>Focused software and digital products for clearer work and everyday progress.</p>
-            <div className="why-steps" aria-label="Our approach">
-              <span>Think</span><i />
-              <span>Build</span><i />
-              <span>Refine</span>
-            </div>
-          </div>
-
-          <div className="principle-stack reveal delay-2" aria-label="Fennrise principles">
-            <div className="principle-card principle-think">
-              <span>01</span>
-              <div><strong>Think.</strong><small>Clarity before complexity.</small></div>
-              <i>↗</i>
-            </div>
-            <div className="principle-card principle-build">
-              <span>02</span>
-              <div><strong>Build.</strong><small>Ideas made useful.</small></div>
-              <i>↗</i>
-            </div>
-            <div className="principle-card principle-refine">
-              <span>03</span>
-              <div><strong>Refine.</strong><small>Better with every release.</small></div>
-              <i>↗</i>
-            </div>
-            <div className="principle-signature">
-              <span>Fennrise / Method</span>
-              <b>Purpose in every detail.</b>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="section roadmap-section" id="roadmap">
         <div className="roadmap-intro reveal">
           <div className="eyebrow"><span /> The roadmap</div>

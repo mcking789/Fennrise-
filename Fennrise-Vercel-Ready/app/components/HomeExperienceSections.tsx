@@ -73,21 +73,7 @@ export default function HomeExperienceSections() {
                 Fennrise builds intelligent products of its own and creates digital systems for businesses.
                 Every experience is shaped around a real problem, a clear purpose, and the people using it.
               </p>
-              <span>Products of our own.<br />Technology for yours.</span>
             </div>
-          </div>
-
-          <div className={styles.signal} aria-label="How Fennrise works">
-            <motion.i
-              aria-hidden="true"
-              initial={{ scaleX: reduceMotion ? 1 : 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: reduceMotion ? 0 : 1.4, ease: [0.22, 1, 0.36, 1] }}
-            />
-            <span><b>01</b><strong>Think clearly</strong><small>Find the real problem.</small></span>
-            <span><b>02</b><strong>Build purposefully</strong><small>Make the idea useful.</small></span>
-            <span><b>03</b><strong>Keep evolving</strong><small>Refine what matters.</small></span>
           </div>
         </motion.div>
       </section>
@@ -99,7 +85,6 @@ export default function HomeExperienceSections() {
             <h2>Technology we&apos;re<br /><em>bringing to life.</em></h2>
           </motion.div>
           <motion.div className={styles.headAside} {...reveal}>
-            <p>Three focused products for intelligence, productivity, and communication.</p>
             <Link href="/products">Explore all products <b>→</b></Link>
           </motion.div>
         </div>
@@ -138,7 +123,6 @@ export default function HomeExperienceSections() {
             <h2>Technology built<br /><em>around your business.</em></h2>
           </motion.div>
           <motion.div className={styles.headAside} {...reveal}>
-            <p>From a first idea to a launched website, system, or complete digital product.</p>
             <Link href="/services">Explore all services <b>→</b></Link>
           </motion.div>
         </div>
