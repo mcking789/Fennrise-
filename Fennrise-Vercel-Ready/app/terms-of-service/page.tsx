@@ -209,9 +209,9 @@ const sections = [
     content: (
       <>
         <p>
-          These Terms are governed by the laws of India. Courts with jurisdiction in
-          Pune, Maharashtra will have exclusive jurisdiction over disputes, subject to
-          any mandatory rights or dispute process that applicable law gives you.
+          These Terms are governed by the laws of India. Subject to any mandatory rights
+          or dispute process under applicable law, disputes will be subject to the
+          jurisdiction of competent courts in India.
         </p>
         <ul>
           <li><strong>Legal notices, disputes and IP complaints:</strong> <a href="mailto:legal@fennrise.com">legal@fennrise.com</a></li>
@@ -219,7 +219,7 @@ const sections = [
           <li><strong>Service support:</strong> <a href="mailto:support@fennrise.com">support@fennrise.com</a></li>
           <li><strong>General enquiries:</strong> <a href="mailto:connect@fennrise.com">connect@fennrise.com</a></li>
         </ul>
-        <p>Fennrise is based in Pune, Maharashtra, India.</p>
+        <p>Fennrise is based in India.</p>
       </>
     ),
   },
