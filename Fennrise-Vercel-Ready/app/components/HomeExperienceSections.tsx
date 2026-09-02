@@ -78,30 +78,6 @@ function ProductSignal({ reduceMotion }: { reduceMotion: boolean }) {
               <p>{product.line}</p>
             </motion.div>
           </AnimatePresence>
-
-          <div className={styles.consoleInstrument} aria-hidden="true">
-            <div className={styles.instrumentHeader}>
-              <span>Mode / {product.number}</span>
-              <i>Active</i>
-            </div>
-            <div className={styles.instrumentCore}>
-              <AnimatePresence mode="wait">
-                <motion.b
-                  key={product.number}
-                  initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : -12 }}
-                  transition={{ duration: reduceMotion ? 0 : .45, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  {product.number}
-                </motion.b>
-              </AnimatePresence>
-            </div>
-            <div className={styles.instrumentMeta}>
-              <span>{product.type}</span>
-              <span>{activeMode + 1} / {productModes.length}</span>
-            </div>
-          </div>
         </div>
 
         <div className={styles.consoleFooter}>
