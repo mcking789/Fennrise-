@@ -72,14 +72,6 @@ function ProductSignal({ reduceMotion }: { reduceMotion: boolean }) {
                   {product.number}
                 </motion.b>
               </AnimatePresence>
-              <div className={styles.instrumentAxis}>
-                <motion.i
-                  key={`axis-${product.number}`}
-                  initial={{ left: "8%" }}
-                  animate={reduceMotion ? undefined : { left: ["8%", "88%", "8%"] }}
-                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-                />
-              </div>
             </div>
             <div className={styles.instrumentMeta}>
               <span>{product.type}</span>
