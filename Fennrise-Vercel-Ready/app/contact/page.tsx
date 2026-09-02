@@ -5,7 +5,7 @@ import styles from "../company-pages.module.css";
 export const metadata: Metadata = {
   title: "Contact Fennrise",
   description:
-    "Contact Fennrise for general enquiries, support, privacy requests, legal notices, Studio, or Forge projects.",
+    "Contact Fennrise for general enquiries, support, privacy requests, or legal notices.",
   alternates: { canonical: "/contact" },
 };
 
@@ -17,7 +17,7 @@ const contacts = [
   },
   {
     label: "Support",
-    title: "Existing customer and service support",
+    title: "Existing customer and product support",
     email: "support@fennrise.com",
   },
   {
