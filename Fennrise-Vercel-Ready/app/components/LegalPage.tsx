@@ -131,6 +131,7 @@ export default function LegalPage({
         <div className={styles.footerLinks}>
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/terms-of-service">Terms of Service</a>
+          <a href="/privacy-policy#privacy-choices">Privacy choices</a>
         </div>
         <a className={styles.backTop} href="#top">Back to top ↑</a>
       </footer>
