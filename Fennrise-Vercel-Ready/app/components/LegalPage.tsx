@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import styles from "./LegalPage.module.css";
 
 type LegalSection = {
   id: string;
@@ -22,44 +23,59 @@ export default function LegalPage({
   updated,
   sections,
 }: LegalPageProps) {
-  return (
-    <main className="legal-page" id="top">
-      <div className="legal-orb legal-orb-one" />
-      <div className="legal-orb legal-orb-two" />
+  const isPrivacy = title.toLowerCase().includes("privacy");
+  const primaryContact = isPrivacy ? "privacy@fennrise.com" : "legal@fennrise.com";
 
-      <header className="legal-nav">
-        <a className="brand" href="/" aria-label="Fennrise home">
+  return (
+    <main className={styles.page} id="top">
+      <header className={styles.header}>
+        <a className={styles.brand} href="/" aria-label="Fennrise home">
           <Image
-            className="brand-logo"
+            className={styles.logo}
             src="/fennrise-logo.png"
-            width={38}
-            height={38}
+            width={34}
+            height={34}
             alt=""
             priority
           />
           <span>Fennrise</span>
         </a>
-        <div className="legal-nav-actions">
-          <a href="/">Home</a>
-          <a className="nav-cta" href="/waitlist">
-            Join waitlist <span>→</span>
-          </a>
-        </div>
+
+        <nav className={styles.nav} aria-label="Legal navigation">
+          <a className={isPrivacy ? styles.active : undefined} href="/privacy-policy">Privacy</a>
+          <a className={!isPrivacy ? styles.active : undefined} href="/terms-of-service">Terms</a>
+          <a href="mailto:connect@fennrise.com">Contact</a>
+        </nav>
       </header>
 
-      <section className="legal-hero">
-        <div className="legal-eyebrow"><span /> {eyebrow}</div>
-        <h1>{title}</h1>
-        <p>{description}</p>
-        <div className="legal-updated">
-          <span>Effective</span>
-          <strong>{updated}</strong>
+      <section className={styles.hero}>
+        <div className={styles.kicker}>{eyebrow}</div>
+        <div className={styles.heroGrid}>
+          <div>
+            <h1>{title}</h1>
+            <p className={styles.heroCopy}>{description}</p>
+          </div>
+
+          <dl className={styles.meta}>
+            <div className={styles.metaRow}>
+              <dt>Last updated</dt>
+              <dd>{updated}</dd>
+            </div>
+            <div className={styles.metaRow}>
+              <dt>Region</dt>
+              <dd>India</dd>
+            </div>
+            <div className={styles.metaRow}>
+              <dt>Contact</dt>
+              <dd><a href={`mailto:${primaryContact}`}>{primaryContact}</a></dd>
+            </div>
+          </dl>
         </div>
       </section>
 
-      <div className="legal-shell">
-        <aside className="legal-toc" aria-label="On this page">
-          <span>On this page</span>
+      <div className={styles.shell}>
+        <aside className={styles.toc} aria-label="On this page">
+          <span className={styles.tocTitle}>On this page</span>
           <nav>
             {sections.map((section, index) => (
               <a href={`#${section.id}`} key={section.id}>
@@ -70,52 +86,53 @@ export default function LegalPage({
           </nav>
         </aside>
 
-        <article className="legal-content">
-          <div className="legal-note">
-            <span>Clear by design</span>
-            <p>
-              We wrote this page in straightforward language so you can understand
-              what applies when you use Fennrise.
-            </p>
-          </div>
-
+        <article className={styles.content}>
           {sections.map((section, index) => (
-            <section className="legal-section" id={section.id} key={section.id}>
-              <div className="legal-section-number">
-                {String(index + 1).padStart(2, "0")}
-              </div>
-              <div>
+            <section className={styles.section} id={section.id} key={section.id}>
+              <div className={styles.sectionHead}>
+                <span className={styles.number}>{String(index + 1).padStart(2, "0")}</span>
                 <h2>{section.title}</h2>
-                {section.content}
               </div>
+              <div className={styles.sectionBody}>{section.content}</div>
             </section>
           ))}
         </article>
       </div>
 
-      <footer className="legal-footer">
-        <div>
-          <a className="brand footer-brand" href="/">
-            <Image
-              className="brand-logo"
-              src="/fennrise-logo.png"
-              width={38}
-              height={38}
-              alt=""
-            />
-            <span>Fennrise</span>
-          </a>
-          <p>Intelligent products. Beautifully built.</p>
+      <section className={styles.contactBand} aria-label="Fennrise contacts">
+        <div className={styles.contactInner}>
+          <div className={styles.contactIntro}>
+            <span>Need to reach us?</span>
+            <h2>Contact the right team.</h2>
+          </div>
+          <div className={styles.contactGrid}>
+            <div className={styles.contactCard}>
+              <span>Privacy & data</span>
+              <a href="mailto:privacy@fennrise.com">privacy@fennrise.com</a>
+            </div>
+            <div className={styles.contactCard}>
+              <span>Legal notices</span>
+              <a href="mailto:legal@fennrise.com">legal@fennrise.com</a>
+            </div>
+            <div className={styles.contactCard}>
+              <span>Support</span>
+              <a href="mailto:support@fennrise.com">support@fennrise.com</a>
+            </div>
+            <div className={styles.contactCard}>
+              <span>General</span>
+              <a href="mailto:connect@fennrise.com">connect@fennrise.com</a>
+            </div>
+          </div>
         </div>
-        <div className="legal-footer-links">
+      </section>
+
+      <footer className={styles.footer}>
+        <span>© 2026 Fennrise. All rights reserved.</span>
+        <div className={styles.footerLinks}>
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/terms-of-service">Terms of Service</a>
-          <a href="mailto:connect@fennrise.com">connect@fennrise.com</a>
         </div>
-        <div className="legal-footer-bottom">
-          <span>© 2026 Fennrise. All rights reserved.</span>
-          <a href="#top">Back to top ↑</a>
-        </div>
+        <a className={styles.backTop} href="#top">Back to top ↑</a>
       </footer>
     </main>
   );
