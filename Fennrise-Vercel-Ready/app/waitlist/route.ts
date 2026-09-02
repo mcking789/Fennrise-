@@ -61,6 +61,14 @@ export async function GET() {
       .replaceAll(
         'method="POST">',
         'method="POST"><div class="fennrise-honeypot" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>',
+      )
+      .replace(
+        "showSuccessModal(firstName);",
+        "showSuccessModal(firstName); if(window.gtag){window.gtag('event','waitlist_join',{source:'website'});}",
+      )
+      .replace(
+        'msg.textContent = "Thanks for the input — it genuinely helps us build the right thing first.";',
+        'msg.textContent = "Thanks for the input — it genuinely helps us build the right thing first."; if(window.gtag){window.gtag(\'event\',\'waitlist_survey_submit\');}',
       );
 
     // Restore normal browser zoom for accessibility. The original standalone
