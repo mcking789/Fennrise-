@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import HomeExperienceSections from "./components/HomeExperienceSections";
 
@@ -10,8 +11,7 @@ export default function Home() {
     <main>
       <header className="nav-shell">
         <a href="#top" className="brand" aria-label="Fennrise home">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="brand-logo" src="/fennrise-logo.png" alt="" />
+          <Image className="brand-logo" src="/fennrise-logo.png" alt="" width={38} height={38} priority />
           <span>Fennrise</span>
         </a>
 
@@ -45,8 +45,14 @@ export default function Home() {
           <div className="orbit-ring ring-one"><i /></div>
           <div className="orbit-ring ring-two"><i /></div>
           <div className="orbit-ring ring-three"><i /></div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/fennrise-logo.png" alt="" />
+          <Image
+            src="/fennrise-logo.png"
+            alt=""
+            width={280}
+            height={280}
+            priority
+            sizes="(max-width: 760px) 220px, 300px"
+          />
         </div>
 
         <div className="hero-content">
@@ -78,8 +84,7 @@ export default function Home() {
         <div className="footer-main">
           <div>
             <a href="#top" className="brand footer-brand">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img className="brand-logo" src="/fennrise-logo.png" alt="" />
+              <Image className="brand-logo" src="/fennrise-logo.png" alt="" width={38} height={38} />
               <span>Fennrise</span>
             </a>
             <p>Products, software & experiences.<br />Beautifully built.</p>
