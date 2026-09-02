@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { ExperienceFooter, ExperienceHeader } from "../components/ExperienceChrome";
 import styles from "../company-pages.module.css";
+import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Fennrise",
   description:
-    "Contact Fennrise for general enquiries, support, privacy requests, or legal notices.",
+    "Contact Fennrise for Studio and Forge projects, general enquiries, support, privacy requests, or legal notices.",
   alternates: { canonical: "/contact" },
 };
 
@@ -32,7 +33,14 @@ const contacts = [
   },
 ];
 
-export default function ContactPage() {
+type ContactPageProps = {
+  searchParams: Promise<{ service?: string }>;
+};
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+  const params = await searchParams;
+  const initialService = params.service === "studio" || params.service === "forge" ? params.service : "general";
+
   return (
     <main className={styles.page} id="page-top">
       <ExperienceHeader active="contact" />
@@ -42,10 +50,24 @@ export default function ContactPage() {
           <div className={styles.eyebrow}>Contact Fennrise</div>
           <h1>Reach the <em>right team.</em></h1>
           <p>
-            Use the address that matches what you need. This keeps support, privacy,
-            legal requests, and general company conversations separate and easier to
-            handle properly.
+            Start a Studio or Forge project directly through Fennrise, or use the
+            contact directory for support, privacy, legal, and company enquiries.
           </p>
+        </div>
+      </section>
+
+      <section className={styles.section} id="project">
+        <div className={styles.split}>
+          <span className={styles.label}>Start a project</span>
+          <div className={styles.copy}>
+            <h2>Tell us what you want to build.</h2>
+            <p>
+              Send the requirement directly to Fennrise. If you arrived from Studio or
+              Forge, the correct service is already selected. We review the project and
+              discuss scope and pricing with you directly.
+            </p>
+            <ContactForm initialService={initialService} />
+          </div>
         </div>
       </section>
 
