@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://fennrise.com/sitemap.xml",
-    host: "https://fennrise.com",
+    sitemap: "https://www.fennrise.com/sitemap.xml",
+    host: "https://www.fennrise.com",
   };
 }
