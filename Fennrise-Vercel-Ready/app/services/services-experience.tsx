@@ -5,7 +5,6 @@ import { motion, useReducedMotion, useScroll } from "motion/react";
 import { useRef } from "react";
 import { ExperienceFooter, ExperienceHeader } from "../components/ExperienceChrome";
 import ForgeDashboard from "../components/ForgeDashboard";
-import ServiceFAQ from "../components/ServiceFAQ";
 import StudioCanvasVisual from "../components/StudioCanvasVisual";
 import styles from "./services.module.css";
 
@@ -63,8 +62,6 @@ export default function ServicesExperience() {
         <div className={styles.processIntro}><span>How we work</span><h2>One clear path<br />from <em>idea to launch.</em></h2></div>
         <div className={styles.processLine}>{process.map((step,index)=><motion.div key={step} initial={{opacity:reduceMotion?1:0,y:reduceMotion?0:24}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:reduceMotion?0:index*.1}}><span>{String(index+1).padStart(2,'0')}</span><h3>{step}</h3><p>{['Understand the goal, audience, and real business problem.','Shape the structure, interaction, and visual direction.','Develop, test, refine, and connect every moving part.','Deploy the finished experience and support what comes next.'][index]}</p></motion.div>)}</div>
       </section>
-
-      <ServiceFAQ />
 
       <section className={styles.closing}>
         <span>Have something worth building?</span>
