@@ -58,6 +58,32 @@ const organizationJsonLd = {
   description:
     "Fennrise builds intelligent digital products, voice AI, custom software, premium websites, web apps, and productivity technology.",
   email: "connect@fennrise.com",
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "general enquiries",
+      email: "connect@fennrise.com",
+      availableLanguage: ["English"],
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: "support@fennrise.com",
+      availableLanguage: ["English"],
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "privacy",
+      email: "privacy@fennrise.com",
+      availableLanguage: ["English"],
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "legal",
+      email: "legal@fennrise.com",
+      availableLanguage: ["English"],
+    },
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Pune",
