@@ -5,14 +5,14 @@ import styles from "../company-pages.module.css";
 export const metadata: Metadata = {
   title: "About Fennrise — Independent Technology Company",
   description:
-    "Learn what Fennrise is building, how we work, and the principles behind our products and services.",
+    "Learn what Fennrise is building, how we work, and the principles behind our products.",
   alternates: { canonical: "/about" },
 };
 
 const principles = [
   {
     title: "Solve real problems.",
-    text: "We start with a genuine need, not a trend. Products and services should remove friction, save time, or make something meaningfully better.",
+    text: "We start with a genuine need, not a trend. Technology should remove friction, save time, or make something meaningfully better.",
   },
   {
     title: "Keep powerful things clear.",
@@ -35,8 +35,8 @@ export default function AboutPage() {
           <h1>Technology should feel <em>useful.</em></h1>
           <p>
             Fennrise is an independent technology company in India building intelligent
-            products of its own while applying the same product thinking to software and
-            digital experiences for businesses.
+            products designed to make everyday work, focus, communication, and digital
+            experiences more useful.
           </p>
         </div>
       </section>
@@ -45,17 +45,11 @@ export default function AboutPage() {
         <div className={styles.split}>
           <span className={styles.label}>What we are building</span>
           <div className={styles.copy}>
-            <h2>Products first. Services with purpose.</h2>
+            <h2>Products with a clear purpose.</h2>
             <p>
               Our long-term focus is a family of Fennrise products, including STAR,
               Fenn, and Relay. They explore better ways to work, focus, communicate,
               and use intelligent software in everyday life.
-            </p>
-            <p>
-              Fennrise Studio and Forge currently help businesses with websites,
-              digital experiences, custom software, portals, dashboards, and
-              automation. That work also gives us practical experience solving real
-              problems while our own products continue to develop.
             </p>
 
             <div className={styles.principles}>
