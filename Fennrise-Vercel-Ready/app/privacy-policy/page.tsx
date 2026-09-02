@@ -213,7 +213,7 @@ const sections = [
           <li><strong>Service support:</strong> <a href="mailto:support@fennrise.com">support@fennrise.com</a></li>
           <li><strong>Legal notices:</strong> <a href="mailto:legal@fennrise.com">legal@fennrise.com</a></li>
         </ul>
-        <p>Fennrise is based in Pune, Maharashtra, India.</p>
+        <p>Fennrise is based in India.</p>
       </>
     ),
   },
