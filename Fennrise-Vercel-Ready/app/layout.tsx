@@ -39,8 +39,8 @@ const searchKeywords = [
   "custom software",
   "business software",
   "business automation software",
-  "software company Pune",
-  "software development Pune",
+  "software company India",
+  "software development India",
   "web design",
   "web development",
   "web apps",
@@ -86,8 +86,6 @@ const organizationJsonLd = {
   ],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Pune",
-    addressRegion: "Maharashtra",
     addressCountry: "IN",
   },
   brand: {
