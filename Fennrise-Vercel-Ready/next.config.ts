@@ -33,6 +33,17 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "fennrise-waitlist-six.vercel.app",
+          },
+        ],
+        destination: "https://www.fennrise.com/:path*",
+        permanent: true,
+      },
+      {
         source: "/waitlist.html",
         destination: "/waitlist",
         permanent: true,
