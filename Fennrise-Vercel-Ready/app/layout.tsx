@@ -15,39 +15,30 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://www.fennrise.com";
-const siteTitle = "Fennrise — AI, Voice, Software & Digital Products";
+const siteTitle = "Fennrise — STAR, Fenn & Intelligent Digital Products";
 const siteDescription =
-  "Fennrise builds intelligent digital products, voice AI, premium websites, and custom software through STAR, Relay, Fenn, Studio, and Forge.";
+  "Fennrise builds STAR, an intelligent assistant for students and everyday users, alongside Fenn and a growing ecosystem of focused digital products.";
 
 const searchKeywords = [
   "Fennrise",
   "Fenrise",
   "Fenn Rise",
-  "Fennrise AI",
   "Fennrise STAR",
+  "STAR assistant",
+  "STAR student assistant",
+  "assistant for students",
+  "student productivity assistant",
+  "intelligent assistant",
+  "Fennrise Fenn",
+  "Fenn productivity app",
+  "productivity app",
+  "focus app",
+  "goal planner",
+  "digital products",
+  "technology products",
   "Fennrise Relay",
-  "Fennrise calling bot",
-  "AI calling assistant",
-  "AI receptionist",
-  "voice AI for business",
-  "business calling bot",
   "Fennrise Studio",
   "Fennrise Forge",
-  "Fenn productivity app",
-  "AI assistant",
-  "productivity app",
-  "digital products",
-  "software development",
-  "custom software",
-  "business software",
-  "business automation software",
-  "software company India",
-  "software development India",
-  "web design",
-  "web development",
-  "web apps",
-  "UI UX design",
-  "technology company India",
 ];
 
 const organizationJsonLd = {
@@ -58,7 +49,7 @@ const organizationJsonLd = {
   url: `${siteUrl}/`,
   logo: `${siteUrl}/fennrise-logo.png`,
   description:
-    "Fennrise builds intelligent digital products, voice AI, custom software, premium websites, web apps, and productivity technology.",
+    "Fennrise creates intelligent digital products, including STAR, an assistant for students and everyday users, and Fenn, a productivity and planning platform.",
   email: "connect@fennrise.com",
   contactPoint: [
     {
@@ -86,29 +77,20 @@ const organizationJsonLd = {
       availableLanguage: ["English"],
     },
   ],
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "IN",
-  },
   brand: {
     "@type": "Brand",
     name: "Fennrise",
     logo: `${siteUrl}/fennrise-logo.png`,
   },
   knowsAbout: [
-    "Artificial intelligence",
-    "Voice AI",
-    "AI calling assistants",
-    "AI receptionists",
-    "Software development",
-    "Custom software",
-    "Business automation",
+    "Intelligent digital products",
+    "Student productivity",
+    "Personal assistants",
     "Productivity software",
-    "Digital products",
-    "Web applications",
-    "Web design",
-    "Web development",
-    "UI/UX design",
+    "Goal planning",
+    "Focus tools",
+    "Digital experiences",
+    "Software products",
   ],
 };
 
@@ -121,7 +103,7 @@ const websiteJsonLd = {
   publisher: {
     "@id": `${siteUrl}/#organization`,
   },
-  inLanguage: "en-IN",
+  inLanguage: "en",
 };
 
 export const metadata: Metadata = {
@@ -139,7 +121,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_IN",
+    locale: "en_US",
     url: "/",
     siteName: "Fennrise",
     title: siteTitle,
@@ -149,7 +131,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Fennrise — intelligent digital products, voice AI and software",
+        alt: "Fennrise — STAR, Fenn and intelligent digital products",
       },
     ],
   },
@@ -182,7 +164,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-IN">
+    <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <script
           type="application/ld+json"
