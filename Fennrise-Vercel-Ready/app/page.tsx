@@ -29,11 +29,7 @@ export default function Home() {
           <a href="#products" onClick={() => setMenuOpen(false)}>Products</a>
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
           <a href="#roadmap" onClick={() => setMenuOpen(false)}>Roadmap</a>
-          <a
-            href="/waitlist"
-            className="nav-cta"
-            onClick={() => setMenuOpen(false)}
-          >
+          <a href="/waitlist" className="nav-cta" onClick={() => setMenuOpen(false)}>
             Join waitlist <span>→</span>
           </a>
         </nav>
@@ -64,10 +60,7 @@ export default function Home() {
             <a className="button button-gold" href="#products">
               Explore Products <span>↓</span>
             </a>
-            <a
-              className="button button-ghost"
-              href="/waitlist"
-            >
+            <a className="button button-ghost" href="/waitlist">
               Join the Waitlist <span>→</span>
             </a>
           </div>
@@ -93,8 +86,8 @@ export default function Home() {
           </div>
           <div className="footer-links">
             <div><span>Explore</span><a href="#products">Products</a><a href="#about">About</a><a href="#roadmap">Roadmap</a></div>
-            <div><span>Products</span><a href="/products#star">Star</a><a href="/services#studio">Studio</a><a href="/products#fenn">Fenn</a><a href="/services#forge">Forge</a><a href="/products#relay">Relay</a></div>
-            <div><span>Connect</span><a href="#waitlist">Instagram ↗</a><a href="#waitlist">LinkedIn ↗</a><a href="mailto:connect@fennrise.com">Email ↗</a></div>
+            <div><span>Products</span><a href="/products#star">STAR</a><a href="/services#studio">Studio</a><a href="/products#fenn">Fenn</a><a href="/services#forge">Forge</a><a href="/products#relay">Relay</a></div>
+            <div><span>Connect</span><a href="mailto:connect@fennrise.com">General enquiries ↗</a><a href="mailto:support@fennrise.com">Support ↗</a></div>
           </div>
         </div>
         <div className="footer-bottom">
