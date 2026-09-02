@@ -55,20 +55,35 @@ function ProductSignal({ reduceMotion }: { reduceMotion: boolean }) {
             </motion.div>
           </AnimatePresence>
 
-          <div className={styles.consoleEnergy} aria-hidden="true">
-            <motion.div
-              className={styles.consoleStar}
-              animate={reduceMotion ? undefined : { scale: [.92, 1.08, .92], opacity: [.72, 1, .72] }}
-              transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-            >✦</motion.div>
-            <div className={styles.energyBars}>
-              {[0, 1, 2, 3, 4, 5, 6].map((bar) => (
+          <div className={styles.consoleInstrument} aria-hidden="true">
+            <div className={styles.instrumentHeader}>
+              <span>Mode / {product.number}</span>
+              <i>Active</i>
+            </div>
+            <div className={styles.instrumentCore}>
+              <AnimatePresence mode="wait">
+                <motion.b
+                  key={product.number}
+                  initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : -12 }}
+                  transition={{ duration: reduceMotion ? 0 : .45, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  {product.number}
+                </motion.b>
+              </AnimatePresence>
+              <div className={styles.instrumentAxis}>
                 <motion.i
-                  key={bar}
-                  animate={reduceMotion ? undefined : { scaleY: [.25, .9 - (bar % 3) * .13, .35] }}
-                  transition={{ duration: 1.8, delay: bar * .11, repeat: Infinity, ease: "easeInOut" }}
+                  key={`axis-${product.number}`}
+                  initial={{ left: "8%" }}
+                  animate={reduceMotion ? undefined : { left: ["8%", "88%", "8%"] }}
+                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
                 />
-              ))}
+              </div>
+            </div>
+            <div className={styles.instrumentMeta}>
+              <span>{product.type}</span>
+              <span>{activeMode + 1} / {productModes.length}</span>
             </div>
           </div>
         </div>
