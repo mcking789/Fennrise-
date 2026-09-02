@@ -1,10 +1,122 @@
-.stage { position: relative; width: min(100%, 760px); min-height: 470px; display: grid; place-items: center; perspective: 1200px; }
-.grid { position: absolute; inset: 2%; opacity: .13; background-image: linear-gradient(rgba(255,255,255,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.1) 1px,transparent 1px); background-size: 46px 46px; mask-image: radial-gradient(circle,#000,transparent 74%); }
-.window { position: absolute; width: 69%; height: 235px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); border-radius: 17px; background: linear-gradient(145deg,rgba(21,21,19,.97),rgba(11,11,10,.96)); box-shadow: 0 35px 70px rgba(0,0,0,.47); }
-.back { transform: translate(15%,-21%) rotate(5deg); opacity: .45; }.middle { transform: translate(-13%,15%) rotate(-2deg); opacity: .55; }.front { z-index: 3; transform: rotate(-2deg); }
-.top { height: 39px; display: flex; align-items: center; gap: 5px; padding: 0 13px; border-bottom: 1px solid rgba(255,255,255,.075); }.top i { width: 5px; height: 5px; border-radius: 50%; background: #3b3a35; }.top b { margin-left: auto; color: #54524c; font-size: 6px; font-weight: 500; letter-spacing: .13em; text-transform: uppercase; }
-.back > span,.middle > span { display: block; width: 42%; height: 5px; margin: 15px 22px; border-radius: 5px; background: #33322d; }
-.copy { position: absolute; left: 26px; top: 76px; width: 44%; }.copy strong,.copy span { display: block; border-radius: 5px; background: #3a3933; }.copy strong { width: 88%; height: 16px; margin-bottom: 12px; background: linear-gradient(90deg,rgba(244,180,0,.8),rgba(244,180,0,.3)); }.copy span { width: 73%; height: 5px; margin-top: 8px; }.copy span:last-child { width: 55%; }
-.media { position: absolute; right: 27px; top: 67px; width: 37%; height: 117px; border-radius: 10px; background: radial-gradient(circle at 65% 35%,rgba(244,180,0,.32),transparent 28%),linear-gradient(145deg,rgba(244,180,0,.18),#17140b); box-shadow: inset 0 0 0 1px rgba(244,180,0,.08); }
-.cursor { position: absolute; z-index: 4; right: 23%; bottom: 16%; width: 29px; height: 29px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; background: var(--gold); color: #15130d; box-shadow: 0 8px 30px rgba(244,180,0,.3),0 0 24px rgba(244,180,0,.2); font-size: 12px; }
-@media(max-width:760px){.stage{min-height:370px}.window{width:84%;height:205px}.copy{left:19px;top:65px}.media{right:18px;top:60px;height:100px}}
+.stage {
+  position: relative;
+  width: min(100%, 760px);
+  min-height: 470px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  width: 72%;
+  height: 52%;
+  border-radius: 50%;
+  background: rgba(244, 180, 0, 0.065);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.windows {
+  position: relative;
+  width: 76%;
+  height: 190px;
+}
+
+.window {
+  position: absolute;
+  width: 86%;
+  height: 150px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background: #141412;
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  padding: 12px;
+}
+
+.window > span {
+  display: block;
+  width: 100%;
+  height: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  margin-bottom: 12px;
+}
+
+.back {
+  right: 0;
+  top: 0;
+  transform: rotate(5deg);
+  opacity: 0.55;
+}
+
+.back i {
+  display: block;
+  width: 42%;
+  height: 5px;
+  background: #34332f;
+  margin: 8px;
+}
+
+.front {
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  transform: rotate(-3deg);
+}
+
+.copy {
+  width: 48%;
+  float: left;
+  padding: 8px;
+}
+
+.copy b,
+.copy i {
+  display: block;
+  height: 5px;
+  background: #3a3934;
+  margin-bottom: 7px;
+  border-radius: 3px;
+}
+
+.copy b {
+  height: 13px;
+  width: 80%;
+  background: rgba(244, 180, 0, 0.6);
+}
+
+.copy i:last-child {
+  width: 65%;
+}
+
+.block {
+  float: right;
+  width: 39%;
+  height: 72px;
+  border-radius: 6px;
+  background: linear-gradient(145deg, rgba(244, 180, 0, 0.3), #231d0e);
+}
+
+@media (max-width: 760px) {
+  .stage {
+    min-height: 370px;
+  }
+
+  .windows {
+    width: 88%;
+    height: 175px;
+  }
+
+  .window {
+    height: 142px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back,
+  .front,
+  .block {
+    animation: none;
+  }
+}
