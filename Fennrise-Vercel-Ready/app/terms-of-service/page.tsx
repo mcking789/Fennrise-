@@ -4,6 +4,7 @@ import LegalPage from "../components/LegalPage";
 export const metadata: Metadata = {
   title: "Terms of Service — Fennrise",
   description: "Terms that apply when you access Fennrise and its waitlist.",
+  alternates: { canonical: "/terms-of-service" },
 };
 
 const sections = [
@@ -13,7 +14,7 @@ const sections = [
     content: (
       <p>
         These Terms of Service (&quot;Terms&quot;) apply when you visit
-        <a href="https://fennrise.com"> fennrise.com</a>, join the Fennrise waitlist,
+        <a href="https://www.fennrise.com"> www.fennrise.com</a>, join the Fennrise waitlist,
         submit feedback, or use another Fennrise website experience that links to these
         Terms. By using those services, you agree to these Terms and our
         <a href="/privacy-policy"> Privacy Policy</a>. If you do not agree, please do
@@ -122,11 +123,32 @@ const sections = [
     content: (
       <p>
         Fennrise may rely on or link to third-party services, including Vercel for
-        hosting and Formspree for form submissions. Their services are governed by
+        hosting, Formspree for form submissions, and optional Google Analytics for
+        website measurement when you allow analytics. Their services are governed by
         their own terms and policies. We are not responsible for third-party content,
         availability, or practices, although we select providers intended to support
         the website responsibly.
       </p>
+    ),
+  },
+  {
+    id: "client-services",
+    title: "Client services and project agreements",
+    content: (
+      <>
+        <p>
+          Fennrise may provide paid website, design, software, automation, or related
+          client services. A quotation, proposal, statement of work, order form, or
+          signed client agreement may set the specific scope, deliverables, revisions,
+          timeline, fees, ownership, support, third-party costs, and other project terms.
+        </p>
+        <p>
+          Those project-specific written terms govern the relevant paid project. If a
+          project-specific written agreement conflicts with these general website Terms,
+          the project-specific agreement controls for that project to the extent of the
+          conflict.
+        </p>
+      </>
     ),
   },
   {
@@ -155,11 +177,12 @@ const sections = [
       <p>
         To the maximum extent permitted by law, Fennrise will not be liable for
         indirect, incidental, special, consequential, exemplary, or loss-of-profit or
-        loss-of-data damages arising from the website, waitlist, third-party services,
-        or these Terms. Where liability cannot legally be excluded, our total liability
-        relating to the free website or waitlist will not exceed INR 1,000. Nothing in
-        these Terms limits liability that cannot be limited under applicable law or
-        affects mandatory consumer rights.
+        loss-of-data damages arising from the free website, waitlist, third-party
+        services, or these Terms. Where liability cannot legally be excluded, our total
+        liability relating to the free website or waitlist will not exceed INR 1,000.
+        Liability for a paid client project is governed by the applicable written client
+        agreement. Nothing in these Terms limits liability that cannot be limited under
+        applicable law or affects mandatory consumer rights.
       </p>
     ),
   },
