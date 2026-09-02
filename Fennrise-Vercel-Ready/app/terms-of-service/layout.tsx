@@ -2,17 +2,19 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 const title = "Terms of Service — Fennrise";
-const description = "Terms that apply when you access Fennrise.";
+const description =
+  "Official Fennrise Terms of Service covering website use, waitlist access, intellectual property, payments, liability, and legal contact information.";
 
 export const metadata: Metadata = {
+  title,
+  description,
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
     googleBot: {
-      index: false,
-      follow: false,
-      noarchive: true,
-      nosnippet: true,
+      index: true,
+      follow: true,
+      "max-snippet": -1,
     },
   },
   alternates: {
