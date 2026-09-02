@@ -1,23 +1,50 @@
 .about,
-.products,
-.services,
+.portal,
 .roadmap,
 .waitlist {
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,.07);
-  background: #0b0b0a;
+  border-top: 1px solid rgba(255,255,255,.075);
+}
+
+.about,
+.portal,
+.roadmap {
+  padding-inline: max(6vw,28px);
+}
+
+.about {
+  min-height: 760px;
+  display: flex;
+  align-items: center;
+  padding-block: 125px;
+  background: linear-gradient(145deg,#0a0a09,#0e0d09);
+}
+
+.aboutGlow {
+  position: absolute;
+  width: 760px;
+  height: 520px;
+  right: -12%;
+  top: 8%;
+  border-radius: 50%;
+  background: rgba(244,180,0,.05);
+  filter: blur(110px);
+}
+
+.aboutInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
 }
 
 .sectionLabel {
-  position: relative;
-  z-index: 2;
   display: flex;
   align-items: center;
   gap: 11px;
-  color: #aaa79e;
+  color: #aaa69d;
   font-size: 9px;
-  letter-spacing: .19em;
+  letter-spacing: .2em;
   text-transform: uppercase;
 }
 
@@ -25,348 +52,268 @@
   width: 30px;
   height: 1px;
   background: var(--gold);
-  box-shadow: 0 0 10px rgba(244,180,0,.45);
+  box-shadow: 0 0 8px rgba(244,180,0,.25);
 }
 
 .sectionLabel > span {
   margin-left: auto;
-  color: #53514b;
-  font-size: 8px;
+  color: #55534e;
+  font-size: 7px;
 }
 
-.about {
-  min-height: 780px;
-  display: grid;
-  align-items: center;
-  padding: 130px max(7vw,28px);
-  background: linear-gradient(125deg,#0a0a09 10%,#100f0b 100%);
-}
-
-.about::after {
-  content: "F";
-  position: absolute;
-  right: -2vw;
-  bottom: -22%;
-  color: rgba(244,180,0,.018);
-  font-family: Georgia,serif;
-  font-size: min(48vw,650px);
-  font-style: italic;
-  line-height: 1;
-  pointer-events: none;
-}
-
-.aboutGlow {
-  position: absolute;
-  width: 720px;
-  height: 470px;
-  right: -160px;
-  top: 14%;
-  border-radius: 50%;
-  background: rgba(244,180,0,.06);
-  filter: blur(125px);
-}
-
-.aboutInner,
-.sectionIntro,
-.productShowcase,
-.serviceStories,
-.roadmapIntro,
-.roadmapRail {
-  width: min(1320px,100%);
-  margin-inline: auto;
-}
-
-.aboutInner {
-  position: relative;
-  z-index: 2;
-}
-
-.aboutGrid {
-  display: grid;
-  grid-template-columns: minmax(0,1.3fr) minmax(300px,.5fr);
-  align-items: end;
-  gap: 8vw;
-  margin-top: 54px;
+.aboutLayout {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 9vw;
+  margin-top: 67px;
 }
 
 .about h2 {
-  max-width: 880px;
+  max-width: 850px;
   margin: 0;
-  color: #eeeade;
-  font-size: clamp(54px,6.25vw,90px);
-  font-weight: 510;
-  line-height: .98;
-  letter-spacing: -.064em;
+  color: #eeeae0;
+  font-size: clamp(60px,7.2vw,106px);
+  font-weight: 520;
+  line-height: .93;
+  letter-spacing: -.073em;
 }
 
 .about h2 em,
-.sectionIntro h2 em,
+.portal h2 em,
 .roadmap h2 em,
 .waitlist h2 em {
   color: var(--gold);
-  font-family: Georgia,serif;
-  font-weight: 400;
+  font-family: var(--font-cormorant),serif;
+  font-weight: 520;
 }
 
 .aboutCopy {
-  max-width: 420px;
-  padding-top: 25px;
-  border-top: 1px solid rgba(255,255,255,.12);
+  width: min(100%,390px);
+  flex: 0 0 auto;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255,255,255,.11);
 }
 
 .aboutCopy p {
-  margin: 0;
-  color: #8b8880;
+  margin: 0 0 17px;
+  color: #85827a;
   font-size: 13px;
   line-height: 1.75;
 }
 
-.aboutCopy p + p {
-  margin-top: 17px;
-}
-
 .aboutCopy > span {
   display: block;
-  margin-top: 30px;
-  color: #5c5a54;
+  margin-top: 32px;
+  color: #5b5953;
   font-size: 8px;
-  letter-spacing: .14em;
+  letter-spacing: .13em;
   text-transform: uppercase;
 }
 
-.products {
-  padding: 130px max(6vw,28px) 140px;
-  background: linear-gradient(145deg,#090909,#0d0c09);
+.portal {
+  min-height: 760px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7vw;
+  padding-block: 95px;
+  background: #090909;
 }
 
-.sectionIntro {
+.productsPortal {
+  background:
+    radial-gradient(circle at 75% 42%,rgba(244,180,0,.075),transparent 35%),
+    linear-gradient(135deg,#090909,#0c0b08);
+}
+
+.servicesPortal {
+  background:
+    radial-gradient(circle at 20% 45%,rgba(244,180,0,.055),transparent 35%),
+    linear-gradient(225deg,#090909,#0d0c08);
+}
+
+.portalWord {
+  position: absolute;
+  left: -1vw;
+  bottom: -4vw;
+  color: rgba(255,255,255,.018);
+  font-size: clamp(130px,20vw,330px);
+  font-weight: 700;
+  letter-spacing: -.08em;
+  line-height: .7;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.portalCopy {
   position: relative;
   z-index: 3;
-  display: grid;
-  grid-template-columns: minmax(0,1.2fr) minmax(280px,.45fr);
-  align-items: end;
-  gap: 8vw;
-  margin-bottom: 78px;
+  width: min(100%,520px);
+  flex: 0 0 auto;
 }
 
-.sectionIntro h2 {
-  margin: 24px 0 0;
-  color: #eeeade;
-  font-size: clamp(54px,6.2vw,88px);
-  font-weight: 510;
-  line-height: .93;
-  letter-spacing: -.065em;
+.portal h2 {
+  margin: 48px 0 28px;
+  color: #eeeae0;
+  font-size: clamp(72px,8.4vw,124px);
+  font-weight: 520;
+  line-height: .82;
+  letter-spacing: -.075em;
 }
 
-.introAside {
-  padding-bottom: 4px;
-}
-
-.introAside p {
+.portalCopy > p {
+  max-width: 450px;
   margin: 0;
-  color: #7d7a72;
-  font-size: 12px;
+  color: #838078;
+  font-size: 14px;
   line-height: 1.75;
 }
 
-.introAside a,
-.serviceCopy > a {
+.portalLink {
   width: fit-content;
+  min-width: 214px;
+  min-height: 58px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 30px;
-  margin-top: 25px;
-  padding-bottom: 9px;
-  border-bottom: 1px solid rgba(244,180,0,.28);
-  color: #bbb7ad;
-  font-size: 9px;
-  letter-spacing: .12em;
+  margin-top: 42px;
+  padding: 0 20px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 999px;
+  color: #d9d5ca;
+  font-size: 10px;
+  letter-spacing: .09em;
   text-transform: uppercase;
+  transition: color .35s,border-color .35s,background .35s,transform .35s;
 }
 
-.introAside a b,
-.serviceCopy > a b,
-.stageDetails > a b {
+.portalLink span {
   color: var(--gold);
-  font-size: 14px;
-  font-weight: 400;
-  transition: transform .3s;
 }
 
-.introAside a:hover b,
-.serviceCopy > a:hover b,
-.stageDetails > a:hover b {
-  transform: translate(5px,-2px);
+.portalLink:hover {
+  transform: translateY(-3px);
+  border-color: rgba(244,180,0,.4);
+  background: rgba(244,180,0,.055);
 }
 
-.productShowcase {
+.portalVisual {
   position: relative;
   z-index: 2;
-  min-height: 700px;
-  display: grid;
-  grid-template-columns: minmax(320px,.72fr) minmax(0,1.28fr);
-  border-top: 1px solid rgba(255,255,255,.12);
-  border-bottom: 1px solid rgba(255,255,255,.1);
+  width: min(54vw,780px);
+  min-width: 0;
+  flex: 0 1 780px;
 }
 
-.productRail {
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid rgba(255,255,255,.1);
-}
-
-.productRail button {
+.productSignal {
   position: relative;
-  flex: 1;
-  min-height: 170px;
-  display: grid;
-  grid-template-columns: 34px 1fr 20px;
-  align-items: center;
-  gap: 18px;
-  overflow: hidden;
-  padding: 28px 38px 28px 0;
-  border: 0;
-  border-bottom: 1px solid rgba(255,255,255,.085);
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-  transition: background .4s,color .35s;
+  width: 100%;
+  min-height: 550px;
 }
 
-.productRail button:last-child {
-  border-bottom: 0;
+.signalGlow {
+  position: absolute;
+  width: 57%;
+  aspect-ratio: 1;
+  left: 27%;
+  top: 18%;
+  border-radius: 50%;
+  background: rgba(244,180,0,.09);
+  filter: blur(78px);
 }
 
-.productRail button::after {
+.signalRing,
+.signalRing i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 1px solid rgba(244,180,0,.14);
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.signalRing {
+  width: 360px;
+  height: 360px;
+  border-color: rgba(255,255,255,.08);
+}
+
+.signalRing::before,
+.signalRing::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg,rgba(244,180,0,.09),transparent 68%);
-  opacity: 0;
-  transition: opacity .4s;
-}
-
-.productRail button > span,
-.productRail button > div,
-.productRail button > i {
-  position: relative;
-  z-index: 1;
-}
-
-.productRail button > span {
-  color: #55534d;
-  font-family: var(--font-geist-mono),monospace;
-  font-size: 8px;
-}
-
-.productRail button strong {
-  display: block;
-  color: #7a7770;
-  font-size: clamp(42px,4.7vw,66px);
-  font-weight: 520;
-  line-height: .9;
-  letter-spacing: -.065em;
-  transition: color .35s,transform .4s cubic-bezier(.22,1,.36,1);
-}
-
-.productRail button small {
-  display: block;
-  margin-top: 17px;
-  color: #5c5a55;
-  font-size: 9px;
-  letter-spacing: .04em;
-}
-
-.productRail button > i {
-  color: #54514a;
-  font-size: 8px;
-  font-style: normal;
-  transition: color .35s,transform .35s;
-}
-
-.productRail button:hover strong,
-.productRail .productActive strong {
-  color: #eee9de;
-  transform: translateX(7px);
-}
-
-.productRail button:hover::after,
-.productRail .productActive::after {
-  opacity: 1;
-}
-
-.productRail .productActive > i {
-  color: var(--gold);
-  transform: scale(1.12);
-}
-
-.productRail button:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: -4px;
-}
-
-.productStage {
-  position: relative;
-  min-width: 0;
-  display: grid;
-  grid-template-rows: minmax(480px,1fr) auto;
-  padding: 35px 42px 38px;
-  overflow: hidden;
-  background:
-    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),
-    radial-gradient(circle at 64% 32%,rgba(244,180,0,.07),transparent 40%);
-  background-size: 42px 42px,42px 42px,auto;
-}
-
-.stageGlow {
-  position: absolute;
-  width: 58%;
-  height: 42%;
-  left: 28%;
-  top: 20%;
   border-radius: 50%;
-  background: rgba(244,180,0,.065);
-  filter: blur(85px);
 }
 
-.productVisual {
-  position: relative;
+.signalRing::before {
+  inset: 13%;
+  border: 1px dashed rgba(244,180,0,.16);
+}
+
+.signalRing::after {
+  inset: 30%;
+  border: 1px solid rgba(255,255,255,.11);
+  background: radial-gradient(circle,rgba(244,180,0,.13),transparent 65%);
+}
+
+.signalRing i:nth-child(1) { width: 520px; height: 210px; }
+.signalRing i:nth-child(2) { width: 210px; height: 520px; }
+.signalRing i:nth-child(3) { width: 500px; height: 500px; border-color: rgba(255,255,255,.025); }
+
+.signalStar {
+  position: absolute;
   z-index: 2;
-  min-width: 0;
-  min-height: 470px;
-  display: grid;
-  place-items: center;
+  left: calc(50% - 38px);
+  top: calc(50% - 52px);
+  color: var(--gold);
+  font-size: 76px;
+  filter: drop-shadow(0 0 22px rgba(244,180,0,.5));
 }
 
-.productVisual > * {
-  max-width: 100%;
-}
-
-.stageDetails {
-  position: relative;
+.productName {
+  position: absolute;
   z-index: 3;
-  display: grid;
-  grid-template-columns: minmax(0,1fr) auto;
-  align-items: end;
-  gap: 45px;
-  padding-top: 25px;
-  border-top: 1px solid rgba(255,255,255,.1);
+  color: #d9d5ca;
+  font-size: clamp(34px,4.1vw,62px);
+  font-weight: 520;
+  letter-spacing: -.06em;
 }
 
-.stageDetails > div > span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #77736a;
-  font-size: 8px;
-  letter-spacing: .14em;
+.productName small {
+  display: block;
+  margin-top: 7px;
+  color: #595750;
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: .16em;
   text-transform: uppercase;
 }
 
-.stageDetails > div > span i {
+.starName { left: 2%; top: 17%; }
+.fennName { right: 1%; top: 31%; }
+.relayName { left: 6%; bottom: 18%; }
+
+.signalStatus,
+.canvasCaption {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #5f5c55;
+  font-size: 7px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.signalStatus {
+  right: 3%;
+  bottom: 7%;
+}
+
+.signalStatus i,
+.canvasCaption i {
   width: 5px;
   height: 5px;
   border-radius: 50%;
@@ -374,525 +321,170 @@
   box-shadow: 0 0 9px rgba(244,180,0,.55);
 }
 
-.stageDetails p {
-  max-width: 590px;
-  margin: 14px 0 12px;
-  color: #9a978f;
-  font-size: 13px;
-  line-height: 1.65;
-}
-
-.stageDetails small {
-  color: #595750;
-  font-size: 8px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-
-.stageDetails > a {
+.serviceCanvas {
+  min-height: 560px;
   display: flex;
   align-items: center;
-  gap: 20px;
-  color: #b6b2a8;
-  font-size: 9px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  white-space: nowrap;
+  justify-content: center;
 }
 
-.starVisual {
-  position: relative;
-  width: min(100%,780px);
-  min-height: 450px;
-  display: grid;
-  place-items: center;
-}
-
-.starGrid {
-  position: absolute;
-  inset: 3%;
-  opacity: .18;
-  background-image: linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
-  background-size: 42px 42px;
-  mask-image: radial-gradient(circle,#000,transparent 72%);
-}
-
-.starCore {
-  position: absolute;
-  z-index: 1;
-  right: 10%;
-  top: 4%;
-  width: 180px;
-  height: 180px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(244,180,0,.18);
-  border-radius: 50%;
-  background: radial-gradient(circle,rgba(244,180,0,.17),transparent 66%);
-  box-shadow: 0 0 90px rgba(244,180,0,.08);
-}
-
-.starCore::before,
-.starCore::after {
+.serviceCanvas::before {
   content: "";
   position: absolute;
-  inset: -34px;
-  border: 1px solid rgba(244,180,0,.07);
+  inset: 12% 3%;
   border-radius: 50%;
+  background: rgba(244,180,0,.05);
+  filter: blur(75px);
 }
 
-.starCore::after {
-  inset: -72px;
-  border-color: rgba(255,255,255,.035);
-}
-
-.starCore span {
-  color: var(--gold);
-  font-size: 62px;
-  filter: drop-shadow(0 0 18px rgba(244,180,0,.48));
-}
-
-.starInterface {
+.serviceCanvas > :first-child {
   position: relative;
-  z-index: 3;
-  width: 82%;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 18px;
-  background: rgba(9,9,8,.88);
-  box-shadow: 0 38px 85px rgba(0,0,0,.55),0 0 60px rgba(244,180,0,.055);
-  backdrop-filter: blur(18px);
-  transform: perspective(900px) rotateX(2deg) rotateY(-3deg);
+  z-index: 1;
 }
 
-.starTopbar {
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 17px;
-  border-bottom: 1px solid rgba(255,255,255,.075);
-  color: #5d5a53;
-  font-size: 7px;
-  letter-spacing: .14em;
+.canvasCaption {
+  left: 10%;
+  bottom: 8%;
 }
 
-.starTopbar span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.roadmap {
+  padding-block: 105px;
+  background: linear-gradient(180deg,#0b0b0a,#0e0c08);
 }
 
-.starTopbar span i {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 8px rgba(244,180,0,.7);
+.roadmapInner {
+  width: min(100%,1320px);
+  margin: 0 auto;
 }
 
-.starTopbar b {
-  color: #4e4c47;
-  font-weight: 500;
-}
-
-.starPrompt {
-  padding: 32px 30px 25px;
-}
-
-.starPrompt small {
-  display: block;
-  color: #706e67;
-  font-size: 9px;
-}
-
-.starPrompt strong {
-  display: block;
-  margin-top: 9px;
-  color: #eee9dc;
-  font-size: clamp(24px,3vw,37px);
+.roadmap h2 {
+  margin: 45px 0 70px;
+  color: #ece8de;
+  font-size: clamp(54px,7vw,98px);
   font-weight: 520;
-  letter-spacing: -.05em;
+  line-height: .92;
+  letter-spacing: -.068em;
 }
 
-.starPrompt > div {
-  min-height: 52px;
+.roadmapFlow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 15px;
-  margin-top: 30px;
-  padding: 0 11px 0 17px;
-  border: 1px solid rgba(244,180,0,.16);
-  border-radius: 13px;
-  background: rgba(244,180,0,.045);
-  color: #7d796f;
-  font-size: 10px;
-}
-
-.starPrompt > div i {
-  width: 31px;
-  height: 31px;
-  display: grid;
-  place-items: center;
-  border-radius: 9px;
-  background: var(--gold);
-  color: #15130d;
-  font-style: normal;
-}
-
-.starOutput {
-  display: flex;
-  gap: 7px;
-  padding: 0 30px 28px;
-}
-
-.starOutput span {
-  height: 3px;
-  border-radius: 3px;
-  background: #35342f;
-}
-
-.starOutput span:nth-child(1) { width: 38%; background: rgba(244,180,0,.45); }
-.starOutput span:nth-child(2) { width: 21%; }
-.starOutput span:nth-child(3) { width: 13%; }
-
-.services {
-  padding: 130px max(6vw,28px) 0;
-  background: linear-gradient(145deg,#0b0b0a,#100e08);
-}
-
-.serviceStories {
-  position: relative;
-  z-index: 2;
+  gap: 28px;
+  padding: 34px 0 5px;
   border-top: 1px solid rgba(255,255,255,.12);
 }
 
-.serviceStory {
-  min-height: 680px;
-  display: grid;
-  grid-template-columns: minmax(340px,.7fr) minmax(0,1.3fr);
-  align-items: stretch;
-  border-bottom: 1px solid rgba(255,255,255,.1);
+.roadmapFlow span {
+  color: #d0ccc2;
+  font-size: clamp(18px,2vw,29px);
+  letter-spacing: -.035em;
 }
 
-.serviceCopy {
-  position: relative;
-  z-index: 2;
-  align-self: center;
-  padding: 70px 6vw 70px 0;
-}
-
-.serviceCopy > span {
-  color: #5d5a53;
-  font-size: 8px;
+.roadmapFlow small {
+  display: block;
+  margin-bottom: 10px;
+  color: #66635c;
+  font-size: 7px;
   letter-spacing: .16em;
   text-transform: uppercase;
 }
 
-.serviceCopy h3 {
-  margin: 24px 0 13px;
-  color: #eee9de;
-  font-size: clamp(72px,8.5vw,122px);
-  font-weight: 520;
-  line-height: .82;
-  letter-spacing: -.078em;
-}
-
-.serviceCopy > strong {
-  display: block;
-  color: var(--gold);
-  font-size: 14px;
-  font-weight: 520;
-}
-
-.serviceCopy > p {
-  max-width: 470px;
-  margin: 22px 0 0;
-  color: #7c7971;
-  font-size: 13px;
-  line-height: 1.75;
-}
-
-.deliverables {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 18px;
-  margin-top: 30px;
-  padding-top: 21px;
-  border-top: 1px solid rgba(255,255,255,.085);
-}
-
-.deliverables span {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  color: #68665f;
-  font-size: 8px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.deliverables span::before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: rgba(244,180,0,.65);
-}
-
-.serviceVisual {
-  position: relative;
-  min-width: 0;
-  min-height: 620px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  border-left: 1px solid rgba(255,255,255,.075);
-  background:
-    linear-gradient(rgba(255,255,255,.014) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px),
-    radial-gradient(circle at center,rgba(244,180,0,.07),transparent 53%);
-  background-size: 45px 45px,45px 45px,auto;
-}
-
-.serviceVisual::after {
-  content: "";
-  position: absolute;
-  width: 430px;
-  height: 430px;
-  border: 1px solid rgba(244,180,0,.07);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.serviceVisual > * {
-  position: relative;
-  z-index: 2;
-}
-
-.serviceReverse {
-  grid-template-columns: minmax(0,1.3fr) minmax(340px,.7fr);
-}
-
-.serviceReverse .serviceCopy {
-  order: 2;
-  padding: 70px 0 70px 6vw;
-}
-
-.serviceReverse .serviceVisual {
-  order: 1;
-  border-left: 0;
-  border-right: 1px solid rgba(255,255,255,.075);
-}
-
-.forgeVisual::after {
-  width: 520px;
-  height: 520px;
-  border-color: rgba(255,255,255,.045);
-}
-
-.roadmap {
-  padding: 130px max(6vw,28px) 145px;
-  background: linear-gradient(135deg,#0a0a09,#0e0d09);
-}
-
-.roadmapIntro {
-  display: grid;
-  grid-template-columns: minmax(0,1.1fr) minmax(280px,.45fr);
-  align-items: end;
-  gap: 8vw;
-}
-
-.roadmap h2 {
-  margin: 24px 0 0;
-  color: #eeeade;
-  font-size: clamp(54px,6.1vw,86px);
-  font-weight: 510;
-  line-height: .94;
-  letter-spacing: -.064em;
-}
-
-.roadmapIntro > p {
-  max-width: 430px;
-  margin: 0 0 5px;
-  color: #77746d;
-  font-size: 13px;
-  line-height: 1.75;
-}
-
-.roadmapRail {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  margin-top: 80px;
-  padding: 0;
-  border-top: 1px solid rgba(255,255,255,.12);
-  border-bottom: 1px solid rgba(255,255,255,.09);
-  list-style: none;
-}
-
-.roadmapRail li {
-  min-height: 270px;
-  padding: 34px 34px 36px 0;
-}
-
-.roadmapRail li + li {
-  padding-left: 34px;
-  border-left: 1px solid rgba(255,255,255,.08);
-}
-
-.roadmapRail li > div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-}
-
-.roadmapRail li > div > span {
-  color: #5e5b55;
-  font-size: 8px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-
-.roadmapRail li b {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  color: #6d6a62;
-  font-size: 7px;
-  font-weight: 500;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-
-.roadmapRail li b i {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #55524b;
-}
-
-.roadmapRail li .live {
-  color: #b59e55;
-}
-
-.roadmapRail li .live i {
-  background: var(--gold);
-  box-shadow: 0 0 8px rgba(244,180,0,.55);
-}
-
-.roadmapRail h3 {
-  margin: 61px 0 15px;
-  color: #dad6cb;
-  font-size: clamp(28px,3vw,42px);
-  font-weight: 520;
-  letter-spacing: -.05em;
-}
-
-.roadmapRail p {
-  max-width: 330px;
-  margin: 0;
-  color: #706e67;
-  font-size: 11px;
-  line-height: 1.7;
+.roadmapFlow b {
+  color: rgba(244,180,0,.45);
+  font-size: 17px;
+  font-weight: 400;
 }
 
 .waitlist {
   min-height: 720px;
   display: grid;
   place-items: center;
-  padding: 105px 24px;
+  padding: 110px 28px;
   background: #090909;
+  text-align: center;
 }
 
-.waitlist::before {
-  content: "";
+.waitlistRings {
   position: absolute;
-  width: 470px;
-  height: 470px;
   left: 50%;
   top: 50%;
+  width: 500px;
+  height: 500px;
+  border: 1px solid rgba(244,180,0,.09);
   border-radius: 50%;
-  background: rgba(244,180,0,.075);
-  filter: blur(100px);
   transform: translate(-50%,-50%);
 }
 
-.waitlistRings,
 .waitlistRings i {
   position: absolute;
   left: 50%;
   top: 50%;
-  border: 1px solid rgba(244,180,0,.07);
+  border: 1px solid rgba(255,255,255,.035);
   border-radius: 50%;
   transform: translate(-50%,-50%);
 }
 
-.waitlistRings {
-  width: 620px;
-  height: 620px;
-}
-
-.waitlistRings i:nth-child(1) { width: 820px; height: 820px; }
-.waitlistRings i:nth-child(2) { width: 1040px; height: 1040px; border-color: rgba(255,255,255,.025); }
-.waitlistRings i:nth-child(3) { width: 10px; height: 10px; border: 0; background: var(--gold); box-shadow: 0 0 20px rgba(244,180,0,.55); }
+.waitlistRings i:nth-child(1) { width: 690px; height: 690px; }
+.waitlistRings i:nth-child(2) { width: 910px; height: 910px; }
+.waitlistRings i:nth-child(3) { width: 250px; height: 250px; border-color: rgba(244,180,0,.07); }
 
 .waitlistInner {
   position: relative;
   z-index: 2;
-  width: min(900px,100%);
-  text-align: center;
+  width: min(100%,870px);
 }
 
 .waitlistLogo {
-  width: 82px;
-  height: 82px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
-  margin-bottom: 25px;
-  filter: drop-shadow(0 0 24px rgba(244,180,0,.2));
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 18px rgba(244,180,0,.18));
 }
 
 .centerLabel {
-  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .waitlist h2 {
-  margin: 25px 0 0;
-  color: #eeeade;
-  font-size: clamp(58px,7vw,98px);
-  font-weight: 510;
-  line-height: .92;
-  letter-spacing: -.067em;
+  margin: 32px 0 26px;
+  color: #efebe1;
+  font-size: clamp(65px,8vw,116px);
+  font-weight: 520;
+  line-height: .85;
+  letter-spacing: -.074em;
 }
 
-.waitlistInner > p {
-  max-width: 570px;
-  margin: 29px auto 0;
-  color: #8a877f;
-  font-size: 14px;
-  line-height: 1.7;
+.waitlist p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: #7d7a72;
+  font-size: 13px;
+  line-height: 1.65;
 }
 
 .waitlistActions {
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-top: 35px;
+  margin-top: 38px;
 }
 
 .waitlistActions a {
-  min-height: 54px;
-  display: inline-flex;
+  min-width: 190px;
+  min-height: 57px;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 35px;
-  padding: 0 23px;
+  gap: 25px;
+  padding: 0 21px;
   border: 1px solid rgba(255,255,255,.13);
   border-radius: 15px;
-  color: #aaa79e;
-  font-size: 12px;
-  transition: transform .3s,border-color .3s,background .3s;
+  color: #b8b4aa;
+  font-size: 11px;
+  transition: transform .35s,border-color .35s;
 }
 
 .waitlistActions .primaryAction {
@@ -904,262 +496,154 @@
 
 .waitlistActions a:hover {
   transform: translateY(-3px);
-  border-color: rgba(244,180,0,.35);
+  border-color: rgba(244,180,0,.4);
 }
 
-.about a:focus-visible,
-.products a:focus-visible,
-.services a:focus-visible,
+.portal a:focus-visible,
 .waitlist a:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 5px;
 }
 
 @media (max-width: 1050px) {
-  .aboutGrid,
-  .sectionIntro,
-  .roadmapIntro {
-    grid-template-columns: 1fr;
-    gap: 45px;
+  .aboutLayout {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 48px;
   }
 
-  .aboutCopy,
-  .introAside,
-  .roadmapIntro > p {
-    max-width: 600px;
+  .aboutCopy {
+    width: min(100%,620px);
   }
 
-  .productShowcase {
-    grid-template-columns: 1fr;
+  .portal {
+    min-height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 35px;
+    padding-block: 105px 70px;
   }
 
-  .productRail {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    border-right: 0;
-    border-bottom: 1px solid rgba(255,255,255,.1);
+  .servicesPortal .portalCopy { order: 1; }
+  .servicesPortal .portalVisual { order: 2; }
+
+  .portalCopy {
+    width: min(100%,680px);
   }
 
-  .productRail button {
-    min-height: 145px;
-    display: block;
-    padding: 25px 22px;
-    border-right: 1px solid rgba(255,255,255,.085);
-    border-bottom: 0;
-  }
-
-  .productRail button:last-child {
-    border-right: 0;
-  }
-
-  .productRail button > span,
-  .productRail button > i {
-    display: none;
-  }
-
-  .productRail button strong {
-    font-size: 45px;
-  }
-
-  .serviceStory,
-  .serviceReverse {
-    grid-template-columns: minmax(300px,.75fr) minmax(0,1.25fr);
-  }
-
-  .serviceCopy,
-  .serviceReverse .serviceCopy {
-    order: 1;
-    padding: 60px 4vw 60px 0;
-  }
-
-  .serviceReverse .serviceCopy {
-    padding-left: 4vw;
-  }
-
-  .serviceVisual,
-  .serviceReverse .serviceVisual {
-    order: 2;
-    border-left: 1px solid rgba(255,255,255,.075);
-    border-right: 0;
+  .portalVisual {
+    width: 100%;
+    max-width: 820px;
+    flex: none;
+    align-self: center;
   }
 }
 
 @media (max-width: 760px) {
   .about,
-  .products,
-  .services,
+  .portal,
   .roadmap {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-inline: 20px;
   }
 
   .about {
     min-height: auto;
-    padding-top: 100px;
-    padding-bottom: 95px;
+    padding-block: 100px 95px;
   }
 
   .sectionLabel > span {
     display: none;
   }
 
-  .aboutGrid {
-    margin-top: 38px;
-    gap: 35px;
+  .aboutLayout {
+    margin-top: 42px;
+    gap: 38px;
   }
 
   .about h2 {
-    font-size: clamp(46px,14vw,66px);
+    font-size: clamp(47px,14vw,66px);
   }
 
-  .aboutCopy {
-    padding-top: 22px;
-  }
-
-  .products,
-  .services {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
-
-  .services {
-    padding-bottom: 0;
-  }
-
-  .sectionIntro {
-    gap: 32px;
-    margin-bottom: 58px;
-  }
-
-  .sectionIntro h2,
-  .roadmap h2 {
-    font-size: clamp(48px,15vw,66px);
-  }
-
-  .productRail button {
-    min-height: 105px;
-    padding: 22px 13px;
-  }
-
-  .productRail button strong {
-    font-size: clamp(31px,10vw,42px);
-  }
-
-  .productRail button small {
-    display: none;
-  }
-
-  .productStage {
-    min-height: 620px;
-    grid-template-rows: minmax(400px,1fr) auto;
-    padding: 22px 16px 27px;
-    background-size: 34px 34px,34px 34px,auto;
-  }
-
-  .productVisual {
-    min-height: 400px;
-  }
-
-  .stageDetails {
-    grid-template-columns: 1fr;
+  .portal {
     gap: 24px;
-    padding: 23px 5px 0;
+    padding-block: 92px 50px;
   }
 
-  .stageDetails > a {
-    width: fit-content;
+  .portal h2 {
+    margin: 40px 0 25px;
+    font-size: clamp(62px,19vw,88px);
   }
 
-  .starVisual {
-    min-height: 390px;
+  .portalCopy > p {
+    font-size: 13px;
   }
 
-  .starCore {
-    right: 0;
-    top: 2%;
-    width: 125px;
-    height: 125px;
+  .portalLink {
+    margin-top: 34px;
   }
 
-  .starCore::before { inset: -22px; }
-  .starCore::after { inset: -44px; }
-  .starCore span { font-size: 46px; }
-
-  .starInterface {
-    width: 96%;
-    transform: none;
-  }
-
-  .starPrompt {
-    padding: 27px 20px 22px;
-  }
-
-  .starPrompt > div {
-    margin-top: 23px;
-  }
-
-  .starOutput {
-    padding: 0 20px 23px;
-  }
-
-  .serviceStory,
-  .serviceReverse {
-    min-height: auto;
-    grid-template-columns: 1fr;
-  }
-
-  .serviceCopy,
-  .serviceReverse .serviceCopy {
-    order: 1;
-    padding: 65px 0 47px;
-  }
-
-  .serviceCopy h3 {
-    font-size: clamp(74px,24vw,100px);
-  }
-
-  .serviceVisual,
-  .serviceReverse .serviceVisual {
+  .productSignal,
+  .serviceCanvas {
     min-height: 430px;
-    order: 2;
-    margin: 0 -20px;
-    border-top: 1px solid rgba(255,255,255,.075);
-    border-left: 0;
   }
 
-  .serviceVisual::after {
-    width: 340px;
-    height: 340px;
+  .signalRing {
+    width: 235px;
+    height: 235px;
   }
 
-  .forgeVisual::after {
-    width: 390px;
-    height: 390px;
+  .signalRing i:nth-child(1) { width: 350px; height: 145px; }
+  .signalRing i:nth-child(2) { width: 145px; height: 350px; }
+  .signalRing i:nth-child(3) { width: 340px; height: 340px; }
+
+  .signalStar {
+    left: calc(50% - 28px);
+    top: calc(50% - 38px);
+    font-size: 55px;
+  }
+
+  .productName {
+    font-size: clamp(31px,11vw,44px);
+  }
+
+  .starName { left: 0; top: 15%; }
+  .fennName { right: 0; top: 28%; }
+  .relayName { left: 1%; bottom: 14%; }
+  .signalStatus { right: 0; bottom: 5%; }
+
+  .serviceCanvas {
+    width: calc(100% + 40px);
+    margin-inline: -20px;
+  }
+
+  .canvasCaption {
+    left: 20px;
+    bottom: 5%;
   }
 
   .roadmap {
-    padding-top: 100px;
-    padding-bottom: 105px;
+    padding-block: 95px;
   }
 
-  .roadmapRail {
-    grid-template-columns: 1fr;
-    margin-top: 60px;
+  .roadmap h2 {
+    margin: 40px 0 55px;
+    font-size: clamp(50px,15vw,70px);
   }
 
-  .roadmapRail li,
-  .roadmapRail li + li {
-    min-height: 0;
-    padding: 30px 0 34px;
-    border-left: 0;
+  .roadmapFlow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding-top: 28px;
   }
 
-  .roadmapRail li + li {
-    border-top: 1px solid rgba(255,255,255,.08);
+  .roadmapFlow b {
+    margin-left: 12px;
+    transform: rotate(90deg);
   }
 
-  .roadmapRail h3 {
-    margin-top: 38px;
+  .roadmapFlow span {
+    font-size: 24px;
   }
 
   .waitlist {
@@ -1180,8 +664,8 @@
   }
 
   .waitlistActions {
-    flex-direction: column;
     width: min(100%,370px);
+    flex-direction: column;
     margin-inline: auto;
     margin-top: 31px;
   }
@@ -1192,11 +676,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .productRail button strong,
-  .productRail button::after,
-  .introAside a b,
-  .serviceCopy > a b,
-  .stageDetails > a b,
+  .portalLink,
   .waitlistActions a {
     transition: none;
   }
