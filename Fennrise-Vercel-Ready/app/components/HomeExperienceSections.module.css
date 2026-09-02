@@ -490,6 +490,7 @@
   grid-template-columns: .85fr 1.15fr;
   gap: 9vw;
   padding-block: 130px 145px;
+  overflow: clip;
   background: linear-gradient(145deg,#0b0b0b,#0f0e0a);
 }
 
