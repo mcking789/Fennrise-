@@ -13,6 +13,30 @@ const productModes = [
   { name: "Relay", number: "03", type: "Voice", line: "Answer. Understand. Connect." },
 ];
 
+const milestones = [
+  {
+    label: "Now",
+    title: "Studio + Forge",
+    text: "Websites, digital experiences, software, portals, and automation for businesses.",
+    status: "Live",
+    live: true,
+  },
+  {
+    label: "Building",
+    title: "STAR + Relay",
+    text: "Intelligent assistance and voice technology moving from prototype to useful product.",
+    status: "In development",
+    live: false,
+  },
+  {
+    label: "Next",
+    title: "Fenn",
+    text: "A focused system for planning, habits, opportunities, and visible everyday progress.",
+    status: "Product direction",
+    live: false,
+  },
+];
+
 function ProductSignal({ reduceMotion }: { reduceMotion: boolean }) {
   const [activeMode, setActiveMode] = useState(0);
 
@@ -150,17 +174,34 @@ export default function HomeExperienceSections() {
       </section>
 
       <section className={styles.roadmap} id="roadmap">
-        <motion.div className={styles.roadmapInner} {...reveal}>
-          <div className={styles.sectionLabel}><i /> The Roadmap <span>Honest progress</span></div>
-          <h2>Live now. <em>Building forward.</em></h2>
-          <div className={styles.roadmapFlow} aria-label="Fennrise roadmap">
-            <span><small>Now</small>Studio + Forge</span>
-            <b>→</b>
-            <span><small>Building</small>STAR + Relay</span>
-            <b>→</b>
-            <span><small>Next</small>Fenn</span>
-          </div>
-        </motion.div>
+        <div className={styles.roadmapIntro}>
+          <motion.div {...reveal}>
+            <div className={styles.sectionLabel}><i /> The Roadmap <span>Honest progress</span></div>
+            <h2>Built now.<br /><em>Becoming next.</em></h2>
+          </motion.div>
+          <motion.p {...reveal}>
+            A simpler view of where Fennrise is today and what the company is deliberately building toward.
+          </motion.p>
+        </div>
+
+        <ol className={styles.roadmapRail} aria-label="Fennrise roadmap">
+          {milestones.map((milestone, index) => (
+            <motion.li
+              key={milestone.label}
+              initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: reduceMotion ? 0 : 0.65, delay: reduceMotion ? 0 : index * 0.08 }}
+            >
+              <div>
+                <span>{String(index + 1).padStart(2, "0")} / {milestone.label}</span>
+                <b className={milestone.live ? styles.live : undefined}><i />{milestone.status}</b>
+              </div>
+              <h3>{milestone.title}</h3>
+              <p>{milestone.text}</p>
+            </motion.li>
+          ))}
+        </ol>
       </section>
 
       <section className={styles.waitlist} id="waitlist">
