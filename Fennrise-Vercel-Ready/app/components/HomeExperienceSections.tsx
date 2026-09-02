@@ -13,28 +13,28 @@ const productModes = [
   { name: "Relay", number: "03", type: "Voice", line: "Answer. Understand. Connect." },
 ];
 
-const milestones = [
+const roadmapItems = [
   {
-    label: "Now",
-    title: "Studio + Forge",
-    text: "Websites, digital experiences, software, portals, and automation for businesses.",
-    status: "Live",
-    live: true,
+    date: "Launched",
+    title: "Fennrise Studio",
+    text: "Premium web design and digital experience development.",
+    active: true,
   },
   {
-    label: "Building",
-    title: "STAR + Relay",
-    text: "Intelligent assistance and voice technology moving from prototype to useful product.",
-    status: "In development",
-    live: false,
+    date: "Launched",
+    title: "Fennrise Forge",
+    text: "Custom software, business tools, dashboards, portals, and automation.",
+    active: true,
   },
   {
-    label: "Next",
-    title: "Fenn",
-    text: "A focused system for planning, habits, opportunities, and visible everyday progress.",
-    status: "Product direction",
-    live: false,
+    date: "In development",
+    title: "Fennrise Relay",
+    text: "An AI calling assistant for business calls, lead capture, summaries, and intelligent routing.",
+    active: false,
   },
+  { date: "In development", title: "STAR", text: "An intelligent assistant for conversations and creation.", active: false },
+  { date: "Next", title: "Fenn — Main App", text: "The complete focused productivity experience.", active: false },
+  { date: "Beyond", title: "One Ecosystem", text: "More products. One seamless experience.", active: false },
 ];
 
 function ProductSignal({ reduceMotion }: { reduceMotion: boolean }) {
@@ -174,34 +174,34 @@ export default function HomeExperienceSections() {
       </section>
 
       <section className={styles.roadmap} id="roadmap">
-        <div className={styles.roadmapIntro}>
-          <motion.div {...reveal}>
-            <div className={styles.sectionLabel}><i /> The Roadmap <span>Honest progress</span></div>
-            <h2>Built now.<br /><em>Becoming next.</em></h2>
-          </motion.div>
-          <motion.p {...reveal}>
-            A simpler view of where Fennrise is today and what the company is deliberately building toward.
-          </motion.p>
-        </div>
+        <motion.div className={styles.roadmapIntro} {...reveal}>
+          <div className={styles.sectionLabel}><i /> The Roadmap</div>
+          <h2>What we&apos;re<br /><em>building next.</em></h2>
+          <p>
+            Fennrise is expanding into a connected ecosystem of products, software,
+            voice AI, and services for work, communication, creation, and growth.
+          </p>
+        </motion.div>
 
-        <ol className={styles.roadmapRail} aria-label="Fennrise roadmap">
-          {milestones.map((milestone, index) => (
-            <motion.li
-              key={milestone.label}
-              initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 22 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: reduceMotion ? 0 : 0.65, delay: reduceMotion ? 0 : index * 0.08 }}
+        <div className={styles.timeline} aria-label="Fennrise roadmap">
+          {roadmapItems.map((item, index) => (
+            <motion.div
+              className={`${styles.timelineItem} ${item.active ? styles.timelineActive : ""}`}
+              key={item.title}
+              initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 20 }}
+              whileInView={{ opacity: item.active ? 1 : .55, y: 0 }}
+              viewport={{ once: true, amount: .35 }}
+              transition={{ duration: reduceMotion ? 0 : .65, delay: reduceMotion ? 0 : index * .06 }}
             >
-              <div>
-                <span>{String(index + 1).padStart(2, "0")} / {milestone.label}</span>
-                <b className={milestone.live ? styles.live : undefined}><i />{milestone.status}</b>
+              <div className={styles.timelineMarker}><span>{String(index + 1).padStart(2, "0")}</span></div>
+              <div className={styles.timelineCopy}>
+                <span>{item.date}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
               </div>
-              <h3>{milestone.title}</h3>
-              <p>{milestone.text}</p>
-            </motion.li>
+            </motion.div>
           ))}
-        </ol>
+        </div>
       </section>
 
       <section className={styles.waitlist} id="waitlist">
