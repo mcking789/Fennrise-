@@ -132,6 +132,36 @@ const sections = [
     ),
   },
   {
+    id: "client-projects",
+    title: "Studio and Forge client projects",
+    content: (
+      <>
+        <p>
+          Studio and Forge projects are discussed directly with the client. Fennrise does
+          not publish fixed project prices on the website. Before work begins, the project
+          scope, quote, timeline, revision arrangements, ownership, and support terms are
+          confirmed in writing through the applicable quotation, proposal, or project
+          agreement.
+        </p>
+        <ul>
+          <li><strong>Payment:</strong> 50% of the agreed project fee is paid as an advance before work begins, and the remaining 50% is paid after delivery.</li>
+          <li><strong>Scope and pricing:</strong> the agreed work is based on the pages, features, design requirements, integrations, and other deliverables confirmed directly with the client. Project prices are provided directly rather than published on the website.</li>
+          <li><strong>Revisions:</strong> reasonable revisions within the agreed scope may be handled during the project. Repeated, excessive, or scope-changing revisions may be charged separately, with the additional work discussed before it is carried out.</li>
+          <li><strong>Changes after delivery:</strong> changes requested after delivery, including new pages, features, redesign requests, integrations, or other work outside the delivered scope, may be charged separately because they require additional design, development, or testing time.</li>
+          <li><strong>Cancellation:</strong> if the client cancels the project after work has begun, payments already made are non-refundable, subject to any rights that cannot be excluded under applicable law.</li>
+          <li><strong>Bug support:</strong> if a verified bug is caused by the work Fennrise delivered within the agreed scope, Fennrise will correct that bug without an additional charge. Problems caused by client-made changes, misuse, changed settings, external code, third-party services, hosting changes, or other modifications outside the delivered Fennrise work may be chargeable.</li>
+          <li><strong>Domains, hosting, APIs, and third-party costs:</strong> external services may have separate fees. Responsibility for those costs is confirmed with the client before the relevant service is purchased or activated.</li>
+          <li><strong>Ownership:</strong> ownership of custom project deliverables is defined in the written project agreement. Client-supplied materials remain the client&apos;s property, while third-party libraries, platforms, APIs, fonts, hosting services, payment providers, and other external tools remain subject to their own licences, ownership, and terms.</li>
+        </ul>
+        <p>
+          The project-specific written quotation, proposal, or agreement applies to the
+          project-specific scope, fees, timeline, revisions, ownership, and support agreed
+          with that client.
+        </p>
+      </>
+    ),
+  },
+  {
     id: "disclaimers",
     title: "Disclaimers",
     content: (
@@ -233,7 +263,7 @@ export default function TermsOfServicePage() {
       eyebrow="Legal · Using Fennrise"
       title="Terms of Service"
       description="The rules that apply when you visit Fennrise, join the waitlist, use website services, or share feedback."
-      updated="2 September 2026"
+      updated="3 September 2026"
       sections={sections}
     />
   );
