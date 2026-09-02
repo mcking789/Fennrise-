@@ -57,7 +57,7 @@ const organizationJsonLd = {
   logo: `${siteUrl}/fennrise-logo.png`,
   description:
     "Fennrise builds intelligent digital products, voice AI, custom software, premium websites, web apps, and productivity technology.",
-  email: "hello@fennrise.com",
+  email: "connect@fennrise.com",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Pune",

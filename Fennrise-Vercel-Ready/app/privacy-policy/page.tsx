@@ -75,7 +75,7 @@ const sections = [
           When you submit the waitlist or survey form, you choose to provide the
           requested information for the purposes shown at that time. You may withdraw
           your consent or ask us to stop sending updates at any time by emailing
-          <a href="mailto:hello@fennrise.com"> hello@fennrise.com</a>.
+          <a href="mailto:connect@fennrise.com"> connect@fennrise.com</a>.
         </p>
         <p>
           Withdrawing consent does not affect processing already completed lawfully,
@@ -163,7 +163,7 @@ const sections = [
           to exercise certain rights where the law permits.
         </p>
         <p>
-          Email <a href="mailto:hello@fennrise.com">hello@fennrise.com</a> with the
+          Email <a href="mailto:connect@fennrise.com">connect@fennrise.com</a> with the
           subject &quot;Privacy Request&quot;. We may need to verify your identity before
           completing a request. If you are dissatisfied with our response, you may use
           the remedies available under applicable law.
@@ -196,7 +196,7 @@ const sections = [
         </p>
         <p>
           For privacy questions, requests, or grievances, email
-          <a href="mailto:hello@fennrise.com"> hello@fennrise.com</a>. Fennrise is
+          <a href="mailto:connect@fennrise.com"> connect@fennrise.com</a>. Fennrise is
           based in Pune, Maharashtra, India.
         </p>
       </>

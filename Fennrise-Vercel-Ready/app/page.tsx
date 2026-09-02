@@ -94,7 +94,7 @@ export default function Home() {
           <div className="footer-links">
             <div><span>Explore</span><a href="#products">Products</a><a href="#about">About</a><a href="#roadmap">Roadmap</a></div>
             <div><span>Products</span><a href="/products#star">Star</a><a href="/services#studio">Studio</a><a href="/products#fenn">Fenn</a><a href="/services#forge">Forge</a><a href="/products#relay">Relay</a></div>
-            <div><span>Connect</span><a href="#waitlist">Instagram ↗</a><a href="#waitlist">LinkedIn ↗</a><a href="mailto:hello@fennrise.com">Email ↗</a></div>
+            <div><span>Connect</span><a href="#waitlist">Instagram ↗</a><a href="#waitlist">LinkedIn ↗</a><a href="mailto:connect@fennrise.com">Email ↗</a></div>
           </div>
         </div>
         <div className="footer-bottom">

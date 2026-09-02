@@ -110,7 +110,7 @@ export default function LegalPage({
         <div className="legal-footer-links">
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/terms-of-service">Terms of Service</a>
-          <a href="mailto:hello@fennrise.com">hello@fennrise.com</a>
+          <a href="mailto:connect@fennrise.com">connect@fennrise.com</a>
         </div>
         <div className="legal-footer-bottom">
           <span>© 2026 Fennrise. All rights reserved.</span>

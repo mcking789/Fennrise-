@@ -185,7 +185,7 @@ const sections = [
         </p>
         <p>
           Please first contact us at
-          <a href="mailto:hello@fennrise.com"> hello@fennrise.com</a> so we can try
+          <a href="mailto:connect@fennrise.com"> connect@fennrise.com</a> so we can try
           to resolve a concern promptly. Fennrise is based in Pune, Maharashtra, India.
         </p>
       </>
