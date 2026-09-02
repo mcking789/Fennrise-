@@ -14,14 +14,27 @@ export default function AnalyticsConsent() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem(STORAGE_KEY);
-    if (saved === "granted" || saved === "denied") setConsent(saved);
+    function readChoice() {
+      if (window.location.hash === "#privacy-choices") {
+        setConsent(null);
+        return;
+      }
+      const saved = window.localStorage.getItem(STORAGE_KEY);
+      setConsent(saved === "granted" || saved === "denied" ? saved : null);
+    }
+
+    readChoice();
     setReady(true);
+    window.addEventListener("hashchange", readChoice);
+    return () => window.removeEventListener("hashchange", readChoice);
   }, []);
 
   function choose(value: Exclude<Consent, null>) {
     window.localStorage.setItem(STORAGE_KEY, value);
     setConsent(value);
+    if (window.location.hash === "#privacy-choices") {
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
   }
 
   if (!ready) return null;
