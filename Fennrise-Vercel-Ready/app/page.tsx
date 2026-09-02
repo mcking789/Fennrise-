@@ -1,32 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import HomeExperienceSections from "./components/HomeExperienceSections";
-
-const roadmap = [
-  { date: "Launched", title: "Fennrise Studio", text: "Premium web design and digital experience development.", active: true },
-  { date: "Launched", title: "Fennrise Forge", text: "Custom software, business tools, dashboards, portals, and automation.", active: true },
-  { date: "In development", title: "Fennrise Relay", text: "An AI calling assistant for business calls, lead capture, summaries, and intelligent routing.", active: false },
-  { date: "In development", title: "Star", text: "An intelligent assistant for conversations and creation.", active: false },
-  { date: "Next", title: "Fenn — Main App", text: "The complete focused productivity experience.", active: false },
-  { date: "Beyond", title: "One Ecosystem", text: "More products. One seamless experience.", active: false },
-];
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("is-visible");
-        });
-      },
-      { threshold: 0.12 }
-    );
-    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <main>
@@ -102,49 +80,6 @@ export default function Home() {
       </section>
 
       <HomeExperienceSections />
-
-      <section className="section roadmap-section" id="roadmap">
-        <div className="roadmap-intro reveal">
-          <div className="eyebrow"><span /> The roadmap</div>
-          <h2>What we&apos;re<br /><em>building next.</em></h2>
-          <p>
-            Fennrise is expanding into a connected ecosystem of products, software,
-            voice AI, and services for work, communication, creation, and growth.
-          </p>
-        </div>
-        <div className="timeline reveal">
-          {roadmap.map((item, index) => (
-            <div className={item.active ? "timeline-item active" : "timeline-item"} key={item.title}>
-              <div className="timeline-marker"><span>{String(index + 1).padStart(2, "0")}</span></div>
-              <div className="timeline-copy">
-                <span>{item.date}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="waitlist-section" id="waitlist">
-        <div className="waitlist-glow" />
-        <div className="waitlist-card reveal">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="waitlist-logo" src="/fennrise-logo.png" alt="" />
-          <div className="eyebrow centered"><span /> Fennrise early access</div>
-          <h2>Ready for what&apos;s<br /><em>coming next?</em></h2>
-          <p>
-            Early access and development updates for Star, Relay, and the Fenn main app
-            will open through the official Fennrise waitlist.
-          </p>
-          <a
-            className="button button-gold"
-            href="/waitlist"
-          >
-            Join the Waitlist <span>→</span>
-          </a>
-        </div>
-      </section>
 
       <footer>
         <div className="footer-main">
