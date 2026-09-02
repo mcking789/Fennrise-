@@ -31,8 +31,34 @@ export default function StudioCanvasVisual() {
         transition={{ duration: reduceMotion ? 0 : 1, ease: [0.22,1,0.36,1] }}
       >
         <div className={styles.top}><i /><i /><i /><b>studio / live canvas</b></div>
-        <div className={styles.copy}><strong /><span /><span /></div>
-        <div className={styles.media} />
+        <div className={styles.copy}>
+          <motion.strong
+            animate={reduceMotion ? undefined : { width: ["68%", "88%", "78%", "88%"] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.span
+            animate={reduceMotion ? undefined : { width: ["54%", "73%", "64%", "73%"] }}
+            transition={{ duration: 6.4, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.span
+            animate={reduceMotion ? undefined : { width: ["42%", "55%", "48%", "55%"] }}
+            transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
+        <motion.div
+          className={styles.media}
+          animate={reduceMotion ? undefined : { filter: ["brightness(.75)", "brightness(1.2)", "brightness(.75)"] }}
+          transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className={styles.cursor}
+          animate={reduceMotion ? undefined : {
+            x: [0, -82, -125, -34, 0],
+            y: [0, -48, -8, -74, 0],
+            scale: [1, 1, .82, 1.08, 1],
+          }}
+          transition={{ duration: 7.2, repeat: Infinity, ease: "easeInOut", repeatDelay: .5 }}
+        >↗</motion.div>
       </motion.div>
     </div>
   );

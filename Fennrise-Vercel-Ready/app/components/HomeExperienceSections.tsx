@@ -10,30 +10,47 @@ function ProductSignal({ reduceMotion }: { reduceMotion: boolean }) {
   return (
     <div className={styles.productSignal} role="img" aria-label="Fennrise products signal visual">
       <div className={styles.signalGlow} />
-      <div className={styles.signalRing}><i /><i /><i /></div>
+      <svg className={styles.signalWave} viewBox="0 0 760 460" aria-hidden="true">
+        <defs>
+          <linearGradient id="fennrise-product-wave" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#755900" stopOpacity="0" />
+            <stop offset=".2" stopColor="#f4b400" />
+            <stop offset=".52" stopColor="#ffd84b" />
+            <stop offset=".82" stopColor="#f4b400" />
+            <stop offset="1" stopColor="#755900" stopOpacity="0" />
+          </linearGradient>
+          <filter id="fennrise-wave-glow" x="-30%" y="-100%" width="160%" height="300%">
+            <feGaussianBlur stdDeviation="9" />
+          </filter>
+        </defs>
+        <path className={styles.waveGuide} d="M18 250 C92 250 108 175 179 181 C247 187 257 302 333 278 C402 256 412 166 488 191 C560 215 593 298 742 224" />
+        <motion.path
+          className={styles.waveGlow}
+          d="M18 250 C92 250 108 175 179 181 C247 187 257 302 333 278 C402 256 412 166 488 191 C560 215 593 298 742 224"
+          initial={{ pathLength: reduceMotion ? 1 : 0, opacity: 0 }}
+          whileInView={{ pathLength: 1, opacity: 1 }}
+          viewport={{ once: true, amount: .4 }}
+          transition={{ duration: reduceMotion ? 0 : 1.5, ease: [0.22, 1, 0.36, 1] }}
+        />
+        <motion.path
+          className={styles.waveEnergy}
+          d="M18 250 C92 250 108 175 179 181 C247 187 257 302 333 278 C402 256 412 166 488 191 C560 215 593 298 742 224"
+          animate={reduceMotion ? undefined : { strokeDashoffset: [0, -180] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.circle cx="179" cy="181" r="7" animate={reduceMotion ? undefined : { r: [5, 9, 5], opacity: [.65, 1, .65] }} transition={{ duration: 3.2, repeat: Infinity }} />
+        <motion.circle cx="333" cy="278" r="7" animate={reduceMotion ? undefined : { r: [5, 9, 5], opacity: [.65, 1, .65] }} transition={{ duration: 3.2, delay: .7, repeat: Infinity }} />
+        <motion.circle cx="488" cy="191" r="7" animate={reduceMotion ? undefined : { r: [5, 9, 5], opacity: [.65, 1, .65] }} transition={{ duration: 3.2, delay: 1.4, repeat: Infinity }} />
+      </svg>
       <motion.div
-        className={styles.signalStar}
-        animate={reduceMotion ? undefined : { scale: [0.94, 1.06, 0.94], rotate: [0, 6, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      >
-        ✦
-      </motion.div>
-      <motion.span
-        className={`${styles.productName} ${styles.starName}`}
-        animate={reduceMotion ? undefined : { y: [0, -7, 0] }}
-        transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
-      >STAR <small>Intelligence</small></motion.span>
-      <motion.span
-        className={`${styles.productName} ${styles.fennName}`}
-        animate={reduceMotion ? undefined : { y: [0, 7, 0] }}
-        transition={{ duration: 5.6, repeat: Infinity, ease: "easeInOut" }}
-      >Fenn <small>Focus</small></motion.span>
-      <motion.span
-        className={`${styles.productName} ${styles.relayName}`}
-        animate={reduceMotion ? undefined : { x: [0, 7, 0] }}
-        transition={{ duration: 6.1, repeat: Infinity, ease: "easeInOut" }}
-      >Relay <small>Voice</small></motion.span>
-      <div className={styles.signalStatus}><i /> Three products in development</div>
+        className={styles.pulseStar}
+        animate={reduceMotion ? undefined : { scale: [.92, 1.08, .92], opacity: [.78, 1, .78] }}
+        transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
+      >✦</motion.div>
+      <span className={`${styles.pulseProduct} ${styles.pulseStarName}`}><small>01</small>STAR <i>Intelligence</i></span>
+      <span className={`${styles.pulseProduct} ${styles.pulseFennName}`}><small>02</small>Fenn <i>Focus</i></span>
+      <span className={`${styles.pulseProduct} ${styles.pulseRelayName}`}><small>03</small>Relay <i>Voice</i></span>
+      <div className={styles.signalStatus}><i /> Three products / one signal</div>
     </div>
   );
 }
