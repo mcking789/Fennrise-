@@ -14,8 +14,8 @@ const sections = [
       <p>
         These Terms of Service (&quot;Terms&quot;) apply when you visit
         <a href="https://fennrise.com"> fennrise.com</a>, join the Fennrise waitlist,
-        submit feedback, or use another Fennrise experience that links to these Terms.
-        By using those services, you agree to these Terms and our
+        submit feedback, or use another Fennrise website experience that links to these
+        Terms. By using those services, you agree to these Terms and our
         <a href="/privacy-policy"> Privacy Policy</a>. If you do not agree, please do
         not use the services.
       </p>
@@ -89,6 +89,21 @@ const sections = [
     ),
   },
   {
+    id: "ip-complaints",
+    title: "Intellectual property complaints",
+    content: (
+      <p>
+        If you believe your trademark, copyright, or other intellectual property is
+        being used on this website without permission, email
+        <a href="mailto:legal@fennrise.com"> legal@fennrise.com</a> with the subject
+        &quot;IP Complaint&quot;, a description of the material, where it appears, and
+        reasonable proof of your ownership or authority. We will review the complaint
+        and aim to respond within 10 business days, including removing or correcting
+        material we determine to be infringing where appropriate.
+      </p>
+    ),
+  },
+  {
     id: "feedback",
     title: "Feedback and submissions",
     content: (
@@ -149,6 +164,21 @@ const sections = [
     ),
   },
   {
+    id: "payments",
+    title: "Payments, billing and refunds",
+    content: (
+      <p>
+        This section applies if Fennrise begins charging for a product, subscription,
+        service, or custom work through the website. Pricing will be shown or agreed
+        before payment. Billing, cancellation, refund, milestone, and delivery terms
+        will follow the specific terms shown at purchase or in the applicable written
+        client agreement. Fennrise does not directly store full card or banking details
+        unless explicitly stated; payment providers may process those details under
+        their own terms.
+      </p>
+    ),
+  },
+  {
     id: "suspension",
     title: "Suspension and termination",
     content: (
@@ -183,11 +213,13 @@ const sections = [
           Pune, Maharashtra will have exclusive jurisdiction over disputes, subject to
           any mandatory rights or dispute process that applicable law gives you.
         </p>
-        <p>
-          Please first contact us at
-          <a href="mailto:connect@fennrise.com"> connect@fennrise.com</a> so we can try
-          to resolve a concern promptly. Fennrise is based in Pune, Maharashtra, India.
-        </p>
+        <ul>
+          <li><strong>Legal notices, disputes and IP complaints:</strong> <a href="mailto:legal@fennrise.com">legal@fennrise.com</a></li>
+          <li><strong>Privacy and data requests:</strong> <a href="mailto:privacy@fennrise.com">privacy@fennrise.com</a></li>
+          <li><strong>Service support:</strong> <a href="mailto:support@fennrise.com">support@fennrise.com</a></li>
+          <li><strong>General enquiries:</strong> <a href="mailto:connect@fennrise.com">connect@fennrise.com</a></li>
+        </ul>
+        <p>Fennrise is based in Pune, Maharashtra, India.</p>
       </>
     ),
   },
@@ -198,8 +230,8 @@ export default function TermsOfServicePage() {
     <LegalPage
       eyebrow="Legal · Using Fennrise"
       title="Terms of Service"
-      description="The straightforward rules that apply when you visit Fennrise, join the waitlist, or share feedback."
-      updated="9 August 2026"
+      description="The rules that apply when you visit Fennrise, join the waitlist, use website services, or share feedback."
+      updated="2 September 2026"
       sections={sections}
     />
   );
