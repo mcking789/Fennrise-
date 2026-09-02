@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import AnalyticsConsent from "./components/AnalyticsConsent";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,17 +13,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://fennrise.com";
+const siteUrl = "https://www.fennrise.com";
 const siteTitle = "Fennrise — AI, Voice, Software & Digital Products";
 const siteDescription =
-  "Fennrise builds intelligent digital products, voice AI, premium websites, and custom software through Star, Relay, Fenn, Studio, and Forge.";
+  "Fennrise builds intelligent digital products, voice AI, premium websites, and custom software through STAR, Relay, Fenn, Studio, and Forge.";
 
 const searchKeywords = [
   "Fennrise",
   "Fenrise",
   "Fenn Rise",
   "Fennrise AI",
-  "Fennrise Star",
+  "Fennrise STAR",
   "Fennrise Relay",
   "Fennrise calling bot",
   "AI calling assistant",
@@ -144,8 +145,10 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: "/fennrise-logo.png",
-        alt: "Fennrise",
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Fennrise — intelligent digital products, voice AI and software",
       },
     ],
   },
@@ -153,7 +156,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/fennrise-logo.png"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -179,9 +182,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-IN">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -195,6 +196,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <AnalyticsConsent />
       </body>
     </html>
   );
