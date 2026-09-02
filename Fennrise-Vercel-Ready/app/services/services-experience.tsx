@@ -87,7 +87,7 @@ export default function ServicesExperience() {
             <p>Premium websites and digital experiences built with clear strategy, thoughtful design, smooth interaction, and production-ready technology.</p>
           </motion.div>
           <div className={styles.serviceList}>{['Website design','UI/UX design','Landing pages','Web applications','Brand direction','Responsive development'].map((item,index)=><motion.span key={item} initial={{opacity:reduceMotion?1:0,x:reduceMotion?0:-18}} whileInView={{opacity:1,x:0}} viewport={{once:true}} transition={{delay:reduceMotion?0:index*.06}}><i>{String(index+1).padStart(2,'0')}</i>{item}</motion.span>)}</div>
-          <a href="mailto:connect@fennrise.com?subject=Fennrise%20Studio%20Project">Start a Studio project <b>↗</b></a>
+          <Link href="/contact?service=studio#project">Start a Studio project <b>↗</b></Link>
         </div>
         <div className={styles.visual}><StudioCanvasVisual /></div>
       </section>
@@ -101,7 +101,7 @@ export default function ServicesExperience() {
             <p>Custom software designed around the way your business actually works—from internal tools and dashboards to client portals, automation, and complete web applications.</p>
           </motion.div>
           <div className={styles.serviceList}>{['Custom software','Business dashboards','Client portals','Workflow automation','Internal tools','Web applications'].map((item,index)=><motion.span key={item} initial={{opacity:reduceMotion?1:0,x:reduceMotion?0:-18}} whileInView={{opacity:1,x:0}} viewport={{once:true}} transition={{delay:reduceMotion?0:index*.06}}><i>{String(index+1).padStart(2,'0')}</i>{item}</motion.span>)}</div>
-          <a href="mailto:connect@fennrise.com?subject=Fennrise%20Forge%20Project">Start a Forge project <b>↗</b></a>
+          <Link href="/contact?service=forge#project">Start a Forge project <b>↗</b></Link>
         </div>
         <div className={`${styles.visual} ${styles.forgeVisual}`}><ForgeDashboard /></div>
       </section>
@@ -131,7 +131,7 @@ export default function ServicesExperience() {
         <span>Have something worth building?</span>
         <h2>Let&apos;s bring it<br /><em>to life.</em></h2>
         <p>Tell us the goal, the existing problem, or simply the idea. We&apos;ll help shape the right digital direction.</p>
-        <div><a href="mailto:connect@fennrise.com?subject=Start%20a%20Fennrise%20Project">Start a project <b>→</b></a><Link href="/products">Explore our products <b>↗</b></Link></div>
+        <div><Link href="/contact#project">Start a project <b>→</b></Link><Link href="/products">Explore our products <b>↗</b></Link></div>
       </section>
 
       <ExperienceFooter />
