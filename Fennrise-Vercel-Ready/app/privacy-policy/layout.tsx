@@ -3,17 +3,18 @@ import type { ReactNode } from "react";
 
 const title = "Privacy Policy — Fennrise";
 const description =
-  "How Fennrise collects, uses, protects, and manages personal information.";
+  "Official Fennrise Privacy Policy covering website and waitlist data, privacy rights, security, and contact information.";
 
 export const metadata: Metadata = {
+  title,
+  description,
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
     googleBot: {
-      index: false,
-      follow: false,
-      noarchive: true,
-      nosnippet: true,
+      index: true,
+      follow: true,
+      "max-snippet": -1,
     },
   },
   alternates: {
