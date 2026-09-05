@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import AnalyticsConsent from "./components/AnalyticsConsent";
 import "./globals.css";
 import "./a11y.css";
 
@@ -17,7 +16,7 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://www.fennrise.com";
 const siteTitle = "Fennrise — STAR, Fenn & Intelligent Digital Products";
 const siteDescription =
-  "Fennrise builds STAR, an intelligent assistant for students and everyday users, alongside Fenn and a growing ecosystem of focused digital products.";
+  "Fennrise builds STAR, Fenn, Relay, premium websites, custom software, and focused digital products for people and businesses across India and beyond.";
 
 const searchKeywords = [
   "Fennrise",
@@ -39,6 +38,8 @@ const searchKeywords = [
   "Fennrise Relay",
   "Fennrise Studio",
   "Fennrise Forge",
+  "website design India",
+  "custom software India",
 ];
 
 const organizationJsonLd = {
@@ -49,7 +50,7 @@ const organizationJsonLd = {
   url: `${siteUrl}/`,
   logo: `${siteUrl}/fennrise-logo.png`,
   description:
-    "Fennrise creates intelligent digital products, including STAR, an assistant for students and everyday users, and Fenn, a productivity and planning platform.",
+    "Fennrise creates intelligent digital products, premium websites, custom software, and useful digital systems for people and businesses.",
   email: "connect@fennrise.com",
   contactPoint: [
     {
@@ -89,6 +90,8 @@ const organizationJsonLd = {
     "Productivity software",
     "Goal planning",
     "Focus tools",
+    "Website design",
+    "Custom software",
     "Digital experiences",
     "Software products",
   ],
@@ -179,7 +182,6 @@ export default function RootLayout({
           }}
         />
         {children}
-        <AnalyticsConsent />
       </body>
     </html>
   );
