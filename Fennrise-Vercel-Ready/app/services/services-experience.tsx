@@ -10,6 +10,42 @@ import styles from "./services.module.css";
 
 const process = ["Discover", "Design", "Build", "Launch"];
 
+const projectCtaStyle = {
+  width: "fit-content",
+  minWidth: "235px",
+  minHeight: "50px",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  gap: "28px",
+  marginTop: "34px",
+  padding: "0 12px 0 20px",
+  border: "1px solid rgba(255,212,95,.72)",
+  borderRadius: "14px",
+  background: "linear-gradient(135deg,#f4b400 0%,#ffd45f 100%)",
+  boxShadow: "0 12px 34px rgba(244,180,0,.18), inset 0 1px 0 rgba(255,255,255,.35)",
+  color: "#17130a",
+  fontSize: "10px",
+  fontWeight: 760,
+  letterSpacing: ".11em",
+  textTransform: "uppercase",
+  textDecoration: "none",
+} as const;
+
+const projectCtaArrowStyle = {
+  width: "28px",
+  height: "28px",
+  margin: 0,
+  display: "grid",
+  placeItems: "center",
+  flex: "0 0 28px",
+  borderRadius: "9px",
+  background: "rgba(20,16,7,.10)",
+  color: "#17130a",
+  fontSize: "13px",
+  fontWeight: 700,
+} as const;
+
 const servicePolicies = [
   {
     question: "How does payment work?",
@@ -87,7 +123,7 @@ export default function ServicesExperience() {
             <p>Premium websites and digital experiences built with clear strategy, thoughtful design, smooth interaction, and production-ready technology.</p>
           </motion.div>
           <div className={styles.serviceList}>{['Website design','UI/UX design','Landing pages','Web applications','Brand direction','Responsive development'].map((item,index)=><motion.span key={item} initial={{opacity:reduceMotion?1:0,x:reduceMotion?0:-18}} whileInView={{opacity:1,x:0}} viewport={{once:true}} transition={{delay:reduceMotion?0:index*.06}}><i>{String(index+1).padStart(2,'0')}</i>{item}</motion.span>)}</div>
-          <Link href="/contact?service=studio#project">Start a Studio project <b>↗</b></Link>
+          <Link href="/contact?service=studio#project" style={projectCtaStyle}>Start a Studio project <b style={projectCtaArrowStyle}>↗</b></Link>
         </div>
         <div className={styles.visual}><StudioCanvasVisual /></div>
       </section>
@@ -101,7 +137,7 @@ export default function ServicesExperience() {
             <p>Custom software designed around the way your business actually works—from internal tools and dashboards to client portals, automation, and complete web applications.</p>
           </motion.div>
           <div className={styles.serviceList}>{['Custom software','Business dashboards','Client portals','Workflow automation','Internal tools','Web applications'].map((item,index)=><motion.span key={item} initial={{opacity:reduceMotion?1:0,x:reduceMotion?0:-18}} whileInView={{opacity:1,x:0}} viewport={{once:true}} transition={{delay:reduceMotion?0:index*.06}}><i>{String(index+1).padStart(2,'0')}</i>{item}</motion.span>)}</div>
-          <Link href="/contact?service=forge#project">Start a Forge project <b>↗</b></Link>
+          <Link href="/contact?service=forge#project" style={projectCtaStyle}>Start a Forge project <b style={projectCtaArrowStyle}>↗</b></Link>
         </div>
         <div className={`${styles.visual} ${styles.forgeVisual}`}><ForgeDashboard /></div>
       </section>
