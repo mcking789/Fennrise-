@@ -20,6 +20,7 @@ export function ExperienceHeader({ active }: { active?: ActivePage }) {
       <nav className={`${styles.nav} ${menuOpen ? styles.open : ""}`} aria-label="Main navigation">
         <Link className={active === "products" ? styles.active : ""} href="/products" onClick={() => setMenuOpen(false)}>Products</Link>
         <Link className={active === "services" ? styles.active : ""} href="/services" onClick={() => setMenuOpen(false)}>Services</Link>
+        <Link href="/#roadmap" onClick={() => setMenuOpen(false)}>Roadmap</Link>
         <Link className={active === "about" ? styles.active : ""} href="/about" onClick={() => setMenuOpen(false)}>About</Link>
         <Link className={active === "contact" ? styles.active : ""} href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
         <Link className={styles.cta} href="/waitlist" onClick={() => setMenuOpen(false)}>Join waitlist <span>→</span></Link>
