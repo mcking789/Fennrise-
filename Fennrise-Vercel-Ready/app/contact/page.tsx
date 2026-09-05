@@ -50,14 +50,25 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           <div className={styles.eyebrow}>Contact Fennrise</div>
           <h1>Let&apos;s build<br /><em>what&apos;s next.</em></h1>
           <p>
-            Start a Studio or Forge project, reach the right team, or send a direct enquiry to Fennrise.
+            Reach the right team, send a project enquiry, or contact Fennrise directly for support and company matters.
           </p>
-          <a className={styles.heroCta} href="#project">
-            Start a project <b>→</b>
-          </a>
           <div className={styles.heroMeta} aria-label="Fennrise contact areas">
             <span>Studio</span><i /><span>Forge</span><i /><span>Support</span><i /><span>Company</span>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.projectSection} id="project" aria-labelledby="project-title">
+        <div className={styles.projectIntro}>
+          <span>Start a project</span>
+          <h2 id="project-title">Tell us what you<br />want to <em>build.</em></h2>
+          <p>
+            Send the requirement directly to Fennrise. If you arrived from Studio or Forge, the correct service is already selected.
+            We review the project and discuss scope and pricing with you directly.
+          </p>
+        </div>
+        <div className={styles.projectPanel}>
+          <ContactForm initialService={initialService} />
         </div>
       </section>
 
@@ -88,20 +99,6 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             Fennrise is based in India. Please do not send passwords, payment-card details, government identity documents,
             or other sensitive information by ordinary email unless we specifically request a secure method.
           </p>
-        </div>
-      </section>
-
-      <section className={styles.projectSection} id="project" aria-labelledby="project-title">
-        <div className={styles.projectIntro}>
-          <span>Start a project</span>
-          <h2 id="project-title">Tell us what you<br />want to <em>build.</em></h2>
-          <p>
-            Send the requirement directly to Fennrise. If you arrived from Studio or Forge, the correct service is already selected.
-            We review the project and discuss scope and pricing with you directly.
-          </p>
-        </div>
-        <div className={styles.projectPanel}>
-          <ContactForm initialService={initialService} />
         </div>
       </section>
 
