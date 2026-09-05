@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion, useScroll } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { useRef } from "react";
 import { ExperienceFooter, ExperienceHeader } from "../components/ExperienceChrome";
 import FennFocusVisual from "../components/FennFocusVisual";
@@ -12,12 +12,10 @@ import styles from "./products.module.css";
 export default function ProductsExperience() {
   const pageRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: pageRef, offset: ["start start", "end end"] });
 
   return (
     <main className={styles.page} id="page-top" ref={pageRef}>
       <ExperienceHeader active="products" />
-      <motion.div className={styles.progress} style={{ scaleX: scrollYProgress }} />
 
       <section className={styles.hero}>
         <div className={styles.heroGrid} />
