@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion, useScroll } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { useRef } from "react";
 import { ExperienceFooter, ExperienceHeader } from "../components/ExperienceChrome";
 import ForgeDashboard from "../components/ForgeDashboard";
@@ -61,18 +61,16 @@ const servicePolicies = [
 export default function ServicesExperience() {
   const pageRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: pageRef, offset: ["start start", "end end"] });
 
   return (
     <main className={styles.page} id="page-top" ref={pageRef}>
       <ExperienceHeader active="services" />
-      <motion.div className={styles.progress} style={{ scaleX: scrollYProgress }} />
 
       <section className={styles.hero}>
-        <div className={styles.heroLines} aria-hidden="true"><i /><i /><i /><i /></div>
+        <div className={styles.heroGrid} aria-hidden="true" />
         <motion.div className={styles.heroCopy} initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, ease: [0.22,1,0.36,1] }}>
           <div className={styles.eyebrow}><i /> Fennrise services / Studio + Forge</div>
-          <h1>Ideas made<br /><em>useful.</em></h1>
+          <h1><span>Ideas made</span><br /><em>useful.</em></h1>
           <p>From a first idea to a launched experience, we design and build the technology your business needs next.</p>
           <a href="#studio">Explore our services <span>↓</span></a>
         </motion.div>
