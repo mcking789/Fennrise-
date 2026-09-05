@@ -23,7 +23,7 @@ export default function ProductsExperience() {
         <div className={styles.heroGrid} />
         <motion.div className={styles.heroCopy} initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, ease: [0.22,1,0.36,1] }}>
           <div className={styles.eyebrow}><i /> Fennrise products / 01–03</div>
-          <h1>Technology<br />with a <em>purpose.</em></h1>
+          <h1><span>Technology with a</span><br /><em>purpose.</em></h1>
           <p>Three products being built around intelligence, focus, and communication—designed to become useful parts of everyday work.</p>
           <a href="#star">Explore the products <span>↓</span></a>
         </motion.div>
