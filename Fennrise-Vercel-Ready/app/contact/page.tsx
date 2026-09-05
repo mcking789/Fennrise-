@@ -75,7 +75,6 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
       <section className={styles.directorySection} aria-labelledby="contact-directory-title">
         <div className={styles.directoryPanel}>
           <div className={styles.directoryHeader}>
-            <div className={styles.directoryKicker}><i>F</i> Contact directory</div>
             <h2 id="contact-directory-title">Four clear ways<br />to <em>reach us.</em></h2>
             <p>
               Choose the inbox that matches what you need. Each address routes your message to the right place inside Fennrise.
