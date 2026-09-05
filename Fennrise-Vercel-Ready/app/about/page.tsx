@@ -27,15 +27,18 @@ const principles = [
 const products = [
   {
     name: "STAR",
-    text: "An intelligent assistant built around useful conversations, creation, research, and everyday action.",
+    type: "Intelligent assistant",
+    text: "Useful conversations, creation, research, and everyday action in one focused assistant.",
   },
   {
     name: "Fenn",
-    text: "A focused productivity experience designed to turn plans into clearer, more consistent progress.",
+    type: "Focus & planning",
+    text: "A productivity experience designed to turn plans into clearer, more consistent progress.",
   },
   {
     name: "Relay",
-    text: "A business calling assistant for customer conversations, lead capture, summaries, and routing.",
+    type: "Business calling",
+    text: "A calling assistant for customer conversations, lead capture, summaries, follow-ups, and routing.",
   },
 ];
 
@@ -56,22 +59,26 @@ export default function AboutPage() {
       </section>
 
       <section className={styles.building}>
-        <div className={styles.sectionHead}>
+        <div className={styles.buildingIntro}>
           <span className={styles.sectionLabel}>What we are building</span>
-          <div className={styles.sectionCopy}>
-            <h2>Products with a<br /><em>clear purpose.</em></h2>
-            <p>
-              We are building our own products around practical problems: helping people think, focus, communicate, and get useful things done with technology.
-            </p>
-          </div>
+          <h2>Three products.<br /><em>Three clear jobs.</em></h2>
+          <p>
+            Each Fennrise product starts with a specific problem worth solving. No feature pile-up. No technology for its own sake.
+          </p>
         </div>
 
-        <div className={styles.productBand}>
+        <div className={styles.productShowcase}>
           {products.map((product, index) => (
-            <div className={styles.productRow} key={product.name}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{product.name}</strong>
-              <p>{product.text}</p>
+            <div className={styles.productFeature} key={product.name}>
+              <span className={styles.productIndex}>{String(index + 1).padStart(2, "0")}</span>
+              <div className={styles.productTitleBlock}>
+                <small>{product.type}</small>
+                <strong>{product.name}</strong>
+              </div>
+              <div className={styles.productDescription}>
+                <p>{product.text}</p>
+                <span aria-hidden="true">↗</span>
+              </div>
             </div>
           ))}
         </div>
@@ -81,14 +88,17 @@ export default function AboutPage() {
         <div className={styles.principleIntro}>
           <span className={styles.sectionLabel}>How we think</span>
           <h2>Useful first.<br /><em>Everything else follows.</em></h2>
+          <p>Three decisions we keep coming back to while designing and building.</p>
         </div>
 
-        <div className={styles.principleList}>
+        <div className={styles.manifesto}>
           {principles.map((principle, index) => (
-            <div className={styles.principleRow} key={principle.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{principle.title}</h3>
-              <p>{principle.text}</p>
+            <div className={styles.manifestoItem} key={principle.title}>
+              <div className={styles.manifestoNumber}>{String(index + 1).padStart(2, "0")}</div>
+              <div className={styles.manifestoCopy}>
+                <h3>{principle.title}</h3>
+                <p>{principle.text}</p>
+              </div>
             </div>
           ))}
         </div>
