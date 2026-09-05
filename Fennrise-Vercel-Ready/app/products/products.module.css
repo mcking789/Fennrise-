@@ -1,6 +1,5 @@
 .page { position: relative; min-height: 100vh; overflow: hidden; background: #0b0b0b; color: var(--cream); }
 .page a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 4px; }
-.progress { position: fixed; z-index: 70; left: 0; right: 0; top: 0; height: 2px; transform-origin: 0 50%; background: var(--gold); box-shadow: 0 0 12px rgba(244,180,0,.55); }
 .hero { position: relative; min-height: 100svh; display: flex; align-items: center; justify-content:center; overflow: hidden; padding: 150px max(5vw,24px) 130px; border-bottom: 1px solid rgba(255,255,255,.08); background: radial-gradient(circle at 50% 43%,rgba(244,180,0,.095),transparent 31%),radial-gradient(circle at 50% 80%,rgba(244,180,0,.03),transparent 34%),linear-gradient(132deg,#0b0b0b 15%,#0e0d09 100%); }
 .heroGrid { position:absolute;inset:0;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:74px 74px;mask-image:radial-gradient(circle at 50% 48%,#000 0%,rgba(0,0,0,.78) 42%,transparent 79%); }
 .heroCopy { position: relative; z-index: 3; width: min(1180px,96%); margin:0 auto; text-align:center; display:flex; flex-direction:column; align-items:center; }
