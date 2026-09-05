@@ -11,14 +11,17 @@ export const metadata: Metadata = {
 
 const principles = [
   {
+    word: "REAL.",
     title: "Solve real problems.",
     text: "We start with a genuine need, not a trend. Technology should remove friction, save time, or make something meaningfully better.",
   },
   {
+    word: "CLEAR.",
     title: "Keep powerful things clear.",
     text: "Good technology should not force people to understand the complexity behind it. We use design to make capable systems easier to use.",
   },
   {
+    word: "BETTER.",
     title: "Build, test, refine.",
     text: "We would rather improve a useful product continuously than pretend the first version is finished. Real feedback shapes what comes next.",
   },
@@ -29,16 +32,19 @@ const products = [
     name: "STAR",
     type: "Intelligent assistant",
     text: "Useful conversations, creation, research, and everyday action in one focused assistant.",
+    href: "/products#star",
   },
   {
     name: "Fenn",
     type: "Focus & planning",
     text: "A productivity experience designed to turn plans into clearer, more consistent progress.",
+    href: "/products#fenn",
   },
   {
     name: "Relay",
     type: "Business calling",
     text: "A calling assistant for customer conversations, lead capture, summaries, follow-ups, and routing.",
+    href: "/products#relay",
   },
 ];
 
@@ -59,43 +65,46 @@ export default function AboutPage() {
       </section>
 
       <section className={styles.building}>
-        <div className={styles.buildingIntro}>
-          <span className={styles.sectionLabel}>What we are building</span>
-          <h2>Three products.<br /><em>Three clear jobs.</em></h2>
-          <p>
-            Each Fennrise product starts with a specific problem worth solving. No feature pile-up. No technology for its own sake.
-          </p>
-        </div>
+        <div className={styles.buildingLayout}>
+          <div className={styles.buildingIntro}>
+            <span className={styles.sectionLabel}>What we are building</span>
+            <h2>Built for real use.<br /><em>Not for demos.</em></h2>
+            <p>
+              Each Fennrise product begins with one practical job. The product earns complexity only when that complexity makes the experience more useful.
+            </p>
+          </div>
 
-        <div className={styles.productShowcase}>
-          {products.map((product, index) => (
-            <div className={styles.productFeature} key={product.name}>
-              <span className={styles.productIndex}>{String(index + 1).padStart(2, "0")}</span>
-              <div className={styles.productTitleBlock}>
-                <small>{product.type}</small>
-                <strong>{product.name}</strong>
-              </div>
-              <div className={styles.productDescription}>
+          <div className={styles.productStack}>
+            {products.map((product, index) => (
+              <a className={styles.productStage} href={product.href} key={product.name}>
+                <div className={styles.productMeta}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <small>{product.type}</small>
+                </div>
+                <div className={styles.productName}>
+                  <strong>{product.name}</strong>
+                  <b aria-hidden="true">↗</b>
+                </div>
                 <p>{product.text}</p>
-                <span aria-hidden="true">↗</span>
-              </div>
-            </div>
-          ))}
+                <i aria-hidden="true" />
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className={styles.principles}>
-        <div className={styles.principleIntro}>
+        <div className={styles.principleHeader}>
           <span className={styles.sectionLabel}>How we think</span>
-          <h2>Useful first.<br /><em>Everything else follows.</em></h2>
-          <p>Three decisions we keep coming back to while designing and building.</p>
+          <h2>Three things<br />we refuse to <em>compromise.</em></h2>
         </div>
 
-        <div className={styles.manifesto}>
+        <div className={styles.principleCanvas}>
           {principles.map((principle, index) => (
-            <div className={styles.manifestoItem} key={principle.title}>
-              <div className={styles.manifestoNumber}>{String(index + 1).padStart(2, "0")}</div>
-              <div className={styles.manifestoCopy}>
+            <div className={styles.principleScene} key={principle.title}>
+              <div className={styles.principleWord} aria-hidden="true">{principle.word}</div>
+              <div className={styles.principleCopy}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
                 <h3>{principle.title}</h3>
                 <p>{principle.text}</p>
               </div>
