@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ExperienceFooter, ExperienceHeader } from "../components/ExperienceChrome";
-import styles from "../company-pages.module.css";
+import styles from "./about.module.css";
 
 export const metadata: Metadata = {
   title: "About Fennrise — Independent Technology Company",
@@ -24,64 +24,84 @@ const principles = [
   },
 ];
 
+const products = [
+  {
+    name: "STAR",
+    text: "An intelligent assistant built around useful conversations, creation, research, and everyday action.",
+  },
+  {
+    name: "Fenn",
+    text: "A focused productivity experience designed to turn plans into clearer, more consistent progress.",
+  },
+  {
+    name: "Relay",
+    text: "A business calling assistant for customer conversations, lead capture, summaries, and routing.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <main className={styles.page} id="page-top">
       <ExperienceHeader active="about" />
 
       <section className={styles.hero}>
+        <div className={styles.heroGrid} aria-hidden="true" />
         <div className={styles.heroInner}>
           <div className={styles.eyebrow}>About Fennrise</div>
-          <h1>Technology should feel <em>useful.</em></h1>
+          <h1><span>Technology should feel</span><br /><em>useful.</em></h1>
           <p>
-            Fennrise is an independent technology company in India building intelligent
-            products designed to make everyday work, focus, communication, and digital
-            experiences more useful.
+            Fennrise is an independent technology company in India building intelligent products and digital experiences designed to make work, focus, communication, and everyday technology more useful.
           </p>
         </div>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.split}>
-          <span className={styles.label}>What we are building</span>
-          <div className={styles.copy}>
-            <h2>Products with a clear purpose.</h2>
+      <section className={styles.building}>
+        <div className={styles.sectionHead}>
+          <span className={styles.sectionLabel}>What we are building</span>
+          <div className={styles.sectionCopy}>
+            <h2>Products with a<br /><em>clear purpose.</em></h2>
             <p>
-              Our long-term focus is a family of Fennrise products, including STAR,
-              Fenn, and Relay. They explore better ways to work, focus, communicate,
-              and use intelligent software in everyday life.
+              We are building our own products around practical problems: helping people think, focus, communicate, and get useful things done with technology.
             </p>
-
-            <div className={styles.principles}>
-              {principles.map((principle, index) => (
-                <div className={styles.principle} key={principle.title}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <div>
-                    <h3>{principle.title}</h3>
-                    <p>{principle.text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
+        </div>
+
+        <div className={styles.productBand}>
+          {products.map((product, index) => (
+            <div className={styles.productRow} key={product.name}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{product.name}</strong>
+              <p>{product.text}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.split}>
-          <span className={styles.label}>Company</span>
-          <div className={styles.copy}>
-            <h2>Based in India. Built for a wider future.</h2>
-            <p>
-              Fennrise currently operates from India. We are building the company,
-              products, processes, and legal foundations with the intention of being
-              able to grow beyond one city or one market when the products are ready.
-            </p>
-            <p>
-              For general enquiries, partnerships, press, or company questions, contact
-              us at <a href="mailto:connect@fennrise.com">connect@fennrise.com</a>.
-            </p>
-          </div>
+      <section className={styles.principles}>
+        <div className={styles.principleIntro}>
+          <span className={styles.sectionLabel}>How we think</span>
+          <h2>Useful first.<br /><em>Everything else follows.</em></h2>
+        </div>
+
+        <div className={styles.principleList}>
+          {principles.map((principle, index) => (
+            <div className={styles.principleRow} key={principle.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{principle.title}</h3>
+              <p>{principle.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.company}>
+        <div className={styles.companyInner}>
+          <span>Company</span>
+          <h2>Built in India.<br /><em>Made to go further.</em></h2>
+          <p>
+            Fennrise currently operates from India while building products, processes, and foundations designed to grow beyond one market when the company and products are ready.
+          </p>
+          <a href="mailto:connect@fennrise.com">Company enquiries <b>↗</b></a>
         </div>
       </section>
 
