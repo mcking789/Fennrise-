@@ -18,7 +18,7 @@ const contacts = [
   },
   {
     label: "Support",
-    title: "Existing customer and product support",
+    title: "Product & service support",
     email: "support@fennrise.com",
   },
   {
