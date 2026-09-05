@@ -105,8 +105,26 @@ export default function ServicesExperience() {
       </section>
 
       <section className={styles.process}>
-        <div className={styles.processIntro}><span>How we work</span><h2>One clear path<br />from <em>idea to launch.</em></h2></div>
-        <div className={styles.processLine}>{process.map((step,index)=><motion.div key={step} initial={{opacity:reduceMotion?1:0,y:reduceMotion?0:24}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:reduceMotion?0:index*.1}}><span>{String(index+1).padStart(2,'0')}</span><h3>{step}</h3><p>{['Understand the goal, audience, and real business problem.','Shape the structure, interaction, and visual direction.','Develop, test, refine, and connect every moving part.','Deploy the finished experience and support what comes next.'][index]}</p></motion.div>)}</div>
+        <div className={styles.processIntro}>
+          <span>How we work</span>
+          <h2>From first thought<br />to <em>finished product.</em></h2>
+          <p>Four deliberate stages. One focused workflow. No unnecessary complexity between the idea and the launch.</p>
+        </div>
+        <div className={styles.processJourney}>
+          <div className={styles.processRail} aria-hidden="true" />
+          {process.map((step,index)=><motion.article className={styles.processCard} key={step} initial={{opacity:reduceMotion?1:0,y:reduceMotion?0:34}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.25}} transition={{duration:.65,delay:reduceMotion?0:index*.1,ease:[0.22,1,0.36,1]}}>
+            <div className={styles.processTop}>
+              <span>{String(index+1).padStart(2,'0')}</span>
+              <i aria-hidden="true" />
+            </div>
+            <div className={styles.processIcon} aria-hidden="true">
+              {index === 0 ? '⌁' : index === 1 ? '◫' : index === 2 ? '⌘' : '↗'}
+            </div>
+            <h3>{step}</h3>
+            <p>{['Understand the goal, audience, and real business problem.','Shape the structure, interaction, and visual direction.','Develop, test, refine, and connect every moving part.','Deploy the finished experience and support what comes next.'][index]}</p>
+            <small>{['Clarity first','Shape the experience','Make it real','Ship with confidence'][index]}</small>
+          </motion.article>)}
+        </div>
       </section>
 
       <section className={styles.projectTerms} aria-labelledby="project-terms-title">
