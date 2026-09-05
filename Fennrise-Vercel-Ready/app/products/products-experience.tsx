@@ -5,6 +5,7 @@ import { motion, useReducedMotion, useScroll } from "motion/react";
 import { useRef } from "react";
 import { ExperienceFooter, ExperienceHeader } from "../components/ExperienceChrome";
 import FennFocusVisual from "../components/FennFocusVisual";
+import StarVisual from "../components/StarVisual";
 import RelayVisual from "../components/VoiceVisual";
 import styles from "./products.module.css";
 
@@ -36,11 +37,9 @@ export default function ProductsExperience() {
             <h3>Talk. Create. Solve.</h3>
             <p>An intelligent assistant designed for useful conversations, clearer thinking, faster creation, and practical actions across everyday work.</p>
           </motion.div>
-          <div className={styles.capabilityList}>
-            {['Conversations','Writing & creation','Research','Coding','Everyday actions'].map((item,index)=><motion.span key={item} initial={{ opacity: reduceMotion ? 1 : 0, x: reduceMotion ? 0 : -18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: reduceMotion ? 0 : index * .07 }}><i>{String(index+1).padStart(2,'0')}</i>{item}</motion.span>)}
-          </div>
           <span className={styles.status}><i /> In development</span>
         </div>
+        <motion.div className={styles.chapterVisual} initial={{ opacity: reduceMotion ? 1 : 0, scale: reduceMotion ? 1 : .96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .9, ease: [0.22,1,0.36,1] }}><StarVisual /></motion.div>
       </section>
 
       <section className={`${styles.chapter} ${styles.reverse}`} id="fenn">
@@ -51,10 +50,9 @@ export default function ProductsExperience() {
             <h3>Plan. Focus. Achieve.</h3>
             <p>The main Fennrise productivity experience—built to turn ambitious plans into focused, consistent progress without adding more noise.</p>
           </motion.div>
-          <div className={styles.capabilityList}>{['Goals & planning','Focus Mode','Habits','Smart reminders','Opportunities','Progress insights'].map((item,index)=><motion.span key={item} initial={{ opacity: reduceMotion ? 1 : 0, x: reduceMotion ? 0 : -18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: reduceMotion ? 0 : index*.06 }}><i>{String(index+1).padStart(2,'0')}</i>{item}</motion.span>)}</div>
           <span className={styles.status}><i /> In development</span>
         </div>
-        <div className={styles.chapterVisual}><FennFocusVisual /></div>
+        <motion.div className={styles.chapterVisual} initial={{ opacity: reduceMotion ? 1 : 0, scale: reduceMotion ? 1 : .96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .9, ease: [0.22,1,0.36,1] }}><FennFocusVisual /></motion.div>
       </section>
 
       <section className={`${styles.chapter} ${styles.relayChapter}`} id="relay">
@@ -65,10 +63,9 @@ export default function ProductsExperience() {
             <h3>Answer. Understand. Connect.</h3>
             <p>A business calling assistant being developed to understand customer requests, answer common questions, capture leads, summarize calls, and route conversations.</p>
           </motion.div>
-          <div className={styles.capabilityList}>{['AI calls','Lead capture','Call summaries','FAQs','Smart routing','Follow-ups'].map((item,index)=><motion.span key={item} initial={{ opacity: reduceMotion ? 1 : 0, x: reduceMotion ? 0 : -18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: reduceMotion ? 0 : index*.06 }}><i>{String(index+1).padStart(2,'0')}</i>{item}</motion.span>)}</div>
           <span className={styles.status}><i /> In development</span>
         </div>
-        <div className={`${styles.chapterVisual} ${styles.relayVisual}`}><RelayVisual /></div>
+        <motion.div className={`${styles.chapterVisual} ${styles.relayVisual}`} initial={{ opacity: reduceMotion ? 1 : 0, scale: reduceMotion ? 1 : .96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .9, ease: [0.22,1,0.36,1] }}><RelayVisual /></motion.div>
       </section>
 
       <section className={styles.closing}>
