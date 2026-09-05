@@ -26,9 +26,10 @@ export default function Home() {
         </button>
 
         <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Main navigation">
-          <a href="#products" onClick={() => setMenuOpen(false)}>Products</a>
-          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
+          <a href="/services" onClick={() => setMenuOpen(false)}>Services</a>
           <a href="#roadmap" onClick={() => setMenuOpen(false)}>Roadmap</a>
+          <a href="/about" onClick={() => setMenuOpen(false)}>About</a>
           <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
           <a href="/waitlist" className="nav-cta" onClick={() => setMenuOpen(false)}>
             Join waitlist <span>→</span>
@@ -91,7 +92,7 @@ export default function Home() {
             <p>Products, software & experiences.<br />Beautifully built.</p>
           </div>
           <div className="footer-links">
-            <div><span>Explore</span><a href="#products">Products</a><a href="/about">About</a><a href="#roadmap">Roadmap</a><a href="/contact">Contact</a></div>
+            <div><span>Explore</span><a href="/products">Products</a><a href="/services">Services</a><a href="#roadmap">Roadmap</a><a href="/about">About</a><a href="/contact">Contact</a></div>
             <div><span>Products</span><a href="/products#star">STAR</a><a href="/services#studio">Studio</a><a href="/products#fenn">Fenn</a><a href="/services#forge">Forge</a><a href="/products#relay">Relay</a></div>
             <div><span>Connect</span><a href="mailto:connect@fennrise.com">General enquiries ↗</a><a href="mailto:support@fennrise.com">Support ↗</a></div>
           </div>
