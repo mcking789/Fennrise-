@@ -1,39 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
 import HomeExperienceSections from "./components/HomeExperienceSections";
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <main>
-      <header className="nav-shell">
-        <a href="#top" className="brand" aria-label="Fennrise home">
-          <Image className="brand-logo" src="/fennrise-logo.png" alt="" width={38} height={38} priority />
-          <span>Fennrise</span>
-        </a>
-
-        <button
-          className="menu-button"
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span />
-          <span />
-        </button>
-
-        <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Main navigation">
-          <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
-          <a href="/services" onClick={() => setMenuOpen(false)}>Services</a>
-          <a href="#roadmap" onClick={() => setMenuOpen(false)}>Roadmap</a>
-          <a href="/about" onClick={() => setMenuOpen(false)}>About</a>
-          <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
-        </nav>
-      </header>
-
       <section className="hero" id="top">
         <div className="particle p1" />
         <div className="particle p2" />
@@ -82,10 +55,10 @@ export default function Home() {
       <footer>
         <div className="footer-main">
           <div>
-            <a href="#top" className="brand footer-brand">
+            <Link href="/" className="brand footer-brand" data-brand-route>
               <Image className="brand-logo" src="/fennrise-logo.png" alt="" width={38} height={38} />
               <span>Fennrise</span>
-            </a>
+            </Link>
             <p>Products, software & experiences.<br />Beautifully built.</p>
           </div>
           <div className="footer-links">

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { ReactNode } from "react";
 import styles from "./LegalPage.module.css";
 
@@ -28,26 +27,6 @@ export default function LegalPage({
 
   return (
     <main className={styles.page} id="top">
-      <header className={styles.header}>
-        <a className={styles.brand} href="/" aria-label="Fennrise home">
-          <Image
-            className={styles.logo}
-            src="/fennrise-logo.png"
-            width={34}
-            height={34}
-            alt=""
-            priority
-          />
-          <span>Fennrise</span>
-        </a>
-
-        <nav className={styles.nav} aria-label="Legal navigation">
-          <a className={isPrivacy ? styles.active : undefined} href="/privacy-policy">Privacy</a>
-          <a className={!isPrivacy ? styles.active : undefined} href="/terms-of-service">Terms</a>
-          <a href="mailto:connect@fennrise.com">Contact</a>
-        </nav>
-      </header>
-
       <section className={styles.hero}>
         <div className={styles.kicker}>{eyebrow}</div>
         <div className={styles.heroGrid}>

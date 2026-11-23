@@ -1,0 +1,25 @@
+.head { position: fixed; z-index: 80; top: 16px; inset-inline: clamp(14px,4vw,68px); display:flex; justify-content:space-between; align-items:center; pointer-events:none; }
+.head > * { pointer-events:auto; }
+.wordmark,.controls { display:inline-flex; align-items:center; background:var(--black); border:1px solid #393733; }
+.wordmark { gap:8px; min-height:44px; padding:4px 15px 4px 7px; color:var(--cream); font-size:18px; font-weight:650; letter-spacing:-.045em; }
+.controls a,.controls button,.menuTop button { display:inline-flex; align-items:center; min-height:44px; padding:0 16px; font:inherit; font-size:14px; }
+.controls button,.menuTop button { border:0; background:transparent; color:var(--cream); cursor:pointer; }
+.controls button span { margin-left:10px; color:var(--gold); }
+.albumLink { color:var(--gold); border-right:1px solid #393733; }
+.head a:hover,.head button:hover,.menuTop button:hover { color:white; }
+.dialog { position:fixed; inset:12px 12px auto auto; margin:0; width:min(460px,calc(100% - 24px)); max-height:calc(100dvh - 24px); overflow:auto; color:var(--cream); background:#100f0d; border:1px solid #4a453b; padding:clamp(18px,4vw,34px); }
+.dialog::backdrop { background:rgb(0 0 0 / .67); }
+.dialog[open] { animation: appear .18s ease-out; }
+.menuTop { display:flex; align-items:center; justify-content:space-between; font-size:18px; font-weight:600; padding-bottom:15px; }
+.menuTop button { padding-right:3px; }
+.directory a { border-top:1px solid #383632; display:flex; justify-content:space-between; gap:20px; align-items:center; min-height:42px; padding:9px 2px; }
+.directory a[data-prominent] { font-size:clamp(30px,5vw,44px); letter-spacing:-.045em; }
+.directory a span { color:var(--gold); font-size:16px; }
+.directory a:hover,.directory a[aria-current] { color:var(--gold); }
+.curtain { position:fixed; z-index:1000; inset:0; background:var(--black); display:grid; place-items:center; pointer-events:none; }
+.curtain[hidden],.company,.albums { display:none; }
+.curtain div { display:grid; justify-items:center; gap:10px; font-size:26px; letter-spacing:-.05em; }
+.curtain[data-destination=company] .company,.curtain[data-destination=albums] .albums { display:block; }
+.albums { color:var(--gold); }
+@keyframes appear { from { opacity:0; transform:translateY(-8px); } }
+@media(prefers-reduced-motion:reduce) { .dialog[open] { animation:none; } .curtain { display:none; } }

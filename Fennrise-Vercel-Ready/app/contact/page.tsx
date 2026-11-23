@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ExperienceFooter, ExperienceHeader } from "../components/ExperienceChrome";
+import { ExperienceFooter } from "../components/ExperienceChrome";
 import ContactForm from "./ContactForm";
 import styles from "./contact.module.css";
 
@@ -43,7 +43,6 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
   return (
     <main className={styles.page} id="page-top">
-      <ExperienceHeader active="contact" />
 
       <section className={styles.hero}>
         <div className={styles.heroInner}>
