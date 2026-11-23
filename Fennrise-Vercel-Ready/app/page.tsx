@@ -31,9 +31,6 @@ export default function Home() {
           <a href="#roadmap" onClick={() => setMenuOpen(false)}>Roadmap</a>
           <a href="/about" onClick={() => setMenuOpen(false)}>About</a>
           <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
-          <a href="/waitlist" className="nav-cta" onClick={() => setMenuOpen(false)}>
-            Join waitlist <span>→</span>
-          </a>
         </nav>
       </header>
 
@@ -61,21 +58,21 @@ export default function Home() {
           <div className="eyebrow hero-eyebrow"><span /> Independent technology company</div>
           <h1>Building<br />the <em>Future.</em></h1>
           <p>
-            Creating intelligent digital products, websites, custom software, and voice AI that help
-            people and businesses work smarter, build faster, and achieve more.
+            Creating intelligent digital products, thoughtful websites, and custom software that make
+            technology more useful, accessible, and effective.
           </p>
           <div className="hero-actions">
             <a className="button button-gold" href="#products">
               Explore Products <span>↓</span>
             </a>
-            <a className="button button-ghost" href="/waitlist">
-              Join the Waitlist <span>→</span>
+            <a className="button button-ghost" href="/about">
+              About Fennrise <span>→</span>
             </a>
           </div>
         </div>
 
         <div className="hero-bottom">
-          <span>Technology · Software · Voice AI · Design · Intelligence</span>
+          <span>Technology · Software · Design · Intelligence</span>
           <a href="#about" aria-label="Scroll to our approach"><i>↓</i> Scroll to explore</a>
         </div>
       </section>
@@ -93,7 +90,7 @@ export default function Home() {
           </div>
           <div className="footer-links">
             <div><span>Explore</span><a href="/products">Products</a><a href="/services">Services</a><a href="#roadmap">Roadmap</a><a href="/about">About</a><a href="/contact">Contact</a></div>
-            <div><span>Products</span><a href="/products#star">STAR</a><a href="/services#studio">Studio</a><a href="/products#fenn">Fenn</a><a href="/services#forge">Forge</a><a href="/products#relay">Relay</a></div>
+            <div><span>Products</span><a href="/products#star">STAR</a><a href="/services#studio">Studio</a><a href="/products#fenn">Fenn</a><a href="/services#forge">Forge</a></div>
             <div><span>Connect</span><a href="mailto:connect@fennrise.com">General enquiries ↗</a><a href="mailto:support@fennrise.com">Support ↗</a></div>
           </div>
         </div>
