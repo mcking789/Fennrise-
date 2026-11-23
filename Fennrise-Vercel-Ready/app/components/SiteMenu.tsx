@@ -4,27 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { animate } from "motion";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import css from "./SiteMenu.module.css";
 
 const pages = [
-  ["Fennrise", "/"], ["Albums", "/albums"], ["Products", "/products"],
-  ["Services", "/services"], ["Roadmap", "/#roadmap"], ["About", "/about"],
-  ["Contact", "/contact"], ["Privacy", "/privacy-policy"], ["Terms", "/terms-of-service"],
+  ["Products", "/products"], ["Services", "/services"],
+  ["About", "/about"], ["Contact", "/contact"],
 ];
 
 export default function SiteMenu() {
   const path = usePathname();
   const router = useRouter();
-  const menu = useRef<HTMLDialogElement>(null);
   const curtain = useRef<HTMLDivElement>(null);
-  const [open, setOpen] = useState(false);
   const pending = useRef("");
   const reveal = useRef<() => void>(() => {});
 
   useEffect(() => {
     if (pending.current === path) reveal.current();
-    menu.current?.close();
   }, [path]);
 
   useEffect(() => {
@@ -51,10 +47,10 @@ export default function SiteMenu() {
       if (!link || link.target || link.hasAttribute("download")) return;
       const dest = new URL(link.href);
       if (dest.origin !== location.origin || dest.hash || dest.search || !["/", "/albums"].includes(dest.pathname)) return;
-      menu.current?.close();
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       event.preventDefault();
-      if (pending.current) return;
+      if (pending.current === dest.pathname) return;
+      if (pending.current) reset();
       pending.current = dest.pathname;
       const token = ++serial;
       panel.dataset.destination = dest.pathname === "/" ? "company" : "albums";
@@ -81,13 +77,6 @@ export default function SiteMenu() {
     };
   }, [router]);
 
-  useEffect(() => {
-    if (!open) return;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = previous; };
-  }, [open]);
-
   return <>
     <header className={css.head}>
       {/* Edge refraction map adapted from rdev/liquid-glass-react (MIT, public/glass/LICENSE.txt). */}
@@ -99,24 +88,10 @@ export default function SiteMenu() {
       </svg>
       <Link className={css.wordmark} href="/" aria-label="Fennrise home"><Image src="/fennrise-logo.png" width={30} height={30} alt="" priority />Fennrise</Link>
       <nav className={css.shortcuts} aria-label="Company pages">
-        {pages.filter(([,href])=>["/products","/services","/about","/contact"].includes(href)).map(([label,href])=><Link key={href} href={href} aria-current={path===href?"page":undefined}>{label}</Link>)}
+        {pages.map(([label,href])=><Link key={href} href={href} aria-current={path===href?"page":undefined}>{label}</Link>)}
       </nav>
-      <div className={css.controls}>
-        <Link className={css.albumLink} href="/albums" aria-current={path === "/albums" ? "page" : undefined}>Albums</Link>
-        <button type="button" aria-haspopup="dialog" aria-expanded={open} aria-controls="site-directory" onClick={() => { menu.current?.showModal(); setOpen(true); }}>Menu <i aria-hidden="true" className={css.lines} /></button>
-      </div>
+      <Link className={css.albumLink} href="/albums" aria-current={path === "/albums" ? "page" : undefined}>Albums</Link>
     </header>
-    <dialog ref={menu} id="site-directory" className={css.dialog} aria-label="Site menu" onClose={() => setOpen(false)} onClick={e => {
-      if (e.target === menu.current) {
-        const rect = menu.current.getBoundingClientRect();
-        if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) menu.current.close();
-      }
-    }}>
-      <div className={css.menuTop}><span>Fennrise</span><button onClick={() => menu.current?.close()} autoFocus>Close ×</button></div>
-      <nav aria-label="Site navigation" className={css.directory}>
-        {pages.map(([name, href], index) => <Link key={href} href={href} data-prominent={index < 2 || undefined} aria-current={path === href ? "page" : undefined} onClick={() => menu.current?.close()}>{name}<span aria-hidden="true">↗</span></Link>)}
-      </nav>
-    </dialog>
     <div hidden ref={curtain} aria-hidden="true" className={css.curtain}>
       <div><Image src="/fennrise-logo.png" alt="" width={92} height={92} /><span className={css.company}>Fennrise</span><span className={css.albums}>Albums</span></div>
     </div>

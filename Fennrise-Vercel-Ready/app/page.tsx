@@ -17,11 +17,6 @@ export default function Home() {
           <div className={styles.actions}><Link href="/products">Explore products <span aria-hidden="true">→</span></Link><Link href="/services">Work with us</Link></div>
         </div>
       </section>
-      <div className={styles.destinations} aria-label="Explore Fennrise">
-        <Link href="/albums"><span>Photo editor</span><strong>Albums <i>→</i></strong></Link>
-        <Link href="/services#studio"><span>Websites &amp; design</span><strong>Studio <i>→</i></strong></Link>
-        <Link href="/services#forge"><span>Custom software</span><strong>Forge <i>→</i></strong></Link>
-      </div>
       <HomeExperienceSections />
 
       <footer>
