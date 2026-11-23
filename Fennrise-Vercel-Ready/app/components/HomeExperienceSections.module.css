@@ -860,3 +860,7 @@
     transition: none;
   }
 }
+.about,.portal,.roadmap {border-radius:clamp(28px,4vw,64px);width:calc(100% - 28px);margin:16px auto;overflow:hidden;border:1px solid #ffffff15;}
+.portalLink,.sectionLabel {border-radius:999px;}
+.productConsole,.portalVisual {border-radius:32px;}
+@media(max-width:680px){.about,.portal,.roadmap{width:calc(100% - 12px);margin-block:8px;}.portalVisual{border-radius:22px;}}

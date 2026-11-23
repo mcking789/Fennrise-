@@ -1,0 +1,40 @@
+.head { position: fixed; z-index: 80; top: 16px; inset-inline: clamp(14px,4vw,68px); display:flex; justify-content:space-between; align-items:center; pointer-events:none; }
+.head > * { pointer-events:auto; }
+.wordmark,.controls { display:inline-flex; align-items:center; background:var(--black); border:1px solid #393733; }
+.wordmark { gap:8px; min-height:44px; padding:4px 15px 4px 7px; color:var(--cream); font-size:18px; font-weight:650; letter-spacing:-.045em; }
+.controls a,.controls button,.menuTop button { display:inline-flex; align-items:center; min-height:44px; padding:0 16px; font:inherit; font-size:14px; }
+.controls button,.menuTop button { border:0; background:transparent; color:var(--cream); cursor:pointer; }
+.controls button span { margin-left:10px; color:var(--gold); }
+.albumLink { color:var(--gold); border-right:1px solid #393733; }
+.head a:hover,.head button:hover,.menuTop button:hover { color:white; }
+.dialog { position:fixed; inset:12px 12px auto auto; margin:0; width:min(460px,calc(100% - 24px)); max-height:calc(100dvh - 24px); overflow:auto; color:var(--cream); background:#100f0d; border:1px solid #4a453b; padding:clamp(18px,4vw,34px); }
+.dialog::backdrop { background:rgb(0 0 0 / .67); }
+.dialog[open] { animation: appear .18s ease-out; }
+.menuTop { display:flex; align-items:center; justify-content:space-between; font-size:18px; font-weight:600; padding-bottom:15px; }
+.menuTop button { padding-right:3px; }
+.directory a { border-top:1px solid #383632; display:flex; justify-content:space-between; gap:20px; align-items:center; min-height:42px; padding:9px 2px; }
+.directory a[data-prominent] { font-size:clamp(30px,5vw,44px); letter-spacing:-.045em; }
+.directory a span { color:var(--gold); font-size:16px; }
+.directory a:hover,.directory a[aria-current] { color:var(--gold); }
+.curtain { position:fixed; z-index:1000; inset:0; background:var(--black); display:grid; place-items:center; pointer-events:none; }
+.curtain[hidden],.company,.albums { display:none; }
+.curtain div { display:grid; justify-items:center; gap:10px; font-size:26px; letter-spacing:-.05em; }
+.curtain[data-destination=company] .company,.curtain[data-destination=albums] .albums { display:block; }
+.albums { color:var(--gold); }
+@keyframes appear { from { opacity:0; transform:translateY(-8px); } }
+@media(prefers-reduced-motion:reduce) { .dialog[open] { animation:none; } .curtain { display:none; } }
+.head {inset-inline:0;margin:auto;isolation:isolate;width:min(840px,calc(100% - 30px));padding:5px 7px;gap:10px;pointer-events:auto;border-radius:999px;border:1px solid #ffffff38;color:var(--cream);background:rgba(22,21,18,.87);box-shadow:inset 0 1px 2px #ffffff42,0 7px 30px #0005;}
+.head:before {position:absolute;inset:0;content:"";z-index:-1;border-radius:inherit;pointer-events:none;backdrop-filter:blur(17px) saturate(140%);-webkit-backdrop-filter:blur(17px) saturate(140%);}
+@supports(backdrop-filter:url("#fenn-nav-glass")) {.head:before{backdrop-filter:blur(13px) saturate(145%) url("#fenn-nav-glass")}}
+.head .wordmark,.head .controls {background:none;border:0;border-radius:999px;}
+.shortcuts {display:flex;align-items:center;gap:2px;}.shortcuts a {font-size:13px;padding:12px 14px;border-radius:999px;}.shortcuts a:hover,.shortcuts a[aria-current=page]{background:#ffffff15;}
+.controls .albumLink {border:0;color:#18140a;background:#ffcf57;border-radius:999px;min-height:38px;font-weight:650;}
+.controls .albumLink:hover {color:#141108;background:#ffe09a;}
+.controls button {border-radius:999px;gap:7px;font-size:13px;}
+.lines {width:13px;height:7px;display:inline-block;border-block:1px solid currentColor;}
+.dialog {border-radius:28px;background:#181713f7;backdrop-filter:blur(20px);box-shadow:inset 0 1px 2px #fff3,0 18px 80px #0007;}
+.menuTop button {border-radius:999px;background:#ffffff0e;padding:0 15px;}
+.directory a {border:0;border-radius:14px;padding:9px 12px;}
+.directory a:hover {background:#ffffff12;}
+@media(max-width:720px){.shortcuts{display:none}.head{top:10px;}.head .wordmark{padding-right:8px;}.controls a,.controls button{padding-inline:12px}}
+@media(prefers-reduced-transparency:reduce){.head,.dialog{background:#181713}.head:before{backdrop-filter:none}}

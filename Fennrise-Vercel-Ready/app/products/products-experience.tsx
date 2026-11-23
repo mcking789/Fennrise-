@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { useRef } from "react";
-import { ExperienceFooter, ExperienceHeader } from "../components/ExperienceChrome";
+import { ExperienceFooter } from "../components/ExperienceChrome";
 import FennFocusVisual from "../components/FennFocusVisual";
 import StarVisual from "../components/StarVisual";
 import styles from "./products.module.css";
@@ -13,8 +13,7 @@ export default function ProductsExperience() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <main className={styles.page} id="page-top" ref={pageRef}>
-      <ExperienceHeader active="products" />
+    <main className={`company-surface ${styles.page}`} id="page-top" ref={pageRef}>
 
       <section className={styles.hero}>
         <div className={styles.heroGrid} />

@@ -1,91 +1,36 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
+import styles from "./home.module.css";
 import HomeExperienceSections from "./components/HomeExperienceSections";
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <main>
-      <header className="nav-shell">
-        <a href="#top" className="brand" aria-label="Fennrise home">
-          <Image className="brand-logo" src="/fennrise-logo.png" alt="" width={38} height={38} priority />
-          <span>Fennrise</span>
-        </a>
-
-        <button
-          className="menu-button"
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span />
-          <span />
-        </button>
-
-        <nav className={menuOpen ? "nav-links open" : "nav-links"} aria-label="Main navigation">
-          <a href="/products" onClick={() => setMenuOpen(false)}>Products</a>
-          <a href="/services" onClick={() => setMenuOpen(false)}>Services</a>
-          <a href="#roadmap" onClick={() => setMenuOpen(false)}>Roadmap</a>
-          <a href="/about" onClick={() => setMenuOpen(false)}>About</a>
-          <a href="/contact" onClick={() => setMenuOpen(false)}>Contact</a>
-        </nav>
-      </header>
-
-      <section className="hero" id="top">
-        <div className="particle p1" />
-        <div className="particle p2" />
-        <div className="particle p3" />
-        <div className="particle p4" />
-        <div className="orbit-system" aria-hidden="true">
-          <div className="orbit-halo" />
-          <div className="orbit-ring ring-one"><i /></div>
-          <div className="orbit-ring ring-two"><i /></div>
-          <div className="orbit-ring ring-three"><i /></div>
-          <Image
-            src="/fennrise-logo.png"
-            alt=""
-            width={280}
-            height={280}
-            priority
-            sizes="(max-width: 760px) 220px, 300px"
-          />
-        </div>
-
-        <div className="hero-content">
-          <div className="eyebrow hero-eyebrow"><span /> Independent technology company</div>
-          <h1>Building<br />the <em>Future.</em></h1>
-          <p>
-            Creating intelligent digital products, thoughtful websites, and custom software that make
-            technology more useful, accessible, and effective.
-          </p>
-          <div className="hero-actions">
-            <a className="button button-gold" href="#products">
-              Explore Products <span>↓</span>
-            </a>
-            <a className="button button-ghost" href="/about">
-              About Fennrise <span>→</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="hero-bottom">
-          <span>Technology · Software · Design · Intelligence</span>
-          <a href="#about" aria-label="Scroll to our approach"><i>↓</i> Scroll to explore</a>
+      <section className={styles.hero} id="top">
+        <Image className={styles.sun} src="/fennrise-glass.webp" alt="" fill priority sizes="100vw" />
+        <div className={styles.copy}>
+          <p className={styles.byline}>Fennrise · Independent technology company</p>
+          <h1>Software for<br/><em>everyday life.</em></h1>
+          <p className={styles.intro}>We’re a team in India building our own digital products and creating websites and software for businesses.</p>
+          <div className={styles.actions}><Link href="/products">Explore products <span aria-hidden="true">→</span></Link><Link href="/services">Work with us</Link></div>
         </div>
       </section>
-
+      <div className={styles.destinations} aria-label="Explore Fennrise">
+        <Link href="/albums"><span>Photo editor</span><strong>Albums <i>→</i></strong></Link>
+        <Link href="/services#studio"><span>Websites &amp; design</span><strong>Studio <i>→</i></strong></Link>
+        <Link href="/services#forge"><span>Custom software</span><strong>Forge <i>→</i></strong></Link>
+      </div>
       <HomeExperienceSections />
 
       <footer>
         <div className="footer-main">
           <div>
-            <a href="#top" className="brand footer-brand">
+            <Link href="/" className="brand footer-brand" data-brand-route>
               <Image className="brand-logo" src="/fennrise-logo.png" alt="" width={38} height={38} />
               <span>Fennrise</span>
-            </a>
+            </Link>
             <p>Products, software & experiences.<br />Beautifully built.</p>
           </div>
           <div className="footer-links">

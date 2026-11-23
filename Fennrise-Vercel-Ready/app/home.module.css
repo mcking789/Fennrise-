@@ -1,0 +1,16 @@
+.hero {position:relative;isolation:isolate;overflow:hidden;margin:14px auto 0;width:calc(100% - 28px);max-width:1800px;border-radius:clamp(28px,4vw,68px);background:#15110e;min-height:clamp(570px,79vh,850px);display:flex;align-items:center;}
+.sun {z-index:-2;object-fit:cover;object-position:50% 53%;width:100%;height:100%;}
+.hero:before {content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#080806f2 0%,#0a0908cf 30%,#09080835 60%,transparent 83%);}
+.copy {padding:115px clamp(26px,6vw,112px) 74px;max-width:950px;}
+.byline {font-size:clamp(11px,1vw,15px);font-weight:550;color:#ffdc87;letter-spacing:.025em;margin:0 0 24px;}
+.copy h1 {font-size:clamp(65px,7vw,126px);line-height:.94;letter-spacing:-.074em;font-weight:530;margin:0;color:#fff9ef;}
+.copy em {font-family:Georgia,serif;font-weight:400;color:#ffda88;letter-spacing:-.065em;}
+.intro {font-size:clamp(16px,1.4vw,22px);max-width:37ch;line-height:1.5;color:#eee7d8;margin:23px 0 28px;}
+.actions {display:flex;gap:12px;flex-wrap:wrap;}
+.actions a {display:inline-flex;align-items:center;gap:15px;border-radius:999px;padding:13px 21px;font-size:14px;font-weight:600;background:#ffcc50;color:#211903;}
+.actions a+a,.destinations a {color:#fff8e8;border:1px solid #ffffff36;background:linear-gradient(140deg,#fcf5d81e,#302d251c),#191915bb;backdrop-filter:blur(16px);box-shadow:inset 0 1px 1px #fff3;}
+.actions a:hover,.destinations a:hover {filter:brightness(1.16);}
+.destinations {position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;width:min(1100px,89%);margin:-36px auto 20px;}
+.destinations a {padding:20px clamp(16px,2vw,32px);border-radius:24px;display:grid;gap:7px;}
+.destinations span {color:#d7cfbf;font-size:12px;}.destinations strong {display:flex;justify-content:space-between;font-size:clamp(20px,2vw,31px);font-weight:520;letter-spacing:-.045em;}.destinations i {font:normal 18px/1.5 Arial;color:#f6ce72;}
+@media(max-width:680px){.hero {margin:6px auto 0;width:calc(100% - 12px);min-height:670px;align-items:flex-end;}.sun{object-position:77% top;height:69%!important;}.hero:before{background:linear-gradient(0deg,#0a0908 7%,#0a0908f5 36%,#0a090822 65%,#0a09083d 100%);}.copy{padding:290px 22px 40px}.copy h1{font-size:clamp(55px,13vw,78px)}.byline{margin-bottom:12px}.intro{margin:16px 0 22px}.destinations{width:calc(100% - 24px);margin:10px auto 12px;gap:6px}.destinations a{padding:13px 9px;border-radius:18px}.destinations span{font-size:10px}.destinations strong{font-size:20px}.destinations i{font-size:13px}}

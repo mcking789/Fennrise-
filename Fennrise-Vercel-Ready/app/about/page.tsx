@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ExperienceFooter, ExperienceHeader } from "../components/ExperienceChrome";
+import { ExperienceFooter } from "../components/ExperienceChrome";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
@@ -44,8 +44,7 @@ const products = [
 
 export default function AboutPage() {
   return (
-    <main className={styles.page} id="page-top">
-      <ExperienceHeader active="about" />
+    <main className={`company-surface ${styles.page}`} id="page-top">
 
       <section className={styles.hero}>
         <div className={styles.heroGrid} aria-hidden="true" />
