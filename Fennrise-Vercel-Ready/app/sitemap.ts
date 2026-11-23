@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const baseUrl = "https://www.fennrise.com";
-const updated = new Date("2026-09-02");
+const updated = new Date("2026-11-23");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -34,12 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: updated,
       changeFrequency: "monthly",
       priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/waitlist`,
-      lastModified: updated,
-      changeFrequency: "weekly",
-      priority: 0.8,
     },
     {
       url: `${baseUrl}/privacy-policy`,

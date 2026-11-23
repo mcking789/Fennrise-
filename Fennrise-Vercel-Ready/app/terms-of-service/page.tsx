@@ -3,7 +3,7 @@ import LegalPage from "../components/LegalPage";
 
 export const metadata: Metadata = {
   title: "Terms of Service — Fennrise",
-  description: "Terms that apply when you access Fennrise and its waitlist.",
+  description: "Terms that apply when you access the Fennrise website and contact its team.",
   alternates: { canonical: "/terms-of-service" },
 };
 
@@ -14,8 +14,8 @@ const sections = [
     content: (
       <p>
         These Terms of Service (&quot;Terms&quot;) apply when you visit
-        <a href="https://www.fennrise.com"> www.fennrise.com</a>, join the Fennrise waitlist,
-        submit feedback, or use another Fennrise website experience that links to these
+        <a href="https://www.fennrise.com"> www.fennrise.com</a>,
+        contact our team, submit feedback, or use another Fennrise website experience that links to these
         Terms. By using those services, you agree to these Terms and our
         <a href="/privacy-policy"> Privacy Policy</a>. If you do not agree, please do
         not use the services.
@@ -29,7 +29,7 @@ const sections = [
       <>
         <p>
           You must be legally capable of agreeing to these Terms. If you are under 18,
-          you may use the website or join the waitlist only with permission and
+          you may use the website only with permission and
           supervision from your parent or legal guardian.
         </p>
         <p>
@@ -40,15 +40,14 @@ const sections = [
     ),
   },
   {
-    id: "website-waitlist",
-    title: "Website and waitlist",
+    id: "website-information",
+    title: "Website and product information",
     content: (
       <>
         <p>
-          The website introduces Fennrise and products that may be in development.
-          Joining the waitlist records your interest and may allow us to send launch,
-          testing, or early-access updates. It does not guarantee access, a release
-          date, a specific feature, availability, or pricing.
+          The website introduces Fennrise, its work and products that may still be in
+          development. Product descriptions and roadmaps are informational, not
+          guarantees of access, release dates, features, availability or pricing.
         </p>
         <p>
           We may change, pause, test, limit, or discontinue website features or
@@ -123,7 +122,7 @@ const sections = [
     content: (
       <p>
         Fennrise may rely on or link to third-party services, including Vercel for
-        hosting, Formspree for form submissions, and optional Google Analytics for
+        hosting, providers that handled previously submitted forms, and optional Google Analytics for
         website measurement when you allow analytics. Their services are governed by
         their own terms and policies. We are not responsible for third-party content,
         availability, or practices, although we select providers intended to support
@@ -167,7 +166,7 @@ const sections = [
     content: (
       <>
         <p>
-          The website, waitlist, and pre-release information are provided on an
+          The website and pre-release information are provided on an
           &quot;as is&quot; and &quot;as available&quot; basis. To the maximum extent
           permitted by law, we do not promise that the services will always be
           uninterrupted, error-free, secure, or suitable for a particular purpose.
@@ -187,9 +186,9 @@ const sections = [
       <p>
         To the maximum extent permitted by law, Fennrise will not be liable for
         indirect, incidental, special, consequential, exemplary, or loss-of-profit or
-        loss-of-data damages arising from the website, waitlist, third-party services,
+        loss-of-data damages arising from the website, third-party services,
         or these Terms. Where liability cannot legally be excluded, our total liability
-        relating to the free website or waitlist will not exceed INR 1,000. Nothing in
+        relating to the free website will not exceed INR 1,000. Nothing in
         these Terms limits liability that cannot be limited under applicable law or
         affects mandatory consumer rights.
       </p>
@@ -218,7 +217,7 @@ const sections = [
         We may restrict or end access where reasonably necessary to protect Fennrise,
         its users, or third parties; respond to unlawful or abusive activity; comply
         with law; or discontinue a service. You may stop using the website at any time
-        and may ask to be removed from the waitlist by emailing us.
+        and may request deletion of personal information as described in our Privacy Policy.
       </p>
     ),
   },
@@ -262,8 +261,8 @@ export default function TermsOfServicePage() {
     <LegalPage
       eyebrow="Legal · Using Fennrise"
       title="Terms of Service"
-      description="The rules that apply when you visit Fennrise, join the waitlist, use website services, or share feedback."
-      updated="3 September 2026"
+      description="The rules that apply when you visit Fennrise, use its website, contact us, or share feedback."
+      updated="23 November 2026"
       sections={sections}
     />
   );

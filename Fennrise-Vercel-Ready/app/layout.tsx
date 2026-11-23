@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://www.fennrise.com";
-const siteTitle = "Fennrise — STAR, Fenn & Intelligent Digital Products";
+const siteTitle = "Fennrise — Independent Technology Company | STAR & Fenn";
 const siteDescription =
-  "Fennrise builds STAR, Fenn, Relay, premium websites, custom software, and focused digital products for people and businesses across India and beyond.";
+  "Fennrise develops STAR and Fenn alongside thoughtful websites and custom software designed to make technology useful.";
 
 const searchKeywords = [
   "Fennrise",
@@ -35,7 +35,6 @@ const searchKeywords = [
   "goal planner",
   "digital products",
   "technology products",
-  "Fennrise Relay",
   "Fennrise Studio",
   "Fennrise Forge",
   "website design India",
@@ -134,7 +133,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Fennrise — STAR, Fenn and intelligent digital products",
+        alt: "Fennrise — STAR, Fenn and useful digital technology",
       },
     ],
   },

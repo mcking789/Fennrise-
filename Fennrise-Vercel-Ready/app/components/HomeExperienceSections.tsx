@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
@@ -10,7 +9,6 @@ import styles from "./HomeExperienceSections.module.css";
 const productModes = [
   { name: "STAR", number: "01", type: "Intelligence", line: "Talk. Create. Solve." },
   { name: "Fenn", number: "02", type: "Focus", line: "Plan. Focus. Achieve." },
-  { name: "Relay", number: "03", type: "Voice", line: "Answer. Understand. Connect." },
 ];
 
 const roadmapItems = [
@@ -25,12 +23,6 @@ const roadmapItems = [
     title: "Fennrise Forge",
     text: "Custom software, business tools, dashboards, portals, and automation.",
     active: true,
-  },
-  {
-    date: "In development",
-    title: "Fennrise Relay",
-    text: "An AI calling assistant for business calls, lead capture, summaries, and intelligent routing.",
-    active: false,
   },
   { date: "In development", title: "STAR", text: "An intelligent assistant for conversations and creation.", active: false },
   { date: "Next", title: "Fenn — Main App", text: "The complete focused productivity experience.", active: false },
@@ -49,7 +41,7 @@ function ProductSignal({ reduceMotion }: { reduceMotion: boolean }) {
   const product = productModes[activeMode];
 
   return (
-    <div className={styles.productSignal} role="img" aria-label="Animated Fennrise product interface showing STAR, Fenn, and Relay">
+    <div className={styles.productSignal} role="img" aria-label="Animated Fennrise product interface showing STAR and Fenn">
       <div className={styles.signalGlow} />
       <motion.div
         className={styles.productConsole}
@@ -81,7 +73,7 @@ function ProductSignal({ reduceMotion }: { reduceMotion: boolean }) {
         </div>
 
         <div className={styles.consoleFooter}>
-          <div><i className={activeMode === 0 ? styles.consoleProgress : undefined} /><i className={activeMode === 1 ? styles.consoleProgress : undefined} /><i className={activeMode === 2 ? styles.consoleProgress : undefined} /></div>
+          <div><i className={activeMode === 0 ? styles.consoleProgress : undefined} /><i className={activeMode === 1 ? styles.consoleProgress : undefined} /></div>
           <span><i /> In development</span>
         </div>
       </motion.div>
@@ -125,9 +117,9 @@ export default function HomeExperienceSections() {
       <section className={`${styles.portal} ${styles.productsPortal}`} id="products">
         <div className={styles.portalWord} aria-hidden="true">PRODUCTS</div>
         <motion.div className={styles.portalCopy} {...reveal}>
-          <div className={styles.sectionLabel}><i /> Fennrise Products <span>STAR · Fenn · Relay</span></div>
+          <div className={styles.sectionLabel}><i /> Fennrise Products <span>STAR · Fenn</span></div>
           <h2>Products of<br /><em>our own.</em></h2>
-          <p>Intelligent technology for clearer thinking, focused progress, and better communication.</p>
+          <p>Intelligent technology for clearer thinking and focused progress.</p>
           <Link className={styles.portalLink} href="/products">Explore Products <span>↗</span></Link>
         </motion.div>
         <motion.div className={styles.portalVisual} {...reveal}>
@@ -154,8 +146,8 @@ export default function HomeExperienceSections() {
           <div className={styles.sectionLabel}><i /> The Roadmap</div>
           <h2>What we&apos;re<br /><em>building next.</em></h2>
           <p>
-            Fennrise is expanding into a connected ecosystem of products, software,
-            voice AI, and services for work, communication, creation, and growth.
+            Fennrise is developing intelligent products and thoughtful software,
+            with a focus on useful tools for work, learning, and growth.
           </p>
         </motion.div>
 
@@ -180,19 +172,6 @@ export default function HomeExperienceSections() {
         </div>
       </section>
 
-      <section className={styles.waitlist} id="waitlist">
-        <div className={styles.waitlistRings} aria-hidden="true"><i /><i /><i /></div>
-        <motion.div className={styles.waitlistInner} {...reveal}>
-          <Image className={styles.waitlistLogo} src="/fennrise-logo.png" width={86} height={86} alt="" />
-          <div className={`${styles.sectionLabel} ${styles.centerLabel}`}><i /> Fennrise early access</div>
-          <h2>Follow what&apos;s<br /><em>coming to life.</em></h2>
-          <p>Early access and honest development updates for STAR, Relay, and the Fenn productivity experience.</p>
-          <div className={styles.waitlistActions}>
-            <Link className={styles.primaryAction} href="/waitlist">Join the Waitlist <span>→</span></Link>
-            <Link href="/products">Explore Products <span>↗</span></Link>
-          </div>
-        </motion.div>
-      </section>
     </>
   );
 }

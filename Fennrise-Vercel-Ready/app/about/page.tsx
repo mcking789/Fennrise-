@@ -40,12 +40,6 @@ const products = [
     text: "A productivity experience designed to turn plans into clearer, more consistent progress.",
     href: "/products#fenn",
   },
-  {
-    name: "Relay",
-    type: "Business calling",
-    text: "A calling assistant for customer conversations, lead capture, summaries, follow-ups, and routing.",
-    href: "/products#relay",
-  },
 ];
 
 export default function AboutPage() {
@@ -59,7 +53,7 @@ export default function AboutPage() {
           <div className={styles.eyebrow}>About Fennrise</div>
           <h1><span>Technology should feel</span><br /><em>useful.</em></h1>
           <p>
-            Fennrise is an independent technology company in India building intelligent products and digital experiences designed to make work, focus, communication, and everyday technology more useful.
+            Fennrise is an independent technology team in India developing intelligent products and thoughtful digital experiences. We believe technology should help people work, learn, and create with greater clarity.
           </p>
         </div>
       </section>
@@ -113,6 +107,43 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className={styles.identity} aria-labelledby="identity-heading">
+        <div className={styles.identityInner}>
+          <span className={styles.sectionLabel}>Our identity</span>
+          <h2 id="identity-heading">Why <em>Fennrise?</em></h2>
+          <p>Fennrise represents new beginnings, purposeful innovation and the ambition to keep moving forward. “Fenn” is our distinct identity; “Rise” reflects progress, growth and the belief that meaningful ideas can become useful technology.</p>
+          <div className={styles.identityValues}>
+            <article><span>01 / Mission</span><h3>Make technology useful.</h3><p>Develop intelligent, practical digital products that simplify everyday challenges and turn ideas into meaningful progress.</p></article>
+            <article><span>02 / Vision</span><h3>Build for what matters.</h3><p>Grow into an independent, trusted technology company whose products make work, learning and communication simpler and more accessible.</p></article>
+          </div>
+        </div>
+      </section>
+      <section className={styles.team} aria-labelledby="team-heading">
+        <div className={styles.teamInner}>
+          <span className={styles.sectionLabel}>The people behind Fennrise</span>
+          <h2 id="team-heading">Meet the <em>team.</em></h2>
+          <p className={styles.teamLead}>A small independent team bringing different perspectives together to build useful technology and turn ideas into progress.</p>
+          <div className={styles.teamGrid}>
+            {[
+              { initials: "SS", name: "Siddhesh Sonwane", role: "Chief Executive Officer", description: "Guiding Fennrise's vision, direction and long-term development." },
+              { initials: "AO", name: "Ansh Ovhal", role: "Co-founder", description: "Contributing to strategy, innovation and company development." },
+              { initials: "RN", name: "Ratnesh Naik", role: "Co-founder & COO", description: "Supporting operations, coordination and company execution." },
+              { initials: "SJ", name: "Sanaa Juneja", role: "Head of Marketing", description: "Shaping the company's brand communication and public presence." },
+            ].map((member) => (
+              <article className={styles.teamCard} key={member.name}>
+                <div className={styles.teamAvatar} aria-hidden="true">{member.initials}</div>
+                <h3>{member.name}</h3><span className={styles.teamRole}>{member.role}</span>
+                <p>{member.description}</p>
+              </article>
+            ))}
+            <article className={`${styles.teamCard} ${styles.futureCard}`}>
+              <div className={styles.teamAvatar} aria-hidden="true">+</div>
+              <h3>The Next Chapter</h3><span className={styles.teamRole}>Future team member</span>
+              <p>A space reserved for a future addition to the team. This position is not yet filled.</p>
+            </article>
+          </div>
+        </div>
+      </section>
       <section className={styles.company}>
         <div className={styles.companyInner}>
           <span>Company</span>

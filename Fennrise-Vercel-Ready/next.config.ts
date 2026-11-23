@@ -27,9 +27,6 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  outputFileTracingIncludes: {
-    "/waitlist": ["./public/waitlist.html"],
-  },
   async redirects() {
     return [
       {
@@ -44,13 +41,18 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/waitlist",
+        destination: "/products",
+        permanent: true,
+      },
+      {
         source: "/waitlist.html",
-        destination: "/waitlist",
+        destination: "/products",
         permanent: true,
       },
       {
         source: "/wailist",
-        destination: "/waitlist",
+        destination: "/products",
         permanent: true,
       },
       {
