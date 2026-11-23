@@ -9,6 +9,8 @@ import {
   type Photo,
 } from "./render-slides";
 import { jpeg, archive, download } from "./album-files";
+import TemplatePreview from "./TemplatePreview";
+import { collectionNames } from "./collection";
 import AlbumCanvas from "./AlbumCanvas";
 import c from "./albums.module.css";
 
@@ -31,6 +33,10 @@ function Stack({ template }: { template: Template }) {
 
 export default function AlbumDesk() {
   const [template, setTemplate] = useState<Template>(layouts[0]);
+  const [category,setCategory]=useState("All");
+  const [search,setSearch]=useState("");
+  const [limit,setLimit]=useState(12);
+  const visible=layouts.filter(t=>(category==="All"||t.category===category)&&(t.name+" "+t.category).toLowerCase().includes(search.trim().toLowerCase()));
   const [studio, setStudio] = useState(false);
   const [title, setTitle] = useState("");
   const [samples, setSamples] = useState<Photo[]>([]);
@@ -199,12 +205,12 @@ export default function AlbumDesk() {
               onClick={() => open(template)}
               aria-label={"Try " + template.name}
             >
-              <Stack template={template} />
+              {template.art?<TemplatePreview template={template}/>:<Stack template={template} />}
             </button>
             <div className={c.featureCaption}>
               <span>{template.name}</span>
               <div>
-                {layouts.map((t) => (
+                {layouts.slice(0,3).map((t) => (
                   <button
                     key={t.id}
                     aria-label={"Preview " + t.name}
@@ -226,22 +232,28 @@ export default function AlbumDesk() {
         >
           <div className={c.collectionHead}>
             <h2>The templates</h2>
-            <span>3 free layouts</span>
+            <span>{layouts.length} layouts</span>
+          </div>
+          <div className={c.filters}>
+            <input type="search" aria-label="Search templates" placeholder="Search templates" value={search} onChange={e=>{setSearch(e.target.value);setLimit(12);}} />
+            <select aria-label="Collection" value={category} onChange={e=>{setCategory(e.target.value);setLimit(12);}}>{["All",...collectionNames].map(n=><option key={n} value={n}>{n==="All"?"All collections":n}</option>)}</select>
           </div>
           <div className={c.cards}>
-            {layouts.map((t) => (
+            {visible.slice(0,limit).map((t) => (
               <button className={c.card} key={t.id} onClick={() => open(t)}>
                 <div className={c.cardImage}>
-                  <img src={sampleSrc(t.id)} alt="" />
+                  <TemplatePreview template={t} />
                 </div>
                 <div className={c.cardTitle}>
                   <strong>{t.name}</strong>
                   <span aria-hidden="true">↗︎</span>
                 </div>
-                <small>{t.detail}</small>
+                <small>{t.detail}{t.signature?" · Signature":""}</small>
               </button>
             ))}
           </div>
+          {!visible.length && <p>No layouts match your search.</p>}
+          {visible.length>limit && <button className={c.more} onClick={()=>setLimit(limit+12)}>Show more templates ({visible.length-limit})</button>}
         </section>
       </div>
     );

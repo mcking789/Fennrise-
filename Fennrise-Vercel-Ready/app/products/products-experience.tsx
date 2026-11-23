@@ -13,7 +13,7 @@ export default function ProductsExperience() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <main className={styles.page} id="page-top" ref={pageRef}>
+    <main className={`company-surface ${styles.page}`} id="page-top" ref={pageRef}>
 
       <section className={styles.hero}>
         <div className={styles.heroGrid} />

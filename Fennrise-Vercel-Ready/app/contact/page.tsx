@@ -42,7 +42,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
   const initialService = params.service === "studio" || params.service === "forge" ? params.service : "general";
 
   return (
-    <main className={styles.page} id="page-top">
+    <main className={`company-surface ${styles.page}`} id="page-top">
 
       <section className={styles.hero}>
         <div className={styles.heroInner}>

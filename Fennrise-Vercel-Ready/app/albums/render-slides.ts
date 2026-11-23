@@ -1,26 +1,30 @@
-export const layouts = [
+import { editions, type Template } from "./collection";
+import { editionFrames, paintEdition, slots } from "./edition-art";
+export const layouts:Template[] = [
   {
-    id: "sunday-film",
+    id: "sunday-film", category:"Travel", signature:false,
     name: "Sunday Film",
     detail: "35mm film · warm borders",
     title: "Sunday",
     samples: ["coast", "drive", "dusk"],
   },
   {
-    id: "birthday-notes",
+    id: "birthday-notes", category:"Birthdays", signature:false,
     name: "Birthday Notes",
     detail: "Scrapbook · handwritten notes",
     title: "Birthday notes",
     samples: ["friends", "cake", "candles"],
   },
   {
-    id: "city-grid",
+    id: "city-grid", category:"Culture", signature:false,
     name: "City Grid",
     detail: "Editorial · architectural grids",
     title: "Mumbai",
     samples: ["market", "taxi", "station"],
   },
-] as const;
+  ...editions,
+];
+const byId=new Map(layouts.map(t=>[t.id,t]));
 
 export type Layout = (typeof layouts)[number]["id"];
 export type Photo = {
@@ -82,10 +86,11 @@ export async function fromFile(file: File) {
 export function groupSlides(photos: Photo[], layout: Layout) {
   if (photos.length < 2) return photos.length ? [photos] : [];
   const groups = [photos.slice(0, 1)];
-  const slots =
+  const art=byId.get(layout)?.art;
+  const capacity = art ? slots[art.spread] :
     layout === "city-grid" ? 4 : layout === "birthday-notes" ? 2 : 3;
-  for (let i = 1; i < photos.length - 1; i += slots)
-    groups.push(photos.slice(i, Math.min(i + slots, photos.length - 1)));
+  for (let i = 1; i < photos.length - 1; i += capacity)
+    groups.push(photos.slice(i, Math.min(i + capacity, photos.length - 1)));
   groups.push(photos.slice(-1));
   return groups;
 }
@@ -95,6 +100,8 @@ export function framesFor(
   index: number,
   count: number,
 ): Frame[] {
+  const art=byId.get(layout)?.art;
+  if (art) return editionFrames(art,index,count);
   const notes = layout === "birthday-notes",
     grid = layout === "city-grid";
   const left = notes ? 78 : 38;
@@ -134,6 +141,8 @@ export function paint(
     notes = layout === "birthday-notes";
   c.save();
   c.scale(canvas.width / width, canvas.height / height);
+  const template=byId.get(layout);
+  if(template?.art){paintEdition(c,template,photos,index,title);c.restore();return;}
   c.fillStyle = film ? "#151412" : notes ? "#f4cbd0" : "#f2efe6";
   c.fillRect(0, 0, width, height);
   const frames = framesFor(layout, index, photos.length);

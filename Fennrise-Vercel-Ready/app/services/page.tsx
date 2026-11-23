@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  return <ServicesExperience />;
+  return <div className="services-surface"><ServicesExperience /></div>;
 }

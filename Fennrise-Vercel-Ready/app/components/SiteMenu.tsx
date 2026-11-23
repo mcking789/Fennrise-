@@ -90,10 +90,20 @@ export default function SiteMenu() {
 
   return <>
     <header className={css.head}>
+      {/* Edge refraction map adapted from rdev/liquid-glass-react (MIT, public/glass/LICENSE.txt). */}
+      <svg width="0" height="0" aria-hidden="true" style={{position:"absolute",pointerEvents:"none"}}>
+        <defs><filter id="fenn-nav-glass" x="0%" y="0%" width="100%" height="100%" colorInterpolationFilters="sRGB">
+          <feImage href="/glass/displacement.jpg" width="100%" height="100%" preserveAspectRatio="none" result="edge" />
+          <feDisplacementMap in="SourceGraphic" in2="edge" scale="-8" xChannelSelector="R" yChannelSelector="B" />
+        </filter></defs>
+      </svg>
       <Link className={css.wordmark} href="/" aria-label="Fennrise home"><Image src="/fennrise-logo.png" width={30} height={30} alt="" priority />Fennrise</Link>
+      <nav className={css.shortcuts} aria-label="Company pages">
+        {pages.filter(([,href])=>["/products","/services","/about","/contact"].includes(href)).map(([label,href])=><Link key={href} href={href} aria-current={path===href?"page":undefined}>{label}</Link>)}
+      </nav>
       <div className={css.controls}>
         <Link className={css.albumLink} href="/albums" aria-current={path === "/albums" ? "page" : undefined}>Albums</Link>
-        <button type="button" aria-haspopup="dialog" aria-expanded={open} aria-controls="site-directory" onClick={() => { menu.current?.showModal(); setOpen(true); }}>Menu <span aria-hidden="true">☰</span></button>
+        <button type="button" aria-haspopup="dialog" aria-expanded={open} aria-controls="site-directory" onClick={() => { menu.current?.showModal(); setOpen(true); }}>Menu <i aria-hidden="true" className={css.lines} /></button>
       </div>
     </header>
     <dialog ref={menu} id="site-directory" className={css.dialog} aria-label="Site menu" onClose={() => setOpen(false)} onClick={e => {

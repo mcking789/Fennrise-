@@ -2,54 +2,26 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./home.module.css";
 import HomeExperienceSections from "./components/HomeExperienceSections";
 
 export default function Home() {
   return (
     <main>
-      <section className="hero" id="top">
-        <div className="particle p1" />
-        <div className="particle p2" />
-        <div className="particle p3" />
-        <div className="particle p4" />
-        <div className="orbit-system" aria-hidden="true">
-          <div className="orbit-halo" />
-          <div className="orbit-ring ring-one"><i /></div>
-          <div className="orbit-ring ring-two"><i /></div>
-          <div className="orbit-ring ring-three"><i /></div>
-          <Image
-            src="/fennrise-logo.png"
-            alt=""
-            width={280}
-            height={280}
-            priority
-            sizes="(max-width: 760px) 220px, 300px"
-          />
-        </div>
-
-        <div className="hero-content">
-          <div className="eyebrow hero-eyebrow"><span /> Independent technology company</div>
-          <h1>Building<br />the <em>Future.</em></h1>
-          <p>
-            Creating intelligent digital products, thoughtful websites, and custom software that make
-            technology more useful, accessible, and effective.
-          </p>
-          <div className="hero-actions">
-            <a className="button button-gold" href="#products">
-              Explore Products <span>↓</span>
-            </a>
-            <a className="button button-ghost" href="/about">
-              About Fennrise <span>→</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="hero-bottom">
-          <span>Technology · Software · Design · Intelligence</span>
-          <a href="#about" aria-label="Scroll to our approach"><i>↓</i> Scroll to explore</a>
+      <section className={styles.hero} id="top">
+        <Image className={styles.sun} src="/fennrise-glass.webp" alt="" fill priority sizes="100vw" />
+        <div className={styles.copy}>
+          <p className={styles.byline}>Fennrise · Independent technology company</p>
+          <h1>Software for<br/><em>everyday life.</em></h1>
+          <p className={styles.intro}>We’re a team in India building our own digital products and creating websites and software for businesses.</p>
+          <div className={styles.actions}><Link href="/products">Explore products <span aria-hidden="true">→</span></Link><Link href="/services">Work with us</Link></div>
         </div>
       </section>
-
+      <div className={styles.destinations} aria-label="Explore Fennrise">
+        <Link href="/albums"><span>Photo editor</span><strong>Albums <i>→</i></strong></Link>
+        <Link href="/services#studio"><span>Websites &amp; design</span><strong>Studio <i>→</i></strong></Link>
+        <Link href="/services#forge"><span>Custom software</span><strong>Forge <i>→</i></strong></Link>
+      </div>
       <HomeExperienceSections />
 
       <footer>
