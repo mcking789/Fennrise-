@@ -4,7 +4,6 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { useRef } from "react";
 import { ExperienceFooter, ExperienceHeader } from "../components/ExperienceChrome";
-import ForgeDashboard from "../components/ForgeDashboard";
 import StudioCanvasVisual from "../components/StudioCanvasVisual";
 import styles from "./services.module.css";
 
@@ -101,7 +100,16 @@ export default function ServicesExperience() {
           <div className={styles.serviceList}>{['Custom software','Business dashboards','Client portals','Workflow automation','Internal tools','Web applications'].map((item,index)=><motion.span key={item} initial={{opacity:reduceMotion?1:0,x:reduceMotion?0:-18}} whileInView={{opacity:1,x:0}} viewport={{once:true}} transition={{delay:reduceMotion?0:index*.06}}><i>{String(index+1).padStart(2,'0')}</i>{item}</motion.span>)}</div>
           <Link href="/contact?service=forge#project">Start a Forge project <b>↗</b></Link>
         </div>
-        <div className={`${styles.visual} ${styles.forgeVisual}`}><ForgeDashboard /></div>
+        <div className={`${styles.visual} ${styles.forgeVisual}`}>
+          <div className={styles.forgeCapabilities} aria-label="Forge software capabilities">
+            <span>FENNRISE / FORGE</span>
+            <h3>Software built around <em>your workflow.</em></h3>
+            <div><strong>Custom tools</strong><p>Purpose-built applications for everyday operations.</p></div>
+            <div><strong>Connected systems</strong><p>Workflows and integrations designed for clarity.</p></div>
+            <div><strong>Scalable foundations</strong><p>Thoughtful architecture that can evolve with your needs.</p></div>
+            <small>Capabilities overview · No performance claims</small>
+          </div>
+        </div>
       </section>
 
       <section className={styles.process}>
