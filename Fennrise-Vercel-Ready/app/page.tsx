@@ -9,7 +9,26 @@ export default function Home() {
   return (
     <main>
       <section className={styles.hero} id="top">
-        <Image className={styles.sun} src="/fennrise-glass.webp" alt="" fill priority sizes="100vw" />
+        <div className={`hero ${styles.backdrop}`} aria-hidden="true">
+          <div className="particle p1" />
+          <div className="particle p2" />
+          <div className="particle p3" />
+          <div className="particle p4" />
+        </div>
+        <div className={`orbit-system ${styles.orbit}`} aria-hidden="true">
+          <div className="orbit-halo" />
+          <div className="orbit-ring ring-one"><i /></div>
+          <div className="orbit-ring ring-two"><i /></div>
+          <div className="orbit-ring ring-three"><i /></div>
+          <Image
+            src="/fennrise-logo.png"
+            alt=""
+            width={280}
+            height={280}
+            priority
+            sizes="(max-width: 760px) 24vw, (max-width: 1400px) 13vw, 182px"
+          />
+        </div>
         <div className={styles.copy}>
           <p className={styles.byline}>Fennrise · Independent technology company</p>
           <h1>Software for<br/><em>everyday life.</em></h1>
