@@ -9,6 +9,7 @@ import {
   type Photo,
 } from "./render-slides";
 import { jpeg, archive, download } from "./album-files";
+import FeaturedSlideshow from "./FeaturedSlideshow";
 import TemplatePreview from "./TemplatePreview";
 import { collectionNames } from "./collection";
 import AlbumCanvas from "./AlbumCanvas";
@@ -18,21 +19,9 @@ type Template = (typeof layouts)[number];
 const sampleSrc = (name: string) => "/albums/" + name + ".webp";
 const serial = (i: number) => String(i + 1).padStart(2, "0");
 
-function Stack({ template }: { template: Template }) {
-  return (
-    <div className={c.stack} aria-hidden="true" data-style={template.id}>
-      {[2, 1, 0].map((i) => (
-        <div key={i} className={c.print} data-layer={i}>
-          <img src={sampleSrc(template.samples[i])} alt="" draggable={false} />
-          {!i && <strong>{template.title}</strong>}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default function AlbumDesk() {
   const [template, setTemplate] = useState<Template>(layouts[0]);
+  const [featuredIndex, setFeaturedIndex] = useState(0);
   const [category,setCategory]=useState("All");
   const [search,setSearch]=useState("");
   const [limit,setLimit]=useState(12);
@@ -184,7 +173,7 @@ export default function AlbumDesk() {
               <button
                 ref={galleryButton}
                 className={c.primary}
-                onClick={() => open(template)}
+                onClick={() => open(photos.length ? template : layouts[featuredIndex])}
               >
                 {photos.length ? "Resume album" : "Create an album"}{" "}
                 <span aria-hidden="true">↗︎</span>
@@ -199,30 +188,8 @@ export default function AlbumDesk() {
               </a>
             </div>
           </div>
-          <div className={c.feature}>
-            <button
-              className={c.featureArt}
-              onClick={() => open(template)}
-              aria-label={"Try " + template.name}
-            >
-              {template.art?<TemplatePreview template={template}/>:<Stack template={template} />}
-            </button>
-            <div className={c.featureCaption}>
-              <span>{template.name}</span>
-              <div>
-                {layouts.slice(0,3).map((t) => (
-                  <button
-                    key={t.id}
-                    aria-label={"Preview " + t.name}
-                    aria-pressed={t.id === template.id}
-                    onClick={() => setTemplate(t)}
-                  >
-                    <i />
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
+          <FeaturedSlideshow index={featuredIndex} onSelect={setFeaturedIndex}
+            onOpen={() => open(layouts[featuredIndex])} />
         </section>
         <section
           id="album-templates"

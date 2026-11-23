@@ -151,11 +151,35 @@
   padding: 0;
   border: 0;
   overflow: hidden;
+  touch-action: pan-y;
+  background: #c4ab78;
+}
+.slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
   background-color: #c4ab78;
   background-image:
     radial-gradient(ellipse at 65% 20%, #e1d1b0, transparent 77%),
     repeating-linear-gradient(0deg, transparent 0 4px, #bda77c 5px 6px);
 }
+.slide[data-design="birthday-notes"] {
+  background: radial-gradient(ellipse at 68% 18%, #f5deda, transparent 75%), #dcb4ae;
+}
+.slide[data-design="city-grid"] {
+  background: linear-gradient(120deg, #e4e4dc, #afb6ac);
+}
+@keyframes floatPrint {
+  from { translate: 0 0; }
+  to { translate: 0 -2.5%; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .print { animation: floatPrint 2.9s ease-in-out infinite alternate; }
+  .print[data-layer="1"] { animation-delay: -1.8s; }
+  .print[data-layer="2"] { animation-delay: -3.3s; }
+  .feature[data-floating="false"] .print { animation-play-state: paused; }
+}
+.featureCaption .playback { margin-right: 4px; color: var(--paper); }
 .stack {
   position: absolute;
   inset: 0;
