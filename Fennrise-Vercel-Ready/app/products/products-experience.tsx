@@ -6,7 +6,6 @@ import { useRef } from "react";
 import { ExperienceFooter, ExperienceHeader } from "../components/ExperienceChrome";
 import FennFocusVisual from "../components/FennFocusVisual";
 import StarVisual from "../components/StarVisual";
-import RelayVisual from "../components/VoiceVisual";
 import styles from "./products.module.css";
 
 export default function ProductsExperience() {
@@ -20,9 +19,9 @@ export default function ProductsExperience() {
       <section className={styles.hero}>
         <div className={styles.heroGrid} />
         <motion.div className={styles.heroCopy} initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, ease: [0.22,1,0.36,1] }}>
-          <div className={styles.eyebrow}><i /> Fennrise products / 01–03</div>
+          <div className={styles.eyebrow}><i /> Fennrise products / 01–02</div>
           <h1><span>Technology with a</span><br /><em>purpose.</em></h1>
-          <p>Three products being built around intelligence, focus, and communication—designed to become useful parts of everyday work.</p>
+          <p>Two products in development, built around intelligence and focus—with usefulness at the centre of everyday work.</p>
           <a href="#star">Explore the products <span>↓</span></a>
         </motion.div>
       </section>
@@ -45,7 +44,7 @@ export default function ProductsExperience() {
           <motion.div initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .35 }} transition={{ duration: .8 }}>
             <span className={styles.number}>02 / Productivity system</span>
             <h2>Fenn</h2>
-            <h3>Plan. Focus. Achieve.</h3>
+            <h3>Your future, organized.</h3>
             <p>The main Fennrise productivity experience—built to turn ambitious plans into focused, consistent progress without adding more noise.</p>
           </motion.div>
           <span className={styles.status}><i /> In development</span>
@@ -53,24 +52,12 @@ export default function ProductsExperience() {
         <motion.div className={styles.chapterVisual} initial={{ opacity: reduceMotion ? 1 : 0, scale: reduceMotion ? 1 : .96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .9, ease: [0.22,1,0.36,1] }}><FennFocusVisual /></motion.div>
       </section>
 
-      <section className={`${styles.chapter} ${styles.relayChapter}`} id="relay">
-        <div className={styles.chapterCopy}>
-          <motion.div initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .35 }} transition={{ duration: .8 }}>
-            <span className={styles.number}>03 / Voice AI for business</span>
-            <h2>Relay</h2>
-            <h3>Answer. Understand. Connect.</h3>
-            <p>A business calling assistant being developed to understand customer requests, answer common questions, capture leads, summarize calls, and route conversations.</p>
-          </motion.div>
-          <span className={styles.status}><i /> In development</span>
-        </div>
-        <motion.div className={`${styles.chapterVisual} ${styles.relayVisual}`} initial={{ opacity: reduceMotion ? 1 : 0, scale: reduceMotion ? 1 : .96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .9, ease: [0.22,1,0.36,1] }}><RelayVisual /></motion.div>
-      </section>
 
       <section className={styles.closing}>
         <span>Products of our own.</span>
         <h2>Need technology<br />built for <em>yours?</em></h2>
         <p>Studio and Forge bring the same product thinking to websites, software, portals, automation, and digital systems for businesses.</p>
-        <div><Link href="/services">Explore services <span>→</span></Link><Link href="/waitlist">Follow product updates <span>↗</span></Link></div>
+        <div><Link href="/services">Explore services <span>→</span></Link></div>
       </section>
 
       <ExperienceFooter />
