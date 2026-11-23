@@ -23,7 +23,6 @@ export function ExperienceHeader({ active }: { active?: ActivePage }) {
         <Link href="/#roadmap" onClick={() => setMenuOpen(false)}>Roadmap</Link>
         <Link className={active === "about" ? styles.active : ""} href="/about" onClick={() => setMenuOpen(false)}>About</Link>
         <Link className={active === "contact" ? styles.active : ""} href="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
-        <Link className={styles.cta} href="/waitlist" onClick={() => setMenuOpen(false)}>Join waitlist <span>→</span></Link>
       </nav>
     </header>
   );
