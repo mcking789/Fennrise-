@@ -93,27 +93,6 @@ export default function HomeExperienceSections() {
 
   return (
     <>
-      <section className={styles.about} id="about">
-        <div className={styles.aboutGlow} aria-hidden="true" />
-        <motion.div className={styles.aboutInner} {...reveal}>
-          <div className={styles.sectionLabel}><i /> About Fennrise <span>Independent technology company</span></div>
-          <div className={styles.aboutLayout}>
-            <h2>Ideas become valuable when technology makes them <em>clear and useful.</em></h2>
-            <div className={styles.aboutCopy}>
-              <p>
-                Fennrise is building intelligent products of its own while creating websites, software,
-                and digital systems for ambitious businesses.
-              </p>
-              <p>
-                One side explores what technology can become. The other applies that thinking to what
-                businesses need today.
-              </p>
-              <span>Products + Services / One Fennrise standard</span>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
       <section className={`${styles.portal} ${styles.productsPortal}`} id="products">
         <div className={styles.portalWord} aria-hidden="true">PRODUCTS</div>
         <motion.div className={styles.portalCopy} {...reveal}>
