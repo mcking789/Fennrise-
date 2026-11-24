@@ -22,6 +22,14 @@ type Template = (typeof layouts)[number];
 type Draft={template:Template;title:string;style:Design;pages:Record<number,SlideEdit>;photos:Photo[];selected:string;order:string[][]|null};
 const serial = (i: number) => String(i + 1).padStart(2, "0");
 
+const toolGroups = {
+  Photos: ["Library", "Crop", "Finish", "Frame"],
+  Album: ["Layout", "Cover", "Palette", "Lines"],
+  Slide: ["Arrange", "Text", "Style", "Position"],
+} as const;
+type ToolGroup = keyof typeof toolGroups;
+export type EditorTool = (typeof toolGroups)[ToolGroup][number];
+
 export default function AlbumDesk() {
   const [template, setTemplate] = useState<Template>(layouts[0]);
   const [featuredIndex, setFeaturedIndex] = useState(0);
@@ -30,6 +38,17 @@ export default function AlbumDesk() {
   const [limit,setLimit]=useState(12);
   const [ruled,setRuled]=useState(false);
   const visible=layouts.filter(t=>(!ruled||ruledFilter(t.id))&&(category==="All"||t.category===category)&&(t.name+" "+t.category).toLowerCase().includes(search.trim().toLowerCase()));
+  const [toolGroup, setToolGroup] = useState<ToolGroup>("Photos");
+  const [tool, setTool] = useState<EditorTool>("Library");
+  const [mobileView, setMobileView] = useState<"Preview" | "Tools">("Preview");
+  function selectGroup(group: ToolGroup) {
+    setToolGroup(group);
+    setTool(toolGroups[group][0]);
+  }
+  function resetTools() {
+    selectGroup("Photos");
+    setMobileView("Preview");
+  }
   const [studio, setStudio] = useState(false);
   const [title, setTitle] = useState(layouts[0].title);
   const [style,setStyle]=useState<Design>(()=>designFor(layouts[0]));
@@ -94,6 +113,7 @@ export default function AlbumDesk() {
   const frame=photo?framesFor(template.id,slideIndex,group,style)[group.indexOf(photo)]:undefined;
   const position=groups.flat().findIndex(p=>p.id===photo?.id);
   function open(t:Template,initialSlide=0){
+    resetTools();
     wantedSlide.current=initialSlide;setSelected("");setOrder(null);setItems(null);setSamples([]);
     setTemplate(t);setStyle(designFor(t));setPages({});setTitle(t.title);setOpened(false);setStudio(true);setNotice("");
   }
@@ -102,6 +122,7 @@ export default function AlbumDesk() {
     setStudio(false);
   }
   function resume(id:string){
+    resetTools();
     const d=drafts.current.get(id);
     if(!d){open(layouts[featuredIndex]);return;}
     setTemplate(d.template);setTitle(d.title);setStyle(d.style);setPages(d.pages);setItems(d.photos);setSelected(d.selected);setOrder(d.order);
@@ -298,7 +319,7 @@ export default function AlbumDesk() {
           disabled={busy}
           onClick={back}
         >
-          ← Albums
+          Albums
         </button>
         <h1 tabIndex={-1} ref={titleRef}>
           {template.name}
@@ -308,10 +329,13 @@ export default function AlbumDesk() {
           disabled={busy || !groups.length}
           onClick={() => save("slides")}
         >
-          Download slides <span aria-hidden="true">↓</span>
+          Download slides
         </button>
       </div>
-      <div className={c.workgrid}>
+      <div className={c.viewSwitch} role="group" aria-label="Editor view">
+        {(["Preview", "Tools"] as const).map(view => <button key={view} aria-pressed={mobileView === view} onClick={() => setMobileView(view)}>{view}</button>)}
+      </div>
+      <div className={c.workgrid} data-view={mobileView}>
         <section className={c.stage} aria-label="Slide preview">
           <div className={c.stageHeader}>
             <span>{photos.length ? "Your album" : "Sample album"}</span>
@@ -336,7 +360,7 @@ export default function AlbumDesk() {
               onClick={() => setSelected(groups[slideIndex - 1][0].id)}
               aria-label="Previous slide"
             >
-              ←
+              Prev
             </button>
             <span aria-live="polite">
               Slide {groups.length ? slideIndex + 1 : 0} of {groups.length}
@@ -346,13 +370,18 @@ export default function AlbumDesk() {
               onClick={() => setSelected(groups[slideIndex + 1][0].id)}
               aria-label="Next slide"
             >
-              →
+              Next
             </button>
           </div>
         </section>
-        <aside className={c.panel}>
-          <div className={c.panelSection}>
-            <h2>Photos</h2>
+        <aside className={c.panel} aria-label="Editing tools">
+          <div className={c.toolTabs} role="group" aria-label="Tool category">
+            {(Object.keys(toolGroups) as ToolGroup[]).map(name => <button key={name} aria-pressed={toolGroup === name} onClick={() => selectGroup(name)}>{name}</button>)}
+          </div>
+          <div className={c.toolNav} role="group" aria-label={toolGroup + " tools"}>
+            {toolGroups[toolGroup].map(name => <button key={name} aria-pressed={tool === name} onClick={() => setTool(name)}>{name}</button>)}
+          </div>
+          {tool === "Library" && <div className={c.panelSection}>
             <input
               ref={input}
               className={c.hiddenInput}
@@ -367,18 +396,13 @@ export default function AlbumDesk() {
               className={c.add}
               onClick={() => input.current?.click()}
             >
-              <b>＋</b>{" "}
               {busy
                 ? "Working…"
                 : photos.length
                   ? "Add more photos"
                   : "Add your photos"}
             </button>
-            <p>
-              {photos.length
-                ? "Select a photo, then drag it in the preview to adjust the crop."
-                : "Try the sample, or add photos from your device."}
-            </p>
+
             <div className={c.thumbs}>
               {active.map((p, i) => (
                 <button
@@ -416,8 +440,8 @@ export default function AlbumDesk() {
                 )}
               </div>
             )}
-          </div>
-          <div className={c.panelSection}>
+          </div>}
+          {tool === "Layout" && <div className={c.panelSection}>
             <label>
               Layout
               <select aria-label="Layout"
@@ -444,16 +468,16 @@ export default function AlbumDesk() {
                 onChange={e=>{setTitle(e.target.value);setOpened(true);}}
               />
             </label>
-          </div>
-          {groups.length>0&&<div className={c.panelSection}><h2>Slide {slideIndex+1}</h2><div className={c.photoControls}>
+          </div>}
+          {tool === "Arrange" && groups.length>0&&<div className={c.panelSection}><h2>Slide {slideIndex+1}</h2><div className={c.photoControls}>
             <button disabled={busy||slideIndex===0} onClick={()=>changePage("earlier")}>Move slide earlier</button>
             <button disabled={busy||slideIndex===groups.length-1} onClick={()=>changePage("later")}>Move slide later</button>
             <button disabled={busy} onClick={()=>changePage("copy")}>Duplicate slide</button>
             <button disabled={busy||groups.length===1} onClick={()=>changePage("delete")}>Remove slide</button>
           </div></div>}
-          <DesignControls s={style} set={v=>{if(v.spread)setOrder(null);setStyle({...style,...v});setOpened(true);}} slide={slide}
+          <DesignControls key={slideIndex} tool={tool} s={style} set={v=>{if(v.spread)setOrder(null);setStyle({...style,...v});setOpened(true);}} slide={slide}
             setSlide={v=>{setPages({...pages,[slideIndex]:v});setOpened(true);}} p={photo} frame={frame} edit={v=>photo&&edit(photo.id,v)}/>
-          {photo && (
+          {tool === "Crop" && photo && (
             <div className={c.panelSection}>
               <div className={c.cropHead}>
                 <h2>Crop</h2>
@@ -476,8 +500,7 @@ export default function AlbumDesk() {
                   }
                 />
               </label>
-              <details>
-                <summary>Position</summary>
+
                 {(["x", "y"] as const).map((axis) => (
                   <label className={c.slider} key={axis}>
                     {axis === "x" ? "Horizontal" : "Vertical"}
@@ -493,16 +516,16 @@ export default function AlbumDesk() {
                     />
                   </label>
                 ))}
-              </details>
+
             </div>
           )}
-          <div className={c.panelSection}>
+          {tool === "Arrange" && <div className={c.panelSection}>
             <button
               className={c.textLink}
               disabled={busy || !group.length}
               onClick={() => save("slide")}
             >
-              Save current slide ↓
+              Save current slide
             </button>
             {!!photos.length && (
               <button
@@ -510,11 +533,11 @@ export default function AlbumDesk() {
                 disabled={busy}
                 onClick={() => save("originals")}
               >
-                Download original photos ↓
+                Download original photos
               </button>
             )}
-            <p>Your photos stay on this device.</p>
-          </div>
+          </div>}
+          {!photo && toolGroup === "Photos" && tool !== "Library" && <p className={c.toolHint}>Add a photo in Library to use this tool.</p>}
         </aside>
       </div>
       {notice && (

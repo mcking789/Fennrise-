@@ -763,3 +763,101 @@
 @media(min-width:901px){.workgrid{overflow:visible;align-items:start;}.stage{position:sticky;top:84px;}.canvasWrap{width:min(100%, clamp(270px,47vh,540px));}}
 
 .card .draft{padding:7px 8px;color:var(--yellow);font-size:12px;border:0;background:transparent;}
+
+/* Editor tools share one card. Content changes in place as a tool is selected. */
+.workgrid {
+  grid-template-columns: minmax(0,1fr) minmax(310px,365px);
+  align-items: start;
+  gap: 12px;
+  border: 0;
+  overflow: visible;
+  background: transparent;
+}
+.panel {
+  border: 1px solid var(--rule);
+  padding: 14px;
+  border-radius: 24px;
+  background: #1b1c18;
+  min-height: 392px;
+}
+.toolTabs,.viewSwitch {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 3px;
+  padding: 4px;
+  border-radius: 100px;
+  background: #10110e;
+}
+.toolTabs button,.toolNav button,.viewSwitch button {
+  border: 0;
+  border-radius: 100px;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 550;
+  min-height: 36px;
+  color: var(--soft);
+}
+.toolTabs button[aria-pressed=true],.viewSwitch button[aria-pressed=true] {
+  background: #f1efe5;
+  color: #191a15;
+}
+.toolNav {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  border-bottom: 1px solid var(--rule);
+  margin: 6px 0 12px;
+  padding-bottom: 5px;
+}
+.toolNav button[aria-pressed=true] { color: var(--yellow); }
+.panelSection {border: 0; padding: 0;}
+.panelSection + .panelSection {margin-top: 12px;}
+.panelSection select,.inspector select {appearance: none; cursor: pointer;}
+.panel .panelSection select,.panel .panelSection input:not([type=range]),.inspector select,.inspector textarea {
+  background: #272823;
+  color: var(--paper);
+  border: 1px solid #44453d;
+  border-radius: 11px;
+  padding: 7px 10px;
+  margin-top: 4px;
+  min-width: 0;
+  max-width: 100%;
+}
+.inspector textarea {resize: none;}
+.panel .add {padding: 9px 12px;border: 1px solid #615537;background: #312c1d;border-radius: 12px;}
+.inspector .add {margin-top: 10px;}
+.panel .thumbs {margin: 10px 0;gap: 8px;scrollbar-width: thin;}
+.panel .thumbs button {width: 50px;height: 64px;}
+.panel .photoControls {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;}
+.panel .photoControls button,.panel .textLink,.cropHead button {
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: #22231f;
+  padding: 7px 9px;
+  font-size: 12px;
+  color: var(--paper);
+  min-height: 34px;
+}
+.panel .textLink {display:inline-block;margin: 6px 5px 0 0;}
+.inspector label {margin-top:8px;}
+.fieldPair {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+.inspector .slider,.panelSection .slider {
+  min-height:30px;
+  margin:4px 0;
+  font-size:12px;
+}
+.toolHint {font-size:13px;color:var(--soft);}
+.viewSwitch {display:none;}
+.pager button {width:auto;padding-inline:10px;}
+@media(max-width:700px) {
+  .workspace {padding:84px 12px 16px;}
+  .toolbar {display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding-bottom:8px;}
+  .toolbar h1 {min-width:0;line-height:1.05;font-size:clamp(17px,4.1vw,24px);}
+  .toolbar .primary {min-height:36px;padding:7px 10px;font-size:12px;}
+  .viewSwitch {display:grid;grid-template-columns:repeat(2,1fr);width:fit-content;margin:0 auto 10px;border:1px solid var(--rule);}
+  .viewSwitch button {min-width:78px;min-height:31px;}
+  .workgrid {display:block;}
+  .workgrid[data-view=Preview] .panel,.workgrid[data-view=Tools] .stage {display:none;}
+  .workgrid .stage {position:static;padding:10px;gap:7px;}
+  .workgrid .canvasWrap {width:min(100%,calc((100svh - 280px)*.8),420px);}
+  .panel {min-height:min(380px,calc(100svh - 184px));}
+}
