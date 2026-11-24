@@ -48,7 +48,6 @@
   padding-block: 18px;
 }
 .kicker,
-.featureCaption,
 .stageHeader,
 .pager,
 .collectionHead > span {
@@ -93,7 +92,6 @@
 }
 .actions,
 .toolbar,
-.featureCaption,
 .collectionHead,
 .cardTitle,
 .pager,
@@ -179,7 +177,6 @@
   .print[data-layer="2"] { animation-delay: -3.3s; }
   .feature[data-floating="false"] .print { animation-play-state: paused; }
 }
-.featureCaption .playback { margin-right: 4px; color: var(--paper); }
 .stack {
   position: absolute;
   inset: 0;
@@ -283,30 +280,6 @@
     sans-serif;
   text-shadow: none;
   text-transform: uppercase;
-}
-.featureCaption {
-  justify-content: space-between;
-  min-height: 38px;
-  color: var(--soft);
-}
-.featureCaption div {
-  display: flex;
-}
-.featureCaption button {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 36px;
-  border: 0;
-  background: none;
-}
-.featureCaption i {
-  width: 17px;
-  height: 3px;
-  background: #636458;
-}
-.featureCaption button[aria-pressed="true"] i {
-  background: var(--yellow);
 }
 .collection {
   max-width: 1720px;
@@ -658,9 +631,6 @@
   .featureArt {
     min-height: 0;
     aspect-ratio: 1.75;
-  }
-  .featureCaption {
-    min-height: 30px;
   }
   .print strong {
     font-size: clamp(28px, 7.6vw, 44px);

@@ -92,8 +92,8 @@ export default function FeaturedSlideshow({ index, onSelect, onOpen }: {
     };
   }, [design.id, index, onSelect, playing]);
 
-  function choose(next: number, step: number) {
-    setPaused(true);
+  function choose(step: number) {
+    const next = (index + step + featured.length) % featured.length;
     const choice = ++pendingChoice.current;
     void loadArtwork(featured[next].id).then(() => {
       if (choice === pendingChoice.current) {
@@ -106,8 +106,15 @@ export default function FeaturedSlideshow({ index, onSelect, onOpen }: {
   return (
     <div className={c.feature} ref={feature} role="region" aria-label="Featured album designs"
       aria-roledescription="carousel" data-floating={playing}
-      onFocusCapture={e => { if (e.target.matches(":focus-visible")) setPaused(true); }}>
+      onFocusCapture={e => { if (e.target.matches(":focus-visible")) setPaused(true); }}
+      onBlurCapture={() => setPaused(false)}>
       <button type="button" className={c.featureArt} aria-label={"Try " + design.name}
+        aria-keyshortcuts="ArrowLeft ArrowRight"
+        onKeyDown={e => {
+          if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+          e.preventDefault();
+          choose(e.key === "ArrowRight" ? 1 : -1);
+        }}
         onClick={() => {
           if (!swiped.current) onOpen();
           swiped.current = false;
@@ -127,7 +134,7 @@ export default function FeaturedSlideshow({ index, onSelect, onOpen }: {
           if (Math.abs(dx) < 40 || Math.abs(dx) < 1.5 * Math.abs(dy)) return;
           swiped.current = true;
           const step = dx < 0 ? 1 : -1;
-          choose((index + step + featured.length) % featured.length, step);
+          choose(step);
         }}>
         <AnimatePresence initial={false} custom={direction}>
           <motion.div key={design.id} className={c.slide} data-design={design.id}
@@ -146,19 +153,6 @@ export default function FeaturedSlideshow({ index, onSelect, onOpen }: {
           </motion.div>
         </AnimatePresence>
       </button>
-      <div className={c.featureCaption}>
-        <span>{design.name}</span>
-        <div>
-          {!reduced && <button type="button" className={c.playback} onClick={() => setPaused(!paused)}
-            aria-label={paused ? "Play slideshow" : "Pause slideshow"}>
-            <span aria-hidden="true">{paused ? "▶" : "Ⅱ"}</span>
-          </button>}
-          {featured.map((item, i) => (
-            <button type="button" key={item.id} aria-label={"Preview " + item.name} aria-pressed={index === i}
-              onClick={() => choose(i, i >= index ? 1 : -1)}><i /></button>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
