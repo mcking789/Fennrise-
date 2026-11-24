@@ -3,10 +3,27 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { layouts } from "./render-slides";
-import TemplatePreview from "./TemplatePreview";
 import c from "./albums.module.css";
 
 const featured = layouts.slice(0, 3);
+const slideInterval = 4000;
+const artworkUrl = (id: string) => `/albums/featured/${id}.webp`;
+
+// Each strip contains the first three pages rendered by the album editor.
+const artwork = new Map<string, Promise<HTMLImageElement>>();
+function loadArtwork(id: string) {
+  const existing = artwork.get(id);
+  if (existing) return existing;
+  const image = new Image();
+  image.src = artworkUrl(id);
+  const loaded = image.decode().then(() => image).catch(error => {
+    artwork.delete(id);
+    throw error;
+  });
+  artwork.set(id, loaded);
+  return loaded;
+}
+
 const travel = {
   enter: (direction: number) => ({ x: direction > 0 ? "100%" : "-100%" }),
   center: { x: "0%" },
@@ -21,6 +38,7 @@ export default function FeaturedSlideshow({ index, onSelect, onOpen }: {
   const feature = useRef<HTMLDivElement>(null);
   const start = useRef<{ x: number; y: number } | null>(null);
   const swiped = useRef(false);
+  const pendingChoice = useRef(0);
   const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -32,6 +50,7 @@ export default function FeaturedSlideshow({ index, onSelect, onOpen }: {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const syncMotion = () => setReduced(preference.matches);
     syncMotion();
+    featured.forEach(item => { void loadArtwork(item.id).catch(() => {}); });
     preference.addEventListener("change", syncMotion);
     let inView = false;
     const syncVisibility = () => setVisible(inView && !document.hidden);
@@ -42,6 +61,7 @@ export default function FeaturedSlideshow({ index, onSelect, onOpen }: {
     observer.observe(feature.current!);
     document.addEventListener("visibilitychange", syncVisibility);
     return () => {
+      pendingChoice.current++;
       observer.disconnect();
       document.removeEventListener("visibilitychange", syncVisibility);
       preference.removeEventListener("change", syncMotion);
@@ -50,17 +70,37 @@ export default function FeaturedSlideshow({ index, onSelect, onOpen }: {
 
   useEffect(() => {
     if (!playing) return;
-    const timer = window.setTimeout(() => {
-      setDirection(1);
-      onSelect((index + 1) % featured.length);
-    }, 5000);
-    return () => window.clearTimeout(timer);
-  }, [index, onSelect, playing]);
+    let active = true;
+    let timer: number;
+    const next = (index + 1) % featured.length;
+    async function play() {
+      await loadArtwork(design.id);
+      if (!active) return;
+      timer = window.setTimeout(() => {
+        void loadArtwork(featured[next].id).then(() => {
+          if (active) {
+            setDirection(1);
+            onSelect(next);
+          }
+        }).catch(() => {});
+      }, slideInterval);
+    }
+    void play().catch(() => {});
+    return () => {
+      active = false;
+      window.clearTimeout(timer);
+    };
+  }, [design.id, index, onSelect, playing]);
 
   function choose(next: number, step: number) {
     setPaused(true);
-    setDirection(step);
-    onSelect(next);
+    const choice = ++pendingChoice.current;
+    void loadArtwork(featured[next].id).then(() => {
+      if (choice === pendingChoice.current) {
+        setDirection(step);
+        onSelect(next);
+      }
+    }).catch(() => {});
   }
 
   return (
@@ -93,11 +133,13 @@ export default function FeaturedSlideshow({ index, onSelect, onOpen }: {
           <motion.div key={design.id} className={c.slide} data-design={design.id}
             aria-hidden="true" custom={direction} variants={travel}
             initial="enter" animate="center" exit="exit"
-            transition={{ duration: reduced ? 0 : 0.72, ease: [0.45, 0, 0.18, 1] }}>
+            transition={{ duration: reduced ? 0 : 0.48, ease: [0.45, 0, 0.18, 1] }}>
             <div className={c.stack} data-style={design.id}>
               {[2, 1, 0].map(layer => (
                 <div key={layer} className={c.print} data-layer={layer}>
-                  <TemplatePreview template={design} slide={layer} />
+                  <img src={artworkUrl(design.id)} alt="" width={600} height={750}
+                    fetchPriority={index === 0 ? "high" : "auto"}
+                    style={{objectPosition: `${layer * 50}% center`}} />
                 </div>
               ))}
             </div>

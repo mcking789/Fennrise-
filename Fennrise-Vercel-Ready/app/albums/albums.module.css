@@ -742,9 +742,9 @@
 .cardLabel {display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;margin:12px 0 4px;padding:0 7px;letter-spacing:-.035em;}
 .cardLabel strong {font-size:clamp(18px,1.5vw,26px);font-weight:580;}
 .cardLabel span {color:var(--soft);}
-.featureArt .stack .print {padding:0;background:transparent;width:auto;height:75%;aspect-ratio:4/5;}
+.featureArt .stack .print {box-shadow:none;padding:0;background:transparent;width:auto;height:75%;aspect-ratio:4/5;}
 .featureArt .stack .print:after,.featureArt .stack .print:before {display:none;}
-.print canvas {height:100%;}
+.print img {filter:drop-shadow(4px 12px 12px #382f2155);}
 .filters .ruleFilter {padding:10px 15px;border-radius:999px;background:transparent;border:1px solid #676554;font-size:13px;}
 .filters .ruleFilter[aria-pressed=true] {background:var(--yellow);color:var(--ink);}
 .canvasWrap {border-radius:0;overflow:hidden;}
