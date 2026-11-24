@@ -5,6 +5,7 @@ import {faces,treatments,type Design,type SlideEdit,type Layer,type Cover} from 
 import type {Frame,Photo} from "./render-slides";
 import type {Spread} from "./collection";
 import c from "./albums.module.css";
+import AlbumSelect from "./AlbumSelect";
 
 type Props={tool:EditorTool;s:Design;set:(v:Partial<Design>)=>void;slide:SlideEdit;setSlide:(v:SlideEdit)=>void;p?:Photo;frame?:Frame;edit:(v:Partial<Photo>)=>void};
 function Slider({name,v,min,max,step=1,on}:{name:string;v:number;min:number;max:number;step?:number;on:(n:number)=>void}){
@@ -14,7 +15,7 @@ function Palette({name,v,on}:{name:string;v:string;on:(v:string)=>void}){
   return <label>{name}<input type="color" value={v} onChange={e=>on(e.target.value)}/></label>;
 }
 function Choice({name,v,options,on}:{name:string;v:string;options:readonly string[];on:(v:string)=>void}){
-  return <label>{name}<select value={v} onChange={e=>on(e.target.value)}>{options.map(n=><option key={n}>{n}</option>)}</select></label>;
+  return <AlbumSelect name={name} value={v} options={options} onChange={on}/>;
 }
 export default function DesignControls({tool,s,set,slide,setSlide,p,frame,edit}:Props){
   const layers=slide.layers??[];
@@ -44,7 +45,8 @@ export default function DesignControls({tool,s,set,slide,setSlide,p,frame,edit}:
       <Slider name="Frame margin" v={s.inset} min={12} max={155} on={inset=>set({inset})}/>
     </>}
     {tool === "Lines" && <>
-      <label>Line treatment<select value={s.rule} onChange={e=>set({rule:e.target.value as Design["rule"]})}>{Object.entries(treatments).map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label>
+      <AlbumSelect name="Line treatment" value={s.rule} options={Object.entries(treatments).map(([value,label])=>({value,label}))}
+        onChange={value=>set({rule:value as Design["rule"]})}/>
       {s.rule!=="none"&&<Slider name="Line weight" v={s.weight} min={1} max={14} on={weight=>set({weight})}/>}
       <label className={c.check}><input type="checkbox" checked={s.numbers} onChange={e=>set({numbers:e.target.checked})}/>Page numbers</label>
     </>}
@@ -66,9 +68,8 @@ export default function DesignControls({tool,s,set,slide,setSlide,p,frame,edit}:
       <button className={c.textLink} onClick={()=>edit({bounds:undefined,shape:undefined,turn:0,flip:false,light:1,saturation:1,x:.5,y:.5,zoom:1})}>Reset photo & frame</button>
     </>}
     {(tool === "Text" || tool === "Style" || tool === "Position") && <>
-      {layer && <label>Text layer<select value={layer.id} onChange={e=>setLayerId(e.target.value)}>
-        {layers.map((item,index)=><option key={item.id} value={item.id}>{index+1}. {item.text.slice(0,32) || "Untitled"}</option>)}
-      </select></label>}
+      {layer && <AlbumSelect name="Text layer" value={layer.id} onChange={setLayerId}
+        options={layers.map((item,index)=>({value:item.id,label:(index+1)+". "+(item.text.slice(0,32)||"Untitled")}))}/>}
       {layer && tool === "Text" && <>
         <label>Caption<textarea rows={2} aria-label="Layer text" value={layer.text} onChange={e=>change(layer.id,{text:e.target.value})}/></label>
         <button className={c.textLink} onClick={()=>setSlide({...slide,layers:layers.filter(item=>item.id!==layer.id)})}>Remove text</button>

@@ -16,6 +16,7 @@ import AlbumCanvas from "./AlbumCanvas";
 import {designFor,ruledFilter,type Design,type SlideEdit} from "./design";
 import {sampleBook} from "./sample-book";
 import DesignControls from "./DesignControls";
+import AlbumSelect from "./AlbumSelect";
 import c from "./albums.module.css";
 
 type Template = (typeof layouts)[number];
@@ -273,7 +274,9 @@ export default function AlbumDesk() {
           <div className={c.filters}>
             <button className={c.ruleFilter} aria-pressed={ruled} onClick={()=>{setRuled(!ruled);setLimit(12);}}>Line editions · 25</button>
             <input type="search" aria-label="Search templates" placeholder="Search templates" value={search} onChange={e=>{setSearch(e.target.value);setLimit(12);}} />
-            <select aria-label="Collection" value={category} onChange={e=>{setCategory(e.target.value);setLimit(12);}}>{["All",...collectionNames].map(n=><option key={n} value={n}>{n==="All"?"All collections":n}</option>)}</select>
+            <AlbumSelect name="Collection" hideLabel value={category}
+              options={[{value:"All", label:"All collections"}, ...collectionNames]}
+              onChange={value=>{setCategory(value);setLimit(12);}} />
           </div>
           <div className={c.cards}>
             {visible.slice(0,limit).map((t) => (
@@ -442,23 +445,13 @@ export default function AlbumDesk() {
             )}
           </div>}
           {tool === "Layout" && <div className={c.panelSection}>
-            <label>
-              Layout
-              <select aria-label="Layout"
-                value={template.id}
-                disabled={busy} onChange={e=>{
-                  const t=layouts.find(v=>v.id===e.target.value)!;
-                  if(items===null){setSamples([]);wantedSlide.current=0;}
-                  setTemplate(t);setStyle(designFor(t));setTitle(t.title);setPages({});setOrder(null);setOpened(true);
-                }}
-              >
-                {layouts.map((t) => (
-                  <option value={t.id} key={t.id}>
-                    {t.name}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <AlbumSelect name="Layout" value={template.id} disabled={busy}
+              options={layouts.map(t=>({value:t.id,label:t.name}))}
+              onChange={id=>{
+                const t=layouts.find(item=>item.id===id)!;
+                if(items===null){setSamples([]);wantedSlide.current=0;}
+                setTemplate(t);setStyle(designFor(t));setTitle(t.title);setPages({});setOrder(null);setOpened(true);
+              }} />
             <label>
               Cover title
               <input
