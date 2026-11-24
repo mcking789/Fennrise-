@@ -30,8 +30,7 @@
   cursor: default;
 }
 .hero,
-.collection,
-.workspace {
+.collection {
   padding-inline: clamp(20px, 5.4vw, 96px);
 }
 .hero {
@@ -349,8 +348,8 @@
   font-size: 13px;
 }
 .workspace {
-  max-width: 1720px;
-  margin: auto;
+  /* Extend the background while keeping the original 1720px content area. */
+  padding-inline: calc(clamp(20px, 5.4vw, 96px) + max(0px, (100% - 1720px) / 2));
   padding-block: 98px 64px;
 }
 .toolbar {
