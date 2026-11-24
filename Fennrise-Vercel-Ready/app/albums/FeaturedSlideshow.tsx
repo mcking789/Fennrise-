@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { layouts } from "./render-slides";
+import TemplatePreview from "./TemplatePreview";
 import c from "./albums.module.css";
 
 const featured = layouts.slice(0, 3);
@@ -96,8 +97,7 @@ export default function FeaturedSlideshow({ index, onSelect, onOpen }: {
             <div className={c.stack} data-style={design.id}>
               {[2, 1, 0].map(layer => (
                 <div key={layer} className={c.print} data-layer={layer}>
-                  <img src={"/albums/" + design.samples[layer] + ".webp"} alt="" draggable={false} />
-                  {layer === 0 && <strong>{design.title}</strong>}
+                  <TemplatePreview template={design} slide={layer} />
                 </div>
               ))}
             </div>

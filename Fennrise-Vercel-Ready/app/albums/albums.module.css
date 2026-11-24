@@ -732,3 +732,34 @@
 .filters input {width:min(300px,100%);}
 .more {display:block;margin:24px auto 0;}.filters input::placeholder{color:#bcbab1;}
 @media(max-width:400px){.filters input,.filters select {width:100%;}}
+
+/* Explore, the floating prints and the editor display the complete 4:5 page. */
+.cardTriptych {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;overflow:hidden;border-radius:17px;}
+.cardTriptych button,.cardLabel {padding:0;border:0;background:transparent;}
+.cardTriptych button {display:block;position:relative;min-width:0;}
+.cardTriptych button:focus-visible {outline-offset:-3px;}
+.cardTriptych canvas,.print canvas {display:block;width:100%;height:auto;}
+.cardLabel {display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;margin:12px 0 4px;padding:0 7px;letter-spacing:-.035em;}
+.cardLabel strong {font-size:clamp(18px,1.5vw,26px);font-weight:580;}
+.cardLabel span {color:var(--soft);}
+.featureArt .stack .print {padding:0;background:transparent;width:auto;height:75%;aspect-ratio:4/5;}
+.featureArt .stack .print:after,.featureArt .stack .print:before {display:none;}
+.print canvas {height:100%;}
+.filters .ruleFilter {padding:10px 15px;border-radius:999px;background:transparent;border:1px solid #676554;font-size:13px;}
+.filters .ruleFilter[aria-pressed=true] {background:var(--yellow);color:var(--ink);}
+.canvasWrap {border-radius:0;overflow:hidden;}
+.inspector details {border-bottom:1px solid var(--rule);padding:13px 0;}
+.inspector summary {font:550 14px var(--font-geist-sans),sans-serif;color:var(--paper);}
+.inspector label {display:block;font-size:13px;color:var(--soft);margin-top:12px;}
+.inspector select,.inspector textarea,.inspector fieldset {width:100%;border:1px solid var(--rule);border-radius:12px;color:var(--paper);background:#20211e;padding:8px;}
+.inspector select,.inspector textarea {display:block;margin-top:4px;font:inherit;}
+.inspector .slider {display:grid;grid-template-columns:minmax(0,1fr) minmax(70px,45%);gap:8px;align-items:center;}
+.inspector input[type=range] {width:100%;accent-color:var(--yellow);}
+.inspector .check {display:flex;align-items:center;gap:8px;}
+.swatches {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+.inspector input[type=color] {display:block;margin-top:5px;width:100%;height:32px;border:1px solid #555647;border-radius:8px;padding:3px;background:transparent;}
+.inspector fieldset {margin:15px 0;min-width:0;padding:12px;}
+.inspector fieldset legend {padding-inline:5px;font-size:12px;}
+@media(min-width:901px){.workgrid{overflow:visible;align-items:start;}.stage{position:sticky;top:84px;}.canvasWrap{width:min(100%, clamp(270px,47vh,540px));}}
+
+.card .draft{padding:7px 8px;color:var(--yellow);font-size:12px;border:0;background:transparent;}

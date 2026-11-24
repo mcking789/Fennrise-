@@ -1,3 +1,4 @@
+import type {Design,SlideEdit} from "./design";
 import { paint, width, height, type Photo, type Layout } from "./render-slides";
 
 export function download(blob: Blob, name: string) {
@@ -16,11 +17,12 @@ export async function jpeg(
   layout: Layout,
   index: number,
   title: string,
+  style?:Design,slide?:SlideEdit,
 ) {
   const canvas = document.createElement("canvas");
   canvas.width = width;
   canvas.height = height;
-  paint(canvas, photos, layout, index, title);
+  paint(canvas, photos, layout, index, title, style, slide);
   return new Promise<Blob>((resolve, reject) =>
     canvas.toBlob(
       (blob) => (blob ? resolve(blob) : reject(new Error("Export failed"))),

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   layouts,
   fromFile,
-  loadPhoto,
+  framesFor,
   groupSlides,
   type Photo,
 } from "./render-slides";
@@ -13,10 +13,13 @@ import FeaturedSlideshow from "./FeaturedSlideshow";
 import TemplatePreview from "./TemplatePreview";
 import { collectionNames } from "./collection";
 import AlbumCanvas from "./AlbumCanvas";
+import {designFor,ruledFilter,type Design,type SlideEdit} from "./design";
+import {sampleBook} from "./sample-book";
+import DesignControls from "./DesignControls";
 import c from "./albums.module.css";
 
 type Template = (typeof layouts)[number];
-const sampleSrc = (name: string) => "/albums/" + name + ".webp";
+type Draft={template:Template;title:string;style:Design;pages:Record<number,SlideEdit>;photos:Photo[];selected:string;order:string[][]|null};
 const serial = (i: number) => String(i + 1).padStart(2, "0");
 
 export default function AlbumDesk() {
@@ -25,11 +28,20 @@ export default function AlbumDesk() {
   const [category,setCategory]=useState("All");
   const [search,setSearch]=useState("");
   const [limit,setLimit]=useState(12);
-  const visible=layouts.filter(t=>(category==="All"||t.category===category)&&(t.name+" "+t.category).toLowerCase().includes(search.trim().toLowerCase()));
+  const [ruled,setRuled]=useState(false);
+  const visible=layouts.filter(t=>(!ruled||ruledFilter(t.id))&&(category==="All"||t.category===category)&&(t.name+" "+t.category).toLowerCase().includes(search.trim().toLowerCase()));
   const [studio, setStudio] = useState(false);
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(layouts[0].title);
+  const [style,setStyle]=useState<Design>(()=>designFor(layouts[0]));
+  const [pages,setPages]=useState<Record<number,SlideEdit>>({});
+  const [opened,setOpened]=useState(false);
+  const drafts=useRef(new Map<string,Draft>());
+  const [latest,setLatest]=useState("");
+  const replacement=useRef<HTMLInputElement>(null);
+  const wantedSlide=useRef(0);
   const [samples, setSamples] = useState<Photo[]>([]);
-  const [photos, setPhotos] = useState<Photo[]>([]);
+  const [order,setOrder]=useState<string[][]|null>(null);
+  const [items,setItems]=useState<Photo[]|null>(null);
   const [selected, setSelected] = useState("");
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState("");
@@ -40,14 +52,12 @@ export default function AlbumDesk() {
   const firstRender = useRef(true);
   const [dragging, setDragging] = useState(false);
   useEffect(() => {
-    if (!studio) return;
+    if (!studio || items!==null) return;
     let current = true;
     setSamples([]);
-    Promise.all(
-      template.samples.map((n) => loadPhoto(sampleSrc(n), n + ".webp")),
-    )
+    sampleBook(template)
       .then((result) => {
-        if (current) setSamples(result);
+        if(current){setSamples(result);const g=groupSlides(result,template.id);setSelected(g[wantedSlide.current]?.[0]?.id??result[0]?.id??"");}
       })
       .catch(() => {
         if (current)
@@ -58,7 +68,7 @@ export default function AlbumDesk() {
     return () => {
       current = false;
     };
-  }, [studio, template]);
+  }, [studio, template,items===null]);
   useEffect(() => {
     if (firstRender.current) {
       firstRender.current = false;
@@ -69,26 +79,45 @@ export default function AlbumDesk() {
     else galleryButton.current?.focus({ preventScroll: true });
   }, [studio]);
 
-  const active = photos.length ? photos : samples;
-  const groups = groupSlides(active, template.id);
+  const active=items??samples;
+  const photos=active.filter(p=>p.file);
+  const byPhoto=new Map(active.map(p=>[p.id,p]));
+  const groups=order?order.map(ids=>ids.flatMap(id=>byPhoto.get(id)??[])).filter(g=>g.length):groupSlides(active,template.id,style);
   const photo = active.find((p) => p.id === selected) || active[0];
   const slideIndex = Math.max(
     0,
     groups.findIndex((g) => g.some((p) => p.id === photo?.id)),
   );
   const group = groups[slideIndex] || [];
-  const heading = title.trim() || template.title;
-  const position = active.indexOf(photo);
-  function open(t: Template) {
-    setTemplate(t);
-    setStudio(true);
-    setNotice("");
+  const heading=title;
+  const slide=pages[slideIndex]??{};
+  const frame=photo?framesFor(template.id,slideIndex,group,style)[group.indexOf(photo)]:undefined;
+  const position=groups.flat().findIndex(p=>p.id===photo?.id);
+  function open(t:Template,initialSlide=0){
+    wantedSlide.current=initialSlide;setSelected("");setOrder(null);setItems(null);setSamples([]);
+    setTemplate(t);setStyle(designFor(t));setPages({});setTitle(t.title);setOpened(false);setStudio(true);setNotice("");
   }
-  function edit(id: string, changes: Partial<Pick<Photo, "x" | "y" | "zoom">>) {
-    const update = photos.length ? setPhotos : setSamples;
-    update((items) =>
-      items.map((p) => (p.id === id ? { ...p, ...changes } : p)),
-    );
+  function back(){
+    if(opened){drafts.current.set(template.id,{template,title,style,pages,photos:active,selected,order});setLatest(template.id);}
+    setStudio(false);
+  }
+  function resume(id:string){
+    const d=drafts.current.get(id);
+    if(!d){open(layouts[featuredIndex]);return;}
+    setTemplate(d.template);setTitle(d.title);setStyle(d.style);setPages(d.pages);setItems(d.photos);setSelected(d.selected);setOrder(d.order);
+    setStudio(true);setOpened(true);setNotice("");
+  }
+  function edit(id:string,changes:Partial<Photo>){
+    setOpened(true);setItems(active.map(p=>p.id===id?{...p,...changes}:p));
+  }
+  async function replacePhoto(file?:File){
+    if(!file||!photo||busy)return;
+    setBusy(true);
+    try{
+      const next=await fromFile(file);
+      edit(photo.id,{image:next.image,src:next.src,name:next.name,file,id:photo.id,x:.5,y:.5,zoom:1});
+    }catch{setNotice("Could not open that photo.");}
+    finally{setBusy(false);if(replacement.current)replacement.current.value="";}
   }
   async function add(files: File[]) {
     if (!files.length || busy) return;
@@ -102,7 +131,7 @@ export default function AlbumDesk() {
         /* Remaining photos can still be imported. */
       }
     }
-    setPhotos((prev) => [...prev, ...added]);
+    if(added.length){setOpened(true);setItems([...(photos.length||order?active:[]),...added]);if(order)setOrder([...order,...groupSlides(added,template.id,style).map(g=>g.map(v=>v.id))]);}
     if (added.length) setSelected(added[0].id);
     if (added.length < files.length)
       setNotice("Some photos could not be opened. Try JPG, PNG or WebP.");
@@ -110,13 +139,32 @@ export default function AlbumDesk() {
     if (input.current) input.current.value = "";
   }
   function move(offset: number) {
-    const next = [...active];
-    [next[position], next[position + offset]] = [
-      next[position + offset],
-      next[position],
+    const flat=groups.flat();const pos=flat.findIndex(p=>p.id===photo.id);
+    const next = [...flat];
+    [next[pos], next[pos + offset]] = [
+      next[pos + offset],
+      next[pos],
     ];
-    (photos.length ? setPhotos : setSamples)(next);
+    if(order){let n=0;setOrder(groups.map(g=>g.map(()=>next[n++].id)));}
+    setOpened(true);setItems(next);
     setSelected(photo.id);
+  }
+  function changePage(action:"copy"|"delete"|"earlier"|"later"){
+    const list=groups.map((g,i)=>({photos:g,edit:pages[i]??{}}));
+    let target=slideIndex;
+    if(action==="copy"){
+      list.splice(slideIndex+1,0,{photos:group.map(p=>({...p,id:crypto.randomUUID()})),edit:structuredClone(slide)});
+      target++;
+    }else if(action==="delete"){
+      if(list.length<=1)return;
+      list.splice(slideIndex,1);target=Math.min(slideIndex,list.length-1);
+    }else{
+      target+=action==="earlier"?-1:1;
+      if(target<0||target>=list.length)return;
+      [list[target],list[slideIndex]]=[list[slideIndex],list[target]];
+    }
+    setItems(list.flatMap(p=>p.photos));setOrder(list.map(p=>p.photos.map(v=>v.id)));
+    setPages(Object.fromEntries(list.map((p,i)=>[i,p.edit])));setSelected(list[target].photos[0].id);setOpened(true);
   }
   async function save(kind: "slides" | "originals" | "slide") {
     setBusy(true);
@@ -126,7 +174,7 @@ export default function AlbumDesk() {
         heading.replace(/[^\p{L}\p{N}]+/gu, "-").slice(0, 60) || "album";
       if (kind === "slide")
         download(
-          await jpeg(group, template.id, slideIndex, heading),
+          await jpeg(group, template.id, slideIndex, heading,style,slide),
           slug + "-" + serial(slideIndex) + ".jpg",
         );
       else if (kind === "originals")
@@ -142,7 +190,7 @@ export default function AlbumDesk() {
         for (const [i, g] of groups.entries())
           entries.push({
             name: serial(i) + ".jpg",
-            blob: await jpeg(g, template.id, i, heading),
+            blob: await jpeg(g, template.id, i, heading,style,pages[i]),
           });
         await archive(entries, slug + "-slides.zip");
       }
@@ -173,9 +221,9 @@ export default function AlbumDesk() {
               <button
                 ref={galleryButton}
                 className={c.primary}
-                onClick={() => open(photos.length ? template : layouts[featuredIndex])}
+                onClick={() => latest?resume(latest):open(layouts[featuredIndex])}
               >
-                {photos.length ? "Resume album" : "Create an album"}{" "}
+                {latest ? "Resume album" : "Create an album"}{" "}
                 <span aria-hidden="true">↗︎</span>
               </button>
               <a
@@ -202,21 +250,20 @@ export default function AlbumDesk() {
             <span>{layouts.length} layouts</span>
           </div>
           <div className={c.filters}>
+            <button className={c.ruleFilter} aria-pressed={ruled} onClick={()=>{setRuled(!ruled);setLimit(12);}}>Line editions · 25</button>
             <input type="search" aria-label="Search templates" placeholder="Search templates" value={search} onChange={e=>{setSearch(e.target.value);setLimit(12);}} />
             <select aria-label="Collection" value={category} onChange={e=>{setCategory(e.target.value);setLimit(12);}}>{["All",...collectionNames].map(n=><option key={n} value={n}>{n==="All"?"All collections":n}</option>)}</select>
           </div>
           <div className={c.cards}>
             {visible.slice(0,limit).map((t) => (
-              <button className={c.card} key={t.id} onClick={() => open(t)}>
-                <div className={c.cardImage}>
-                  <TemplatePreview template={t} />
+              <article className={c.card} key={t.id}>
+                <div className={c.cardTriptych}>
+                  {[0,1,2].map(i=><button key={i} aria-label={"Edit "+t.name+", slide "+(i+1)} onClick={()=>open(t,i)}><TemplatePreview template={t} slide={i}/></button>)}
                 </div>
-                <div className={c.cardTitle}>
-                  <strong>{t.name}</strong>
-                  <span aria-hidden="true">↗︎</span>
-                </div>
+                <button className={c.cardLabel} onClick={()=>open(t)}><strong>{t.name}</strong><span aria-hidden="true">↗</span></button>
                 <small>{t.detail}{t.signature?" · Signature":""}</small>
-              </button>
+                {drafts.current.has(t.id)&&<button className={c.draft} onClick={()=>resume(t.id)}>Resume edits</button>}
+              </article>
             ))}
           </div>
           {!visible.length && <p>No layouts match your search.</p>}
@@ -249,12 +296,12 @@ export default function AlbumDesk() {
         <button
           className={c.back}
           disabled={busy}
-          onClick={() => setStudio(false)}
+          onClick={back}
         >
           ← Albums
         </button>
         <h1 tabIndex={-1} ref={titleRef}>
-          Album studio
+          {template.name}
         </h1>
         <button
           className={c.primary}
@@ -275,13 +322,13 @@ export default function AlbumDesk() {
               photos={group}
               layout={template.id}
               index={slideIndex}
-              title={heading}
+              title={heading} style={style} slide={slide}
               selected={photo.id}
               onSelect={setSelected}
               onEdit={edit}
             />
           ) : (
-            <div className={c.empty}>Add photos to begin</div>
+            <div className={c.empty}>{items===null&&!notice?"Loading sample photos…":"Add photos to begin"}</div>
           )}
           <div className={c.pager}>
             <button
@@ -346,6 +393,8 @@ export default function AlbumDesk() {
             </div>
             {photo && (
               <div className={c.photoControls}>
+                <input ref={replacement} className={c.hiddenInput} type="file" accept="image/jpeg,image/png,image/webp" aria-label="Replace selected photo" onChange={e=>void replacePhoto(e.target.files?.[0])}/>
+                <button disabled={busy} onClick={()=>replacement.current?.click()}>Replace photo</button>
                 <button disabled={position <= 0} onClick={() => move(-1)}>
                   Move earlier
                 </button>
@@ -355,11 +404,11 @@ export default function AlbumDesk() {
                 >
                   Move later
                 </button>
-                {!!photos.length && (
+                {photo && (
                   <button
                     disabled={busy}
                     onClick={() =>
-                      setPhotos(photos.filter((p) => p.id !== photo.id))
+                      (setOpened(true),setItems(active.filter((p) => p.id !== photo.id)))
                     }
                   >
                     Remove
@@ -373,9 +422,11 @@ export default function AlbumDesk() {
               Layout
               <select aria-label="Layout"
                 value={template.id}
-                onChange={(e) =>
-                  setTemplate(layouts.find((t) => t.id === e.target.value)!)
-                }
+                disabled={busy} onChange={e=>{
+                  const t=layouts.find(v=>v.id===e.target.value)!;
+                  if(items===null){setSamples([]);wantedSlide.current=0;}
+                  setTemplate(t);setStyle(designFor(t));setTitle(t.title);setPages({});setOrder(null);setOpened(true);
+                }}
               >
                 {layouts.map((t) => (
                   <option value={t.id} key={t.id}>
@@ -390,10 +441,18 @@ export default function AlbumDesk() {
                 maxLength={80}
                 value={title}
                 placeholder={template.title}
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={e=>{setTitle(e.target.value);setOpened(true);}}
               />
             </label>
           </div>
+          {groups.length>0&&<div className={c.panelSection}><h2>Slide {slideIndex+1}</h2><div className={c.photoControls}>
+            <button disabled={busy||slideIndex===0} onClick={()=>changePage("earlier")}>Move slide earlier</button>
+            <button disabled={busy||slideIndex===groups.length-1} onClick={()=>changePage("later")}>Move slide later</button>
+            <button disabled={busy} onClick={()=>changePage("copy")}>Duplicate slide</button>
+            <button disabled={busy||groups.length===1} onClick={()=>changePage("delete")}>Remove slide</button>
+          </div></div>}
+          <DesignControls s={style} set={v=>{if(v.spread)setOrder(null);setStyle({...style,...v});setOpened(true);}} slide={slide}
+            setSlide={v=>{setPages({...pages,[slideIndex]:v});setOpened(true);}} p={photo} frame={frame} edit={v=>photo&&edit(photo.id,v)}/>
           {photo && (
             <div className={c.panelSection}>
               <div className={c.cropHead}>

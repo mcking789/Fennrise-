@@ -9,6 +9,7 @@ import {
   type Photo,
   type Layout,
 } from "./render-slides";
+import type { Design,SlideEdit } from "./design";
 import c from "./albums.module.css";
 
 type Props = {
@@ -17,6 +18,8 @@ type Props = {
   index: number;
   title: string;
   selected: string;
+  style:Design;
+  slide:SlideEdit;
   onSelect: (id: string) => void;
   onEdit: (id: string, changes: { x: number; y: number }) => void;
 };
@@ -27,7 +30,7 @@ export default function AlbumCanvas({
   layout,
   index,
   title,
-  selected,
+  selected, style, slide,
   onSelect,
   onEdit,
 }: Props) {
@@ -41,16 +44,16 @@ export default function AlbumCanvas({
     dx: number;
     dy: number;
   } | null>(null);
-  const frames = framesFor(layout, index, photos.length);
+  const frames = framesFor(layout, index, photos, style);
   useEffect(() => {
-    if (canvas.current) paint(canvas.current, photos, layout, index, title);
-  }, [photos, layout, index, title]);
+    if (canvas.current) paint(canvas.current, photos, layout, index, title, style, slide);
+  }, [photos, layout, index, title,style,slide]);
   return (
     <div className={c.canvasWrap}>
       <canvas
         ref={canvas}
-        width={756}
-        height={945}
+        width={1080}
+        height={1350}
         aria-label={"Preview of " + title + ", slide " + (index + 1)}
       />
       {frames.map((f, i) => (
