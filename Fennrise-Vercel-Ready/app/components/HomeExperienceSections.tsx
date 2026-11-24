@@ -1,5 +1,6 @@
 "use client";
 
+import Chevron from "./Chevron";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
@@ -99,7 +100,7 @@ export default function HomeExperienceSections() {
           <div className={styles.sectionLabel}><i /> Fennrise Products <span>STAR · Fenn</span></div>
           <h2>Products of<br /><em>our own.</em></h2>
           <p>Intelligent technology for clearer thinking and focused progress.</p>
-          <Link className={styles.portalLink} href="/products">Explore Products <span>↗</span></Link>
+          <Link className={styles.portalLink} href="/products">Explore Products <span><Chevron /></span></Link>
         </motion.div>
         <motion.div className={styles.portalVisual} {...reveal}>
           <ProductSignal reduceMotion={reduceMotion} />
@@ -116,7 +117,7 @@ export default function HomeExperienceSections() {
           <div className={styles.sectionLabel}><i /> Fennrise Services <span>Studio + Forge</span></div>
           <h2>Technology<br /><em>for yours.</em></h2>
           <p>Premium websites, digital experiences, custom software, and automation—built around the way your business works.</p>
-          <Link className={styles.portalLink} href="/services">Explore Services <span>↗</span></Link>
+          <Link className={styles.portalLink} href="/services">Explore Services <span><Chevron /></span></Link>
         </motion.div>
       </section>
 

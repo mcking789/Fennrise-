@@ -1,5 +1,6 @@
 "use client";
 
+import Chevron from "../components/Chevron";
 import { useEffect, useRef, useState } from "react";
 import {
   layouts,
@@ -246,7 +247,7 @@ export default function AlbumDesk() {
                 onClick={() => latest?resume(latest):open(layouts[featuredIndex])}
               >
                 {latest ? "Resume album" : "Create an album"}{" "}
-                <span aria-hidden="true">↗︎</span>
+                <span aria-hidden="true"><Chevron /></span>
               </button>
               <a
                 href="#album-templates"
@@ -254,7 +255,7 @@ export default function AlbumDesk() {
                   libraryRef.current?.focus({ preventScroll: true })
                 }
               >
-                Browse templates ↓
+                Browse templates <Chevron direction="down" />
               </a>
             </div>
           </div>
@@ -284,7 +285,7 @@ export default function AlbumDesk() {
                 <div className={c.cardTriptych}>
                   {[0,1,2].map(i=><button key={i} aria-label={"Edit "+t.name+", slide "+(i+1)} onClick={()=>open(t,i)}><TemplatePreview template={t} slide={i}/></button>)}
                 </div>
-                <button className={c.cardLabel} onClick={()=>open(t)}><strong>{t.name}</strong><span aria-hidden="true">↗</span></button>
+                <button className={c.cardLabel} onClick={()=>open(t)}><strong>{t.name}</strong><span aria-hidden="true"><Chevron /></span></button>
                 <small>{t.detail}{t.signature?" · Signature":""}</small>
                 {drafts.current.has(t.id)&&<button className={c.draft} onClick={()=>resume(t.id)}>Resume edits</button>}
               </article>
@@ -322,7 +323,7 @@ export default function AlbumDesk() {
           disabled={busy}
           onClick={back}
         >
-          Albums
+          <Chevron direction="left" /> Albums
         </button>
         <h1 tabIndex={-1} ref={titleRef}>
           {template.name}
@@ -363,7 +364,7 @@ export default function AlbumDesk() {
               onClick={() => setSelected(groups[slideIndex - 1][0].id)}
               aria-label="Previous slide"
             >
-              Prev
+              <Chevron direction="left" />
             </button>
             <span aria-live="polite">
               Slide {groups.length ? slideIndex + 1 : 0} of {groups.length}
@@ -373,7 +374,7 @@ export default function AlbumDesk() {
               onClick={() => setSelected(groups[slideIndex + 1][0].id)}
               aria-label="Next slide"
             >
-              Next
+              <Chevron />
             </button>
           </div>
         </section>

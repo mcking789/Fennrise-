@@ -1,3 +1,4 @@
+import Chevron from "../components/Chevron";
 import type { Metadata } from "next";
 import { ExperienceFooter } from "../components/ExperienceChrome";
 import ContactForm from "./ContactForm";
@@ -88,7 +89,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   <b>{String(index + 1).padStart(2, "0")}</b>
                 </div>
                 <strong>{contact.title}</strong>
-                <small>{contact.email} ↗</small>
+                <small>{contact.email} <Chevron /></small>
               </a>
             ))}
           </div>

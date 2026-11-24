@@ -1,3 +1,4 @@
+import Chevron from "../components/Chevron";
 import type { Metadata } from "next";
 import { ExperienceFooter } from "../components/ExperienceChrome";
 import styles from "./about.module.css";
@@ -76,7 +77,7 @@ export default function AboutPage() {
                 </div>
                 <div className={styles.productName}>
                   <strong>{product.name}</strong>
-                  <b aria-hidden="true">↗</b>
+                  <b aria-hidden="true"><Chevron /></b>
                 </div>
                 <p>{product.text}</p>
                 <i aria-hidden="true" />
@@ -150,7 +151,7 @@ export default function AboutPage() {
           <p>
             Fennrise currently operates from India while building products, processes, and foundations designed to grow beyond one market when the company and products are ready.
           </p>
-          <a href="mailto:connect@fennrise.com">Company enquiries <b>↗</b></a>
+          <a href="mailto:connect@fennrise.com">Company enquiries <b><Chevron /></b></a>
         </div>
       </section>
 

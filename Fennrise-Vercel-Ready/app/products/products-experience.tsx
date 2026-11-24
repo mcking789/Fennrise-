@@ -1,5 +1,6 @@
 "use client";
 
+import Chevron from "../components/Chevron";
 import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { useRef } from "react";
@@ -21,7 +22,7 @@ export default function ProductsExperience() {
           <div className={styles.eyebrow}><i /> Fennrise products / 01–02</div>
           <h1><span>Technology with a</span><br /><em>purpose.</em></h1>
           <p>Two products in development, built around intelligence and focus—with usefulness at the centre of everyday work.</p>
-          <a href="#star">Explore the products <span>↓</span></a>
+          <a href="#star">Explore the products <span><Chevron direction="down" /></span></a>
         </motion.div>
       </section>
 
@@ -56,7 +57,7 @@ export default function ProductsExperience() {
         <span>Products of our own.</span>
         <h2>Need technology<br />built for <em>yours?</em></h2>
         <p>Studio and Forge bring the same product thinking to websites, software, portals, automation, and digital systems for businesses.</p>
-        <div><Link href="/services">Explore services <span>→</span></Link></div>
+        <div><Link href="/services">Explore services <span><Chevron /></span></Link></div>
       </section>
 
       <ExperienceFooter />

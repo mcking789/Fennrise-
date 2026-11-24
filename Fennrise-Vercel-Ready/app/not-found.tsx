@@ -1,3 +1,4 @@
+import Chevron from "./components/Chevron";
 import Link from "next/link";
 import styles from "./not-found.module.css";
 
@@ -13,7 +14,7 @@ export default function NotFound() {
           to Fennrise or continue exploring our products and services.
         </p>
         <div className={styles.actions}>
-          <Link className={styles.primary} href="/">Back to Fennrise →</Link>
+          <Link className={styles.primary} href="/"><Chevron direction="left" /> Back to Fennrise</Link>
           <Link className={styles.secondary} href="/products">Explore products</Link>
           <Link className={styles.secondary} href="/services">Explore services</Link>
         </div>

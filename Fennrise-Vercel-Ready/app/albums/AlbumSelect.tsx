@@ -1,5 +1,6 @@
 "use client";
 
+import Chevron from "../components/Chevron";
 import { useId } from "react";
 import * as Select from "@radix-ui/react-select";
 import c from "./albums.module.css";
@@ -24,7 +25,7 @@ export default function AlbumSelect({ name, value, options, onChange, disabled, 
       <Select.Root value={value} onValueChange={onChange} disabled={disabled}>
         <Select.Trigger id={id} className={c.selectTrigger} aria-label={name}>
           <Select.Value>{current?.label}</Select.Value>
-          <span className={c.selectMark} aria-hidden="true" />
+          <span className={c.selectMark} aria-hidden="true"><Chevron direction="down" /></span>
         </Select.Trigger>
         <Select.Portal>
           <Select.Content className={c.selectMenu} position="popper" align="start" sideOffset={6} collisionPadding={10} aria-label={name}>

@@ -1,5 +1,6 @@
 "use client";
 
+import Chevron from "../components/Chevron";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import styles from "./ContactForm.module.css";
 
@@ -113,7 +114,7 @@ export default function ContactForm({ initialService = "general" }: ContactFormP
               <strong>{selectedService.title}</strong>
               <small>{selectedService.detail}</small>
             </span>
-            <i aria-hidden="true">⌄</i>
+            <i aria-hidden="true"><Chevron direction="down" /></i>
           </button>
 
           {serviceOpen && (
@@ -137,7 +138,7 @@ export default function ContactForm({ initialService = "general" }: ContactFormP
                       <strong>{option.title}</strong>
                       <small>{option.detail}</small>
                     </span>
-                    <i aria-hidden="true">{active ? "●" : "→"}</i>
+                    <i aria-hidden="true">{active ? "●" : <Chevron />}</i>
                   </button>
                 );
               })}
@@ -161,7 +162,7 @@ export default function ContactForm({ initialService = "general" }: ContactFormP
       <div className={styles.footer}>
         <p>No public project pricing is shown here. We review the requirement and discuss the quote directly with you.</p>
         <button type="submit" disabled={status === "sending"}>
-          {status === "sending" ? "Sending…" : "Send project enquiry"} <b>→</b>
+          {status === "sending" ? "Sending…" : "Send project enquiry"} <b><Chevron /></b>
         </button>
       </div>
 

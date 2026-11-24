@@ -1,3 +1,4 @@
+import Chevron from "./Chevron";
 import type { ReactNode } from "react";
 import styles from "./LegalPage.module.css";
 
@@ -112,7 +113,7 @@ export default function LegalPage({
           <a href="/terms-of-service">Terms of Service</a>
           <a href="/privacy-policy#privacy-choices">Privacy choices</a>
         </div>
-        <a className={styles.backTop} href="#top">Back to top ↑</a>
+        <a className={styles.backTop} href="#top">Back to top <Chevron direction="up" /></a>
       </footer>
     </main>
   );

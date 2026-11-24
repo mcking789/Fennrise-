@@ -1,5 +1,6 @@
 "use client";
 
+import Chevron from "./Chevron";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./ExperienceChrome.module.css";
@@ -12,7 +13,7 @@ export function ExperienceFooter() {
         <p>Products, software & experiences.<br />Beautifully built.</p>
         <div><Link href="/products">Products</Link><Link href="/services">Services</Link><Link href="/about">About</Link><Link href="/contact">Contact</Link></div>
       </div>
-      <div className={styles.footerBottom}><span>© 2026 Fennrise. All rights reserved.</span><div><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms-of-service">Terms of Service</Link></div><Link href="#page-top">Back to top ↑</Link></div>
+      <div className={styles.footerBottom}><span>© 2026 Fennrise. All rights reserved.</span><div><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms-of-service">Terms of Service</Link></div><Link href="#page-top">Back to top <Chevron direction="up" /></Link></div>
     </footer>
   );
 }

@@ -847,7 +847,7 @@
 }
 .toolHint {font-size:13px;color:var(--soft);}
 .viewSwitch {display:none;}
-.pager button {width:auto;padding-inline:10px;}
+.pager button {width:44px;padding-inline:10px;}
 @media(max-width:700px) {
   .workspace {padding:84px 12px 16px;}
   .toolbar {display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding-bottom:8px;}
@@ -874,10 +874,8 @@
 }
 .selectTrigger > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .selectTrigger[data-state=open],.selectTrigger:hover:not(:disabled) { border-color: #a39869; }
-.selectMark { display: grid; justify-items: end; flex: none; gap: 3px; color: #bcb9aa; }
-.selectMark::before,.selectMark::after { content: ""; height: 1.5px; border-radius: 2px; background: currentColor; width: 12px; }
-.selectMark::after { width: 8px; }
-.selectTrigger[data-state=open] .selectMark { color: #ffd04c; }
+.selectMark { display: inline-flex; flex: none; color: #bcb9aa; }
+.selectTrigger[data-state=open] .selectMark { color: #ffd04c; transform: rotate(180deg); }
 .filters .selectTrigger { min-width: 155px; min-height: 42px; border-radius: 999px; padding-inline: 16px; background: #21211d; }
 .selectMenu {
   z-index: 150; display: flex; flex-direction: column; overflow: hidden;
