@@ -60,9 +60,3 @@
   .actions {gap: 7px;}
   .actions a {gap: 7px; padding: 12px 13px;}
 }
-
-.hero > .backdrop { background: #10110f; }
-.hero > .orbit::before { content: none; }
-.hero > .orbit img { filter: none; }
-.copy h1 { max-width: 11ch; color: #f4f4ef; font-weight: 540; }
-.intro { color: #c2c3bb; }

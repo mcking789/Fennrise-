@@ -137,7 +137,7 @@ export default function ContactForm({ initialService = "general" }: ContactFormP
                       <strong>{option.title}</strong>
                       <small>{option.detail}</small>
                     </span>
-                    <i aria-hidden="true">{active ? "✓" : ""}</i>
+                    <i aria-hidden="true">{active ? "●" : "→"}</i>
                   </button>
                 );
               })}
@@ -161,7 +161,7 @@ export default function ContactForm({ initialService = "general" }: ContactFormP
       <div className={styles.footer}>
         <p>No public project pricing is shown here. We review the requirement and discuss the quote directly with you.</p>
         <button type="submit" disabled={status === "sending"}>
-          {status === "sending" ? "Sending…" : "Send project enquiry"}
+          {status === "sending" ? "Sending…" : "Send project enquiry"} <b>→</b>
         </button>
       </div>
 

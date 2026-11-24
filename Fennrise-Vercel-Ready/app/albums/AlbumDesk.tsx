@@ -229,11 +229,15 @@ export default function AlbumDesk() {
       <div className={c.page}>
         <section className={c.hero}>
           <div className={c.heroCopy}>
+            <span className={c.kicker}>Fennrise Albums</span>
             <h1>
-              Camera roll<br />to carousel
+              Camera roll
+              <br />
+              <em>to carousel.</em>
             </h1>
             <p>
-              Choose a layout, add your photos and download a set of slides ready to share.
+              Give your photos a place together. Turn a trip, a birthday or an
+              ordinary Sunday into slides you can share.
             </p>
             <div className={c.actions}>
               <button
@@ -242,6 +246,7 @@ export default function AlbumDesk() {
                 onClick={() => latest?resume(latest):open(layouts[featuredIndex])}
               >
                 {latest ? "Resume album" : "Create an album"}{" "}
+                <span aria-hidden="true">↗︎</span>
               </button>
               <a
                 href="#album-templates"
@@ -249,7 +254,7 @@ export default function AlbumDesk() {
                   libraryRef.current?.focus({ preventScroll: true })
                 }
               >
-                Browse templates
+                Browse templates ↓
               </a>
             </div>
           </div>
@@ -267,7 +272,7 @@ export default function AlbumDesk() {
             <span>{layouts.length} layouts</span>
           </div>
           <div className={c.filters}>
-            <button className={c.ruleFilter} aria-pressed={ruled} onClick={()=>{setRuled(!ruled);setLimit(12);}}>Line editions (25)</button>
+            <button className={c.ruleFilter} aria-pressed={ruled} onClick={()=>{setRuled(!ruled);setLimit(12);}}>Line editions · 25</button>
             <input type="search" aria-label="Search templates" placeholder="Search templates" value={search} onChange={e=>{setSearch(e.target.value);setLimit(12);}} />
             <AlbumSelect name="Collection" hideLabel value={category}
               options={[{value:"All", label:"All collections"}, ...collectionNames]}
@@ -279,8 +284,8 @@ export default function AlbumDesk() {
                 <div className={c.cardTriptych}>
                   {[0,1,2].map(i=><button key={i} aria-label={"Edit "+t.name+", slide "+(i+1)} onClick={()=>open(t,i)}><TemplatePreview template={t} slide={i}/></button>)}
                 </div>
-                <button className={c.cardLabel} onClick={()=>open(t)}><strong>{t.name}</strong></button>
-                <small>{t.detail}{t.signature?" / Signature":""}</small>
+                <button className={c.cardLabel} onClick={()=>open(t)}><strong>{t.name}</strong><span aria-hidden="true">↗</span></button>
+                <small>{t.detail}{t.signature?" · Signature":""}</small>
                 {drafts.current.has(t.id)&&<button className={c.draft} onClick={()=>resume(t.id)}>Resume edits</button>}
               </article>
             ))}
@@ -337,7 +342,7 @@ export default function AlbumDesk() {
         <section className={c.stage} aria-label="Slide preview">
           <div className={c.stageHeader}>
             <span>{photos.length ? "Your album" : "Sample album"}</span>
-            <span>4:5 (1080 × 1350)</span>
+            <span>4:5 · 1080 × 1350</span>
           </div>
           {group.length > 0 && photo ? (
             <AlbumCanvas

@@ -8,6 +8,7 @@ type LegalSection = {
 };
 
 type LegalPageProps = {
+  eyebrow: string;
   title: string;
   description: string;
   updated: string;
@@ -15,6 +16,7 @@ type LegalPageProps = {
 };
 
 export default function LegalPage({
+  eyebrow,
   title,
   description,
   updated,
@@ -26,6 +28,7 @@ export default function LegalPage({
   return (
     <main className={styles.page} id="top">
       <section className={styles.hero}>
+        <div className={styles.kicker}>{eyebrow}</div>
         <div className={styles.heroGrid}>
           <div>
             <h1>{title}</h1>
@@ -53,8 +56,9 @@ export default function LegalPage({
         <aside className={styles.toc} aria-label="On this page">
           <span className={styles.tocTitle}>On this page</span>
           <nav>
-            {sections.map((section) => (
+            {sections.map((section, index) => (
               <a href={`#${section.id}`} key={section.id}>
+                <small>{String(index + 1).padStart(2, "0")}</small>
                 {section.title}
               </a>
             ))}
@@ -62,9 +66,10 @@ export default function LegalPage({
         </aside>
 
         <article className={styles.content}>
-          {sections.map((section) => (
+          {sections.map((section, index) => (
             <section className={styles.section} id={section.id} key={section.id}>
               <div className={styles.sectionHead}>
+                <span className={styles.number}>{String(index + 1).padStart(2, "0")}</span>
                 <h2>{section.title}</h2>
               </div>
               <div className={styles.sectionBody}>{section.content}</div>
@@ -76,6 +81,7 @@ export default function LegalPage({
       <section className={styles.contactBand} aria-label="Fennrise contacts">
         <div className={styles.contactInner}>
           <div className={styles.contactIntro}>
+            <span>Need to reach us?</span>
             <h2>Contact the right team.</h2>
           </div>
           <div className={styles.contactGrid}>
@@ -106,7 +112,7 @@ export default function LegalPage({
           <a href="/terms-of-service">Terms of Service</a>
           <a href="/privacy-policy#privacy-choices">Privacy choices</a>
         </div>
-        <a className={styles.backTop} href="#top">Back to top</a>
+        <a className={styles.backTop} href="#top">Back to top ↑</a>
       </footer>
     </main>
   );
