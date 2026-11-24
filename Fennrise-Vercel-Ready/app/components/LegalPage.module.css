@@ -349,3 +349,9 @@
   .footerLinks { flex-wrap: wrap; }
   .backTop { justify-self: start; }
 }
+
+.toc nav,.toc a,.toc a:hover { border-left: 0; }
+.toc a { display: block; padding-left: 0; }
+.sectionHead { display: block; }
+
+.sectionBody { padding-left: 0; }

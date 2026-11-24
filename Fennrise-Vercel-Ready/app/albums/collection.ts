@@ -8,7 +8,7 @@ const serif="Georgia", italic="italic Georgia", sans="bold Arial", mono="monospa
 function collection(category:string,samples:string[],recipes:Recipe[]):Template[] {
   return recipes.map(([name,frame,spread,detail,paper,ink,accent,font,inset],i)=>({
     id:name.toLowerCase().replace(/[^a-z0-9]+/g,"-"), name,title:name,category,
-    detail:category+" · "+({arch:"Arched portrait",oval:"Oval portrait",instant:"Instant prints",band:"Colour band",cinema:"Widescreen",spine:"Book spine",ticket:"Ticket stub",cover:"Full bleed",window:"Inset window",index:"Index card"}[frame]),
+    detail:category+" / "+({arch:"Arched portrait",oval:"Oval portrait",instant:"Instant prints",band:"Colour band",cinema:"Widescreen",spine:"Book spine",ticket:"Ticket stub",cover:"Full bleed",window:"Inset window",index:"Index card"}[frame]),
     samples:[...samples.slice(i%3),...samples.slice(0,i%3)],signature:i>=4,art:{frame,spread,detail,paper,ink,accent,font,inset}
   }));
 }

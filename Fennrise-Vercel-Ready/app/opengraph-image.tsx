@@ -29,27 +29,24 @@ export default function Image() {
             borderRadius: 999,
             right: -120,
             top: 50,
-            background: "radial-gradient(circle, rgba(244,180,0,.22), rgba(244,180,0,.03) 52%, transparent 72%)",
+            background: "transparent",
             border: "1px solid rgba(244,180,0,.16)",
           }}
         />
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: "100%", zIndex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 28, fontWeight: 700 }}>
-            <div style={{ width: 42, height: 42, borderRadius: 999, background: "#f4b400", boxShadow: "0 0 30px rgba(244,180,0,.35)" }} />
+            <div style={{ width: 42, height: 42, borderRadius: 999, background: "#f4b400" }} />
             Fennrise
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", maxWidth: 830 }}>
-            <div style={{ color: "#c9ad47", fontSize: 18, letterSpacing: 4, textTransform: "uppercase", marginBottom: 20 }}>
-              Independent technology company
-            </div>
             <div style={{ fontSize: 82, lineHeight: .95, letterSpacing: -5, fontWeight: 650 }}>
-              Building useful technology for what comes next.
+              Software for everyday life.
             </div>
           </div>
 
           <div style={{ display: "flex", justifyContent: "space-between", color: "#8c8981", fontSize: 19 }}>
-            <span>Products · Voice AI · Software · Digital Experiences</span>
+            <span>Products and software from Fennrise</span>
             <span style={{ color: "#f4b400" }}>fennrise.com</span>
           </div>
         </div>

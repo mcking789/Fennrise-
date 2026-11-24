@@ -900,3 +900,10 @@
 .selectedDot { width: 6px; height: 6px; flex: none; border-radius: 50%; background: #ffd04c; }
 @media(max-width:400px) { .filters .selectField { width: 100%; } }
 @media(pointer:coarse) { .selectItem { min-height: 44px; } }
+
+/* The triptych is the visual boundary of each album in the catalogue. */
+.card { padding: 0 0 10px; border: 0; background: transparent; border-radius: 0; }
+.cardLabel { padding-inline: 0; }
+.card small { margin-inline: 0; }
+.cardLabel:hover strong { color: var(--yellow); }
+.stage { background: #262723; }

@@ -259,7 +259,6 @@ const sections = [
 export default function TermsOfServicePage() {
   return (
     <LegalPage
-      eyebrow="Legal · Using Fennrise"
       title="Terms of Service"
       description="The rules that apply when you visit Fennrise, use its website, contact us, or share feedback."
       updated="23 November 2026"

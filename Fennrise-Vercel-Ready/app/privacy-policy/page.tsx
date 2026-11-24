@@ -236,7 +236,6 @@ const sections = [
 export default function PrivacyPolicyPage() {
   return (
     <LegalPage
-      eyebrow="Legal · Your data"
       title="Privacy Policy"
       description="A clear explanation of what we collect, why we use it, and the choices you have."
       updated="23 November 2026"
